@@ -182,11 +182,11 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   网盘: https://uglyboy.cn:8000 || cloud
-  下载: https://uglyboy.cn:8188/AriaNg || cloud-download-alt
+  下载: https://uglyboy.cn:8188/AriaNg/ || cloud-download-alt
   媒体: https://uglyboy.cn:8100 || video
   树莓派: https://uglyboy.cn:8188 || microchip
   容器: https://uglyboy.cn:9000 || server
-  数据库: https://uglyboy.cn:8188/phpMyAdmin || database
+  数据库: https://uglyboy.cn:8188/phpMyAdmin/ || database
   #GitHub: https://github.com/yourname || github
   email: mailto:uglyboy@uglyboy.cn || envelope
   #Weibo: https://weibo.com/yourname || weibo
