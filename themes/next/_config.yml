@@ -181,10 +181,11 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  Docker: https://uglyboy.cn:9000 || docker
-  下载: https://uglyboy.cn:8188/AriaNg || cloud-download-alt
   网盘: https://uglyboy.cn:8000 || cloud
+  下载: https://uglyboy.cn:8188/AriaNg || cloud-download-alt
+  Docker: https://uglyboy.cn:9000 || docker
   媒体: https://uglyboy.cn:8100 || video
+  树霉派: https://uglyboy.cn:8188 || raspberry-pi
   #GitHub: https://github.com/yourname || github
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Weibo: https://weibo.com/yourname || weibo
