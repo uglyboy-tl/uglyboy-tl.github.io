@@ -183,11 +183,12 @@ site_state: true
 social:
   网盘: https://uglyboy.cn:8000 || cloud
   下载: https://uglyboy.cn:8188/AriaNg || cloud-download-alt
-  Docker: https://uglyboy.cn:9000 || docker
   媒体: https://uglyboy.cn:8100 || video
-  树霉派: https://uglyboy.cn:8188 || raspberry-pi
+  树莓派: https://uglyboy.cn:8188 || microchip
+  容器: https://uglyboy.cn:9000 || server
+  数据库: https://uglyboy.cn:8188/phpMyAdmin || database
   #GitHub: https://github.com/yourname || github
-  #E-Mail: mailto:yourname@gmail.com || envelope
+  EMail: mailto:uglyboy@uglyboy.cn || envelope
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
