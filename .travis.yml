@@ -8,18 +8,29 @@ cache:
 
 branches:
   only:
-  - master
+    - hexo
 
-install:
-  - npm install hexo -g
-  - npm install
+before_install:
+  - npm install -g hexo
   - git clone https://github.com/theme-next/hexo-theme-next themes/uglyboy
   - cp -r themes/next/* themes/uglyboy/
 
+before_script:
+  - git config --global user.name 'uglyboy-tl'
+  - git config --global user.email 'uglyboy@aliyun.com'
+  - sed -i'' "s~git@github.com/uglyboy-tl/uglyboy-tl.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/uglyboy-tl/uglyboy-tl.github.io.git~" _config.yml
+
+install:
+  - npm install
+
+
 script:
   - hexo cl
-  - hexo g -d
+  - hexo g
 
-branches:
-  only:
-    - hexo
+after_success:
+  - hexo d
+
+env:
+  global:
+    secure: fa1dcc18898152bd68523cda392a7e62063ee087
