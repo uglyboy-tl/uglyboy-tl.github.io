@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6"
+  - "10"
 
 cache:
   directories:
@@ -13,7 +13,8 @@ branches:
 install:
   - npm install hexo -g
   - npm install
-  - git clone https://github.com/theme-next/hexo-theme-next themes/next
+  - git clone https://github.com/theme-next/hexo-theme-next themes/uglyboy
+  - cp -r themes/next/* themes/uglyboy/
 
 script:
   - hexo cl
