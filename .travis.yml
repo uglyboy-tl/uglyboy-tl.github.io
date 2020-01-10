@@ -15,7 +15,6 @@ install:
   - npm install
   - git clone https://github.com/theme-next/hexo-theme-next themes/uglyboy
   - cp -r themes/next/* themes/uglyboy/
-  - rm source/_posts/hello-world.md
 
 script:
   - hexo cl
