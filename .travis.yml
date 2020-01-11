@@ -18,7 +18,7 @@ before_install:
 before_script:
   - git config --global user.name 'uglyboy-tl'
   - git config --global user.email 'uglyboy@aliyun.com'
-  - sed -i'' "s~git@github.com/uglyboy-tl/uglyboy-tl.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/uglyboy-tl/uglyboy-tl.github.io.git~" _config.yml
+  - sed -i'' "s~git@github.com/uglyboy-tl/uglyboy-tl.github.io.git~https://${token}:x-oauth-basic@github.com/uglyboy-tl/uglyboy-tl.github.io.git~" _config.yml
 
 install:
   - npm install
@@ -30,7 +30,3 @@ script:
 
 after_success:
   - hexo d
-
-env:
-  global:
-    secure: fa1dcc18898152bd68523cda392a7e62063ee087
