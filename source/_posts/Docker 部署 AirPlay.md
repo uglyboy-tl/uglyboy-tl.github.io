@@ -5,7 +5,9 @@ tags: [树莓派, Docker, AirPlay]
 categories: 技术经验
 ---
 
-#### AirPlay 配置
+> 记录一下树莓派提供 AirPlay 服务的 docker-compose 配置
+
+##### AirPlay 配置
 ```
 version: '2.0'
 services :
