@@ -17,18 +17,17 @@ Dockerfile文件的内容这里就不涉及了
 #### 连接服务
 首先需要绑定一个仓库服务（Github）：
 1. 登录 Docker Hub；
-2. 选择 Profile > Settings > Linked Accounts & Services；
+2. 选择右上角你的用户名 > Account Settings > Linked Accounts；
 3. 选择需要连接的仓库服务（目前只支持 Github 和 BitBucket）；
 4. 这时候需要授权，点击授权就可以了。
 
 #### 创建自动构建
-自动构建需要创建对应的仓库类型
-自动构建仓库也可以使用 docker push 把已有的镜像上传上去
-1. 选择 Create > Create Automated Build；
-2. 选择 Github；
-3. 接下来会列出 User/Organizations 的所有项目，从中选择你需要的构建的项目（包含 Dockerfile）；
-4. 可以选择 Click here to customize 自定义路径；
-5. 最后点击创建就可以了。
+1. 选择 Repositories
+2. 点击 Create Repository
+3. 基本设置完成后，在 Build Settings 中选择 Github；
+4. 接下来会列出 User/Organizations 的所有项目，从中选择你需要的构建的项目（包含 Dockerfile）；
+5. 在 BUILD RULES 中点击添加，然后修改调整成合适自己的配置；
+6. 最后点击创建就可以了。
 
 ### 构建arm平台的镜像
 
