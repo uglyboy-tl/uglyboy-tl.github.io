@@ -11,6 +11,8 @@ categories: 技术经验
 >
 > 另一方面，因为 Github 构建镜像只能使用 amd64 环境，而笔者常用设备之一是树莓派，所以本文也包含了如何跨平台构建 Docker 镜像，以及合并镜像为多平台镜像的内容
 
+<!-- more -->
+
 ### Github 自动构建镜像
 #### 创建镜像 Dockerfile 对应的 repo
 Dockerfile文件的内容这里就不涉及了

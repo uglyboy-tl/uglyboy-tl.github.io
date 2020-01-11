@@ -255,7 +255,7 @@ post_meta:
   item_text: true
   created_at: true
   updated_at:
-    enable: true
+    enable: false
     another_day: true
   categories: true
 
@@ -269,19 +269,19 @@ symbols_count_time:
   wpm: 275
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
-tag_icon: false
+tag_icon: true
 
 # Reward (Donate)
 # Front-matter variable (unsupport animation).
 reward_settings:
   # If true, reward will be displayed in every article by default.
-  enable: false
-  animation: false
+  enable: true
+  animation: true
   #comment: Donate comment here.
 
 reward:
-  #wechatpay: /images/wechatpay.png
-  #alipay: /images/alipay.png
+  wechatpay: /images/wechatpay.png
+  alipay: /images/alipay.png
   #bitcoin: /images/bitcoin.png
 
 # Related popular posts
@@ -468,7 +468,7 @@ disable_baidu_transformation: true
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post / page titles for better SEO-optimization.
-seo: false
+seo: true
 
 # If true, site-subtitle will be added to index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml` (e.g. subtitle: Subtitle)
@@ -801,7 +801,7 @@ note:
   #  - modern    bs-callout new (v2-v3) alert style.
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
-  style: simple
+  style: flat
   icons: false
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
   # Offset also applied to label tag variables. This option can work with disabled note tag.
