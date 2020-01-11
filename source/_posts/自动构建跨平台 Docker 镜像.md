@@ -20,6 +20,7 @@ Dockerfile文件的内容这里就不涉及了
 2. 选择 Profile > Settings > Linked Accounts & Services；
 3. 选择需要连接的仓库服务（目前只支持 Github 和 BitBucket）；
 4. 这时候需要授权，点击授权就可以了。
+
 #### 创建自动构建
 自动构建需要创建对应的仓库类型
 自动构建仓库也可以使用 docker push 把已有的镜像上传上去
@@ -30,4 +31,5 @@ Dockerfile文件的内容这里就不涉及了
 5. 最后点击创建就可以了。
 
 ### 构建arm平台的镜像
+
 ### 生成跨平台镜像
