@@ -18,6 +18,7 @@ before_script:
   - cp -r themes/next/* themes/uglyboy/
   - git config --global user.name 'uglyboy-tl'
   - git config --global user.email 'uglyboy@aliyun.com'
+  - git config --global url."https://${token}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
 
 install:
   - npm install
