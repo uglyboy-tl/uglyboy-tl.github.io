@@ -104,7 +104,7 @@ chmod 755 /usr/local/bin/docker-compose
 #### Docker 基础应用配置
 使用如下的 docker-compose.yml 配置启动相关服务：
 
-``` bash
+```
 version: '2'
 
 services :
@@ -143,7 +143,7 @@ volumes:
   portainer_data:
 ```
 其中 nginx 服务是为了给 protainer 添加 ssl 加密做的反向代理。要注意的一点是反向代理的配置：
-``` bash
+```
 location / {
   proxy_pass http://portainer:9000/;
   proxy_set_header Host $host;
