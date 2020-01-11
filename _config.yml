@@ -100,5 +100,5 @@ plugins: hexo-generate-feed
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com/uglyboy-tl/uglyboy-tl.github.io.git
+  repo: https://0ec091ea30e37ea76bb55997be9b7a5568b6cb7f:x-oauth-basic@github.com/uglyboy-tl/uglyboy-tl.github.io.git
   branch: master
