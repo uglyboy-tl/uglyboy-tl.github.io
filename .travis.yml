@@ -5,6 +5,7 @@ node_js:
 cache:
   directories:
     - node_modules
+    - public
 
 branches:
   only:
@@ -24,7 +25,6 @@ install:
   - npm install
 
 script:
-  - hexo cl
   - hexo g
 
 after_success:
