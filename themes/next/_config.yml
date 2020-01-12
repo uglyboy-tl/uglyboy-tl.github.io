@@ -95,8 +95,8 @@ footer:
 creative_commons:
   license: by-nc-sa
   sidebar: false
-  post: false
-  language:
+  post: true
+  language: deed.zh-Hans
 
 
 # ---------------------------------------------------------------
