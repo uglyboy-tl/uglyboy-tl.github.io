@@ -189,8 +189,8 @@ social:
   容器: https://uglyboy.cn:9000 || server
   数据库: https://uglyboy.cn:8188/phpMyAdmin/ || database
   #GitHub: https://github.com/yourname || github
-  email: mailto:uglyboy@uglyboy.cn || envelope
-  #Weibo: https://weibo.com/yourname || weibo
+  邮件: mailto:uglyboy@uglyboy.cn || envelope
+  #Weibo: https://weibo.com/uglynpc || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -198,7 +198,7 @@ social:
   #YouTube: https://youtube.com/yourname || youtube
   #Instagram: https://instagram.com/yourname || instagram
   #Skype: skype:yourname?call|chat || skype
-  RSS: /atom.xml || rss
+  #RSS: /atom.xml || rss
 
 social_icons:
   enable: true
