@@ -17,7 +17,9 @@ date: 2016-08-28 11:34:00
 
 *   [奇妙清单](//www.wunderlist.com/zh/)
 
-> 我最常用的GTD应用，用起来其实很简单，想到的事情放到代办事项中，如果有明确时间截止的，加上时间；同时可以跟老婆互动一下，安排老婆上淘宝买点啥之类的。 可以每天或每周循环任务，例如定一个每周例会的提醒。
+> 我最常用的GTD应用，用起来其实很简单，想到的事情放到代办事项中，如果有明确时间截止的，加上时间；同时可以跟老婆互动一下，安排老婆上淘宝买点啥之类的。
+>
+> 可以每天或每周循环任务，例如定一个每周例会的提醒。
 
 *   [Drafts](//agiletortoise.com/drafts/)
 
@@ -43,11 +45,15 @@ date: 2016-08-28 11:34:00
 
 *   [Instapaper](//www.instapaper.com/)
 
-> Instapaper插件，稍后阅读工具。我会用IFttt，将Reeder里面（Inoreader）的加星文章，自动放到Instapaper里面，等回头有空时阅读。 Instapaper相比于Pocket最大的好处，是可以记录已阅读的时间，另外视觉效果也更美一些，而且不像Pocket附加了很多对我而言没什么意义的功能。
+> Instapaper插件，稍后阅读工具。我会用IFttt，将Reeder里面（Inoreader）的加星文章，自动放到Instapaper里面，等回头有空时阅读。
+>
+> Instapaper相比于Pocket最大的好处，是可以记录已阅读的时间，另外视觉效果也更美一些，而且不像Pocket附加了很多对我而言没什么意义的功能。
 
 *   [Reeder](//reederapp.com/)
 
-> 阅读RSS的利器。订阅了Inoreader的信息源，每天晚上一定会扫一遍feed流，重要的加星（会同步到Instapaper里面），有意思的简单当新闻看一下，不重要的直接略过就好。 关于订阅了哪些内容，可以参考 [【我的利器】信息篇](//www.uglyboy.site/archives/153)
+> 阅读RSS的利器。订阅了Inoreader的信息源，每天晚上一定会扫一遍feed流，重要的加星（会同步到Instapaper里面），有意思的简单当新闻看一下，不重要的直接略过就好。
+>
+>关于订阅了哪些内容，可以参考 [【我的利器】信息篇](//www.uglyboy.site/archives/153)
 
 *   [多看阅读](//www.duokan.com/)
 

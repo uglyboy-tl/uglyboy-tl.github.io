@@ -29,7 +29,11 @@ date: 2016-08-30 07:13:00
 
 *   [Stylish](//chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe)
 
-> 自定义不同网站的css，定制化自己的浏览体验。尤其是微博、百度、网易、cnBeta这类大的站点，都可以直接从Stylish网站上找到对应的美化文件，并不需要自己真的写css或者懂css。 哪怕并不想大幅度更改界面，也可以通过自己的简单设置，去掉一些网站上自己不喜欢的模块。我就对自己经常逛的几个网络小说的网站进行了优化，界面上只剩下小说主题，没有了侧边栏、导航栏之类的干扰。 特别需要提醒的是，Stylish上的主题还可以美化Stylish自己的插件控制面板！当然还有Chrome的各种页面，甚至其他浏览器的界面、LibreOffice之类的。
+> 自定义不同网站的css，定制化自己的浏览体验。尤其是微博、百度、网易、cnBeta这类大的站点，都可以直接从Stylish网站上找到对应的美化文件，并不需要自己真的写css或者懂css。
+>
+> 哪怕并不想大幅度更改界面，也可以通过自己的简单设置，去掉一些网站上自己不喜欢的模块。我就对自己经常逛的几个网络小说的网站进行了优化，界面上只剩下小说主题，没有了侧边栏、导航栏之类的干扰。
+>
+> 特别需要提醒的是，Stylish上的主题还可以美化Stylish自己的插件控制面板！当然还有Chrome的各种页面，甚至其他浏览器的界面、LibreOffice之类的。
 
 *   [Violent monkey](//chrome.google.com/webstore/detail/violent-monkey/jinjaccalgkegednnccohejagnlnfdag)
 

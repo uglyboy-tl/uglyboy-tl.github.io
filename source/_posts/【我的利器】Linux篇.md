@@ -25,7 +25,9 @@ sudo apt-get install papirus-gtk-icon-theme?libreoffice-style-papirus
 ```
 *   [Flatabulous Arc Theme](//github.com/andreisergiu98/arc-flatabulous-theme)
 
-> 很赞的扁平化GTK主题，尤其是导航按钮是防Mac OS的。我现在一直在用的主题。 这个主题需要git下来之后自己编译：
+> 很赞的扁平化GTK主题，尤其是导航按钮是防Mac OS的。我现在一直在用的主题。
+>
+> 这个主题需要git下来之后自己编译：
 ```bash
 git clone https://github.com/andreisergiu98/arc-flatabulous-theme && cd arc-flatabulous-theme
 ./autogen.sh --prefix=/usr
