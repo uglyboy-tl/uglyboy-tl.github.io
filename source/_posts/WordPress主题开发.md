@@ -2,14 +2,17 @@
 title: WordPress主题开发
 tags:
   - WordPress
-url: 318.html
-id: 318
 categories:
   - 技术心得
 date: 2016-09-07 20:45:06
 ---
 
-这两天主要忙着进行WordPress的主题开发，现在这个站点的主题已经换成了我自己开发的版本。 ![](//img.uglyboy.cn/2016/09/uglyboy.site_.png) 当然，css部分参照了 amadeus和hemingway这两个主题，并且还没有集成js。速度方面到是还OK，不过适配iPad等相关设备方面，体现了我在前端方面经验的缺失，找不到合适的工具来较好的完成各种测试、调整工作，只能人工的一遍一遍尝试。。。 部分要点记录一下：
+这两天主要忙着进行WordPress的主题开发，现在这个站点的主题已经换成了我自己开发的版本。
+![](//img.uglyboy.cn/2016/09/uglyboy.site_.png)
+
+当然，css部分参照了 amadeus和hemingway这两个主题，并且还没有集成js。速度方面到是还OK，不过适配iPad等相关设备方面，体现了我在前端方面经验的缺失，找不到合适的工具来较好的完成各种测试、调整工作，只能人工的一遍一遍尝试。。。 部分要点记录一下：
+
+<!-- more -->
 
 *   WordPress的主题，依据页面的不同，分别会调用：
     1.  index.php：主页模板；

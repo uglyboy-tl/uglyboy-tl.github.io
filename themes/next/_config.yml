@@ -125,7 +125,7 @@ menu:
   tags: /tags/ || tags
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
-  about: /about/ || user
+  #about: /about/ || user
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
 

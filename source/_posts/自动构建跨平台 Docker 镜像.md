@@ -2,7 +2,7 @@
 title: 自动构建跨平台 Docker 镜像
 date: 2020-01-03 11:04:24
 tags: [Docker, github] 
-categories: 技术经验
+categories: 技术心得
 ---
 
 > 使用 Docker 时，往往需要自己定制很多开发运行环境，而定制 Image 就必须要自己写 Dockerfile ，但每次修改完 Dockerfile，都需要一连串的操作推送和拉取镜像。

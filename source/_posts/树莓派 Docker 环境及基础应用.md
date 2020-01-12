@@ -2,7 +2,7 @@
 title: 树莓派 Docker 环境及基础应用
 date: 2019-12- 27 09:15:36
 tags: [树莓派, Docker] 
-categories: 技术经验
+categories: 技术心得
 ---
 
 > 将家中的树莓派从 3B+ 升级为 4 后，发现原有部署的各类服务（包括本地网盘、aria2下载、LNMP、airplay、自动备份、邮箱等）迁移成本非常高，需要花大量的时间重新配置。
