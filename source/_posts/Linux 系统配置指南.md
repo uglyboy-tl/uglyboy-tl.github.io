@@ -2,17 +2,21 @@
 title: Linux 系统配置指南
 tags:
   - Linux
-url: 445.html
-id: 445
 categories:
   - [应用技巧]
   - [技术心得]
 date: 2016-12-23 17:04:22
 ---
 
-### 引言
+我最早接触Linux系统是在 Windows Me 时代，而以Linux作为工作的主系统已经有8年左右的时间了。
 
-我最早接触Linux系统是在 Windows Me 时代，而以Linux作为工作的主系统已经有8年左右的时间了。 最早的Linux系统，仅仅只能称为操作系统罢了，无论是桌面的易用性，美观性，还是必备的功能都是很不完备的。套用当年一直喜欢的一本杂志的宣传语——用电脑就是用软件（《软件指南》），Linux当年十分不完备的生态，决定了它真的不适合作为主系统。 受益于 MacOS 的崛起，以及Chrome的流程，WebApp成为主流，ChromeOS甚至都可以作为操作系统，此后Linux下的生态才间接受益的丰富起来，以其作为主系统，尤其是工作用主系统成为了可能。 个人使用Linux的历程如下：
+最早的Linux系统，仅仅只能称为操作系统罢了，无论是桌面的易用性，美观性，还是必备的功能都是很不完备的。套用当年一直喜欢的一本杂志的宣传语——用电脑就是用软件（《软件指南》），Linux当年十分不完备的生态，决定了它真的不适合作为主系统。
+
+受益于 MacOS 的崛起，以及Chrome的流程，WebApp成为主流，ChromeOS甚至都可以作为操作系统，此后Linux下的生态才间接受益的丰富起来，以其作为主系统，尤其是工作用主系统成为了可能。 
+
+个人使用Linux的历程如下：
+
+<!-- more -->
 
 *   **RedHat** 最早开始使用的Linux系统，因为当年没有高速网络，所以还是买的正版的系统，但似乎对个人桌面而言，这还不是一个好的时代。
 *   **Ubuntu** ubuntu的出现，致使个人的Linux开始流行。我也是通过它开始了解包管理，apt-get。但是作为一个学生，并没有很强的工作需求，Linux能提供的便利还体会不到，不足倒是可以找出一堆（最关键的就是不能玩游戏）。
@@ -47,34 +51,34 @@ date: 2016-12-23 17:04:22
 5.  安装Opera需要的主题依赖 libcanberra-gtk-module
 
 #### 卸载无用应用
-
-1.  sudo apt-get autoremove firefox libreoffice-common gnome-terminal transmission rhythmbox totem gthumb nano gedit eog gnome-calculator gnome-photos gnome-disk-utility gnome-screenshot gnome-mahjongg gnome-online-accounts gnome-orca gnome-sudoku gnome-sushi gnome-user-guide yelp evince simple-scan cups image magic–6.q16 gnome-power-manager gnome-software-common gnome-mines aisleriot budgie-welcome gnome-calendar ibus gnome-user-share menulibre gnome-screensaver nautilus arc-theme fans-icon-theme vertex-theme humanity-icon-theme update-manager
-2.  sudo apt-get autoremove firefox-locale-*
-
+```bash
+sudo apt-get autoremove firefox libreoffice-common gnome-terminal transmission rhythmbox totem gthumb nano gedit eog gnome-calculator gnome-photos gnome-disk-utility gnome-screenshot gnome-mahjongg gnome-online-accounts gnome-orca gnome-sudoku gnome-sushi gnome-user-guide yelp evince simple-scan cups image magic–6.q16 gnome-power-manager gnome-software-common gnome-mines aisleriot budgie-welcome gnome-calendar ibus gnome-user-share menulibre gnome-screensaver nautilus arc-theme fans-icon-theme vertex-theme humanity-icon-theme update-manager
+sudo apt-get autoremove firefox-locale-*
+```
 #### 更新系统
-
-*   sudo apt-get update
-*   sudo apt-get upgrade
-
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+```
 #### 开启数字小键盘
-
-*   sudo apt-get install numlockx
-
+```bash
+sudo apt-get install numlockx
+```
 #### 补充部分依赖关系
 
 1.  阿里郎：libqtwebkit4 libgail-common
 
 #### 补充系统中文字体和输入法
-
-*   cd /usr/share/fonts
-*   sudo mkdir NotoSans
-*   sudo cp * ./NotoSans
-*   sudo apt-get install language-pack-gnome-zh-hans
-*   sudo apt-get install language-pack-zh-hans
-
+```bash
+cd /usr/share/fonts
+sudo mkdir NotoSans
+sudo cp * ./NotoSans
+sudo apt-get install language-pack-gnome-zh-hans
+sudo apt-get install language-pack-zh-hans
+```
 安装搜狗拼音输入法
 
 #### 一些问题
 
 *   如果遇到 Gtk-Message: Failed to load module “ark-bridge”，安装 libatk-adaptor
-*   flash支持 sudo apt-get install pepperflashplugin-nonfree
+*   flash支持 ```sudo apt-get install pepperflashplugin-nonfree```

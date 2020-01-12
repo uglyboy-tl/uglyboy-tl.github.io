@@ -3,17 +3,17 @@ title: 【我的利器】Chrome篇
 tags:
   - Chrome
   - Markdown
-url: 124.html
-id: 124
 categories:
-  - 利器
-  - 应用技巧
+  - [利器]
+  - [应用技巧]
 date: 2016-08-30 07:13:00
 ---
 
 > 本文会结合个人使用情况不定期更新，仅作为个人的工具备忘录。
 
 [![我的利器](//img.uglyboy.cn/2016/09/我的利器.png)](//img.uglyboy.cn/2016/09/我的利器.png)
+
+<!-- more -->
 
 *   [1Password](//chrome.google.com/webstore/detail/1password-password-manage/aomjjhallfgjeglblehebfpbcfeobpgk)
 

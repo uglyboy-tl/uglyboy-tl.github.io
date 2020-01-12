@@ -2,14 +2,14 @@
 title: 在WordPress中添加Wiki支持的小尝试
 tags:
   - WordPress
-url: 274.html
-id: 274
 categories:
   - 技术心得
 date: 2016-09-04 11:13:29
 ---
 
 昨天在学习Git使用的过程中，发现了廖雪峰的[Git教程](//www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)?，是嵌入在正常的博客里面的，于是就有了想法：是不是也可以在我的WordPress里嵌入这样的Wiki类的模块，更加结构化的组织一些成熟的知识。 于是就开始了各种尝试，记录如下：
+
+<!-- more -->
 
 #### WordPress插件支持
 
@@ -43,7 +43,7 @@ date: 2016-09-04 11:13:29
 
 1.  需要在阿里云的域名管理中增加对 wiki.uglyboy.site 这个子域名的解析；
 2.  主页的目录下面要修改 .htaccess 文件，重新定义二级域名的指向：
-
+```
 \# 二级域名
 RewriteCond %{HTTP_HOST} ^wiki.uglyboy.site$
 RewriteCond %{REQUEST_URI} !^/wiki/
@@ -52,7 +52,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /wiki/$1
 RewriteCond %{HTTP_HOST} ^wiki.uglyboy.site$
 RewriteRule ^(/)?$ wiki/index.php \[L\]
-
+```
 #### 备注
 
 另外，还是发现了一个实现了Wiki和Blog配合的网站，使用的是DokuWiki：[知行近思](//www.annhe.net/)，回头好好研究一下。
