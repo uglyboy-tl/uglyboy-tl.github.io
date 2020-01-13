@@ -5,9 +5,9 @@ tags:
 categories:
   - 利器
 date: 2016-08-28 11:34:00
-photos:
-  - "https://image.uglyboy.cn/我的利器.png"
 ---
+
+![我的利器](//image.uglyboy.cn/我的利器.png)
 
 > 本文会结合个人使用情况不定期更新，仅作为个人的工具备忘录。
 

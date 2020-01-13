@@ -7,25 +7,32 @@ categories:
   - [利器]
   - [应用技巧]
 date: 2016-08-30 07:13:00
-photos:
-  - "https://image.uglyboy.cn/我的利器.png"
 ---
+
+![我的利器](https://image.uglyboy.cn/我的利器.png)
 
 > 本文会结合个人使用情况不定期更新，仅作为个人的工具备忘录。
 
 <!-- more -->
 
-*   [1Password](//chrome.google.com/webstore/detail/1password-password-manage/aomjjhallfgjeglblehebfpbcfeobpgk)
+*   [Enpass extension](https://chrome.google.com/webstore/detail/enpass-extension-requires/kmcfomidfpdkfieipokbalgegidffkal)
 
-> 这是必备插件~！！没有Linux版很揪心。。。有了它，就可以放心的注册各种网站了——每个网站都生成复杂的随机密码，不怕因为安全性不高的网站被攻破，自己的密码被撞库了。尤其是自己常用的有利益关系的网站，例如支付宝、阿里云、饿了么、优酷、邮箱、Apple等等，有一个安全可靠的密码还是至关重要的！
+> 密码管理软件 Enpass 的浏览器扩展。以前用的是 1Password，但是这货一直没有 Linux 版的客户端，而且动不动就收费。几经折腾，包括中间使用过一段时间 LastPass （密码是存在 LastPass 的服务器中，担心这种模式容易出问题），最终遇到了 Enpass，已经两三年不再折腾了。
+>
+> Enpass 跟 iOS 配合得也很好～而且可以检测密码泄露等等。总得来说吧，这几个软件功能都大同小异，没有什么特定的需求，哪个顺手用哪个就好了。 
 
-*   [AdBlock](//chrome.google.com/webstore/detail/adblock/gighmmpiobklfepjocnamgkkbiglidom)
+*   [AdGuard 广告拦截器](https://chrome.google.com/webstore/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg)
 
-> 广告过滤应用，我一直用adb，没怎么用其他的广告过滤插件。大部分时间都够用了。
+> 以前用 adb，但 adb 默认的规则略少，尤其是手机端过滤效果一般，所以后来手机端换成了 AdGuard，然后浏览器中也就跟着换了。和前面密码管理一样，用着顺手就没必要折腾，都差不多。
 
-*   [awesome-screenshot-screen](//chrome.google.com/webstore/detail/awesome-screenshot-screen/nlipoenfbbikpbjkfpfillcgkoblgpmj)
+*   [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)
 
-> 这是款截图插件，基本可以满足我的各种需求
+> 这货是神器！配合V2ray，可以顺利的自适应科学上网。
+>
+> 配置方面重点就是配置一个自动切换的情景模式，可以根据规则自动决定是否调用代理。规则列表的地址这里备份一下：
+```
+https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+```
 
 *   [Stylish](//chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe)
 
@@ -35,9 +42,9 @@ photos:
 >
 > 特别需要提醒的是，Stylish上的主题还可以美化Stylish自己的插件控制面板！当然还有Chrome的各种页面，甚至其他浏览器的界面、LibreOffice之类的。
 
-*   [Violent monkey](//chrome.google.com/webstore/detail/violent-monkey/jinjaccalgkegednnccohejagnlnfdag)
+*   [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 
-> 暴力猴，大名鼎鼎的“油候”的后代。功能和上面的Stylish类似，只不过提供自定义的是网站的js。但因为js的可编程性，导致功能逆天~！！ 分享几个我自己常用的脚本：
+> Violent monkey 不能用了，只好换回 Tampermonkey。定制化js脚本的，主要用于优化搜索引擎或者给特定的网站添加功能之类的。分享几个我自己常用的脚本：
 > 
 > *   [super-preloaderplus-one](//greasyfork.org/zh-CN/scripts/293-super-preloaderplus-one)?论坛、新闻或者搜索结果页自动翻页；
 > *   [百度网盘助手](//greasyfork.org/zh-CN/scripts/17083-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%8A%A9%E6%89%8B-%E6%94%B9)?显示百度网盘文件的直接链接,突破大文件需要使用电脑管家的限制；
