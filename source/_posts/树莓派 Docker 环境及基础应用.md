@@ -1,6 +1,6 @@
 ---
 title: 树莓派 Docker 环境及基础应用
-date: 2019-12- 27 09:15:36
+date: 2019-12-27 09:15:36
 tags: [树莓派, Docker] 
 categories: 技术心得
 ---
