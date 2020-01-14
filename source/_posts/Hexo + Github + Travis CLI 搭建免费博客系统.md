@@ -1,5 +1,5 @@
 ---
-title: Hexo + Github + Travis CLI 搭建免费博客
+title: Hexo + Github + Travis CLI 搭建免费博客系统
 date: 2020-01-10 07:23:26
 tags: [Hexo, GitHub, NodeJS] 
 categories: 技术心得
