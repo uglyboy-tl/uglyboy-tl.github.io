@@ -6,10 +6,7 @@ categories: 技术心得
 ---
 
 使用 Docker 时，往往需要自己定制很多开发运行环境，而定制 Image 就必须要自己写 Dockerfile ，但每次修改完 Dockerfile，都需要一连串的操作推送和拉取镜像。
-
-本文将介绍利用 Github 自动构建 Docker Image，简化修改 Dockerfile 后的各类操作。配合 watchtower 则可以实现自动升级镜像。
-
-另一方面，因为 Github 构建镜像只能使用 amd64 环境，而笔者常用设备之一是树莓派，所以本文也包含了如何跨平台构建 Docker 镜像，以及合并镜像为多平台镜像的内容
+本文将介绍利用 Github 自动构建 Docker Image，简化修改 Dockerfile 后的各类操作。配合 watchtower 则可以实现自动升级镜像。另一方面，因为 Github 构建镜像只能使用 amd64 环境，而笔者常用设备之一是树莓派，所以本文也包含了如何跨平台构建 Docker 镜像，以及合并镜像为多平台镜像的内容
 
 <!-- more -->
 
