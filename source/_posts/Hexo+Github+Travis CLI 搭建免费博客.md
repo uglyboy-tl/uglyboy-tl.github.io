@@ -103,7 +103,7 @@ github 支持的 自定义域名只包括顶级域名和二级域名：
 1. 在 GitHub 中，跳转到你的网站的仓库中。
 2. 在你的仓库名字下方，点击<i class="fa fa-setting"></i> **Settings**
 ![repo-actions-settings](https://image.uglyboy.cn/2020114/repo-actions-settings.png)
-3. 在 **Custom domain** 下面, 填写你的自定义域名，并点击保存. 这个动作将会在你的仓库根目录中创建一个 CNAME 文件记录你的域名，并提交发布。
+3. 在 **Custom domain** 下面, 填写你的自定义域名，并点击保存。 这个动作将会在你的仓库根目录中创建一个 CNAME 文件记录你的域名，并提交发布。
 ![save-custom-domain](https://image.uglyboy.cn/2020114/save-custom-domain.png)
 4. 到你的 DNS 解析服务器中设置一个 CNAME 将你的域名 www.example.com 指向  \<user\>.github.io
 
@@ -123,6 +123,7 @@ deploy:
   repo: https://github.com/username/username.github.io.git
   branch: master
 ```
+注意：这里的 *username* 记得换成你自己的 github 用户名。
 ##### 免密自动部署
 使用ssh-keygen生成私钥和公钥
 ```bash
@@ -134,5 +135,103 @@ ssh-keygen -t rsa
 ```bash
 ssh -T git@github.com
 ```
-### Travis CLI 自动部署
+### Travis CLI 自动部署 Hexo
+> 本节首先介绍一下多终端管理 Hexo 的解决方案。但是这样的解决方案也仅解决了多地的代码问题，不同的终端下依然需要搭建 Hexo 的生成环境，并且在提交源码后，还需要执行生成命令。
+
+> Travis CLI 可以利用 github 的提交动作触发自动部署，在云端自动生成相关的 Hexo 代码环境，并执行部署的命令。
+#### 多终端管理 Hexo
+hexo 正常发布动作是同步 public 文件夹 到 github 的站点远程仓库的，而原始文件则是在项目的根文件夹下。所以如果想多终端都可以编辑发布 hexo，需要将根目录纳入到远程管理中。
+> 为了项目更容易管理，笔者将源文件依然放在 github 的站点远程仓库中管理。这件事不是必须的，读者可以按照自己的喜好安排版本管理方式。
+
+##### 初始化仓库及提交
+```bash
+# 初始化本地仓库
+git init
+# 添加本地所有文件到仓库
+git add .
+# 添加commit
+git commit -m "Blog Source Hexo"
+# 添加本地仓库分支hexo
+git branch hexo 
+# 切换到hexo分支上
+git checkout hexo  
+# 添加远程仓库 <server> 是在线仓库的地址 origin是本地分支,remote add操作会将本地仓库映射到云端
+git remote add origin https://github.com/username/username.github.io.git 
+# 将本地仓库的源文件推送到远程仓库hexo分支
+git push origin hexo 
+```
+##### 其他终端的工作流程
+```bash
+# 安装 Hexo
+npm install -g hexo
+# 将Github中hexo分支clone到本地
+git clone -b hexo git@github.com:username/username.github.io.git  
+cd username.github.io
+# 安装必要的所需组件
+npm install
+# 创建一篇新博客
+hexo new post "new blog name"
+git add source
+git commit -m "XX"
+# git push origin hexo
+git push
+# 发布
+hexo d -g
+```
+#### Travis CLI 配置
+##### Travis CLI 网站基础设置
+1. 使用 github 帐号登陆 [Travis CLI](https://travis-ci.org)
+2. 登录后在主界面点击 My Repositories 旁边的"+"号:
+![2756183-662937f67676de27](https://image.uglyboy.cn/2020114/2756183-662937f67676de27.jpg)
+3. 选择你在Github的放博客源码的仓库，打开右侧的开关
+4. 然后点旁边的 Setting 按钮，进入设置的界面。
+##### 项目设置 .travis.yml
+在项目的根目录添加 .travis.yml 文件如下：
+```
+language: node_js
+node_js:
+  - "10"
+
+cache:
+  directories:
+    - node_modules
+
+branches:
+  only:
+    - hexo
+
+before_install:
+  - npm install -g hexo
+
+before_script:
+  - git config --global user.name 'username'
+  - git config --global user.email 'useremail' # 改成你的邮箱
+  - git config --global url."https://username:${passwd}@github.com/".insteadOf "https://github.com/"
+  - git clone --branch master https://github.com/Longxr/Longxr.github.io.git public
+
+install:
+  - npm install
+
+script:
+  - hexo g -d
+
+```
+其中 ${passwd} 是设置在 Travis CLI 项目环境变量里的参数，是 github 的密码。
+
+也有人推荐用 Github 的 Access Token 方案，似乎更安全一些，但是笔者尝试时一直遇到*帐号密码错误*的问题。
+
+##### 新的终端工作流
+终端只需要支持 git 即可。
+```bash
+# 将Github中hexo分支clone到本地
+git clone -b hexo git@github.com:username/username.github.io.git  
+cd username.github.io
+# 创建一篇新博客
+hexo new post "new blog name"
+git add source
+git commit -m "XX"
+# git push origin hexo
+git push
+```
+具体的构建过程都可以在 [Travis CLI](https://travis-ci.org) 中看到，包括调试时所需查看的错误信息。
 ### iPad 进行博客创作

@@ -1,7 +1,7 @@
 ---
 title: 自动构建跨平台 Docker 镜像
 date: 2020-01-03 11:04:24
-tags: [Docker, github] 
+tags: [Docker, GitHub] 
 categories: 技术心得
 ---
 
