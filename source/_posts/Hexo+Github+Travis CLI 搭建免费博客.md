@@ -68,6 +68,70 @@ hexo deploy
 # 清除缓存文件 (db.json) 和已生成的静态文件 (public)。
 hexo clean
 ```
-### GitHub 的 Page 服务
+### GitHub 的 Pages 服务
+[GitHub Pages](https://pages.github.com/) 是 GitHub 提供的免费静态网页服务，支持静态脚本，可以绑定域名并支持 ssl 也就是 https ，并且 **不限流量**。
+#### 开始你的 Pages 之旅
+> 注：个人帐号只能搭建一个个人网站
+##### 创建一个 repository
+创建的 repository 需要以 username.github.io 命名。这里的 username 是你的 github 帐号名。
+##### 创建本地代码仓
+```bash
+git clone https://github.com/username/username.github.io
+```
+##### 创建 Hello World
+```bash
+cd username.github.io
+echo "Hello World" > index.html
+```
+##### 推送到远程代码仓（github）
+```bash
+git add --all
+git commit -m "Initial commit"
+git push -u origin master
+```
+##### 预览效果
+打开一个浏览器并浏览 https://*username*.github.io
+
+#### 绑定自己的域名并开启 https
+github 支持的 自定义域名只包括顶级域名和二级域名：
+| 支持的子定语域名类型 | Example |
+|:-----|:-----|
+| ```www``` 二级域名 | ```www.example.com``` |
+| 自定义二级域名 | ```blog.example.com``` |
+| 顶级域名 | ```example.com``` |
+##### 绑定二级域名
+1. 在 GitHub 中，跳转到你的网站的仓库中。
+2. 在你的仓库名字下方，点击<i class="fa fa-setting"></i> **Settings**
+![repo-actions-settings](https://image.uglyboy.cn/2020114/repo-actions-settings.png)
+3. 在 **Custom domain** 下面, 填写你的自定义域名，并点击保存. 这个动作将会在你的仓库根目录中创建一个 CNAME 文件记录你的域名，并提交发布。
+![save-custom-domain](https://image.uglyboy.cn/2020114/save-custom-domain.png)
+4. 到你的 DNS 解析服务器中设置一个 CNAME 将你的域名 www.example.com 指向  \<user\>.github.io
+##### 开启 https
+这个相对比较简单，当你的域名配置好了，勾选下面的 **Enforce HTTPS** 就可以了，剩下的就是等待证书验证，这个会在24小时内完成。
+![enforce-https-custom-domains](https://image.uglyboy.cn/2020114/enforce-https-custom-domains.png)
+#### Hexo 自动部署到 GitHub 的 Pages 服务
+##### 安装 hexo-deployer-git 插件
+```bash
+npm install hexo-deployer-git --save
+```
+##### 修改 Hexo 的 _config.yml
+调整自动部署相关的配置：
+```
+deploy:
+  type: git 
+  repo: https://github.com/username/username.github.io.git
+  branch: master
+```
+##### 免密自动部署
+使用ssh-keygen生成私钥和公钥
+```bash
+ssh-keygen -t rsa
+```
+登录Github，点击头像下的settings，添加ssh,新建一个new ssh key，将id_rsa.pub文件里的内容复制上去。
+
+输入ssh -T git@github.com，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了
+```bash
+ssh -T git@github.com
+```
 ### Travis CLI 自动部署
 ### iPad 进行博客创作
