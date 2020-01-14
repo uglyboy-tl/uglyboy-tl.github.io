@@ -1,5 +1,5 @@
 ---
-title: Hexo+Github+Travis CLI 搭建免费博客
+title: Hexo + Github + Travis CLI 搭建免费博客
 date: 2020-01-10 07:23:26
 tags: [Hexo, GitHub, NodeJS] 
 categories: 技术心得
@@ -230,9 +230,13 @@ cd username.github.io
 # 创建一篇新博客
 hexo new post "new blog name"
 git add source
-git commit -m "XX"
+git commit -m "new blog"
 # git push origin hexo
 git push
 ```
 具体的构建过程都可以在 [Travis CLI](https://travis-ci.org) 中看到，包括调试时所需查看的错误信息。
 ### iPad 进行博客创作
+#### Working Copy
+iOS 下的 git 管理工具，最重要的是不仅可以查看，还可以 push！！（虽然需要内购，现在价格是128人民币）
+Working Copy 提供了文件管理功能，可以任由别的应用管理同步的代码仓库的内容，这样在 iPad 上就可以使用更加专业的 Markdown 编辑软件来写文章，再由 Working Copy 发布。
+Working Copy 还支持捷径，进行 iOS 上的一键发布。
