@@ -106,6 +106,7 @@ github 支持的 自定义域名只包括顶级域名和二级域名：
 3. 在 **Custom domain** 下面, 填写你的自定义域名，并点击保存. 这个动作将会在你的仓库根目录中创建一个 CNAME 文件记录你的域名，并提交发布。
 ![save-custom-domain](https://image.uglyboy.cn/2020114/save-custom-domain.png)
 4. 到你的 DNS 解析服务器中设置一个 CNAME 将你的域名 www.example.com 指向  \<user\>.github.io
+
 ##### 开启 https
 这个相对比较简单，当你的域名配置好了，勾选下面的 **Enforce HTTPS** 就可以了，剩下的就是等待证书验证，这个会在24小时内完成。
 ![enforce-https-custom-domains](https://image.uglyboy.cn/2020114/enforce-https-custom-domains.png)
