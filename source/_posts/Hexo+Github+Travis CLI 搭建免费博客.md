@@ -94,11 +94,13 @@ git push -u origin master
 
 #### 绑定自己的域名并开启 https
 github 支持的 自定义域名只包括顶级域名和二级域名：
+
 | 支持的子定语域名类型 | Example |
 |:-----|:-----|
 | ```www``` 二级域名 | ```www.example.com``` |
 | 自定义二级域名 | ```blog.example.com``` |
 | 顶级域名 | ```example.com``` |
+
 ##### 绑定二级域名
 1. 在 GitHub 中，跳转到你的网站的仓库中。
 2. 在你的仓库名字下方，点击<i class="fa fa-setting"></i> **Settings**
@@ -240,3 +242,12 @@ git push
 iOS 下的 git 管理工具，最重要的是不仅可以查看，还可以 push！！（虽然需要内购，现在价格是128人民币）
 Working Copy 提供了文件管理功能，可以任由别的应用管理同步的代码仓库的内容，这样在 iPad 上就可以使用更加专业的 Markdown 编辑软件来写文章，再由 Working Copy 发布。
 Working Copy 还支持捷径，进行 iOS 上的一键发布。
+![](https://image.uglyboy.cn/2020/01/14/15790009056243.jpg)
+#### MWeb
+iOS 下优秀的 Markdown 应用很多，笔者并没有一一比对，但更早使用 WordPress 起，就一直在用 MWeb 进行博客写作。
+MWeb 支持从 Working Copy 的文件路径中直接读取文档，支持七牛云本地图片上传，尤其对国内的各类图床服务都有很好的支持，硬件方面也支持 Latex 的数学公式，从各个角度来说，都是一款不错的博客应用。
+Mweb 还有 Mac 版，这也是它的加分项之一。
+
+> 至此，一个仅用 iPad 即可进行博客管理的博客体系已经搭建完全。剩下的诸如主体的美化，性能优化等便有待各位极客朋友们自行探索了。
+
+
