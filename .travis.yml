@@ -13,6 +13,7 @@ branches:
 before_install:
   - npm install -g hexo
   - git clone https://github.com/theme-next/hexo-theme-next themes/uglyboy
+  - git clone --branch master https://github.com/uglyboy-tl/uglyboy-tl.github.io.git public
 
 before_script:
   - cp -r themes/next/* themes/uglyboy/
