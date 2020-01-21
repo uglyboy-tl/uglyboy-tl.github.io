@@ -184,7 +184,7 @@ hexo d -g
 ##### Travis CLI 网站基础设置
 1. 使用 github 帐号登陆 [Travis CLI](https://travis-ci.org)
 2. 登录后在主界面点击 My Repositories 旁边的"+"号:
-![2756183-662937f67676de27](https://image.uglyboy.cn/2020114/2756183-662937f67676de27.jpg)
+![Travis CI](https://image.uglyboy.cn/2020121/Travis%20CI.png)
 3. 选择你在Github的放博客源码的仓库，打开右侧的开关
 4. 然后点旁边的 Setting 按钮，进入设置的界面。
 
