@@ -183,7 +183,7 @@ site_state: true
 social:
   HASS: https://uglyboy.cn:8123 || fa fa-building
   容器: https://uglyboy.cn:9000 || fa fa-server
-  下载: https://uglyboy.cn:8188/AriaNg/ || fa fa-cloud-download
+  下载: https://uglyboy.cn:8188/AriaNg/ || fas fa-cloud-download-alt
   # 树莓派: https://uglyboy.cn:8188/Pi/ || fa fa-microchip
   # 媒体: https://uglyboy.cn:8100 || fa fa-video-camera
   数据库: https://uglyboy.cn:8188/phpMyAdmin/ || fa fa-database
@@ -930,8 +930,8 @@ vendors:
   copy_tex_css:
 
   # Internal version: 0.2.8
-  # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
-  pjax:
+  # pjax: //cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js
+  pjax: //cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js
 
   # FancyBox
   # jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
