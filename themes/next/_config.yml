@@ -206,7 +206,7 @@ social_icons:
 
 # Blog rolls
 links_settings:
-  icon: link
+  icon: fa fa-link
   title: Links
   # Available values: block | inline
   layout: block
@@ -233,7 +233,7 @@ chat:
   enable: false
   #service: chatra
   #service: tidio
-  icon: comment # Icon name in Font Awesome, set false to disable icon.
+  icon: fa fa-comment # Icon name in Font Awesome, set false to disable icon.
   text: Chat # Button text, change it as you wish.
 
 
@@ -725,11 +725,11 @@ firestore:
 busuanzi_count:
   enable: false
   total_visitors: true
-  total_visitors_icon: user
+  total_visitors_icon: fa fa-user
   total_views: true
-  total_views_icon: eye
+  total_views_icon: fa fa-eye
   post_views: true
-  post_views_icon: eye
+  post_views_icon: fa fa-eye
 
 
 # ---------------------------------------------------------------
