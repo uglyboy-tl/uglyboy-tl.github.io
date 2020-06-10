@@ -120,10 +120,10 @@ scheme: Gemini
 # When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -> archives).
 # External url should start with http:// or https://
 menu:
-  home: / || home
-  categories: /categories/ || th
-  tags: /tags/ || tags
-  archives: /archives/ || archive
+  home: / || fa fa-home
+  categories: /categories/ || fa fa-th
+  tags: /tags/ || fa fa-tags
+  archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || calendar
   #about: /about/ || user
   #sitemap: /sitemap.xml || sitemap
@@ -181,12 +181,12 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  HASS: https://uglyboy.cn:8123 || building
-  容器: https://uglyboy.cn:9000 || server
-  下载: https://uglyboy.cn:8188/AriaNg/ || cloud-download
-  # 树莓派: https://uglyboy.cn:8188/Pi/ || microchip
-  # 媒体: https://uglyboy.cn:8100 || video-camera
-  数据库: https://uglyboy.cn:8188/phpMyAdmin/ || database
+  HASS: https://uglyboy.cn:8123 || fa fa-building
+  容器: https://uglyboy.cn:9000 || fa fa-server
+  下载: https://uglyboy.cn:8188/AriaNg/ || fa fa-cloud-download
+  # 树莓派: https://uglyboy.cn:8188/Pi/ || fa fa-microchip
+  # 媒体: https://uglyboy.cn:8100 || fa fa-video-camera
+  数据库: https://uglyboy.cn:8188/phpMyAdmin/ || fa fa-database
   #GitHub: https://github.com/yourname || github
   #邮件: mailto:uglyboy@uglyboy.cn || envelope
   #Weibo: https://weibo.com/uglynpc || weibo
