@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.uglyboy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="周六我们一起讨论落地方案细节，无论是线上部分还是线下部分，刚开始讨论时都很顺利，也很快能形成有共识的解决方案。但是每个话题即将结束的时候，我总有种直觉觉得缺了些什么，可当时又一下子整理不出来。   这两天的梳理，我觉得自己找到了缺失的那块重要的部分（就是标题说的社交电商）。但正如当天我们讨论时很难想到一样，需要换一个视角才能更好的描述清楚这个部分的重要性，所以写了这篇文档，希望大家有空时能认真的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="社交电商——S2B2C中真正进化的部分">
+<meta property="og:url" content="https://www.uglyboy.cn/2020/06/08/%E7%A4%BE%E4%BA%A4%E7%94%B5%E5%95%86%E2%80%94%E2%80%94S2B2C%E4%B8%AD%E7%9C%9F%E6%AD%A3%E8%BF%9B%E5%8C%96%E7%9A%84%E9%83%A8%E5%88%86/index.html">
+<meta property="og:site_name" content="阿丑の小窝">
+<meta property="og:description" content="周六我们一起讨论落地方案细节，无论是线上部分还是线下部分，刚开始讨论时都很顺利，也很快能形成有共识的解决方案。但是每个话题即将结束的时候，我总有种直觉觉得缺了些什么，可当时又一下子整理不出来。   这两天的梳理，我觉得自己找到了缺失的那块重要的部分（就是标题说的社交电商）。但正如当天我们讨论时很难想到一样，需要换一个视角才能更好的描述清楚这个部分的重要性，所以写了这篇文档，希望大家有空时能认真的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-08T07:39:09.000Z">
+<meta property="article:modified_time" content="2021-02-01T08:40:02.369Z">
+<meta property="article:author" content="Uglyboy">
+<meta property="article:tag" content="直播供应链">
+<meta property="article:tag" content="社交">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.uglyboy.cn/2020/06/08/%E7%A4%BE%E4%BA%A4%E7%94%B5%E5%95%86%E2%80%94%E2%80%94S2B2C%E4%B8%AD%E7%9C%9F%E6%AD%A3%E8%BF%9B%E5%8C%96%E7%9A%84%E9%83%A8%E5%88%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>社交电商——S2B2C中真正进化的部分 | 阿丑の小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="阿丑の小窝" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿丑の小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个梦想的自留地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.uglyboy.cn/2020/06/08/%E7%A4%BE%E4%BA%A4%E7%94%B5%E5%95%86%E2%80%94%E2%80%94S2B2C%E4%B8%AD%E7%9C%9F%E6%AD%A3%E8%BF%9B%E5%8C%96%E7%9A%84%E9%83%A8%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Uglyboy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿丑の小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          社交电商——S2B2C中真正进化的部分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-08 15:39:09" itemprop="dateCreated datePublished" datetime="2020-06-08T15:39:09+08:00">2020-06-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">解决方案</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>周六我们一起讨论落地方案细节，无论是线上部分还是线下部分，刚开始讨论时都很顺利，也很快能形成有共识的解决方案。但是每个话题即将结束的时候，我总有种直觉觉得缺了些什么，可当时又一下子整理不出来。</p>
+</blockquote>
+<blockquote>
+<p>这两天的梳理，我觉得自己找到了缺失的那块重要的部分（就是标题说的社交电商）。但正如当天我们讨论时很难想到一样，需要换一个视角才能更好的描述清楚这个部分的重要性，所以写了这篇文档，希望大家有空时能认真的看一下。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="看问题的视角"><a class="markdownIt-Anchor" href="#看问题的视角"></a> 看问题的视角</h4>
+<p>先从视角讲起，一般我们看问题或者寻找项目方向，主要有这几种视角：</p>
+<ol>
+<li>生产视角：也就是我们能做什么，擅长什么，我们就去做什么；</li>
+<li>用户视角： 用户需要什么，有什么痛点，我们就去做什么；</li>
+<li>竞争视角：针对竞争对手的策略进行调整，如何能更好的应对竞对，我们就去做什么；</li>
+<li>市场视角：狭义来说，是综合了上述三个视角综合分析问题；广义来说，是结合整个市场的发展趋势，寻找变化当中的机会点。</li>
+</ol>
+<blockquote>
+<p>我们周六讨论问题时，基本集中在生产视角和用户视角看问题；在少数争论的时候，涉及到了部分的竞争视角（例如我们做的是不是平台也能做，为什么我们能比平台做得好）。在这些视角下，其实我们讨论的已经比较完备了。某种意义上说，从过去的经验来看，我们的方案是合格且优秀的。而我直觉中觉得我们缺失的部分，恰恰是源于市场的变化，需要我们的方案有新的应对。后面我将从市场视角来阐述这个观点。</p>
+</blockquote>
+<h4 id="从传统企业的发展谈起"><a class="markdownIt-Anchor" href="#从传统企业的发展谈起"></a> 从传统企业的发展谈起</h4>
+<p>非线上化的时代，门店是传统企业最核心的销售支点。其企业发展也是顺着四个观念的进化推进的：</p>
+<ol>
+<li>生产观念：我生产什么，就卖什么；</li>
+<li>产品观念：我需要提升产品质量，不断生产高质量，多功能的产品，提升产品议价。在生产力不够发达，以卖方市场为主导的年代，“酒香不怕巷子深”；</li>
+<li>市场营销观念：这个和上面的用户视角有异曲同工之处，都是从客户的需求出发，企业开始以营销的手段调整产品和市场策略，如何能获得更大的流量，就会在哪里发力；</li>
+<li>客户观念：因为传统企业受线下条件的制约——门店的覆盖范围总是有限的，短期的营销手段也会很快遇到瓶颈。为了企业长线的发展，必须提升每个客户创造的价值。所以营销玩法逐渐过渡到了客户管理，CRM体系。</li>
+</ol>
+<h5 id="crm"><a class="markdownIt-Anchor" href="#crm"></a> CRM</h5>
+<p>在村淘的时候我就有一个非常深刻的体会，线下传统零售体系中的CRM体系，远比淘宝线上的会员体系完善和有效得多。甚至扩大一些，线上还没有什么会员体系达到了线下管理的程度。</p>
+<p>那为什么线上的机会还是比线下大？线上的人为什么不好好搞搞CRM？</p>
+<ol>
+<li>最本质的原因，当时线上做流量运营的成本远低于CRM。也有很多从线下行业转到线上行业的人尝试在线上做CRM，但是这些创造的价值远小于简单的流量运营创造的价值。（参见电商、淘宝、快递规模的增速）</li>
+<li>线上做最简单的CRM，很多时候效果也比线下做很深刻的CRM效果好，因为线上的数据化程度、与顾客的连接频次，都远远高于线下。重定向其实原本就是线下的很核心的营销策略，只不过线下做起来，无论是成本还是效率跟线上都不可同日而语。</li>
+</ol>
+<h5 id="直播电商"><a class="markdownIt-Anchor" href="#直播电商"></a> 直播电商</h5>
+<p>回顾完历史，再回到现在，从市场视角出发，我们就必须回答一个问题：为什么现在直播电商火了？直播电商能火，背后的因素能说的很多，但很多都不是决定性因素。例如直播这种形式就不是必备因素。像那天讨论时我提到的，直播已经火过3～4轮了，也就是这种形式原本就已经比较成熟了，但之前却没能在电商上火起来。从宏观层面看，一定是当时除直播这种形式外，缺少了些什么东西。</p>
+<p>少的是什么？参考上面CRM系统线上化的困境，过去的阶段，无论是移动互联网，还是电商的整体发展趋势都是快速扩张。最好的机会一定是在巨大的增量市场中抢占份额，也就是通常所说的吃流量红利。所以以前对于商家而言，最需要的是流量运营，是懂淘宝规则的人帮忙多搞流量，而不是流量的精细化运营。</p>
+<p>然后我们就能得到答案：为什么现在直播电商火起来了？因为流量涨不动了，以前简单的买流量的生意做不下去了。当流量成为稀缺资源时，就需要提升流量质量了。</p>
+<p>回到直播业务自己的特点来看：直播的流量和以前流量运营的流量的不同点：</p>
+<ol>
+<li>直播的流量用市面上的说法叫私域流量，但我觉得用这个名字还是在用流量运营的思路来看待直播。直播的流量核心点在于：它的流量时高粘性高回访的流量，是可以重复利用的流量，是高价值的流量。</li>
+<li>而一般买量方式买来的流量，哪怕是私域（微信群、朋友圈）的流量，也是低效低价值的流量。所以上一波兴起的社交电商，最终没什么火花。为什么？我们可以拿自己的体验来说，如果一个朋友开始做微商了，她就距离被你拉黑不远了。薅流量的模式在之前是work的，赚了几波块钱，但不那么可持续。</li>
+</ol>
+<p>赚快钱的模式，淘客一直在搞，一直是买量的模式，一直赚钱。类似的，PDD刚起步的时候，走的也是所谓的社交裂变的方式，背后核心点之一也和买量类似（PDD的模式其实还不是单纯的买量，但其他搞裂变的，例如趣头条或者网游，就真的只是买量了）。</p>
+<p>社交裂变火了两年，现在已经不火了。趣头条也不太成了。而直播电商蛰伏了4年，近年大火了。背后的道理，从市场视角来看，就是——流量运营时代要走向客户运营时代了。</p>
+<p><strong>这里还需要认真解释一下直播的玩法和买量的玩法哪里不一样</strong>。哪里不一样呢？社交裂变，几乎只适用于拉新——朋友第一次拉你淘宝盖楼，你不了解详情，会点开看看，然后无法自拔；第二次，你就告诉自己绝不上当了。直播呢？李佳琦今天推荐A品牌，粉丝们（包括路人粉）都买A品牌；明天推荐B品牌，粉丝们就又都去买B品牌了；而且买完了这些货之后，是对李佳琦更加信任了。流量玩法里，社交资源是被消耗的，直播玩法里，社交资源则是不断强化的。</p>
+<h4 id="社交电商"><a class="markdownIt-Anchor" href="#社交电商"></a> 社交电商</h4>
+<p>我这两天一直表达一个观点叫做：直播电商也就是1～2年的事情。其实我想表达的是，我们不要把过多的精力关注在直播上，直播只是皮；应该去寻找直播背后的道理——新的可以跟用户形成高粘性高回访的互动模式，依托于这样的模式玩电商。直播只是在最合适的历史契机下第一个成为这样的模式的样板，但不会是唯一。（但当时我还说不清直播背后的道理究竟是啥）</p>
+<p>从市场视角出发，下一个机会点就在“社交电商”上——谁能抓住更高效的流量（占据更大的高效流量份额），谁就能走上下一波轻松赚钱的高速路。</p>
+<blockquote>
+<p>所以回到短期内的趋势：“现在赶紧下场直播，能多抢占直播份额，就会多占便宜”。大家纷纷进场。老罗直播还是走的流量运营的逻辑，第二次开始，直播效率就完蛋了；董明珠则确实是直播的逻辑（包括话术，包括其他主播加持），越高流量越好。</p>
+</blockquote>
+<p>这里回到那天讨论到线下时，我提到的一个玩法：给线下的KOL配备专业相符的其他专业资源，增强其专业性。从市场视角来说，这件事才是和未来玩法相契合的方式（不是指我这个点子能成，而是指类似这样的方向是未来的方向）。</p>
+<p>于是这里尤其要注意的两个我们那天聊过甚至几乎确定了做法的事情：</p>
+<ol>
+<li>我们要找的社区KOL究竟时社区卖货型的KOL？还是社区流量粘性型的KOL？面向短期发展，是前者；但面向未来深耕，抓住下一波风口，是后者；</li>
+<li>我们跟KOL的关系是什么？分佣？这个也是我一直在谈S2B2C不同与S2B的原因。如果只做分佣，那本质上还是S2B，而且最终找到的小B依然是会搞流量运营的小B，这件事，找淘客效率肯定比找直播主播更有效率；如果是赋能，和小B共同服务好消费者，做到客户运营，那吸引小B的核心点就不是分佣了，而是具体的赋能手段。至少那天我们聊的内容里，还没有出现特别优秀的赋能的点子。</li>
+</ol>
+<blockquote>
+<p>还得从视角来说，简单的SaaS服务可以解决用户的痛点，对用户是有吸引力的。但这还是用户视角，不是市场视角。或者用我标题的表达方式来说：这样的事情叫做进步，但没法称之为进化。</p>
+</blockquote>
+<p>为了更好的理解我这里提到的“社交电商”，而不会跟前些年喧嚣的伪概念的“社交电商”混淆，我这里举几个方案作为例子（不是看方案细节，重点是方向）：</p>
+<h5 id="场景化的社区kol"><a class="markdownIt-Anchor" href="#场景化的社区kol"></a> 场景化的社区KOL</h5>
+<p>以月子中心为例，如果我们赋能的KOL是月子中心，月子中心的特点：1. 月子中心是有不同档次的，对应的用户需求也是不一样的；2. 月子中心是专业的，可以得到用户的信任的；3. 月子中心是地域覆盖的；4. 月子中心曾经的客户在离开月子中心后，其实依然有相似的相关专业性需求。</p>
+<p>如果我们对待月子中心只是供货，让月子中心选品，月子中心分佣卖货；那很快就会出现类似“医院医生只卖很贵的药”的状况，医生和医院失去患者的信任，变成赤裸裸的经济关系，医患关系越来越紧张。对月子中心这种很依赖口碑的服务模式而言，供应链可以解决她们的痛点，但不能带来质变般的帮助。</p>
+<p>如果我们对月子中心提供的是专业性的支持（不只是指导月子中心如何搞），例如从全国或全球范围内邀请妇产科的专家在相应的月子中心进行分享和交流，找专家帮助月子中心定制营养月子餐，并支持供应链；为月子中心配备针对婴儿和孕妇的定制化健康用品；帮助月子中心为那些已经出了月子中心的顾客提供长期的婴儿抚养支持。</p>
+<p>产妇和婴儿的购物需求是明确的。其实在这个场景中不需要专门的带货，有了强大的信任关系，带货只是其中必然的结果，但对相关的社区KOL来讲不是核心逻辑。</p>
+<p>或者还是用更加区分性的观点总结：这种模式会强化用户和KOL之间的连接，强化粘性和频次，而不是消耗社交关系。</p>
+<h5 id="ip化生产"><a class="markdownIt-Anchor" href="#ip化生产"></a> IP化生产</h5>
+<p>这个抽象一点，我们可以把IP作为粉丝们的KOL，而品质精良的IP化的商品卖给粉丝，粉丝们不会觉得是在被迫消费，而是觉得获得了粉丝福利。</p>
+<p>IP化的产品带来的是IP更强的粘性，而不是消耗IP的粉丝关系。</p>
+<h5 id="修车大爷"><a class="markdownIt-Anchor" href="#修车大爷"></a> 修车大爷</h5>
+<p>这里想说的是修车大爷只是社交关系的节点，但难以形成高粘性。所以线下社区化的玩法，核心KOL不应该是修车大爷这种类型，还是应该以广场舞大妈为核心代表。</p>
+<p>社交电商中社交部分的核心是，电商是否进一步巩固了社交属性。</p>
+<h5 id="直播电商-2"><a class="markdownIt-Anchor" href="#直播电商-2"></a> 直播电商</h5>
+<p>为什么直播电商是最先火起来的社交电商模式？主播的社交粘性核心点在哪里？长得好看？选品专业性？</p>
+<p>如果问一问直播电商的顾客，上面这些属于影响因素。但最最核心的还是主播能够拿到更便宜的货。只要总有更便宜的货，主播的粉丝就会长期高粘性的跟主播连接在一起。而这个链路，在我所谓的“社交电商”模式下，最不需要社交属性的一种。只需要供应链的支持和商品品质的保证，就可以run下去。</p>
+<p>所以直播作为我们项目的冷启动的出发点也是非常非常合适的。</p>
+<h4 id="s2b2c"><a class="markdownIt-Anchor" href="#s2b2c"></a> S2B2C</h4>
+<p>最后再回到咱们的项目，把社交电商跟我们周六讨论的内容穿起来：<br />
+首先，我们周六的冷启动方案是一个完整的S2B的解决方案，而且方案本身针对现有市场上的解决方案而言，是更好的，或者说，我们可以带来<strong>进步</strong>；<br />
+如果我们的方案中能加上社交电商这部分的设计，方案就会进化成 S2B2C，在S2B的这部分上，我们有进步，而且从整体模式来说，我们可以带来<strong>进化</strong>。</p>
+<p>社交电商这块更偏C端，我们不那么擅长；但恰好这个是市场的未来，现在没有人擅长。所以冷启动和项目中能够明确出来的一定还是我们擅长的S2B的部分。社交电商这块在冷启动阶段，依然还只能是个故事。</p>
+<p>但是我认为，这块不能一直是个故事。甚至从重要性而言，如果社交电商能够有合适的方案出来，哪怕S2B的部分很不完备，哪怕S2B的部分都不及市场平均水平，整个项目也会对其他业态形成降维打击。</p>
+<p><strong>作为一个生意，S2B足以；作为一份事业，S2B2C更值得我们憧憬。</strong></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpeg" alt="Uglyboy 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Uglyboy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.uglyboy.cn/2020/06/08/%E7%A4%BE%E4%BA%A4%E7%94%B5%E5%95%86%E2%80%94%E2%80%94S2B2C%E4%B8%AD%E7%9C%9F%E6%AD%A3%E8%BF%9B%E5%8C%96%E7%9A%84%E9%83%A8%E5%88%86/" title="社交电商——S2B2C中真正进化的部分">https://www.uglyboy.cn/2020/06/08/社交电商——S2B2C中真正进化的部分/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%9B%B4%E6%92%AD%E4%BE%9B%E5%BA%94%E9%93%BE/" rel="tag"><i class="fa fa-tag"></i> 直播供应链</a>
+              <a href="/tags/%E7%A4%BE%E4%BA%A4/" rel="tag"><i class="fa fa-tag"></i> 社交</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/29/%E7%94%A8%E2%80%9C%E7%AB%9E%E4%BA%89%E7%AD%96%E7%95%A5%E2%80%9D%E5%AF%B9%E7%A4%BE%E5%8C%BA%E5%9B%A2%E8%B4%AD%E6%A8%A1%E5%BC%8F%E8%A7%A3%E6%9E%84/" rel="prev" title="用“竞争策略”对社区团购模式解构">
+      <i class="fa fa-chevron-left"></i> 用“竞争策略”对社区团购模式解构
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/30/%E2%80%9C%E5%A4%A9%E7%8C%AB%E5%BF%AB%E9%80%92%E2%80%9D%E5%89%8D%E5%8F%B0%E7%8E%A9%E6%B3%95%E7%A4%BA%E4%BE%8B/" rel="next" title="“天猫快递”前台玩法示例">
+      “天猫快递”前台玩法示例 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#看问题的视角"><span class="nav-number">1.</span> <span class="nav-text"> 看问题的视角</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从传统企业的发展谈起"><span class="nav-number">2.</span> <span class="nav-text"> 从传统企业的发展谈起</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#crm"><span class="nav-number">2.1.</span> <span class="nav-text"> CRM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#直播电商"><span class="nav-number">2.2.</span> <span class="nav-text"> 直播电商</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#社交电商"><span class="nav-number">3.</span> <span class="nav-text"> 社交电商</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#场景化的社区kol"><span class="nav-number">3.1.</span> <span class="nav-text"> 场景化的社区KOL</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ip化生产"><span class="nav-number">3.2.</span> <span class="nav-text"> IP化生产</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修车大爷"><span class="nav-number">3.3.</span> <span class="nav-text"> 修车大爷</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#直播电商-2"><span class="nav-number">3.4.</span> <span class="nav-text"> 直播电商</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s2b2c"><span class="nav-number">4.</span> <span class="nav-text"> S2B2C</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Uglyboy"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Uglyboy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8123/" title="HASS → https:&#x2F;&#x2F;uglyboy.cn:8123" rel="noopener" target="_blank"><i class="fa fa-building fa-fw"></i>HASS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:9000/" title="容器 → https:&#x2F;&#x2F;uglyboy.cn:9000" rel="noopener" target="_blank"><i class="fa fa-server fa-fw"></i>容器</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/AriaNg/" title="下载 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;AriaNg&#x2F;" rel="noopener" target="_blank"><i class="fas fa-cloud-download-alt fa-fw"></i>下载</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/phpMyAdmin/" title="数据库 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;phpMyAdmin&#x2F;" rel="noopener" target="_blank"><i class="fa fa-database fa-fw"></i>数据库</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uglyboy</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">136k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:04</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

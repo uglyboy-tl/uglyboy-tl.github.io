@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.uglyboy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="对于极客而言，没什么比拥有个人主页展示自己别致的想法和探索的精神更令人向往了。 相比于购买VPS搭LAMP环境架设个人主页的昂贵和复杂，其实利用好 GitHub 的 page 功能搭建免费主页基本可以满足大部分个人用户的需求。 本文将详细介绍一下如何利用 GitHub 和 Travis CLI 搭建一个可自动部署的 Hexo 博客系统。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo + Github + Travis CLI 搭建免费博客系统">
+<meta property="og:url" content="https://www.uglyboy.cn/2020/01/09/Hexo%20+%20Github%20+%20Travis%20CLI%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="阿丑の小窝">
+<meta property="og:description" content="对于极客而言，没什么比拥有个人主页展示自己别致的想法和探索的精神更令人向往了。 相比于购买VPS搭LAMP环境架设个人主页的昂贵和复杂，其实利用好 GitHub 的 page 功能搭建免费主页基本可以满足大部分个人用户的需求。 本文将详细介绍一下如何利用 GitHub 和 Travis CLI 搭建一个可自动部署的 Hexo 博客系统。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.uglyboy.cn/2020114/repo-actions-settings.png">
+<meta property="og:image" content="https://image.uglyboy.cn/2020114/save-custom-domain.png">
+<meta property="og:image" content="https://image.uglyboy.cn/2020114/enforce-https-custom-domains.png">
+<meta property="og:image" content="https://image.uglyboy.cn/2020121/Travis%20CI.png">
+<meta property="og:image" content="https://image.uglyboy.cn/2020/01/14/15790009056243.jpg">
+<meta property="article:published_time" content="2020-01-09T23:23:26.000Z">
+<meta property="article:modified_time" content="2021-02-01T08:40:02.369Z">
+<meta property="article:author" content="Uglyboy">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="NodeJS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image.uglyboy.cn/2020114/repo-actions-settings.png">
+
+<link rel="canonical" href="https://www.uglyboy.cn/2020/01/09/Hexo%20+%20Github%20+%20Travis%20CLI%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hexo + Github + Travis CLI 搭建免费博客系统 | 阿丑の小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="阿丑の小窝" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿丑の小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个梦想的自留地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.uglyboy.cn/2020/01/09/Hexo%20+%20Github%20+%20Travis%20CLI%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Uglyboy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿丑の小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo + Github + Travis CLI 搭建免费博客系统
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-10 07:23:26" itemprop="dateCreated datePublished" datetime="2020-01-10T07:23:26+08:00">2020-01-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BF%83%E5%BE%97/" itemprop="url" rel="index"><span itemprop="name">技术心得</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>对于极客而言，没什么比拥有个人主页展示自己别致的想法和探索的精神更令人向往了。<br />
+相比于购买VPS搭LAMP环境架设个人主页的昂贵和复杂，其实利用好 GitHub 的 page 功能搭建免费主页基本可以满足大部分个人用户的需求。</p>
+<p>本文将详细介绍一下如何利用 GitHub 和 Travis CLI 搭建一个可自动部署的 Hexo 博客系统。</p>
+<a id="more"></a>
+<h3 id="hexo"><a class="markdownIt-Anchor" href="#hexo"></a> Hexo</h3>
+<h4 id="hexo是什么"><a class="markdownIt-Anchor" href="#hexo是什么"></a> Hexo是什么？</h4>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h4 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h4>
+<h5 id="安装前提"><a class="markdownIt-Anchor" href="#安装前提"></a> 安装前提</h5>
+<p>安装 Hexo 相当简单，只需要先安装下列应用程序即可：</p>
+<ul>
+<li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (Node.js 版本需不低于 8.10，建议使用 Node.js 10.0 及以上版本)</li>
+<li><a href="https://git-scm.com" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<h5 id="安装hexo"><a class="markdownIt-Anchor" href="#安装hexo"></a> 安装Hexo</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h4 id="建站"><a class="markdownIt-Anchor" href="#建站"></a> 建站</h4>
+<p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<h5 id="_configyml"><a class="markdownIt-Anchor" href="#_configyml"></a> _config.yml</h5>
+<p>网站的 <a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">配置</a> 信息，您可以在此配置大部分的参数。</p>
+<h5 id="packagejson"><a class="markdownIt-Anchor" href="#packagejson"></a> package.json</h5>
+<p>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，</p>
+<h5 id="scaffolds"><a class="markdownIt-Anchor" href="#scaffolds"></a> scaffolds</h5>
+<p><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">模版</a> 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
+<p>Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。</p>
+<h5 id="source"><a class="markdownIt-Anchor" href="#source"></a> source</h5>
+<p>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<h5 id="themes"><a class="markdownIt-Anchor" href="#themes"></a> themes</h5>
+<p>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
+<h4 id="常用命令"><a class="markdownIt-Anchor" href="#常用命令"></a> 常用命令</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一个网站</span></span><br><span class="line">hexo init [folder]</span><br><span class="line"><span class="comment"># 新建一篇文章</span></span><br><span class="line">hexo new [layout] &lt;title&gt;</span><br><span class="line"><span class="comment"># 生成静态文件</span></span><br><span class="line">hexo generate</span><br><span class="line"><span class="comment"># 启动服务器</span></span><br><span class="line">hexo server</span><br><span class="line"><span class="comment"># 部署网站</span></span><br><span class="line">hexo deploy</span><br><span class="line"><span class="comment"># 清除缓存文件 (db.json) 和已生成的静态文件 (public)。</span></span><br><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<h3 id="github-的-pages-服务"><a class="markdownIt-Anchor" href="#github-的-pages-服务"></a> GitHub 的 Pages 服务</h3>
+<p><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> 是 GitHub 提供的免费静态网页服务，支持静态脚本，可以绑定域名并支持 ssl 也就是 https ，并且 <strong>不限流量</strong>。</p>
+<h4 id="开始你的-pages-之旅"><a class="markdownIt-Anchor" href="#开始你的-pages-之旅"></a> 开始你的 Pages 之旅</h4>
+<blockquote>
+<p>注：个人帐号只能搭建一个个人网站</p>
+</blockquote>
+<h5 id="创建一个-repository"><a class="markdownIt-Anchor" href="#创建一个-repository"></a> 创建一个 repository</h5>
+<p>创建的 repository 需要以 <a href="http://username.github.io" target="_blank" rel="noopener">username.github.io</a> 命名。这里的 username 是你的 github 帐号名。</p>
+<h5 id="创建本地代码仓"><a class="markdownIt-Anchor" href="#创建本地代码仓"></a> 创建本地代码仓</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/username/username.github.io</span><br></pre></td></tr></table></figure>
+<h5 id="创建-hello-world"><a class="markdownIt-Anchor" href="#创建-hello-world"></a> 创建 Hello World</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> username.github.io</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World"</span> &gt; index.html</span><br></pre></td></tr></table></figure>
+<h5 id="推送到远程代码仓github"><a class="markdownIt-Anchor" href="#推送到远程代码仓github"></a> 推送到远程代码仓（github）</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">"Initial commit"</span></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h5 id="预览效果"><a class="markdownIt-Anchor" href="#预览效果"></a> 预览效果</h5>
+<p>打开一个浏览器并浏览 https://<em>username</em>.github.io</p>
+<h4 id="绑定自己的域名并开启-https"><a class="markdownIt-Anchor" href="#绑定自己的域名并开启-https"></a> 绑定自己的域名并开启 https</h4>
+<p>github 支持的 自定义域名只包括顶级域名和二级域名：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">支持的子定语域名类型</th>
+<th style="text-align:left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>www</code> 二级域名</td>
+<td style="text-align:left"><code>www.example.com</code></td>
+</tr>
+<tr>
+<td style="text-align:left">自定义二级域名</td>
+<td style="text-align:left"><code>blog.example.com</code></td>
+</tr>
+<tr>
+<td style="text-align:left">顶级域名</td>
+<td style="text-align:left"><code>example.com</code></td>
+</tr>
+</tbody>
+</table>
+<h5 id="绑定二级域名"><a class="markdownIt-Anchor" href="#绑定二级域名"></a> 绑定二级域名</h5>
+<ol>
+<li>在 GitHub 中，跳转到你的网站的仓库中。</li>
+<li>在你的仓库名字下方，点击<i class="fa fa-setting"></i> <strong>Settings</strong><br />
+<img src="https://image.uglyboy.cn/2020114/repo-actions-settings.png" alt="repo-actions-settings" /></li>
+<li>在 <strong>Custom domain</strong> 下面, 填写你的自定义域名，并点击保存。 这个动作将会在你的仓库根目录中创建一个 CNAME 文件记录你的域名，并提交发布。<br />
+<img src="https://image.uglyboy.cn/2020114/save-custom-domain.png" alt="save-custom-domain" /></li>
+<li>到你的 DNS 解析服务器中设置一个 CNAME 将你的域名 <a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a> 指向  &lt;user&gt;.github.io</li>
+</ol>
+<h5 id="开启-https"><a class="markdownIt-Anchor" href="#开启-https"></a> 开启 https</h5>
+<p>这个相对比较简单，当你的域名配置好了，勾选下面的 <strong>Enforce HTTPS</strong> 就可以了，剩下的就是等待证书验证，这个会在24小时内完成。<br />
+<img src="https://image.uglyboy.cn/2020114/enforce-https-custom-domains.png" alt="enforce-https-custom-domains" /></p>
+<h4 id="hexo-自动部署到-github-的-pages-服务"><a class="markdownIt-Anchor" href="#hexo-自动部署到-github-的-pages-服务"></a> Hexo 自动部署到 GitHub 的 Pages 服务</h4>
+<h5 id="安装-hexo-deployer-git-插件"><a class="markdownIt-Anchor" href="#安装-hexo-deployer-git-插件"></a> 安装 hexo-deployer-git 插件</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h5 id="修改-hexo-的-_configyml"><a class="markdownIt-Anchor" href="#修改-hexo-的-_configyml"></a> 修改 Hexo 的 _config.yml</h5>
+<p>调整自动部署相关的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git </span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>注意：这里的 <em>username</em> 记得换成你自己的 github 用户名。</p>
+<h5 id="免密自动部署"><a class="markdownIt-Anchor" href="#免密自动部署"></a> 免密自动部署</h5>
+<p>使用ssh-keygen生成私钥和公钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>登录Github，点击头像下的settings，添加ssh,新建一个new ssh key，将id_rsa.pub文件里的内容复制上去。</p>
+<p>输入ssh -T <a href="mailto:git@github.com">git@github.com</a>，测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h3 id="travis-cli-自动部署-hexo"><a class="markdownIt-Anchor" href="#travis-cli-自动部署-hexo"></a> Travis CLI 自动部署 Hexo</h3>
+<blockquote>
+<p>本节首先介绍一下多终端管理 Hexo 的解决方案。但是这样的解决方案也仅解决了多地的代码问题，不同的终端下依然需要搭建 Hexo 的生成环境，并且在提交源码后，还需要执行生成命令。</p>
+</blockquote>
+<blockquote>
+<p>Travis CLI 可以利用 github 的提交动作触发自动部署，在云端自动生成相关的 Hexo 代码环境，并执行部署的命令。</p>
+</blockquote>
+<h4 id="多终端管理-hexo"><a class="markdownIt-Anchor" href="#多终端管理-hexo"></a> 多终端管理 Hexo</h4>
+<p>hexo 正常发布动作是同步 public 文件夹 到 github 的站点远程仓库的，而原始文件则是在项目的根文件夹下。所以如果想多终端都可以编辑发布 hexo，需要将根目录纳入到远程管理中。</p>
+<blockquote>
+<p>为了项目更容易管理，笔者将源文件依然放在 github 的站点远程仓库中管理。这件事不是必须的，读者可以按照自己的喜好安排版本管理方式。</p>
+</blockquote>
+<h5 id="初始化仓库及提交"><a class="markdownIt-Anchor" href="#初始化仓库及提交"></a> 初始化仓库及提交</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化本地仓库</span></span><br><span class="line">git init</span><br><span class="line"><span class="comment"># 添加本地所有文件到仓库</span></span><br><span class="line">git add .</span><br><span class="line"><span class="comment"># 添加commit</span></span><br><span class="line">git commit -m <span class="string">"Blog Source Hexo"</span></span><br><span class="line"><span class="comment"># 添加本地仓库分支hexo</span></span><br><span class="line">git branch hexo </span><br><span class="line"><span class="comment"># 切换到hexo分支上</span></span><br><span class="line">git checkout hexo  </span><br><span class="line"><span class="comment"># 添加远程仓库 &lt;server&gt; 是在线仓库的地址 origin是本地分支,remote add操作会将本地仓库映射到云端</span></span><br><span class="line">git remote add origin https://github.com/username/username.github.io.git </span><br><span class="line"><span class="comment"># 将本地仓库的源文件推送到远程仓库hexo分支</span></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+<h5 id="其他终端的工作流程"><a class="markdownIt-Anchor" href="#其他终端的工作流程"></a> 其他终端的工作流程</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Hexo</span></span><br><span class="line">npm install -g hexo</span><br><span class="line"><span class="comment"># 将Github中hexo分支clone到本地</span></span><br><span class="line">git <span class="built_in">clone</span> -b hexo git@github.com:username/username.github.io.git  </span><br><span class="line"><span class="built_in">cd</span> username.github.io</span><br><span class="line"><span class="comment"># 安装必要的所需组件</span></span><br><span class="line">npm install</span><br><span class="line"><span class="comment"># 创建一篇新博客</span></span><br><span class="line">hexo new post <span class="string">"new blog name"</span></span><br><span class="line">git add <span class="built_in">source</span></span><br><span class="line">git commit -m <span class="string">"XX"</span></span><br><span class="line"><span class="comment"># git push origin hexo</span></span><br><span class="line">git push</span><br><span class="line"><span class="comment"># 发布</span></span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<h4 id="travis-cli-配置"><a class="markdownIt-Anchor" href="#travis-cli-配置"></a> Travis CLI 配置</h4>
+<h5 id="travis-cli-网站基础设置"><a class="markdownIt-Anchor" href="#travis-cli-网站基础设置"></a> Travis CLI 网站基础设置</h5>
+<ol>
+<li>使用 github 帐号登陆 <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis CLI</a></li>
+<li>登录后在主界面点击 My Repositories 旁边的&quot;+&quot;号:<br />
+<img src="https://image.uglyboy.cn/2020121/Travis%20CI.png" alt="Travis CI" /></li>
+<li>选择你在Github的放博客源码的仓库，打开右侧的开关</li>
+<li>然后点旁边的 Setting 按钮，进入设置的界面。</li>
+</ol>
+<h5 id="项目设置-travisyml"><a class="markdownIt-Anchor" href="#项目设置-travisyml"></a> 项目设置 .travis.yml</h5>
+<p>在项目的根目录添加 .travis.yml 文件如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">language: node_js</span><br><span class="line">node_js:</span><br><span class="line">  - &quot;10&quot;</span><br><span class="line"></span><br><span class="line">cache:</span><br><span class="line">  directories:</span><br><span class="line">    - node_modules</span><br><span class="line"></span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">    - hexo</span><br><span class="line"></span><br><span class="line">before_install:</span><br><span class="line">  - npm install -g hexo</span><br><span class="line"></span><br><span class="line">before_script:</span><br><span class="line">  - git config --global user.name &#39;username&#39;</span><br><span class="line">  - git config --global user.email &#39;useremail&#39; # 改成你的邮箱</span><br><span class="line">  - git config --global url.&quot;https:&#x2F;&#x2F;username:$&#123;passwd&#125;@github.com&#x2F;&quot;.insteadOf &quot;https:&#x2F;&#x2F;github.com&#x2F;&quot;</span><br><span class="line">  - git clone --branch master https:&#x2F;&#x2F;github.com&#x2F;Longxr&#x2F;Longxr.github.io.git public</span><br><span class="line"></span><br><span class="line">install:</span><br><span class="line">  - npm install</span><br><span class="line"></span><br><span class="line">script:</span><br><span class="line">  - hexo g -d</span><br></pre></td></tr></table></figure>
+<p>其中 ${passwd} 是设置在 Travis CLI 项目环境变量里的参数，是 github 的密码。</p>
+<p>也有人推荐用 Github 的 Access Token 方案，似乎更安全一些，但是笔者尝试时一直遇到<em>帐号密码错误</em>的问题。</p>
+<h5 id="新的终端工作流"><a class="markdownIt-Anchor" href="#新的终端工作流"></a> 新的终端工作流</h5>
+<p>终端只需要支持 git 即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将Github中hexo分支clone到本地</span></span><br><span class="line">git <span class="built_in">clone</span> -b hexo git@github.com:username/username.github.io.git  </span><br><span class="line"><span class="built_in">cd</span> username.github.io</span><br><span class="line"><span class="comment"># 创建一篇新博客</span></span><br><span class="line">hexo new post <span class="string">"new blog name"</span></span><br><span class="line">git add <span class="built_in">source</span></span><br><span class="line">git commit -m <span class="string">"new blog"</span></span><br><span class="line"><span class="comment"># git push origin hexo</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p>具体的构建过程都可以在 <a href="https://travis-ci.org" target="_blank" rel="noopener">Travis CLI</a> 中看到，包括调试时所需查看的错误信息。</p>
+<h3 id="ipad-进行博客创作"><a class="markdownIt-Anchor" href="#ipad-进行博客创作"></a> iPad 进行博客创作</h3>
+<h4 id="working-copy"><a class="markdownIt-Anchor" href="#working-copy"></a> Working Copy</h4>
+<p>iOS 下的 git 管理工具，最重要的是不仅可以查看，还可以 push！！（虽然需要内购，现在价格是128人民币）<br />
+Working Copy 提供了文件管理功能，可以任由别的应用管理同步的代码仓库的内容，这样在 iPad 上就可以使用更加专业的 Markdown 编辑软件来写文章，再由 Working Copy 发布。<br />
+Working Copy 还支持捷径，进行 iOS 上的一键发布。<br />
+<img src="https://image.uglyboy.cn/2020/01/14/15790009056243.jpg" alt="" /></p>
+<h4 id="mweb"><a class="markdownIt-Anchor" href="#mweb"></a> MWeb</h4>
+<p>iOS 下优秀的 Markdown 应用很多，笔者并没有一一比对，但更早使用 WordPress 起，就一直在用 MWeb 进行博客写作。<br />
+MWeb 支持从 Working Copy 的文件路径中直接读取文档，支持七牛云本地图片上传，尤其对国内的各类图床服务都有很好的支持，硬件方面也支持 Latex 的数学公式，从各个角度来说，都是一款不错的博客应用。<br />
+Mweb 还有 Mac 版，这也是它的加分项之一。</p>
+<blockquote>
+<p>至此，一个仅用 iPad 即可进行博客管理的博客体系已经搭建完全。剩下的诸如主体的美化，性能优化等便有待各位极客朋友们自行探索了。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpeg" alt="Uglyboy 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Uglyboy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.uglyboy.cn/2020/01/09/Hexo%20+%20Github%20+%20Travis%20CLI%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/" title="Hexo + Github + Travis CLI 搭建免费博客系统">https://www.uglyboy.cn/2020/01/09/Hexo + Github + Travis CLI 搭建免费博客系统/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/NodeJS/" rel="tag"><i class="fa fa-tag"></i> NodeJS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/21/%E7%BD%91%E7%9B%98%E5%88%A9%E5%99%A8%EF%BC%9Ah5ai%20%E5%92%8C%20Syncthing/" rel="prev" title="网盘利器：h5ai 和 Syncthing">
+      <i class="fa fa-chevron-left"></i> 网盘利器：h5ai 和 Syncthing
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/03/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E8%B7%A8%E5%B9%B3%E5%8F%B0%20Docker%20%E9%95%9C%E5%83%8F/" rel="next" title="自动构建跨平台 Docker 镜像">
+      自动构建跨平台 Docker 镜像 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo"><span class="nav-number">1.</span> <span class="nav-text"> Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo是什么"><span class="nav-number">1.1.</span> <span class="nav-text"> Hexo是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text"> 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装前提"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 安装前提</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建站"><span class="nav-number">1.3.</span> <span class="nav-text"> 建站</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#_configyml"><span class="nav-number">1.3.1.</span> <span class="nav-text"> _config.yml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#packagejson"><span class="nav-number">1.3.2.</span> <span class="nav-text"> package.json</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#scaffolds"><span class="nav-number">1.3.3.</span> <span class="nav-text"> scaffolds</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#source"><span class="nav-number">1.3.4.</span> <span class="nav-text"> source</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#themes"><span class="nav-number">1.3.5.</span> <span class="nav-text"> themes</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用命令"><span class="nav-number">1.4.</span> <span class="nav-text"> 常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github-的-pages-服务"><span class="nav-number">2.</span> <span class="nav-text"> GitHub 的 Pages 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开始你的-pages-之旅"><span class="nav-number">2.1.</span> <span class="nav-text"> 开始你的 Pages 之旅</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建一个-repository"><span class="nav-number">2.1.1.</span> <span class="nav-text"> 创建一个 repository</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建本地代码仓"><span class="nav-number">2.1.2.</span> <span class="nav-text"> 创建本地代码仓</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建-hello-world"><span class="nav-number">2.1.3.</span> <span class="nav-text"> 创建 Hello World</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#推送到远程代码仓github"><span class="nav-number">2.1.4.</span> <span class="nav-text"> 推送到远程代码仓（github）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#预览效果"><span class="nav-number">2.1.5.</span> <span class="nav-text"> 预览效果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定自己的域名并开启-https"><span class="nav-number">2.2.</span> <span class="nav-text"> 绑定自己的域名并开启 https</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#绑定二级域名"><span class="nav-number">2.2.1.</span> <span class="nav-text"> 绑定二级域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#开启-https"><span class="nav-number">2.2.2.</span> <span class="nav-text"> 开启 https</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-自动部署到-github-的-pages-服务"><span class="nav-number">2.3.</span> <span class="nav-text"> Hexo 自动部署到 GitHub 的 Pages 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-hexo-deployer-git-插件"><span class="nav-number">2.3.1.</span> <span class="nav-text"> 安装 hexo-deployer-git 插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改-hexo-的-_configyml"><span class="nav-number">2.3.2.</span> <span class="nav-text"> 修改 Hexo 的 _config.yml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#免密自动部署"><span class="nav-number">2.3.3.</span> <span class="nav-text"> 免密自动部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#travis-cli-自动部署-hexo"><span class="nav-number">3.</span> <span class="nav-text"> Travis CLI 自动部署 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多终端管理-hexo"><span class="nav-number">3.1.</span> <span class="nav-text"> 多终端管理 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化仓库及提交"><span class="nav-number">3.1.1.</span> <span class="nav-text"> 初始化仓库及提交</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他终端的工作流程"><span class="nav-number">3.1.2.</span> <span class="nav-text"> 其他终端的工作流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#travis-cli-配置"><span class="nav-number">3.2.</span> <span class="nav-text"> Travis CLI 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#travis-cli-网站基础设置"><span class="nav-number">3.2.1.</span> <span class="nav-text"> Travis CLI 网站基础设置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#项目设置-travisyml"><span class="nav-number">3.2.2.</span> <span class="nav-text"> 项目设置 .travis.yml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新的终端工作流"><span class="nav-number">3.2.3.</span> <span class="nav-text"> 新的终端工作流</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipad-进行博客创作"><span class="nav-number">4.</span> <span class="nav-text"> iPad 进行博客创作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#working-copy"><span class="nav-number">4.1.</span> <span class="nav-text"> Working Copy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mweb"><span class="nav-number">4.2.</span> <span class="nav-text"> MWeb</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Uglyboy"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Uglyboy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8123/" title="HASS → https:&#x2F;&#x2F;uglyboy.cn:8123" rel="noopener" target="_blank"><i class="fa fa-building fa-fw"></i>HASS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:9000/" title="容器 → https:&#x2F;&#x2F;uglyboy.cn:9000" rel="noopener" target="_blank"><i class="fa fa-server fa-fw"></i>容器</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/AriaNg/" title="下载 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;AriaNg&#x2F;" rel="noopener" target="_blank"><i class="fas fa-cloud-download-alt fa-fw"></i>下载</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/phpMyAdmin/" title="数据库 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;phpMyAdmin&#x2F;" rel="noopener" target="_blank"><i class="fa fa-database fa-fw"></i>数据库</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uglyboy</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">136k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:04</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

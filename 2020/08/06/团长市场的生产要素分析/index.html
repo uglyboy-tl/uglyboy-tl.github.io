@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.uglyboy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="上次竞争策略拆解后得到了一个核心结论，用相对精确的描述来表达，叫做“在双边市场均衡态下，应对团长端市场（这是个单边饱和的双边市场）做投资”。简单说，就是优先考虑如何扩大团长端市场，用团长端市场再去BD货和供应链。这块跟大部分同学一对一都交流过了。但具体实施过程中，还面临一个现实的问题：如果面临竞争对手烧钱补贴，或者短期内我们的货品没有价格优势，如何扩大团长端的市场？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="团长市场的生产要素分析">
+<meta property="og:url" content="https://www.uglyboy.cn/2020/08/06/%E5%9B%A2%E9%95%BF%E5%B8%82%E5%9C%BA%E7%9A%84%E7%94%9F%E4%BA%A7%E8%A6%81%E7%B4%A0%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="阿丑の小窝">
+<meta property="og:description" content="上次竞争策略拆解后得到了一个核心结论，用相对精确的描述来表达，叫做“在双边市场均衡态下，应对团长端市场（这是个单边饱和的双边市场）做投资”。简单说，就是优先考虑如何扩大团长端市场，用团长端市场再去BD货和供应链。这块跟大部分同学一对一都交流过了。但具体实施过程中，还面临一个现实的问题：如果面临竞争对手烧钱补贴，或者短期内我们的货品没有价格优势，如何扩大团长端的市场？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-06T23:24:09.000Z">
+<meta property="article:modified_time" content="2021-02-01T08:40:02.369Z">
+<meta property="article:author" content="Uglyboy">
+<meta property="article:tag" content="社区团购">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.uglyboy.cn/2020/08/06/%E5%9B%A2%E9%95%BF%E5%B8%82%E5%9C%BA%E7%9A%84%E7%94%9F%E4%BA%A7%E8%A6%81%E7%B4%A0%E5%88%86%E6%9E%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>团长市场的生产要素分析 | 阿丑の小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="阿丑の小窝" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿丑の小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个梦想的自留地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.uglyboy.cn/2020/08/06/%E5%9B%A2%E9%95%BF%E5%B8%82%E5%9C%BA%E7%9A%84%E7%94%9F%E4%BA%A7%E8%A6%81%E7%B4%A0%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Uglyboy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿丑の小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          团长市场的生产要素分析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-07 07:24:09" itemprop="dateCreated datePublished" datetime="2020-08-07T07:24:09+08:00">2020-08-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">解决方案</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>上次竞争策略拆解后得到了一个核心结论，用相对精确的描述来表达，叫做“<strong>在双边市场均衡态下，应对团长端市场（这是个单边饱和的双边市场）做投资</strong>”。简单说，就是优先考虑如何扩大团长端市场，用团长端市场再去BD货和供应链。这块跟大部分同学一对一都交流过了。但具体实施过程中，还面临一个现实的问题：<strong>如果面临竞争对手烧钱补贴，或者短期内我们的货品没有价格优势，如何扩大团长端的市场</strong>？</p>
+<a id="more"></a>
+<p>对团长而言，可以构成吸引力的生产要素有：</p>
+<ol>
+<li>货（包含货的价格、货的稀缺性、货的适配度）</li>
+<li>单笔利润（佣金）</li>
+<li>产权归属(是不是自己的生意)</li>
+<li>经营的便捷性（包括SaaS等多种服务，其中很重要的一件事是经营门槛）</li>
+<li>营销玩法（提升对消费者的吸引力）</li>
+</ol>
+<p>对这几点逐一做简要的解读：</p>
+<h4 id="货"><a class="markdownIt-Anchor" href="#货"></a> 货</h4>
+<p>货对于团长产生吸引力，其实本质是货将会对消费者产生吸引力，进而产生了对团长的吸引力。所以这里需要考虑的是货如何对消费者产生的吸引力，然后才能针对性的进行动作。</p>
+<ol>
+<li><strong>货的价格</strong>。注意这里的货的价格是指对消费者的吸引力，不是指货便宜后团长是否能赚得更多（赚钱这个放到下一节说）。而真实的消费者是不具有完全市场信息的，他们对价格的理解是基于锚定价格的，例如：一件团购的耐克鞋多少算便宜，不是从供应链成本来计算的，而是看官方门店、天猫旗舰店或者PDD中的货品价格来衡量的。所以类似网易严选、名创优品，我们觉得便宜的根本原因是潜意识中在把他们同无印良品的价格做对比。所以货的价格方面，重点不是越便宜越好，而是跟锚定价格对比的效果。</li>
+<li><strong>货的稀缺性</strong>。简言之就是稀缺资源哪怕没有任何价格优势，也会对消费者非常有吸引力。例如，如果能社区团明星演唱会门票。类似的，限量IP联名款，其实是很适合的货品类型，而且是当前社区团中还不太有人涉及的品类。</li>
+<li><strong>货的适配度</strong>。对于一个小B而言，不同时节卖什么好卖，是很重要的。这块通常是依靠完善的产品库，然后让小B自己选品来解决的。我们有算法能力，还是比较容易创造更好的对小B的吸引力。</li>
+</ol>
+<h4 id="单笔利润"><a class="markdownIt-Anchor" href="#单笔利润"></a> 单笔利润</h4>
+<p>在很多情况下，小B通常会觉得能卖多少单是自己的能力，所以他们进行平台间对比时，除了平台之间的货品吸引力、服务等方面的对比，会陷入一个思维误区：哪里我单笔赚得多，我就会选择哪里。当然，这种判断是短期的，从长期来看，大家最终一定还会回归到比较总利润的模式。长期总利润这个是比拼供应链综合能力，并不是短期努力能解决的，所以相对可运营的部分，是单笔利润这件事。</p>
+<p>影响单笔利润的因素比较多，包括进货价格、利润率、仓配成本等等。其中主要提一个点：同品类下，高客单高毛利的货品，会更吸引小B。具体一点的例子：例如五常大米（品牌货）会比其他大米贵，但它依旧对小B更有吸引力（这个例子的因素很综合，大家大概去体会我说的意思）；</p>
+<h4 id="产权归属"><a class="markdownIt-Anchor" href="#产权归属"></a> 产权归属</h4>
+<p>通俗说法，就是这是不是自己的生意。这里更多的对这件事做一个解读，具体实操方面我会再写一个文档。</p>
+<p>例如，土地集体所有制的时候大家种地的态度和联产承包责任制时大家对种地的态度，是截然不同的。只是归属产权，对小B的吸引力和驱动力是巨大的。再例如，给别人打工和创业的心态是完全不一样的，不在于最终赚的钱的多少。</p>
+<p>所以好的模式带来的吸引力很可能就会比单纯赚多少钱这件事具有对团长更强的吸引力。用模式应对巨头们的价格补贴应该是一个非常合适的竞争手段（巨头是市场领先者，但他们的心态和地位决定了他们不会将产权放手给团长，一定会将团长的命脉把握在自己的手里，参考淘宝天猫的二选一，所以我们做这件事，他们不会跟进follow，这部分是有可能形成稳定的竞争优势的）</p>
+<h4 id="经营的便捷性"><a class="markdownIt-Anchor" href="#经营的便捷性"></a> 经营的便捷性</h4>
+<p>这块要简单理解，可以就当成SaaS服务。更好的SaaS服务会给小B降本提效，自然就会有更好的吸引力。</p>
+<p>我这里提一个现在社区团购中还没有太被重视的一个点：小B的入门门槛。为啥现在社区团、社交团以宝妈为主？广场舞大妈，洗车大爷为什么没能进入这个行业？因为成为团长还是需要门槛的，而且当下来说，门槛并不低。</p>
+<p>如果我们可以做好降门槛这件事，能喊出口号：人人都可以做社区团长。对于存量市场而言，有价值，但不显著；但对于增量市场而言，这里的优势会非常的巨大。</p>
+<p>注：门槛的这件事情，是互联网行业的老毛病了。在出现增长黑客这个说法之前，几乎没谁留意APP的使用门槛问题，所以增长黑客出现后，大家对门槛问题做了些很基础和简单的改进，就能大幅提升DAU，这才让增长黑客这个概念火起来的。</p>
+<h4 id="营销玩法"><a class="markdownIt-Anchor" href="#营销玩法"></a> 营销玩法</h4>
+<p>对消费者而言，能形成吸引力的，一方面是货，另一方面就是营销玩法。于是营销玩法也会形成对团长的吸引力。</p>
+<p>简单的例子：双十一平台搞不搞营销活动？平台层面给不给消费者发优惠券？</p>
+<p>还有很多日常的营销玩法，比如游戏化相关的模式：不同团长之间的PK赛，用户买得多实惠就多的营销模式等等。这部分更偏运营实操层面，后续等我们有了具体的运营团队，再针对这个问题进行沟通和设计。</p>
+<h3 id="团长的差异性"><a class="markdownIt-Anchor" href="#团长的差异性"></a> 团长的差异性</h3>
+<p>对不同的团长而言，吸引力的要素是不同的。所以如果从精细化运营的角度来看，是应该对团长进行分类，再针对性的分析的。这里简单谈两类很值得注意的团长：</p>
+<h4 id="头部团长"><a class="markdownIt-Anchor" href="#头部团长"></a> 头部团长</h4>
+<p>头部团长数量少，但GMV占比高，对平台的影响力大（平台很不希望头部团长流失）。一般头部团长都是盈利的，他们考虑的想赚更多的钱的方式不是提效，而是扩大规模。头部团长往往是风险投资型，考虑问题倾向于：最好情况下的收益是否更大。</p>
+<p>所以对头部团长而言，关注点会更加集中在产权归属、发展空间、如何做大做强的问题。例如：一个团长做得好，有没有可能最终做成一个&quot;淘品牌&quot;？有没有可能盘下其他的团长，成为代理商？有没有被平台割韭菜的风险？有没有可能接入自己的供货商（可能有稀缺资源或者价格优势）？有没有可能要求平台对他自己的营销玩法做功能开发设计？</p>
+<p>上述问题的答案，原则上来说，答案都是有可能性。但实操层面可能会有种种问题，都需要做一些设计才能避免风险。</p>
+<h4 id="长尾团长"><a class="markdownIt-Anchor" href="#长尾团长"></a> 长尾团长</h4>
+<p>长尾团长总数多，GMV总占比也非常的高。对于长尾团长的管理一定是利用规则（产品）的方式去运营，而不是一对一针对性的解决对方的问题。对于长尾团长而言，更关注如何提效（个人成长），而不是扩规模。他们往往是风险规避型，考虑问题倾向于：最坏情况下，收益是否可以接受（平台间比较，最差情况下，哪个更好一点）。</p>
+<p>所以针对长尾团长，培养机制、兜底方案、单笔利润、SaaS、营销玩法等等是更加重要的。也就是说针对这些问题，需要设计更加产品化的解决方案。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpeg" alt="Uglyboy 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Uglyboy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.uglyboy.cn/2020/08/06/%E5%9B%A2%E9%95%BF%E5%B8%82%E5%9C%BA%E7%9A%84%E7%94%9F%E4%BA%A7%E8%A6%81%E7%B4%A0%E5%88%86%E6%9E%90/" title="团长市场的生产要素分析">https://www.uglyboy.cn/2020/08/06/团长市场的生产要素分析/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%A4%BE%E5%8C%BA%E5%9B%A2%E8%B4%AD/" rel="tag"><i class="fa fa-tag"></i> 社区团购</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/07/%E5%9B%A2%E9%95%BF%E4%BA%A7%E6%9D%83%E5%88%86%E9%85%8D%E6%A8%A1%E5%BC%8F/" rel="prev" title="团长产权分配模式">
+      <i class="fa fa-chevron-left"></i> 团长产权分配模式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/29/%E7%94%A8%E2%80%9C%E7%AB%9E%E4%BA%89%E7%AD%96%E7%95%A5%E2%80%9D%E5%AF%B9%E7%A4%BE%E5%8C%BA%E5%9B%A2%E8%B4%AD%E6%A8%A1%E5%BC%8F%E8%A7%A3%E6%9E%84/" rel="next" title="用“竞争策略”对社区团购模式解构">
+      用“竞争策略”对社区团购模式解构 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#货"><span class="nav-number">1.</span> <span class="nav-text"> 货</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单笔利润"><span class="nav-number">2.</span> <span class="nav-text"> 单笔利润</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#产权归属"><span class="nav-number">3.</span> <span class="nav-text"> 产权归属</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#经营的便捷性"><span class="nav-number">4.</span> <span class="nav-text"> 经营的便捷性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#营销玩法"><span class="nav-number">5.</span> <span class="nav-text"> 营销玩法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#团长的差异性"><span class="nav-number"></span> <span class="nav-text"> 团长的差异性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#头部团长"><span class="nav-number">1.</span> <span class="nav-text"> 头部团长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#长尾团长"><span class="nav-number">2.</span> <span class="nav-text"> 长尾团长</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Uglyboy"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Uglyboy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8123/" title="HASS → https:&#x2F;&#x2F;uglyboy.cn:8123" rel="noopener" target="_blank"><i class="fa fa-building fa-fw"></i>HASS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:9000/" title="容器 → https:&#x2F;&#x2F;uglyboy.cn:9000" rel="noopener" target="_blank"><i class="fa fa-server fa-fw"></i>容器</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/AriaNg/" title="下载 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;AriaNg&#x2F;" rel="noopener" target="_blank"><i class="fas fa-cloud-download-alt fa-fw"></i>下载</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/phpMyAdmin/" title="数据库 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;phpMyAdmin&#x2F;" rel="noopener" target="_blank"><i class="fa fa-database fa-fw"></i>数据库</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uglyboy</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">136k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:04</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

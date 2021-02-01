@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.uglyboy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="使用 Docker 时，往往需要自己定制很多开发运行环境，而定制 Image 就必须要自己写 Dockerfile ，但每次修改完 Dockerfile，都需要一连串的操作推送和拉取镜像。 本文将介绍利用 Github 自动构建 Docker Image，简化修改 Dockerfile 后的各类操作。配合 watchtower 则可以实现自动升级镜像。另一方面，因为 Github 构建镜像只能使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动构建跨平台 Docker 镜像">
+<meta property="og:url" content="https://www.uglyboy.cn/2020/01/03/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E8%B7%A8%E5%B9%B3%E5%8F%B0%20Docker%20%E9%95%9C%E5%83%8F/index.html">
+<meta property="og:site_name" content="阿丑の小窝">
+<meta property="og:description" content="使用 Docker 时，往往需要自己定制很多开发运行环境，而定制 Image 就必须要自己写 Dockerfile ，但每次修改完 Dockerfile，都需要一连串的操作推送和拉取镜像。 本文将介绍利用 Github 自动构建 Docker Image，简化修改 Dockerfile 后的各类操作。配合 watchtower 则可以实现自动升级镜像。另一方面，因为 Github 构建镜像只能使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-03T03:04:24.000Z">
+<meta property="article:modified_time" content="2021-02-01T08:40:02.369Z">
+<meta property="article:author" content="Uglyboy">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="GitHub">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.uglyboy.cn/2020/01/03/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E8%B7%A8%E5%B9%B3%E5%8F%B0%20Docker%20%E9%95%9C%E5%83%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>自动构建跨平台 Docker 镜像 | 阿丑の小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="阿丑の小窝" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿丑の小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个梦想的自留地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.uglyboy.cn/2020/01/03/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E8%B7%A8%E5%B9%B3%E5%8F%B0%20Docker%20%E9%95%9C%E5%83%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Uglyboy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿丑の小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自动构建跨平台 Docker 镜像
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-03 11:04:24" itemprop="dateCreated datePublished" datetime="2020-01-03T11:04:24+08:00">2020-01-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BF%83%E5%BE%97/" itemprop="url" rel="index"><span itemprop="name">技术心得</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>使用 Docker 时，往往需要自己定制很多开发运行环境，而定制 Image 就必须要自己写 Dockerfile ，但每次修改完 Dockerfile，都需要一连串的操作推送和拉取镜像。<br />
+本文将介绍利用 Github 自动构建 Docker Image，简化修改 Dockerfile 后的各类操作。配合 watchtower 则可以实现自动升级镜像。另一方面，因为 Github 构建镜像只能使用 amd64 环境，而笔者常用设备之一是树莓派，所以本文也包含了如何跨平台构建 Docker 镜像，以及合并镜像为多平台镜像的内容</p>
+<a id="more"></a>
+<h3 id="github-自动构建镜像"><a class="markdownIt-Anchor" href="#github-自动构建镜像"></a> Github 自动构建镜像</h3>
+<h4 id="创建镜像-dockerfile-对应的-repo"><a class="markdownIt-Anchor" href="#创建镜像-dockerfile-对应的-repo"></a> 创建镜像 Dockerfile 对应的 repo</h4>
+<p>Dockerfile文件的内容这里就不涉及了</p>
+<h4 id="连接服务"><a class="markdownIt-Anchor" href="#连接服务"></a> 连接服务</h4>
+<p>首先需要绑定一个仓库服务（Github）：</p>
+<ol>
+<li>登录 Docker Hub；</li>
+<li>选择右上角你的用户名 &gt; Account Settings &gt; Linked Accounts；</li>
+<li>选择需要连接的仓库服务（目前只支持 Github 和 BitBucket）；</li>
+<li>这时候需要授权，点击授权就可以了。</li>
+</ol>
+<h4 id="创建自动构建"><a class="markdownIt-Anchor" href="#创建自动构建"></a> 创建自动构建</h4>
+<ol>
+<li>选择 Repositories</li>
+<li>点击 Create Repository</li>
+<li>基本设置完成后，在 Build Settings 中选择 Github；</li>
+<li>接下来会列出 User/Organizations 的所有项目，从中选择你需要的构建的项目（包含 Dockerfile）；</li>
+<li>在 BUILD RULES 中点击添加，然后修改调整成合适自己的配置；</li>
+<li>最后点击创建就可以了。</li>
+</ol>
+<h3 id="构建-arm-平台的镜像"><a class="markdownIt-Anchor" href="#构建-arm-平台的镜像"></a> 构建 arm 平台的镜像</h3>
+<p>Docker Hub 的构建环境时 x86_64 平台的，所以生成的镜像也是 x86_64 环境的，一般会被记为 amd64。但是这种镜像时无法在树莓派上运行的，树莓派的芯片时arm系统，32位的一般时 armv7，64位的一般是 armv8。<br />
+所以利用自动构建平台原本是构建不了其他框架下的镜像的。</p>
+<p>值得庆幸的是在 Linux 上我们可以用 QEMU 来做虚拟机 执行其他平台的命令，进而进行跨平台的镜像构建。</p>
+<h4 id="利用-docker-运行跨平台的镜像"><a class="markdownIt-Anchor" href="#利用-docker-运行跨平台的镜像"></a> 利用 Docker 运行跨平台的镜像</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --privileged multiarch/qemu-user-static:register --reset</span><br></pre></td></tr></table></figure>
+<p>运行了 qemu 虚拟机后，即可运行其他平台的镜像。</p>
+<p>为了能在自动构建时提供虚s拟机的支持，我们需要在 Dockerfile 所在的文件夹下：</p>
+<ul>
+<li>新建 hooks 目录</li>
+<li>目录下添加 pre_build 文件，并在文件中添加上面的命令</li>
+</ul>
+<blockquote>
+<p>hooks 目录是一个钩子目录，为自动构建提供不同阶段的脚本命令，以定制化一些特殊的效果。</p>
+</blockquote>
+<h4 id="添加-qemu-user-static"><a class="markdownIt-Anchor" href="#添加-qemu-user-static"></a> 添加 qemu-user-static</h4>
+<p>但如果是要构建镜像，Docker 镜像内必须也含有对应的 qemu-user-static 虚拟机。Docker Hub 上已经有了添加 qemu-user-static 的系统镜像，可以在 <a href="https://hub.docker.com/u/multiarch/" target="_blank" rel="noopener">https://hub.docker.com/u/multiarch/</a> 获取：</p>
+<p>因为这些系统镜像未必符合我们的要求，所以笔者的做法是从 <a href="https://github.com/multiarch/qemu-user-static/releases" target="_blank" rel="noopener">https://github.com/multiarch/qemu-user-static/releases</a> 下载了对应版本的 qemu-user-static</p>
+<h4 id="修改-dockerfile-文件"><a class="markdownIt-Anchor" href="#修改-dockerfile-文件"></a> 修改 Dockerfile 文件</h4>
+<p>为了生成跨平台镜像，我们这里复制出一个 Dockerfile.armhf 的文件来，需要做如下的调整：</p>
+<ul>
+<li>来源镜像修改为armv7版本的基础镜像</li>
+<li>将 qemu-user-static 拷贝到镜像中</li>
+<li>将所有的 RUN 命令调整为</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUN &#x2F;usr&#x2F;bin&#x2F;qemu-arm-static &#x2F;bin&#x2F;sh -c &#39;原始命令&#39;</span><br></pre></td></tr></table></figure>
+<h4 id="调整自动构建的配置"><a class="markdownIt-Anchor" href="#调整自动构建的配置"></a> 调整自动构建的配置</h4>
+<ul>
+<li>将自动构建的源文件修改为 Dockerfile.armhf</li>
+<li>将生成镜像的标签也修改为 armhf。</li>
+</ul>
+<p>为了统一起见，可以将原本的 Dockerfile 也改名为 Dockerfile.amd64，将镜像的标签修改为 amd64。这也是为后面生成跨平台镜像做准备。</p>
+<h3 id="生成多平台镜像"><a class="markdownIt-Anchor" href="#生成多平台镜像"></a> 生成多平台镜像</h3>
+<blockquote>
+<p>Docker 官方的很多镜像会自动根据使用者的平台适配的下载合适的镜像，并不需要使用者指定平台。这种特性也是本文的自动构建所需要的，至少我们已经生成了 amd64 和 armhf 两个平台的镜像，而且利用相同的方法，还可以生成类似的各种平台的镜像。</p>
+</blockquote>
+<h4 id="buildx"><a class="markdownIt-Anchor" href="#buildx"></a> buildx</h4>
+<p>官方提供的构建多平台镜像的工具是 buildx，是 Docker build 命令的下一代替代品，可以通过修改 Docker 配置文件的方式开启。</p>
+<p>但是由于我们利用的是默认的自动构建平台提供的工具，很遗憾并不支持 buildx 工具，只能另辟蹊径。</p>
+<h4 id="manifest-tool"><a class="markdownIt-Anchor" href="#manifest-tool"></a> manifest-tool</h4>
+<p>manifest-tool 是另一个支持构建多平台镜像的工具，虽然自动构建平台上也没有提供相关的命令，但是我们可以利用 Docker 镜像来运行该程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -v <span class="variable">$PWD</span>/multiarch.yaml:/multiarch.yaml -v <span class="variable">$PWD</span>/config.json:/config.json --rm mplatform/manifest-tool --docker-cfg / push from-spec /multiarch.yaml</span><br></pre></td></tr></table></figure>
+<h5 id="configjson"><a class="markdownIt-Anchor" href="#configjson"></a> config.json</h5>
+<p>config.json 是 manifest-tool 的配置文件，主要是用来生成 authcode 来实现免登推送 Docker Hub 镜像的。文件形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;auths&quot;: &#123;</span><br><span class="line">        &quot;https:&#x2F;&#x2F;index.docker.io&#x2F;v1&#x2F;&quot;: &#123;</span><br><span class="line">            &quot;auth&quot;: &quot;你的 authcode&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;HttpHeaders&quot;: &#123;</span><br><span class="line">        &quot;User-Agent&quot;: &quot;Docker-Client&#x2F;19.03.5 (linux)&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中 authcode 的获取，可以通过 账号 &gt; Security &gt; Access Tokens &gt; 点击 New Access Tokens 获取。</p>
+<h5 id="multiarchyaml"><a class="markdownIt-Anchor" href="#multiarchyaml"></a> multiarch.yaml</h5>
+<p>multiarch.yaml 是用来将不同平台的 Docker 镜像合并成多平台镜像的配置文件，文件形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">image: guixi&#x2F;php:latest</span><br><span class="line">manifests:</span><br><span class="line">  -</span><br><span class="line">    image: guixi&#x2F;php:armhf</span><br><span class="line">    platform:</span><br><span class="line">      architecture: arm</span><br><span class="line">      variant: v7</span><br><span class="line">      os: linux</span><br><span class="line">  -</span><br><span class="line">    image: guixi&#x2F;php:amd64</span><br><span class="line">    platform:</span><br><span class="line">      architecture: amd64</span><br><span class="line">      os: linux</span><br></pre></td></tr></table></figure>
+<p>将配置中镜像换成实际需要的不同平台的镜像文件</p>
+<h5 id="自动构建时自动生成多平台镜像"><a class="markdownIt-Anchor" href="#自动构建时自动生成多平台镜像"></a> 自动构建时自动生成多平台镜像</h5>
+<p>在 hooks 目录下添加 post_push 文件，并在文件中执行 manifest-tool 命令。</p>
+<p>post_push 中的命令会在构建推送完成后执行。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpeg" alt="Uglyboy 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Uglyboy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.uglyboy.cn/2020/01/03/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E8%B7%A8%E5%B9%B3%E5%8F%B0%20Docker%20%E9%95%9C%E5%83%8F/" title="自动构建跨平台 Docker 镜像">https://www.uglyboy.cn/2020/01/03/自动构建跨平台 Docker 镜像/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/09/Hexo%20+%20Github%20+%20Travis%20CLI%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/" rel="prev" title="Hexo + Github + Travis CLI 搭建免费博客系统">
+      <i class="fa fa-chevron-left"></i> Hexo + Github + Travis CLI 搭建免费博客系统
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/02/Docker%20%E9%83%A8%E7%BD%B2%20AirPlay/" rel="next" title="Docker 部署 AirPlay">
+      Docker 部署 AirPlay <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#github-自动构建镜像"><span class="nav-number">1.</span> <span class="nav-text"> Github 自动构建镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建镜像-dockerfile-对应的-repo"><span class="nav-number">1.1.</span> <span class="nav-text"> 创建镜像 Dockerfile 对应的 repo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接服务"><span class="nav-number">1.2.</span> <span class="nav-text"> 连接服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建自动构建"><span class="nav-number">1.3.</span> <span class="nav-text"> 创建自动构建</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建-arm-平台的镜像"><span class="nav-number">2.</span> <span class="nav-text"> 构建 arm 平台的镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用-docker-运行跨平台的镜像"><span class="nav-number">2.1.</span> <span class="nav-text"> 利用 Docker 运行跨平台的镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-qemu-user-static"><span class="nav-number">2.2.</span> <span class="nav-text"> 添加 qemu-user-static</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改-dockerfile-文件"><span class="nav-number">2.3.</span> <span class="nav-text"> 修改 Dockerfile 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调整自动构建的配置"><span class="nav-number">2.4.</span> <span class="nav-text"> 调整自动构建的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成多平台镜像"><span class="nav-number">3.</span> <span class="nav-text"> 生成多平台镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#buildx"><span class="nav-number">3.1.</span> <span class="nav-text"> buildx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#manifest-tool"><span class="nav-number">3.2.</span> <span class="nav-text"> manifest-tool</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#configjson"><span class="nav-number">3.2.1.</span> <span class="nav-text"> config.json</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#multiarchyaml"><span class="nav-number">3.2.2.</span> <span class="nav-text"> multiarch.yaml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自动构建时自动生成多平台镜像"><span class="nav-number">3.2.3.</span> <span class="nav-text"> 自动构建时自动生成多平台镜像</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Uglyboy"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Uglyboy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8123/" title="HASS → https:&#x2F;&#x2F;uglyboy.cn:8123" rel="noopener" target="_blank"><i class="fa fa-building fa-fw"></i>HASS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:9000/" title="容器 → https:&#x2F;&#x2F;uglyboy.cn:9000" rel="noopener" target="_blank"><i class="fa fa-server fa-fw"></i>容器</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/AriaNg/" title="下载 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;AriaNg&#x2F;" rel="noopener" target="_blank"><i class="fas fa-cloud-download-alt fa-fw"></i>下载</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/phpMyAdmin/" title="数据库 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;phpMyAdmin&#x2F;" rel="noopener" target="_blank"><i class="fa fa-database fa-fw"></i>数据库</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uglyboy</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">136k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:04</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

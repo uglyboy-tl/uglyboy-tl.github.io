@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.uglyboy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="我们最近在探讨的前后台联动项目，目标是增强电商对快递的控制力（后向一体化）和带来前台流量效率的提升。这种想法在经济学中已经有相关的理论——纵向一体化。 同时，经济学中也对这种现象做了很多分析和解读，我这里整理了一下，方便大家后续思考具体做法时，有一些理论参考依据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前后台联动项目的经济学解读——纵向一体化">
+<meta property="og:url" content="https://www.uglyboy.cn/2020/03/06/%E5%89%8D%E5%90%8E%E5%8F%B0%E8%81%94%E5%8A%A8%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6%E8%A7%A3%E8%AF%BB/index.html">
+<meta property="og:site_name" content="阿丑の小窝">
+<meta property="og:description" content="我们最近在探讨的前后台联动项目，目标是增强电商对快递的控制力（后向一体化）和带来前台流量效率的提升。这种想法在经济学中已经有相关的理论——纵向一体化。 同时，经济学中也对这种现象做了很多分析和解读，我这里整理了一下，方便大家后续思考具体做法时，有一些理论参考依据。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-06T01:19:49.000Z">
+<meta property="article:modified_time" content="2021-02-01T08:40:02.369Z">
+<meta property="article:author" content="Uglyboy">
+<meta property="article:tag" content="天猫快递">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.uglyboy.cn/2020/03/06/%E5%89%8D%E5%90%8E%E5%8F%B0%E8%81%94%E5%8A%A8%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6%E8%A7%A3%E8%AF%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>前后台联动项目的经济学解读——纵向一体化 | 阿丑の小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="阿丑の小窝" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿丑の小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个梦想的自留地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.uglyboy.cn/2020/03/06/%E5%89%8D%E5%90%8E%E5%8F%B0%E8%81%94%E5%8A%A8%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6%E8%A7%A3%E8%AF%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Uglyboy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿丑の小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前后台联动项目的经济学解读——纵向一体化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-06 09:19:49" itemprop="dateCreated datePublished" datetime="2020-03-06T09:19:49+08:00">2020-03-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">解决方案</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>我们最近在探讨的前后台联动项目，目标是增强电商对快递的控制力（后向一体化）和带来前台流量效率的提升。这种想法在经济学中已经有相关的理论——<strong>纵向一体化</strong>。</p>
+<p>同时，经济学中也对这种现象做了很多分析和解读，我这里整理了一下，方便大家后续思考具体做法时，有一些理论参考依据。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="纵向一体化战略"><a class="markdownIt-Anchor" href="#纵向一体化战略"></a> 纵向一体化战略</h3>
+<p><strong>纵向一体化战略（Vertical integration strategy）</strong></p>
+<h4 id="纵向一体化战略概述"><a class="markdownIt-Anchor" href="#纵向一体化战略概述"></a> 纵向一体化战略概述</h4>
+<p>经济学上，沿产业链占据若干环节的业务布局叫做纵向一体化。纵向一体化是一个战略性的计划，它是组织核心能力在企业内部扩张的一种形式，与它相同的还有横向一体化战略和加强型战略。</p>
+<p>纵向一体化又叫<strong>垂直一体化</strong>，指企业将生产与原料供应，或者生产与产品销售联合在一起的战略形式，是企业在两个可能的方向上扩展现有经营业务的一种发展战略，是将公司的经营活动向后扩展到原材料供应或向前扩展到销售终端的一种战略体系。包括后向一体化战略和前向一体化战略，也就是将经营领域向深度发展的战略。</p>
+<p><strong>前向一体化战略</strong>是企业自行对本公司产品做进一步深加工，或者资源进行综合利用，或公司建立自己的销售组织来销售本公司的产品或服务。如钢铁企业自己轧制各种型材，并将型材制成各种不同的最终产品既属于前向一体化。</p>
+<p><strong>后向一体化</strong>则是企业自己供应生产现有产品或服务所需要的全部或部分原材料或半成品，如钢铁公司自己拥有矿山和炼焦设施；纺织厂自己纺纱、洗纱等。</p>
+<p><strong>纵向一体化的目的</strong>：是为加强核心企业对原材料供应、产品制造、分销和销售全过程的控制，使企业能在市场竞争中掌握主动，从而达到增加各个业务活动阶段的利润。</p>
+<p>纵向一体化是一种典型的价值链体系，在这种体系下产生出了完整的价值传递过程，作为企业的战略制定者可以不断向纵深渗透，伊利奶业已经向后进入到了奶源基地的建设，奥康和美特斯邦威已经向前进入到了专卖店建设。</p>
+<blockquote>
+<p>但并不是所有的领域都适合纵向一体化，戴维・怀特和斯达奇在 1993 年出版的《斯隆管理评论》中说道：“什么东西不能进行纵向一体化，什么时候不能进行垂直一体化”。这已经表达，纵向一体化必须依据企业的实际和竞争环境来确定其是否适合在此时、在此行业开展这种战略。我们可以看到伊利奶业并没有在全国建立起专卖店体系，这本身就说明，这种基于一家产品的奶制品不适宜建立专卖店体系，反而更加适合于在超市中销售，那么它的前向一体化（销售渠道与终端），并不能够直接铺设到全国各个地域，这证实了戴维。怀特和斯达奇的观点。</p>
+</blockquote>
+<h4 id="纵向一体化的优势"><a class="markdownIt-Anchor" href="#纵向一体化的优势"></a> 纵向一体化的优势</h4>
+<p>纵向一体化的优势在于：</p>
+<ol>
+<li>
+<p>带来经济性。采取这种战略后，企业将外部市场活动内部化有如下经济性，内部控制和协调的经济性；信息的经济性；（信息的获得很关键）节约交易成本的经济性；稳定关系的经济性。</p>
+</li>
+<li>
+<p>有助于开拓技术。在某些情况下，纵向一体化提供了进一步熟悉上游或下游经营相关技术的机会。这种技术信息的对基础经营技术的开拓与发展非常重要。如许多领域内的零部件制造企业发展前向一体化体系。就可以了解零部件是如何进行装配的技术信息。</p>
+</li>
+<li>
+<p>确保供给和需求。纵向一体化能够确保企业在产品供应紧缺时得到充足的供应，或在总需求很低时能有一个畅通的产品输出渠道。也就是说，纵向一体化能减少上下游企业随意中止交易的不确定性。当然，在交易的过程中，内部转让价格必须与市场接轨 。</p>
+</li>
+<li>
+<p>削弱供应商或顾客的价格谈判能力。如果一个企业在与它的供应商或顾客做生意时，供应商和顾客有较强的价格谈判能力，且他的投资收益超过了资本的机会成本（机会成本：为了得到某种东西所必需放弃的东西），那么，即使以他不会带来其他的益处，企业也值得去做。因为一体化削弱了对手的价格谈判能力，这不仅会降低采购成本（后向一体化），或者提高价格（前向一体化），还可以通过减少谈判的投入而提高效益。</p>
+</li>
+<li>
+<p>提高差异化能力。纵向一体化可以通过在管理层控制的范围内提供一系列额外价值，来改进本企业区别于其他企业的差异化能力。（核心能力的保持）例如云南玉溪烟厂为了保证生产出高质量的香烟，对周围各县的烟农进行扶持，使他们专为该烟厂提供高质量的烟草；葡萄酒厂拥有自己的葡萄产地也是一种一体化的例证。同样，有些企业在销售自己技术复杂的产品时（一汽），也需要拥有自己的销售网点，以便提供标准的售后服务。</p>
+</li>
+<li>
+<p>提高进入壁垒。企业实行一体化战略，特别是纵向一体化战略，可以使关键的投入资源和销售渠道控制在自己的手中，从而使行业的新进入者望而却步，防止竞争对手进入本企业的经营领域。企业通过实施一体化战略，不仅保护了自己原有的经营范围，而且扩大了经营业务，同时还限制了所在行业的竞争程度，使企业的定价有了更大的自主权，从而获得较大的利润。例如 IBM 公司即是采用纵向一体化的典型。该公司生产微机的微处理器和记忆晶片，设计和组装微机，生产微机所需要的软件，并直接销售最终产品给用户。 IBM 采用纵向一体化的理由是，该公司生产的许多微机零部件和软件都有专利，只有在公司内部生产，竞争对手才不能获得这些 专利，从而形成进入障碍。</p>
+</li>
+<li>
+<p>进入高回报产业。企业现在利用的供应商或经销商有较高的利润，这意味着他们经营的领域属于十分值得进入的产业。在这种情况下，企业通过纵向一体化，可以提高其总资产回报率，并可以制定更有竞争力的价格。</p>
+</li>
+<li>
+<p>防止被排斥。 如果竞争者们是纵向一体化企业，一体化就具有防御的意义。因为竞争者的广泛一体化能够占有许多供应资源或者拥有许多称心的顾客或零售机会。因此，为了防御的目的，企业应该实施纵向一体化战略，否则面临着被排斥的处境。</p>
+</li>
+</ol>
+<h4 id="经济学语言的价值描述"><a class="markdownIt-Anchor" href="#经济学语言的价值描述"></a> 经济学语言的价值描述</h4>
+<blockquote>
+<p>关于纵向一体化，传统上有两大经济学理论对之进行了研究：威廉姆森的 “交易费用经济学” 和格罗斯曼、哈特和莫尔的 “产权理论”。相关的研究结论在历史上也发生过一些变化，把一些核心的观点简单总结如下：</p>
+</blockquote>
+<ol>
+<li>纵向一体化可以节约交易成本；</li>
+<li>纵向一体化可以消除纵向外部性；</li>
+<li>纵向一体化可以带来垄断或部分垄断；</li>
+</ol>
+<h3 id="电商和快递的纵向一体化的分析"><a class="markdownIt-Anchor" href="#电商和快递的纵向一体化的分析"></a> 电商和快递的“纵向一体化”的分析</h3>
+<blockquote>
+<p>我们这次的项目的目标，用经济学的方式来说，就是追求纵向一体化的实现。所以核心价值，是寻找上文中提到的几种好处在实操中的实现方式。</p>
+</blockquote>
+<p>淘宝（电商）和申通（快递）两个企业，和传统的经济学中的一体化战略不完全匹配的点在于，淘宝和申通自身就不是一个一体化的企业，淘宝上有很多的商家、申通里有很多的网点，这些角色同淘宝和申通的关系是一种契约关系，而非已经完全体的“一体化”企业。</p>
+<p>但是相比之下，如果我们弱化企业的概念，将这种平台机制理解成一种宽松的（一体化）企业模式，通过契约的手段进行企业管理，那么相比完全市场化的模式，这种模式还是有比较强的内部型的。</p>
+<p>所以虽然一些其他行业一体化的案例中的方法不适合直接套用在电商和快递的一体化进程上，但整体思路还是可以沿用的。而其中落地的细节，则在把握一些核心原则的基础上，能够通过一些调整找到合适的办法的。</p>
+<p>下面的分析就是确定部分核心原则。</p>
+<h4 id="节约交易成本提效"><a class="markdownIt-Anchor" href="#节约交易成本提效"></a> 节约交易成本（提效）</h4>
+<p>交易成本包括 搜索市场信息、议价、追偿违约等费用。</p>
+<p>针对淘宝和申通的一体化进程，因为原本快递这里是买方市场（快递间竞争激烈），所以实际可以降低的是快递侧（卖方），也就是申通的搜寻市场信息和议价的成本，同时长期合作的契约关系可以降低双方的追偿违约成本。</p>
+<p>节约的交易成本（收益）应当在前后端进行重新分配，让利于前后端双方，这样才是一个帕累托改进，让这件事可以顺利进行。</p>
+<p>所以针对节约交易成本这块，部分核心的原则是：</p>
+<ol>
+<li>一体化可以节约快递侧（申通）更多的交易成本（例如市场费用、或者云仓带来的效能提升等），<strong>节约下来的钱应当”补贴“给前台</strong>。例如降低费用，或者提升质量。</li>
+<li><strong>为了降低议价成本，应当统一定价</strong>，而不是让商家和网点再各自议价。网点间如果存在内部竞争，应当让相关的交易内部化，也就是说先统一从商家处收单，然后再进行内部交易。</li>
+</ol>
+<h4 id="消除纵向外部性护城河"><a class="markdownIt-Anchor" href="#消除纵向外部性护城河"></a> 消除纵向外部性（护城河）</h4>
+<p>这里的外部性主要是指前后台的其他竞争者，例如前台的竞争者：拼多多、京东，后台的竞争者：中通，顺丰等。消除外部性是指一体化之后，可以不再受外部性的干扰，对前台来说，快递公司不会再优先送拼多多的货；对后台来说，前台的包裹不会再优先给中通，顺丰。</p>
+<p>针对淘宝和申通的现状，做完全的排他性确实不可能。但是我们这个项目中还是可以做到完全的排他性的，以此来确保这个”纵向一体化“能达到的效果。</p>
+<p>如果未来，淘宝的向后一体化中存在包括申通、圆通等多家快递公司的情况，为保障快递公司间消除纵向外部性，需要单量可控（有长期确定性），否则这里就又会出现纵向外部性（也就是我们说的价格战），前边提到的节约交易成本这块就又失效了。</p>
+<p>针对消除纵向外部性这块，核心的原则是：</p>
+<ol>
+<li>淘宝需要有专项的契约（流量、商家）提供给商家，在该项契约中，<strong>快递的选择必须是指定的快递方案（申通）</strong>；</li>
+<li>申通需要对这个项目<strong>进行针对性的物流运力配置（包括可能的仓储配置）</strong>；</li>
+<li>项目中，前后台的契约必须是长期契约的和可控的。也就是说<strong>如果有多家快递公司，肯定不是完全任由商家自由选择</strong>，具体的落地方式，只要能达到长期契约关系和可控即可。</li>
+</ol>
+<h4 id="带来垄断或部分垄断"><a class="markdownIt-Anchor" href="#带来垄断或部分垄断"></a> 带来垄断或部分垄断</h4>
+<blockquote>
+<p>这部分略敏感和争议，不过多明言。</p>
+</blockquote>
+<p>这种情况针对淘宝或者申通来说，相对而言长期的事情。但现在其实也对应一些可以做的事情，主要偏向于开拓新技术而进行的专项投资，更好的利用信息的经济性等。</p>
+<ol>
+<li>C2M 全供应链管理体系（包括C2M项目和农产品上行）；</li>
+<li>后台运力和流量分配端的合作（搜索和快递联动项目）；</li>
+</ol>
+<p>类似这样的独创项目，未来都是有垄断性的优势的。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpeg" alt="Uglyboy 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Uglyboy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.uglyboy.cn/2020/03/06/%E5%89%8D%E5%90%8E%E5%8F%B0%E8%81%94%E5%8A%A8%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6%E8%A7%A3%E8%AF%BB/" title="前后台联动项目的经济学解读——纵向一体化">https://www.uglyboy.cn/2020/03/06/前后台联动项目的经济学解读/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A9%E7%8C%AB%E5%BF%AB%E9%80%92/" rel="tag"><i class="fa fa-tag"></i> 天猫快递</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/10/%E2%80%9C%E5%A4%A9%E7%8C%AB%E9%85%8D%E2%80%9D%E4%B8%9A%E5%8A%A1%E6%8F%8F%E8%BF%B0/" rel="prev" title="“天猫配”业务描述">
+      <i class="fa fa-chevron-left"></i> “天猫配”业务描述
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/21/%E7%BD%91%E7%9B%98%E5%88%A9%E5%99%A8%EF%BC%9Ah5ai%20%E5%92%8C%20Syncthing/" rel="next" title="网盘利器：h5ai 和 Syncthing">
+      网盘利器：h5ai 和 Syncthing <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#纵向一体化战略"><span class="nav-number">1.</span> <span class="nav-text"> 纵向一体化战略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#纵向一体化战略概述"><span class="nav-number">1.1.</span> <span class="nav-text"> 纵向一体化战略概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#纵向一体化的优势"><span class="nav-number">1.2.</span> <span class="nav-text"> 纵向一体化的优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#经济学语言的价值描述"><span class="nav-number">1.3.</span> <span class="nav-text"> 经济学语言的价值描述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电商和快递的纵向一体化的分析"><span class="nav-number">2.</span> <span class="nav-text"> 电商和快递的“纵向一体化”的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#节约交易成本提效"><span class="nav-number">2.1.</span> <span class="nav-text"> 节约交易成本（提效）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消除纵向外部性护城河"><span class="nav-number">2.2.</span> <span class="nav-text"> 消除纵向外部性（护城河）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#带来垄断或部分垄断"><span class="nav-number">2.3.</span> <span class="nav-text"> 带来垄断或部分垄断</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Uglyboy"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Uglyboy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8123/" title="HASS → https:&#x2F;&#x2F;uglyboy.cn:8123" rel="noopener" target="_blank"><i class="fa fa-building fa-fw"></i>HASS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:9000/" title="容器 → https:&#x2F;&#x2F;uglyboy.cn:9000" rel="noopener" target="_blank"><i class="fa fa-server fa-fw"></i>容器</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/AriaNg/" title="下载 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;AriaNg&#x2F;" rel="noopener" target="_blank"><i class="fas fa-cloud-download-alt fa-fw"></i>下载</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/phpMyAdmin/" title="数据库 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;phpMyAdmin&#x2F;" rel="noopener" target="_blank"><i class="fa fa-database fa-fw"></i>数据库</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uglyboy</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">136k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:04</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

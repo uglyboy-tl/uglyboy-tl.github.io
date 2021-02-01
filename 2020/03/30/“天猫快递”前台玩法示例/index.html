@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.uglyboy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="关于“天猫快递”的想法提出来后，可能不少快递侧的同学对于这种模式对前台的吸引力，前台的扩展性等等方面还不是很理解和熟悉，我谨以个人的经验，描述一下前台对于“天猫快递”这样一个概念可能的一些玩法和举措，通过示例的方式进行描述，便于大家理解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“天猫快递”前台玩法示例">
+<meta property="og:url" content="https://www.uglyboy.cn/2020/03/30/%E2%80%9C%E5%A4%A9%E7%8C%AB%E5%BF%AB%E9%80%92%E2%80%9D%E5%89%8D%E5%8F%B0%E7%8E%A9%E6%B3%95%E7%A4%BA%E4%BE%8B/index.html">
+<meta property="og:site_name" content="阿丑の小窝">
+<meta property="og:description" content="关于“天猫快递”的想法提出来后，可能不少快递侧的同学对于这种模式对前台的吸引力，前台的扩展性等等方面还不是很理解和熟悉，我谨以个人的经验，描述一下前台对于“天猫快递”这样一个概念可能的一些玩法和举措，通过示例的方式进行描述，便于大家理解。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-30T09:08:13.000Z">
+<meta property="article:modified_time" content="2021-02-01T08:40:02.369Z">
+<meta property="article:author" content="Uglyboy">
+<meta property="article:tag" content="天猫快递">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.uglyboy.cn/2020/03/30/%E2%80%9C%E5%A4%A9%E7%8C%AB%E5%BF%AB%E9%80%92%E2%80%9D%E5%89%8D%E5%8F%B0%E7%8E%A9%E6%B3%95%E7%A4%BA%E4%BE%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>“天猫快递”前台玩法示例 | 阿丑の小窝</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="阿丑の小窝" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿丑の小窝</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个梦想的自留地</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.uglyboy.cn/2020/03/30/%E2%80%9C%E5%A4%A9%E7%8C%AB%E5%BF%AB%E9%80%92%E2%80%9D%E5%89%8D%E5%8F%B0%E7%8E%A9%E6%B3%95%E7%A4%BA%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Uglyboy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿丑の小窝">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          “天猫快递”前台玩法示例
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-30 17:08:13" itemprop="dateCreated datePublished" datetime="2020-03-30T17:08:13+08:00">2020-03-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">解决方案</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>关于“天猫快递”的想法提出来后，可能不少快递侧的同学对于这种模式对前台的吸引力，前台的扩展性等等方面还不是很理解和熟悉，我谨以个人的经验，描述一下前台对于“天猫快递”这样一个概念可能的一些玩法和举措，通过示例的方式进行描述，便于大家理解。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="天猫快递对于前台的最核心价值"><a class="markdownIt-Anchor" href="#天猫快递对于前台的最核心价值"></a> “天猫快递”对于前台的最核心价值</h3>
+<p><strong>完全可控的快递</strong></p>
+<ul>
+<li>天猫可以直接推动快递提升服务质量；</li>
+<li>天猫可以提关于快递的要求（尤其是临时性的要求）；</li>
+<li>天猫可以有价格杠杆来BD商家提供更好的快递服务；</li>
+<li>天猫可以借此直接向消费者提供快递方面的服务或保障；</li>
+<li>天猫在快递资源紧张的时候，可以有可靠的快递运力支持。</li>
+</ul>
+<h4 id="玩法一配合营销活动的快递玩法"><a class="markdownIt-Anchor" href="#玩法一配合营销活动的快递玩法"></a> 玩法一：配合营销活动的快递玩法</h4>
+<ol>
+<li>营销活动中，搭建一个“天猫快递专送”会场，会场的商家都是选用天猫快递的商家。</li>
+<li>会场的商品承诺：预售商品次日达，普通商品隔日达。</li>
+</ol>
+<blockquote>
+<p>现在的营销活动，前端只能承诺价格优惠，但是对于快递方面时没有任何承诺的。我二月底购买的一款三八活动的书架，三月底还没发货，已经在三月底退货了。</p>
+</blockquote>
+<ul>
+<li>尤其是大促的时候，这样的快递玩法会非常有吸引力。</li>
+<li>因为会场的商品是个性化的，其实对快递端的能力要求不一定那么高，可以对消费者只透出同城活动商品即可，我们只需要做到同城次日达或者同省隔日达就能达到良好的效果。</li>
+</ul>
+<h4 id="玩法二大促或其他快递运力紧张时期对商家保障快递运力"><a class="markdownIt-Anchor" href="#玩法二大促或其他快递运力紧张时期对商家保障快递运力"></a> 玩法二：大促或其他快递运力紧张时期，对商家保障快递运力</h4>
+<ol>
+<li>货品送到，消费者点击确认送达，对商家，尤其时大促期间的资金周转是非常有帮助的。</li>
+<li>如果天猫可以保障使用“天猫快递”的商家在大促、春节等快递运力紧张的时期的运输能力，对天猫 BD 商家会有很大的帮助。</li>
+</ol>
+<h4 id="玩法三通过天猫快递直接连接消费者"><a class="markdownIt-Anchor" href="#玩法三通过天猫快递直接连接消费者"></a> 玩法三：通过“天猫快递”直接连接消费者</h4>
+<ol>
+<li>可以是天猫会员的惊喜礼品（提升会员粘性）；</li>
+<li>可以是试用品的宣传推广（很多商家会利用试用品刷销量，天猫可以提供官方的玩法）；</li>
+<li>可以是附赠的扫码型优惠卷，刺激用户进一步购物；</li>
+<li>甚至可以在包装或者面单上做一些广告推广、服务升级等等手段。</li>
+<li>可以是有偿的地推调查问卷。</li>
+</ol>
+<h4 id="玩法四会员权益中提供消费者快递方面的权益选项"><a class="markdownIt-Anchor" href="#玩法四会员权益中提供消费者快递方面的权益选项"></a> 玩法四：会员权益中，提供消费者快递方面的权益选项</h4>
+<ol>
+<li>例如提供消费者一年三次的次日必达券（快递侧走航空运输的那种高端方式）；</li>
+<li>提供消费者无偿退货机会（系统中点选退货后，不需要消费者自己联系快递公司，天猫快递直接上门，当然现在是已经跟裹裹打通了。未来或许也可以让这件事由天猫快递来承接）；</li>
+</ol>
+<h4 id="玩法五一个更成熟的线下代购网络"><a class="markdownIt-Anchor" href="#玩法五一个更成熟的线下代购网络"></a> 玩法五：一个更成熟的线下代购网络</h4>
+<blockquote>
+<p>这个点前台同学未必能想到或者去推动，但是这个可以是“天猫快递”未来可以形成的特色业务</p>
+</blockquote>
+<ol>
+<li>异地由饿了么等本地化业务的外卖员负责代购；</li>
+<li>外卖员直接将代购的货品提供给网点或者转运中心，进入到快递网络运输。</li>
+<li>相比现有的线下代购业务，如果快递网和饿了么这种本地化的网络可以深层次联动，会带来巨大的动能。
+<ul>
+<li>对于消费者，异地代购是否真的是在指定地方买的商品是风险，如果相关链路都是归属官方的，消费者会放心很多；</li>
+<li>很多地方的特色产品是外地买不到的，而具体的线下店主也大概率没有网店经营能力；通过这个线下代购网，可以更好的挖掘市场。</li>
+<li>可能会出现部分地区性价差问题，是机会点，也可能是会遇到商家反弹的点。</li>
+</ul>
+</li>
+</ol>
+<h4 id="玩法六倒逼商家提升服务质量"><a class="markdownIt-Anchor" href="#玩法六倒逼商家提升服务质量"></a> 玩法六：倒逼商家提升服务质量</h4>
+<blockquote>
+<p>这件事的前提是“天猫快递”确实是一个更高质量的快递选项，对商家而言是有益的；加上前台一定会对“天猫快递”形成实际的流量倾斜，这件事就变成了对商家非常有吸引力的选项了。</p>
+</blockquote>
+<ol>
+<li>天猫会对入驻“天猫快递”的商家提门槛，以提升商家的服务质量（最基础的是发货流程、发货时间方面的要求；更进一步的就是对包装、商家客服对消费者宣导等等内容有要求；以及很多对商家客观经营能力的要求）；</li>
+<li>天猫会对入驻“天猫快递”的商家进行管理和奖惩，可以通过快递费作为管理杠杆之一；</li>
+<li>天猫可以借入驻“天猫快递”，进一步推动商家货品入仓，以提升快递服务质量。</li>
+</ol>
+<h4 id="玩法七消费者分层快递网络"><a class="markdownIt-Anchor" href="#玩法七消费者分层快递网络"></a> 玩法七：消费者分层快递网络</h4>
+<ol>
+<li>消费者可以选择加价使用“天猫快递急速版”，以获得次日达服务（快递侧走类似顺丰的航空运输策略）。</li>
+<li>消费者可以选择更低价的快递服务例如“天猫快递特惠版”，用时间换金钱（尤其是对于下沉市场）。</li>
+</ol>
+<h4 id="玩法八天猫根据快递价格进行营销活动"><a class="markdownIt-Anchor" href="#玩法八天猫根据快递价格进行营销活动"></a> 玩法八：天猫根据快递价格，进行营销活动</h4>
+<ol>
+<li>因为前台可以准确知道具体的快递价格，可以根据快递的价格进行营销活动。</li>
+<li>例如单边的线路，返程快递费是很便宜的，天猫可以针对这些线路搞促销（这个就是拼多多的玩法，以前前台是对快递价格无感知的，所以也没办法进行类似的营销活动）。</li>
+<li>通过类似的营销活动，还可以刺激部分地区当地的电商发展，形成新的产业带之类的。</li>
+<li><strong>类似的，如果快递侧在某些线路上产能大于需求，也可以和前台联动进行营销活动</strong>。</li>
+</ol>
+<h3 id="前台推广天猫快递可能的节奏"><a class="markdownIt-Anchor" href="#前台推广天猫快递可能的节奏"></a> 前台推广“天猫快递”可能的节奏</h3>
+<ol>
+<li>签试点商家，一方面看天猫快递的时效效果，一方面看商家反馈，另一方面也摸索前台消费者的感知变化；</li>
+</ol>
+<blockquote>
+<p>例如：通过某个大促节点，官宣：优衣库、兰蔻、OPPO 等几个大品牌入驻“天猫快递”，天猫官方保障消费者快递体验，前台会额外打标（打标就意味着转化和流量）。</p>
+</blockquote>
+<ol start="2">
+<li>由试点商家作为代表，吸引其他商家入驻；</li>
+<li>选择小型的营销活动作为节点，招商时要求参与活动的商家的活动商品都需要使用“天猫快递”，以确保物流体验。</li>
+<li>如果参与“天猫快递”的商家反应良好，则会指定准入门槛，并开始对天猫的头部商家进行BD。</li>
+<li>参与的商家达到一定的规模（例如GMV占比10%），开始强化消费者端“天猫快递”心智，打造“天猫快递”是平台上更加优质的快递服务，而且平台兜底的消费者印象。</li>
+<li>消费者和商家之间形成联动，逐渐进一步扩大规模。</li>
+</ol>
+<h4 id="可能的规模"><a class="markdownIt-Anchor" href="#可能的规模"></a> 可能的规模</h4>
+<ul>
+<li>试点阶段大概需要1~2个月，来看效果和商家的反馈。当然同时天猫也会进一步 BD 更多的商家入驻；</li>
+<li>如果试点效果良好（试点阶段或许需要快递一侧更大力度的提供优质服务，甚至是补贴，以达到良好的效果），以天猫的能力，应当可以较快（1个月）的覆盖头部中半数的商家。</li>
+<li>利用营销活动推广，加活动筹备（商家报名）等工作大概需要 1~2个月。如果活动是双十一，那么效率有可能加快。</li>
+<li>建立消费者心智这件事，可能需要1~2年的时间，而且其中需要更多的后台优质快递服务涌现出来。</li>
+</ul>
+<blockquote>
+<p>这部分的预测属个人YY：</p>
+<p>最顺利的话，半年可以覆盖天猫最头部的单量，大概占整体单量的10%~20%（天猫的单量，不包含淘宝的。而且前提是快递端接得住）；三年可覆盖天猫整体单量的50%。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpeg" alt="Uglyboy 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Uglyboy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.uglyboy.cn/2020/03/30/%E2%80%9C%E5%A4%A9%E7%8C%AB%E5%BF%AB%E9%80%92%E2%80%9D%E5%89%8D%E5%8F%B0%E7%8E%A9%E6%B3%95%E7%A4%BA%E4%BE%8B/" title="“天猫快递”前台玩法示例">https://www.uglyboy.cn/2020/03/30/“天猫快递”前台玩法示例/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A9%E7%8C%AB%E5%BF%AB%E9%80%92/" rel="tag"><i class="fa fa-tag"></i> 天猫快递</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/08/%E7%A4%BE%E4%BA%A4%E7%94%B5%E5%95%86%E2%80%94%E2%80%94S2B2C%E4%B8%AD%E7%9C%9F%E6%AD%A3%E8%BF%9B%E5%8C%96%E7%9A%84%E9%83%A8%E5%88%86/" rel="prev" title="社交电商——S2B2C中真正进化的部分">
+      <i class="fa fa-chevron-left"></i> 社交电商——S2B2C中真正进化的部分
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/10/%E2%80%9C%E5%A4%A9%E7%8C%AB%E9%85%8D%E2%80%9D%E4%B8%9A%E5%8A%A1%E6%8F%8F%E8%BF%B0/" rel="next" title="“天猫配”业务描述">
+      “天猫配”业务描述 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#天猫快递对于前台的最核心价值"><span class="nav-number">1.</span> <span class="nav-text"> “天猫快递”对于前台的最核心价值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#玩法一配合营销活动的快递玩法"><span class="nav-number">1.1.</span> <span class="nav-text"> 玩法一：配合营销活动的快递玩法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玩法二大促或其他快递运力紧张时期对商家保障快递运力"><span class="nav-number">1.2.</span> <span class="nav-text"> 玩法二：大促或其他快递运力紧张时期，对商家保障快递运力</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玩法三通过天猫快递直接连接消费者"><span class="nav-number">1.3.</span> <span class="nav-text"> 玩法三：通过“天猫快递”直接连接消费者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玩法四会员权益中提供消费者快递方面的权益选项"><span class="nav-number">1.4.</span> <span class="nav-text"> 玩法四：会员权益中，提供消费者快递方面的权益选项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玩法五一个更成熟的线下代购网络"><span class="nav-number">1.5.</span> <span class="nav-text"> 玩法五：一个更成熟的线下代购网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玩法六倒逼商家提升服务质量"><span class="nav-number">1.6.</span> <span class="nav-text"> 玩法六：倒逼商家提升服务质量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玩法七消费者分层快递网络"><span class="nav-number">1.7.</span> <span class="nav-text"> 玩法七：消费者分层快递网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#玩法八天猫根据快递价格进行营销活动"><span class="nav-number">1.8.</span> <span class="nav-text"> 玩法八：天猫根据快递价格，进行营销活动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前台推广天猫快递可能的节奏"><span class="nav-number">2.</span> <span class="nav-text"> 前台推广“天猫快递”可能的节奏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可能的规模"><span class="nav-number">2.1.</span> <span class="nav-text"> 可能的规模</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Uglyboy"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Uglyboy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8123/" title="HASS → https:&#x2F;&#x2F;uglyboy.cn:8123" rel="noopener" target="_blank"><i class="fa fa-building fa-fw"></i>HASS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:9000/" title="容器 → https:&#x2F;&#x2F;uglyboy.cn:9000" rel="noopener" target="_blank"><i class="fa fa-server fa-fw"></i>容器</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/AriaNg/" title="下载 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;AriaNg&#x2F;" rel="noopener" target="_blank"><i class="fas fa-cloud-download-alt fa-fw"></i>下载</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://uglyboy.cn:8188/phpMyAdmin/" title="数据库 → https:&#x2F;&#x2F;uglyboy.cn:8188&#x2F;phpMyAdmin&#x2F;" rel="noopener" target="_blank"><i class="fa fa-database fa-fw"></i>数据库</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-Hans" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uglyboy</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">136k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:04</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
