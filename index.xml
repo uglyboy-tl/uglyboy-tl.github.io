@@ -1,4 +1,188 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>拾柒读库</title><link>https://blog.uglyboy.cn/</link><description>Recent content on 拾柒读库</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Scaling Law 的数学解读</title><link>https://blog.uglyboy.cn/posts/2023-10-17/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.uglyboy.cn/posts/2023-10-17/</guid><description>Dataset Size 和 Loss 的关系 最大似然估计（MLE） 一切机器学习的本质都是最大似然估计： 模型下的理想真实世界的概率分布：$p(x|\theta)$ 我们不知道</description><content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>拾柒读库</title><link>https://blog.uglyboy.cn/</link><description>Recent content on 拾柒读库</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Oct 2023 11:57:39 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo 搭建流程</title><link>https://blog.uglyboy.cn/posts/2023-10-18/</link><pubDate>Wed, 18 Oct 2023 11:57:39 +0800</pubDate><guid>https://blog.uglyboy.cn/posts/2023-10-18/</guid><description>基本安装 搭建站点 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 git 仓库 git init git branch -m main # 兼容 Github 的设置 安装主题 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 git submodule update --init --recursive</description><content:encoded><![CDATA[<h2 id="基本安装">基本安装</h2>
+<h3 id="搭建站点">搭建站点</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site &lt;name of site&gt; -f yml
+</span></span></code></pre></div><h3 id="初始化-git-仓库">初始化 git 仓库</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git branch -m main <span style="color:#75715e"># 兼容 Github 的设置</span>
+</span></span></code></pre></div><h3 id="安装主题">安装主题</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+</span></span></code></pre></div><p>若是已经安装过主题的，需要下面的命令激活</p>
+<pre tabindex="0"><code>git submodule update --init --recursive
+</code></pre><h3 id="本地调试">本地调试</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div><h3 id="添加新文章">添加新文章</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/my-first-post.md
+</span></span></code></pre></div><h2 id="配置">配置</h2>
+<h3 id="配置-configyml">配置 <code>config.yml</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">baseURL</span>: <span style="color:#e6db74">&#34;https://examplesite.com/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">languageCode</span>: <span style="color:#ae81ff">zh-cn</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">ExampleSite</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">theme</span>: <span style="color:#ae81ff">PaperMod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">timeZone</span>: <span style="color:#ae81ff">Asia/Shanghai</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">enableInlineShortcodes</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">enableGitInfo</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">enableRobotsTXT</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">enableEmoji</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">hasCJKLanguage</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">outputs</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">home</span>: [<span style="color:#ae81ff">HTML, RSS, JSON]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Params</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">title</span>: <span style="color:#ae81ff">ExampleSite</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;ExampleSite description&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">author</span>: <span style="color:#ae81ff">xxx</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">homeInfoParams</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Title</span>: <span style="color:#ae81ff">Hi there wave</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Content</span>: <span style="color:#ae81ff">Can be Info, links, about...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">socialIcons</span>: <span style="color:#75715e"># optional</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">rss</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/index.xml</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ShowFullTextinRSS</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ShowReadingTime</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ShowCodeCopyButtons</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">DateFormat</span>: <span style="color:#e6db74">&#34;2006-01-02&#34;</span>  <span style="color:#75715e"># 日期格式化</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">menu</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">main</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">identifier</span>: <span style="color:#ae81ff">home</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">主页</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">identifier</span>: <span style="color:#ae81ff">search</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">搜索</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/search</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">identifier</span>: <span style="color:#ae81ff">tags</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">标签</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/tags</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">identifier</span>: <span style="color:#ae81ff">archives</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">时间轴</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/archives</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">40</span>
+</span></span></code></pre></div><h3 id="配置-contentarchivesmd">配置 <code>content/archives.md</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;时间轴&#34;
+</span></span><span style="display:flex;"><span>layout: &#34;archives&#34;
+</span></span><span style="display:flex;"><span>summary: archives
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><h3 id="配置-contentsearchmd">配置 <code>content/search.md</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;搜索&#34; # in any language you want
+</span></span><span style="display:flex;"><span>layout: &#34;search&#34; # is necessary
+</span></span><span style="display:flex;"><span>summary: &#34;search&#34;
+</span></span><span style="display:flex;"><span>placeholder: &#34;Typing something...&#34;
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><h3 id="增加-latex-数学公式的支持">增加 Latex 数学公式的支持</h3>
+<p>在 <code>layouts/partials</code> 路径下新建文件 <code>extend_head.html</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/x-mathjax-config&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">MathJax</span>.<span style="color:#a6e22e">Hub</span>.<span style="color:#a6e22e">Config</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">tex2jax</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">inlineMath</span><span style="color:#f92672">:</span> [[<span style="color:#e6db74">&#39;$&#39;</span>,<span style="color:#e6db74">&#39;$&#39;</span>], [<span style="color:#e6db74">&#39;\\(&#39;</span>,<span style="color:#e6db74">&#39;\\)&#39;</span>]],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">processEscapes</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#39;</span> <span style="color:#a6e22e">async</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><h2 id="利用-github-actions-自动发布">利用 Github Actions 自动发布</h2>
+<h3 id="编写-github-actions-脚本">编写 Github Actions 脚本</h3>
+<p>在 <code>.github/workflows</code> 下新建文件 <code>build.yml</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># This is a basic workflow to help you get started with Actions</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Auto Deploy Hugo</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Controls when the workflow will run</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Triggers the workflow on push or pull request events but only for the main branch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">main ]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pull_request</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># This workflow contains a single job called &#34;build&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># The type of runner that the job will run on</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Steps represent a sequence of tasks that will be executed as part of the job</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">submodules</span>: <span style="color:#66d9ef">true</span>  <span style="color:#75715e"># Fetch Hugo themes (true OR recursive)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>    <span style="color:#75715e"># Fetch all history for .GitInfo and .Lastmod</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Hugo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">hugo-version</span>: <span style="color:#ae81ff">latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">hugo --minify</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-gh-pages@v3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">if</span>: <span style="color:#ae81ff">${{ github.ref == &#39;refs/heads/main&#39; }}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">deploy_key</span>: <span style="color:#ae81ff">${{ secrets.ACTIONS_DEPLOY_KEY }}</span> <span style="color:#75715e"># secret 中设置好私钥</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">external_repository</span>: <span style="color:#ae81ff">your-repo/your-repo.github.io </span> <span style="color:#75715e"># Page 仓库</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_branch</span>: <span style="color:#ae81ff">main </span> <span style="color:#75715e"># Page 仓库的分支</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./public</span> <span style="color:#75715e"># 静态网页路径</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">commit_message</span>: <span style="color:#ae81ff">${{ github.event.head_commit.message }}</span>
+</span></span></code></pre></div><blockquote>
+<p>记得在 Page 仓库的设置中开启 Github Pages，选择 <code>main</code> 分支，用你的仓库名替换 <code>your-repo/your-repo.github.io</code>。</p>
+</blockquote>
+<h3 id="生成私钥">生成私钥</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>git config user.email<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span> -f gh-pages -N <span style="color:#e6db74">&#34;&#34;</span>
+</span></span></code></pre></div><p>你将得到两个文件：</p>
+<ul>
+<li><code>gh-pages.pub</code> 是 Public Key</li>
+<li><code>gh-pages</code> 是 Private Key</li>
+</ul>
+<h3 id="在-github-中设置信息">在 Github 中设置信息</h3>
+<ul>
+<li>在本项目目录下设置 <strong>Sectets</strong> 的 <code>ACTIONS_DEPLOY_KEY</code> 信息，填入 Private Key</li>
+<li>在 Pages 项目下设置 <strong>Deploy Keys</strong>，填入 Public Key，记得选中 <strong>Allow write access</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>添加 public key</th>
+<th>Success</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://github.com/peaceiris/actions-gh-pages/raw/main/images/deploy-keys-1.jpg" alt=""  />
+</a></td>
+<td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://github.com/peaceiris/actions-gh-pages/raw/main/images/deploy-keys-2.jpg" alt=""  />
+</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>添加 private key</th>
+<th>Success</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://github.com/peaceiris/actions-gh-pages/raw/main/images/secrets-1.jpg" alt=""  />
+</a></td>
+<td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://github.com/peaceiris/actions-gh-pages/raw/main/images/secrets-2.jpg" alt=""  />
+</a></td>
+</tr>
+</tbody>
+</table>
+]]></content:encoded></item><item><title>Scaling Law 的数学解读</title><link>https://blog.uglyboy.cn/posts/2023-10-10/</link><pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate><guid>https://blog.uglyboy.cn/posts/2023-10-10/</guid><description>Dataset Size 和 Loss 的关系 最大似然估计（MLE） 一切机器学习的本质都是最大似然估计： 模型下的理想真实世界的概率分布：$p(x|\theta)$ 我们不知道</description><content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
 <h3 id="最大似然估计mle">最大似然估计（MLE）</h3>
 <p>一切机器学习的本质都是最大似然估计：</p>
 <ol>
