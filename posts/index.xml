@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on 拾柒读库</title>
+    <title>文章 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/posts/</link>
-    <description>Recent content in Posts on 拾柒读库</description>
+    <description>Recent content in 文章 on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Wed, 18 Oct 2023 11:57:39 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language><atom:link href="https://blog.uglyboy.cn/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 搭建流程</title>
       <link>https://blog.uglyboy.cn/posts/2023-10-18/</link>
-      <pubDate>Wed, 18 Oct 2023 11:57:39 +0800</pubDate>
+      <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
       
       <guid>https://blog.uglyboy.cn/posts/2023-10-18/</guid>
       <description>基本安装 搭建站点 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 git 仓库 git init git branch -m main # 兼容 Github 的设置 安装主题 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 git submodule update --init --recursive</description>
