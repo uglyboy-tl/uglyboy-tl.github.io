@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>拾柒读库</title><link>https://blog.uglyboy.cn/</link><description>Recent content on 拾柒读库</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Oct 2023 11:57:39 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo 搭建流程</title><link>https://blog.uglyboy.cn/posts/2023-10-18/</link><pubDate>Wed, 18 Oct 2023 11:57:39 +0800</pubDate><guid>https://blog.uglyboy.cn/posts/2023-10-18/</guid><description>基本安装 搭建站点 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 git 仓库 git init git branch -m main # 兼容 Github 的设置 安装主题 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 git submodule update --init --recursive</description><content:encoded><![CDATA[<h2 id="基本安装">基本安装</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>拾柒读库</title>
+    <link>https://blog.uglyboy.cn/</link>
+    <description>Recent content on 拾柒读库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 18 Oct 2023 11:57:39 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 搭建流程</title>
+      <link>https://blog.uglyboy.cn/posts/2023-10-18/</link>
+      <pubDate>Wed, 18 Oct 2023 11:57:39 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/posts/2023-10-18/</guid>
+      <description>基本安装 搭建站点 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 git 仓库 git init git branch -m main # 兼容 Github 的设置 安装主题 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 git submodule update --init --recursive</description>
+      <content:encoded><![CDATA[<h2 id="基本安装">基本安装</h2>
 <h3 id="搭建站点">搭建站点</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site &lt;name of site&gt; -f yml
 </span></span></code></pre></div><h3 id="初始化-git-仓库">初始化 git 仓库</h3>
@@ -206,7 +222,17 @@
 </tr>
 </tbody>
 </table>
-]]></content:encoded></item><item><title>Scaling Law 的数学解读</title><link>https://blog.uglyboy.cn/posts/2023-10-10/</link><pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate><guid>https://blog.uglyboy.cn/posts/2023-10-10/</guid><description>Dataset Size 和 Loss 的关系 最大似然估计（MLE） 一切机器学习的本质都是最大似然估计： 模型下的理想真实世界的概率分布：$p(x|\theta)$ 我们不知道</description><content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Scaling Law 的数学解读</title>
+      <link>https://blog.uglyboy.cn/posts/2023-10-10/</link>
+      <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/posts/2023-10-10/</guid>
+      <description>Dataset Size 和 Loss 的关系 最大似然估计（MLE） 一切机器学习的本质都是最大似然估计： 模型下的理想真实世界的概率分布：$p(x|\theta)$ 我们不知道</description>
+      <content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
 <h3 id="最大似然估计mle">最大似然估计（MLE）</h3>
 <p>一切机器学习的本质都是最大似然估计：</p>
 <ol>
@@ -362,4 +388,10 @@ $$</p>
 </li>
 </ol>
 </div>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+    
+    
+    
+  </channel>
+</rss>
