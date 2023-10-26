@@ -13,11 +13,11 @@
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
       
       <guid>https://blog.uglyboy.cn/posts/2023-10-18/</guid>
-      <description>基本安装 搭建站点 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 git 仓库 git init git branch -m main # 兼容 Github 的设置 安装主题 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 git submodule update --init --recursive</description>
+      <description>基本安装 搭建站点 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 Git 仓库 git init git branch -m main # 兼容 Github 的设置 安装主题 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 git submodule update --init --recursive</description>
       <content:encoded><![CDATA[<h2 id="基本安装">基本安装</h2>
 <h3 id="搭建站点">搭建站点</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site &lt;name of site&gt; -f yml
-</span></span></code></pre></div><h3 id="初始化-git-仓库">初始化 git 仓库</h3>
+</span></span></code></pre></div><h3 id="初始化-git-仓库">初始化 Git 仓库</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
 </span></span><span style="display:flex;"><span>git branch -m main <span style="color:#75715e"># 兼容 Github 的设置</span>
 </span></span></code></pre></div><h3 id="安装主题">安装主题</h3>
