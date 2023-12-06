@@ -205,7 +205,7 @@ $$</p>
 \delta(q,\sigma) = \left \{
 \begin{array}{ll}
 q \circ\sigma &amp; \sigma \neq \varepsilon \\
-\phi(q) &amp; \sigma = \varepsilon
+q\circ\phi(q) &amp; \sigma = \varepsilon
 \end{array}
 \right.
 \end{equation}

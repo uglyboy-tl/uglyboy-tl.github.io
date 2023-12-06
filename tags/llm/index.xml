@@ -6,7 +6,121 @@
     <description>Recent content in LLM on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 09 Nov 2023 12:08:22 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Nov 2023 01:45:37 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>大语言模型原理分享</title>
+      <link>https://blog.uglyboy.cn/posts/test/</link>
+      <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/posts/test/</guid>
+      <description>什么是大语言模型？ 当我说了很多话之后，我马上要说$\Box$ 数学公式描述 $w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是： $$ p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i}) $$ 预训练模型可以保证</description>
+      <content:encoded><![CDATA[<h2 id="什么是大语言模型">什么是大语言模型？</h2>
+<hr>
+<p>当我说了很多话之后，我马上要说$\Box$</p>
+<hr>
+<h2 id="数学公式描述">数学公式描述</h2>
+<p>$w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是：</p>
+<p>$$
+p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
+$$</p>
+<hr>
+<ul>
+<li><strong>预训练模型可以保证文字的连贯性和合理性，但对于不具备响应指令的能力。</strong></li>
+<li>如果需要模型具有响应使用者指令的能力，所需要的是对预训练模型进行“人类指令对齐”。</li>
+<li>更具体的说，就是通过一些样本和形式，让模型知道我们正在生成的是一段对话，而不是一段文章。
+<ul>
+<li>模型生成的是上一句话的回答。</li>
+<li>模型只生成一次答复内容，不要在生成回答后，有继续生成下一段回答。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="大语言模型能做什么">大语言模型能做什么？</h2>
+<hr>
+<ul>
+<li>大模型能记住它看到过的一切信息。</li>
+<li>大模型对于已经看到过的信息，有一定的泛化能力（有限度的推广）。</li>
+</ul>
+<hr>
+<h3 id="大模型究竟能达到怎样的泛化能力">大模型究竟能达到怎样的泛化能力？</h3>
+<blockquote>
+<p>大模型可以涌现出智能吗？</p>
+</blockquote>
+<hr>
+<h2 id="大语言模型不能做什么">大语言模型不能做什么？</h2>
+<hr>
+<ol>
+<li>大模型无法判别一个 $\{[0|1]^*\}$ 序列中是否有奇数个 $1$。</li>
+<li>给定 $n$ 大模型无法生成 $(aa)^n$。</li>
+<li>大模型无法判定 $\{0^n\#1^n\}$ 形式的序列。</li>
+<li>大模型无法执行加法运算。</li>
+<li>$\dots$</li>
+</ol>
+<hr>
+<p>大语言模型没有，也不可能具有推理能力。</p>
+<p>大语言模型只是记住了足够多的别人的推理，然后用类比的方法将这些推理泛化了而已。</p>
+<hr>
+<h2 id="大语言模型是如何将信息泛化的">大语言模型是如何将信息泛化的？</h2>
+<hr>
+<ul>
+<li>通过相似度计算来进行泛化，然后通过概率分布来进行选择。
+<ol>
+<li>粗略的可以如下理解：可以用同义词替代的都能被泛化。</li>
+<li>这种泛化的替代能力是可以保留相对位置信息的（例如一道数学题中的数字变了，它可以泛化到后续的解题过程中，都用新数字替代原来的数字）。</li>
+<li>在训练样本充分的情况下，可以跨语言进行同义词泛化。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="大语言模型的上下文长度又是怎么回事">大语言模型的上下文长度又是怎么回事？</h2>
+<hr>
+<h2 id="为什么要限制上下文长度">为什么要限制上下文长度？</h2>
+<p>在预训练阶段，我们所有的样本都是在 $4k-1$ 的长度下，让模型学习第 $4k$ 个文字。所以训练的模型只能在 $4k$ 范围内工作，因为更长的文本没有见过，通常设计的预训练模型也没有尝试让模型去理解更长的文字。</p>
+<blockquote>
+<p>导致这种情况发生的最核心的难点是，我们没有足够多的长文本作为训练样本。</p>
+</blockquote>
+<hr>
+<h2 id="如何扩充到-200k">如何扩充到 $200k$</h2>
+<ul>
+<li>我们对模型中的位置指针做了些调整，让 $200k$ 的字符指向 $4k$ 的字符，类似的每个 $200k$ 以内的位置都指向了 $4k$ 以内的一个相应的位置上。这样十分长的文本就可以被模型“误认为”是曾经见过的短文本了。</li>
+<li>但这样处理，很多相对长度信息错乱，例如原本两个文本是相差3个词的，但在新的指向下，变成了 $3/50$ 个词，而且这样的位置指针是找不到对应信息的。所以我们构造了不那么多的 $200k$ 长的训练样本，来重新学习出新的位置指针下的模型。</li>
+</ul>
+<hr>
+<h2 id="会带来什么问题">会带来什么问题？</h2>
+<ul>
+<li>语义上的位置信息与真实位置信息的对应关系有可能被混淆。</li>
+<li>对位置信息的利用方面，会有一定的性能损失。
+<ul>
+<li>因为补充的 $200k$ 的样本主要都是小说，所以非小说的其他类型的上下文信息的使用，会被当作小说一样的使用。</li>
+<li>这一点是迁移学习带来的弊端，如果实践当中遇到问题，未来有可能用其他方法来优化。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="q--a">Q &amp; A</h1>
+<hr>
+<ol>
+<li>大模型如何才能按照用户要求的 word counts 回复？用户有时要求回复的特别长，比如1万字，如何能做到？</li>
+</ol>
+<hr>
+<ol start="2">
+<li>我们看到模型在榜单上的排名很高，不过在对话中感觉并没有排名低的“聪明”，大模型榜单和用户真实的体感有什么关系？</li>
+</ol>
+<hr>
+<ol start="3">
+<li>大模型的prompt有没有标准的一套语法（类似代码的语法）用来控制？现在看起来大家都在发挥自己的文风</li>
+</ol>
+<hr>
+<h2 id="分享预告">分享预告</h2>
+<ul>
+<li>RAG</li>
+<li>Agent</li>
+<li>推理加速</li>
+<li>$\dots$</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>大语言模型的数学理解</title>
       <link>https://blog.uglyboy.cn/posts/2023-11-09/</link>
@@ -205,7 +319,7 @@ $$</p>
 \delta(q,\sigma) = \left \{
 \begin{array}{ll}
 q \circ\sigma &amp; \sigma \neq \varepsilon \\
-\phi(q) &amp; \sigma = \varepsilon
+q\circ\phi(q) &amp; \sigma = \varepsilon
 \end{array}
 \right.
 \end{equation}
