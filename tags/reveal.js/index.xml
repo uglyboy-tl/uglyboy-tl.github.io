@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Reveal.js on 拾柒读库</title>
+    <link>https://blog.uglyboy.cn/tags/reveal.js/</link>
+    <description>Recent content in Reveal.js on 拾柒读库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 07 Dec 2023 10:09:58 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/reveal.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 更换字体 &amp; 使用 Reveal.js 做在线展示</title>
+      <link>https://blog.uglyboy.cn/posts/2023-12-07/</link>
+      <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/posts/2023-12-07/</guid>
+      <description>又开始折腾博客了。 基于 PaperMod 主题，给博客增加了两个基本功能： 更换中文更加友好的 [霞鹜文楷](https://github.com/lxgw/Lx</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>又开始折腾博客了。</p>
+<p>基于 <code>PaperMod</code> 主题，给博客增加了两个基本功能：</p>
+<ol>
+<li>更换中文更加友好的 <code>[霞鹜文楷](https://github.com/lxgw/LxgwWenKai)</code> 字体，当然同样的方法也适用于其他任何字体</li>
+<li>因为我经常使用 <code>Markdown</code> 做 PPT，所以希望博客也能支持这种类型的文档。</li>
+</ol>
+</blockquote>
+<h2 id="字体配置">字体配置</h2>
+<p>首先，依然修改 <code>layouts/partials/extend_head.html</code> 文件<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ if or .Params.reveal .Site.Params.reveal }} {{ partial &#34;reveal.html&#34; . }} {{ end }}
+</span></span><span style="display:flex;"><span>{{ if .Site.Params.changeFont }} {{ partial &#34;font.html&#34; . }} {{ end }}
+</span></span></code></pre></div><p>然后在 <code>layouts/partials</code> 下新建 <code>font.html</code> 文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-webfont/1.6.0/style.min.css&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">body</span><span style="color:#f92672">,</span><span style="color:#f92672">code</span><span style="color:#f92672">,</span><span style="color:#f92672">section</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;LXGW WenKai&#34;</span>, <span style="color:#66d9ef">sans-serif</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
+</span></span></code></pre></div><p>这样博客的字体就生效了。</p>
+<h2 id="revealjs-的配置">Reveal.js 的配置</h2>
+<p>这个会稍微麻烦一些，先在 <code>layouts/partials</code> 下新建 <code>reveal.html</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reveal.min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha512-8849oiyeHKp8wdWclFreBguH6cXFoZfHhVBcoxdm+2+JcXagu1Poobm5vzBqEZqL9iJbTYK1bXbx3SWfNA3kRQ==&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span> <span style="color:#a6e22e">referrerpolicy</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no-referrer&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/highlight/zenburn.min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha512-JPxjD2t82edI35nXydY/erE9jVPpqxEJ++6nYEoZEpX2TRsmp2FpZuQqZa+wBCen5U16QZOkMadGXHCfp+tUdg==&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span> <span style="color:#a6e22e">referrerpolicy</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no-referrer&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/theme/serif.min.css&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha512-oS1nbkOWsc5Ko9pLGsFZGIt0FBWp1ZmTD7LplvylADPQuxHfztC8Fd24/5CZGNDoLORrtkESGshNdgTbrXPBoQ==&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span> <span style="color:#a6e22e">referrerpolicy</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no-referrer&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/reveal.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha512-w7pY1wL5qhcH40XK9PIRYZc/qeog8TdyxRqEA9eHKBz+/tnhAOyIFHivbmJd/ezr8xbB7iVAh4tBNiJakCTw2g==&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span> <span style="color:#a6e22e">referrerpolicy</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no-referrer&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/markdown/markdown.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span> <span style="color:#a6e22e">referrerpolicy</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no-referrer&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/highlight/highlight.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha512-OE5v8UPoWQBlcTYkiOyXhC/+7WBrdCXC0Wg/QrrvDxtcEd7TzTLhHkx5WvTue9aJDORb15vhajbJlCSSZgifgg==&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span> <span style="color:#a6e22e">referrerpolicy</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no-referrer&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.2/plugin/math/math.min.js&#34;</span> <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha512-skPZpuRwuUAnF9iEEFBXc4zJaucKcHUDgY1wDBTv0ILy82C2gn8MJsbcinzj2u8r/iZjD/78HRgw2/n//poOhQ==&#34;</span> <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span> <span style="color:#a6e22e">referrerpolicy</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;no-referrer&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Reveal</span>.<span style="color:#a6e22e">initialize</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">transition</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;fade&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">progress</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">embedded</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">minScale</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.2</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [ <span style="color:#a6e22e">RevealMarkdown</span>, <span style="color:#a6e22e">RevealHighlight</span>, <span style="color:#a6e22e">RevealMath</span>.<span style="color:#a6e22e">MathJax3</span> ]
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>这样就可以在 <code>markdown</code> 的文件头中通过设置：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">reveal</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>来启动 <code>Reveal.js</code> 的支持。但是只是这样的话，还是没有办法在页面中演示出 PPT 文件。</p>
+<p>还需要增加新的文档类型，在 <code>layouts/_default</code> 下增加 <code>slide.html</code>，其中最核心的功能是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ define &#34;main&#34; }}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">article</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-single&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>  {{- if .Content }}
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;reveal&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;height: 50vh;&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;slides&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">section</span> <span style="color:#a6e22e">data-markdown</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">textarea</span> <span style="color:#a6e22e">data-template</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ .RawContent }}
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">textarea</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">section</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  {{- end }}
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">article</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{{ end }}{{/* end main */}}
+</span></span></code></pre></div><p>这样，再在文章的文件头中添加：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">layout</span>: <span style="color:#ae81ff">slide</span>
+</span></span></code></pre></div><p>就可以在页面中直接展示 PPT 了。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>大部分的功能配置都需要修改这个文件，通过这个路由来添加具体的 <code>js</code> 和 <code>css</code> 文件。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

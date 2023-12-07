@@ -6,7 +6,17 @@
     <description>Recent content in Categories on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 01 Dec 2023 08:56:12 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Dec 2023 10:09:58 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技术</title>
+      <link>https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>低熵生活</title>
       <link>https://blog.uglyboy.cn/categories/%E4%BD%8E%E7%86%B5%E7%94%9F%E6%B4%BB/</link>
@@ -23,16 +33,6 @@
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
       
       <guid>https://blog.uglyboy.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>技术</title>
-      <link>https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
-      
-      <guid>https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
