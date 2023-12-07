@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>RAG on 拾柒读库</title>
+    <link>https://blog.uglyboy.cn/tags/rag/</link>
+    <description>Recent content in RAG on 拾柒读库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 23 Nov 2023 06:35:17 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RAG 技术</title>
+      <link>https://blog.uglyboy.cn/slides/2.-rag%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/slides/2.-rag%E6%8A%80%E6%9C%AF/</guid>
+      <description>RAG 技术 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。 原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得</description>
+      <content:encoded><![CDATA[<h1 id="rag-技术">RAG 技术</h1>
+<hr>
+<ul>
+<li>检索增强的生成系统（Retrieve Augment Generation）简称 RAG。</li>
+<li>原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以：
+<ul>
+<li>降低幻觉出现概率</li>
+<li>适应垂直场景应用</li>
+<li>弥补数据实时性不足</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="一个典型-rag-系统的架构如下图所示">一个典型 RAG 系统的架构如下图所示</h3>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg" alt=""  />
+</p>
+<hr>
+<h3 id="rag-系统的核心技术要素">RAG 系统的核心技术要素：</h3>
+<ul>
+<li>文档导入</li>
+<li>文档切分</li>
+<li>文档向量化</li>
+<li>向量数据库选型</li>
+<li>检索算法</li>
+<li>文档排序</li>
+<li>Prompt 生成</li>
+<li>$\dots$</li>
+</ul>
+<hr>
+<p>市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 <code>某一种 RAG 的方法</code> 变成了 <code>通用 RAG 的框架</code>，从而让我们迷失了 RAG 的真正价值。</p>
+<hr>
+<h2 id="从定义出发rag-就是">从定义出发，RAG 就是</h2>
+<h2 id="检索--生成">检索 + 生成</h2>
+<hr>
+<ul>
+<li>Chat With Documents 属于 RAG</li>
+<li>用户对话中保留历史记忆 属于 RAG</li>
+<li>网页搜索 + LLM 属于 RAG</li>
+<li>自动调用 API 接口获取信息 属于 RAG</li>
+<li>调用数据库获取信息 属于 RAG</li>
+<li>$\dots$</li>
+<li><strong>上面各种方法一起使用也属于 RAG</strong></li>
+</ul>
+<hr>
+<h2 id="rag-究竟意味着什么">RAG 究竟意味着什么？</h2>
+<blockquote>
+<p>为什么我们要使用检索</p>
+</blockquote>
+<hr>
+<ul>
+<li>
+<p>人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）；</p>
+<ul>
+<li>通常在产品上，我们可以用 <code>Save time</code> 和 <code>Kill time</code> 的模式来区分</li>
+</ul>
+</li>
+<li>
+<p>主动获取信息的手段被称为信息检索。</p>
+<ul>
+<li>RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="llm-独立完成检索的能力有限">LLM 独立完成检索的能力有限</h2>
+<hr>
+<ul>
+<li>最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，<strong>我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果</strong>。
+<ul>
+<li>对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。</li>
+<li>我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。</li>
+<li>一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png" alt="w:1080"  />
+</p>
+<hr>
+<ul>
+<li>
+<p>大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。</p>
+<ul>
+<li>仅靠大模型，是无法取消幻觉的。</li>
+</ul>
+</li>
+<li>
+<p>如果 RAG 做得不好，可能带来的是负面效果。</p>
+</li>
+</ul>
+<hr>
+<h2 id="rag-的核心如何用好检索">RAG 的核心：如何用好检索</h2>
+<hr>
+<h2 id="检索的发展史">检索的发展史</h2>
+<ol>
+<li>图书馆的索引式检索（Yahoo 等目录网页）；</li>
+<li>关键词召回（传统搜索）；</li>
+<li>向量相似度（个性化推荐）；</li>
+<li>自然语言回答问题（大模型）；</li>
+</ol>
+<blockquote>
+<p>这些方法不是递进的，而是并列的。</p>
+</blockquote>
+<hr>
+<h2 id="新概念下的-rag-框架">新概念下的 RAG 框架</h2>
+<hr>
+<ol>
+<li>对用户问题分类，判断使用哪些检索器；</li>
+<li>根据用户问题，找到最适合的检索器检索方式（Query、SQL、API 调用等）；</li>
+<li>召回的结果，判断与用户问题的相关性，进行合理过滤或改进；</li>
+<li>用适合的方式组织召回结果，提供给 LLM 进行汇总并回答用户问题；</li>
+<li>（可选）判断是否很好的回答了用户的问题，是否需要重新再来一遍（这其实就进化成 Agent 了）。</li>
+</ol>
+<hr>
+<ul>
+<li>可以使用不同的 LLM 来执行不同的任务，这样就可以在计算速度和资源上得到极大的节约，并针对特定问题取得更好的效果。</li>
+<li>检索器的各种优化技术都值得使用：
+<ul>
+<li>包括传统的关键词搜索（QP）</li>
+<li>向量检索只是其中的一种手段；同时向量检索也应当额外建立适合的索引。</li>
+<li>知识图谱是有效的检索器之一。</li>
+<li>利用好结构化信息（数据库 或 API）。</li>
+</ul>
+</li>
+<li>好的检索器依赖好的数据。</li>
+</ul>
+<hr>
+<h1 id="q--a">Q &amp; A</h1>
+<hr>
+<h4 id="如果我们有一些私有的数据如何让大模型能够利用这些私有数据呢">如果我们有一些私有的数据，如何让大模型能够利用这些私有数据呢？</h4>
+<hr>
+<ul>
+<li>通过微调的方式，将私有数据加入到大模型的训练数据中。</li>
+<li>通过检索的方式，将私有数据加入到大模型的上下文中。</li>
+<li><strong>以上方法都用</strong></li>
+</ul>
+<hr>
+<h4 id="怎样才能更好的提升-rag-的效果">怎样才能更好的提升 RAG 的效果？</h4>
+<hr>
+<p>最核心的要素其实是：找到更优质的数据（准确、结构化）</p>
+<hr>
+<h4 id="产品和开发要深入研究-prompt-engineering-吗">产品和开发要深入研究 Prompt Engineering 吗？</h4>
+<hr>
+<p>永远都不要这样做，这件事交给 SFT</p>
+<ul>
+<li>概念对比</li>
+<li>Let’s think step by step</li>
+<li>通用优化 Prompt 的 Prompt</li>
+<li>function call</li>
+<li>Self RAG</li>
+<li>让模型来学习如何 Prompt Engineering</li>
+</ul>
+<hr>
+<ul>
+<li>RAG 的 Retrieval，在不同场景下（长文档、实时信息、用户记忆），适合从什么来源取（向量数据库、websearch、关系数据库）？有什么方法论吗？</li>
+<li>之前搜索排序都用 elasticsearch（最近各种传统数据库也支持了向量搜索），是不是不需要新兴的这种专用向量数据库了？</li>
+</ul>
+<blockquote>
+<p>不同的检索方法依赖于被检索对象的数据结构。</p>
+</blockquote>
+<hr>
+<ul>
+<li>检索的准确和召回如何平衡，有什么建议吗？</li>
+<li>RAG 和之前的大搜从各个业务召回内容进行排序，只是把排序替换为了文字合成功能吗？那是否除了合成的过程，业务离线内容准备和排序（数据方）比模型的提升空间还大？</li>
+</ul>
+<blockquote>
+<p>这两种想法都依旧是将 传统检索 和 LLM 独立对待了。检索过程中就可以融入 LLM 的能力，而不是简单的将检索结果交给 LLM。例如，生成 SQL 检索。</p>
+</blockquote>
+<hr>
+<ul>
+<li>当前业界通过 RAG 提升准确率，最大可以到多少呢？之前看到的结果是 98%</li>
+</ul>
+<hr>
+<ul>
+<li>怎么看文字合成比直接排序给 KOL 的曝光损失？会不会等于整个小红书只有一个 RAG KOL，其他的 KOL 都是给 RAG 供给图文内容，导致影响 KOL 的广告收入和生态健康？</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

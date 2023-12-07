@@ -6,7 +6,539 @@
     <description>Recent content in 机器学习 on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 09 Nov 2023 12:08:22 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Nov 2023 06:35:17 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RAG 技术</title>
+      <link>https://blog.uglyboy.cn/slides/2.-rag%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/slides/2.-rag%E6%8A%80%E6%9C%AF/</guid>
+      <description>RAG 技术 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。 原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得</description>
+      <content:encoded><![CDATA[<h1 id="rag-技术">RAG 技术</h1>
+<hr>
+<ul>
+<li>检索增强的生成系统（Retrieve Augment Generation）简称 RAG。</li>
+<li>原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以：
+<ul>
+<li>降低幻觉出现概率</li>
+<li>适应垂直场景应用</li>
+<li>弥补数据实时性不足</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="一个典型-rag-系统的架构如下图所示">一个典型 RAG 系统的架构如下图所示</h3>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg" alt=""  />
+</p>
+<hr>
+<h3 id="rag-系统的核心技术要素">RAG 系统的核心技术要素：</h3>
+<ul>
+<li>文档导入</li>
+<li>文档切分</li>
+<li>文档向量化</li>
+<li>向量数据库选型</li>
+<li>检索算法</li>
+<li>文档排序</li>
+<li>Prompt 生成</li>
+<li>$\dots$</li>
+</ul>
+<hr>
+<p>市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 <code>某一种 RAG 的方法</code> 变成了 <code>通用 RAG 的框架</code>，从而让我们迷失了 RAG 的真正价值。</p>
+<hr>
+<h2 id="从定义出发rag-就是">从定义出发，RAG 就是</h2>
+<h2 id="检索--生成">检索 + 生成</h2>
+<hr>
+<ul>
+<li>Chat With Documents 属于 RAG</li>
+<li>用户对话中保留历史记忆 属于 RAG</li>
+<li>网页搜索 + LLM 属于 RAG</li>
+<li>自动调用 API 接口获取信息 属于 RAG</li>
+<li>调用数据库获取信息 属于 RAG</li>
+<li>$\dots$</li>
+<li><strong>上面各种方法一起使用也属于 RAG</strong></li>
+</ul>
+<hr>
+<h2 id="rag-究竟意味着什么">RAG 究竟意味着什么？</h2>
+<blockquote>
+<p>为什么我们要使用检索</p>
+</blockquote>
+<hr>
+<ul>
+<li>
+<p>人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）；</p>
+<ul>
+<li>通常在产品上，我们可以用 <code>Save time</code> 和 <code>Kill time</code> 的模式来区分</li>
+</ul>
+</li>
+<li>
+<p>主动获取信息的手段被称为信息检索。</p>
+<ul>
+<li>RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="llm-独立完成检索的能力有限">LLM 独立完成检索的能力有限</h2>
+<hr>
+<ul>
+<li>最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，<strong>我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果</strong>。
+<ul>
+<li>对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。</li>
+<li>我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。</li>
+<li>一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png" alt="w:1080"  />
+</p>
+<hr>
+<ul>
+<li>
+<p>大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。</p>
+<ul>
+<li>仅靠大模型，是无法取消幻觉的。</li>
+</ul>
+</li>
+<li>
+<p>如果 RAG 做得不好，可能带来的是负面效果。</p>
+</li>
+</ul>
+<hr>
+<h2 id="rag-的核心如何用好检索">RAG 的核心：如何用好检索</h2>
+<hr>
+<h2 id="检索的发展史">检索的发展史</h2>
+<ol>
+<li>图书馆的索引式检索（Yahoo 等目录网页）；</li>
+<li>关键词召回（传统搜索）；</li>
+<li>向量相似度（个性化推荐）；</li>
+<li>自然语言回答问题（大模型）；</li>
+</ol>
+<blockquote>
+<p>这些方法不是递进的，而是并列的。</p>
+</blockquote>
+<hr>
+<h2 id="新概念下的-rag-框架">新概念下的 RAG 框架</h2>
+<hr>
+<ol>
+<li>对用户问题分类，判断使用哪些检索器；</li>
+<li>根据用户问题，找到最适合的检索器检索方式（Query、SQL、API 调用等）；</li>
+<li>召回的结果，判断与用户问题的相关性，进行合理过滤或改进；</li>
+<li>用适合的方式组织召回结果，提供给 LLM 进行汇总并回答用户问题；</li>
+<li>（可选）判断是否很好的回答了用户的问题，是否需要重新再来一遍（这其实就进化成 Agent 了）。</li>
+</ol>
+<hr>
+<ul>
+<li>可以使用不同的 LLM 来执行不同的任务，这样就可以在计算速度和资源上得到极大的节约，并针对特定问题取得更好的效果。</li>
+<li>检索器的各种优化技术都值得使用：
+<ul>
+<li>包括传统的关键词搜索（QP）</li>
+<li>向量检索只是其中的一种手段；同时向量检索也应当额外建立适合的索引。</li>
+<li>知识图谱是有效的检索器之一。</li>
+<li>利用好结构化信息（数据库 或 API）。</li>
+</ul>
+</li>
+<li>好的检索器依赖好的数据。</li>
+</ul>
+<hr>
+<h1 id="q--a">Q &amp; A</h1>
+<hr>
+<h4 id="如果我们有一些私有的数据如何让大模型能够利用这些私有数据呢">如果我们有一些私有的数据，如何让大模型能够利用这些私有数据呢？</h4>
+<hr>
+<ul>
+<li>通过微调的方式，将私有数据加入到大模型的训练数据中。</li>
+<li>通过检索的方式，将私有数据加入到大模型的上下文中。</li>
+<li><strong>以上方法都用</strong></li>
+</ul>
+<hr>
+<h4 id="怎样才能更好的提升-rag-的效果">怎样才能更好的提升 RAG 的效果？</h4>
+<hr>
+<p>最核心的要素其实是：找到更优质的数据（准确、结构化）</p>
+<hr>
+<h4 id="产品和开发要深入研究-prompt-engineering-吗">产品和开发要深入研究 Prompt Engineering 吗？</h4>
+<hr>
+<p>永远都不要这样做，这件事交给 SFT</p>
+<ul>
+<li>概念对比</li>
+<li>Let’s think step by step</li>
+<li>通用优化 Prompt 的 Prompt</li>
+<li>function call</li>
+<li>Self RAG</li>
+<li>让模型来学习如何 Prompt Engineering</li>
+</ul>
+<hr>
+<ul>
+<li>RAG 的 Retrieval，在不同场景下（长文档、实时信息、用户记忆），适合从什么来源取（向量数据库、websearch、关系数据库）？有什么方法论吗？</li>
+<li>之前搜索排序都用 elasticsearch（最近各种传统数据库也支持了向量搜索），是不是不需要新兴的这种专用向量数据库了？</li>
+</ul>
+<blockquote>
+<p>不同的检索方法依赖于被检索对象的数据结构。</p>
+</blockquote>
+<hr>
+<ul>
+<li>检索的准确和召回如何平衡，有什么建议吗？</li>
+<li>RAG 和之前的大搜从各个业务召回内容进行排序，只是把排序替换为了文字合成功能吗？那是否除了合成的过程，业务离线内容准备和排序（数据方）比模型的提升空间还大？</li>
+</ul>
+<blockquote>
+<p>这两种想法都依旧是将 传统检索 和 LLM 独立对待了。检索过程中就可以融入 LLM 的能力，而不是简单的将检索结果交给 LLM。例如，生成 SQL 检索。</p>
+</blockquote>
+<hr>
+<ul>
+<li>当前业界通过 RAG 提升准确率，最大可以到多少呢？之前看到的结果是 98%</li>
+</ul>
+<hr>
+<ul>
+<li>怎么看文字合成比直接排序给 KOL 的曝光损失？会不会等于整个小红书只有一个 RAG KOL，其他的 KOL 都是给 RAG 供给图文内容，导致影响 KOL 的广告收入和生态健康？</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>大模型的计算能力</title>
+      <link>https://blog.uglyboy.cn/slides/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
+      <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/slides/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
+      <description>大语言模型的计算能力 大模型领域的几个核心数学问题 N-GRAM 的计算能力问题 过参数化模型的统计学习问题 非凸的数值优化问题 对深度神经网络的数学理解 Transformer 算子的</description>
+      <content:encoded><![CDATA[<h2 id="大语言模型的计算能力">大语言模型的计算能力</h2>
+<hr>
+<h2 id="大模型领域的几个核心数学问题">大模型领域的几个核心数学问题</h2>
+<ol>
+<li>N-GRAM 的计算能力问题</li>
+<li>过参数化模型的统计学习问题</li>
+<li>非凸的数值优化问题</li>
+<li>对深度神经网络的数学理解</li>
+<li>Transformer 算子的含义</li>
+<li>fine-tuning 的数学含义</li>
+</ol>
+<hr>
+<h2 id="n-gram-计算能力问题的描述">N-GRAM 计算能力问题的描述</h2>
+<hr>
+<ul>
+<li>
+<p><strong>大语言模型的基本范式：</strong></p>
+</li>
+<li>
+<p>假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率：</p>
+</li>
+</ul>
+<p>$$
+p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
+$$</p>
+<ul>
+<li>该模型是一个 $N-1$ 阶的马尔可夫链，称为 <code>N-GRAM</code> 模型。</li>
+<li>该模型的计算能力是有限的，因为它的是个有穷自动机。</li>
+</ul>
+<hr>
+<ul>
+<li><code>非确定型有穷自动机</code>(<code>NFA</code>) 是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中
+<ul>
+<li>$Q$ 是一个有穷集合，称为<strong>状态集</strong>。</li>
+<li>$\Sigma$ 是一个有穷集合，称为<strong>字母表</strong>。</li>
+<li>$\delta:Q\times\Sigma_\varepsilon\rightarrow \mathcal{P}(Q)$ 是<strong>转移函数</strong>。</li>
+<li>$q_0\in Q$ 是<strong>起始状态</strong>。</li>
+<li>$F \subseteq Q$ 是<strong>接受状态集</strong>。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="大模型是-nfa-的证明">大模型是 NFA 的证明</h2>
+<ul>
+<li>
+<p>令 $q_0 =\varepsilon$ 为初始状态，大语言模型的预测函数记为
+$$
+\phi:{s_0s_1s_2&hellip;s_{n-1}}\rightarrow s_n,s_i \in \Sigma
+$$</p>
+</li>
+<li>
+<p>取 $\delta$ 为：
+$$
+\begin{equation}
+\delta(q,\sigma) =
+\left \{
+\begin{array}{ll}
+q \circ\sigma &amp; \sigma \neq \varepsilon\\
+q \circ\phi(q) &amp; \sigma = \varepsilon
+\end{array}
+\right.
+\end{equation}
+$$</p>
+</li>
+<li>
+<p>也就是将 $Q$ 设置为已经拥有的上文，持续输入或预测下一个字符。</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p>在 <a href="https://arxiv.org/abs/2009.11264">Bhattamishra et al. 2020</a> 中也有类似的实验，实验中基于 Transformer 的大语言模型甚至只能识别弱化的正则语言。</p>
+<ul>
+<li>大模型无法判别一个 ${[0|1]^*}$ 序列中是否有奇数个 $1$。</li>
+<li>给定 $n$ 大模型无法生成 $(aa)^n$。</li>
+</ul>
+</li>
+<li>
+<p>在 <a href="http://arxiv.org/abs/2310.16028">Zhou et al. 2023</a> 中还尝试论述了基于 Transformer 的大语言模型也无法实现加法运算之类的复杂运算。</p>
+</li>
+<li>
+<p>以及，有穷自动机无法判定 $\{0^n\#1^n\}$ 形式的序列；也无法进行基础的四则运算（无法处理括号的闭合和乘法的优先顺序）。</p>
+</li>
+</ul>
+<hr>
+<h2 id="大模型的计算能力是有限的">大模型的计算能力是有限的</h2>
+<ul>
+<li>大模型不具备推理能力，这件事与模型的规模无关。</li>
+<li>大模型是通过语言概率分布的泛化来模拟出推理能力的假象。
+<ul>
+<li>例如：大模型不会数数。他只是把看到过的数数类型的答案都记住了，然后用类比的方式去回答新的问题；如果答案在记忆中，就会回答正确。</li>
+<li>更大的模型可以记住更多的答案，但是这并不是我们想要的答案。</li>
+</ul>
+</li>
+<li>我们需要新的范式来解决 AGI 问题。</li>
+</ul>
+<hr>
+<h2 id="agent--llm-可以成为完备图灵机">Agent + LLM 可以成为完备图灵机</h2>
+<hr>
+<ul>
+<li>Agent 的基本范式是一个 While 程序。</li>
+<li>例如下面几种常见的 Agent：
+<ol>
+<li><a href="http://arxiv.org/abs/2210.03629">ReAct</a> 获得反思推理能力</li>
+<li><a href="https://github.com/yoheinakajima/babyagi">BabyAGI</a> 基础的计划任务 Agent</li>
+<li><a href="http://arxiv.org/abs/2303.11366">Reflexion</a> 长期记忆和短期记忆（短期记忆就符合上述流程）</li>
+<li><a href="https://github.com/Significant-Gravitas/AutoGPT">AutoGPT</a> 第一个全能 Agent</li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li>代码示例：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReAct</span>(ABC):
+</span></span><span style="display:flex;"><span>    thought: Optional[str] <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>    action: Optional[str] <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__post_init__</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>obs <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>run() <span style="color:#75715e"># 获取执行 Action 的结果</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>act <span style="color:#f92672">=</span> ReAct()
+</span></span><span style="display:flex;"><span>acts <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> act<span style="color:#f92672">.</span>done:
+</span></span><span style="display:flex;"><span>    acts<span style="color:#f92672">.</span>append(act)
+</span></span><span style="display:flex;"><span>    prompt <span style="color:#f92672">=</span> get_prompt(acts)
+</span></span><span style="display:flex;"><span>    act: ReAct <span style="color:#f92672">=</span> ReAct<span style="color:#f92672">.</span>parse(llm<span style="color:#f92672">.</span>call(prompt)) <span style="color:#75715e"># 调用大模型</span>
+</span></span></code></pre></div><hr>
+<h3 id="编程语言-while-语义-semnatik">编程语言 WHILE 语义 (Semnatik):</h3>
+<ul>
+<li>一个 while 程序 $P$ ,通过传递 $k$ 个参数,返回一个结果, 即 $f:\mathbb{N}^k\rightarrow\mathbb{N}$</li>
+<li>其他未定义的参数可以在程序里被调用,但是必须设定为 $0$</li>
+<li>WHILE 程序的结果在结束结束后通过 $x_0$ 传达</li>
+<li>对于一个 WHILE 程序,有三种运行模式:
+<ul>
+<li>变量赋值: $x_i=x_j+c,c\in{0,1,−1}$</li>
+<li>$P_1$;$P_2$ ( $P_1$,$P_2$ 是两个任意程序程序),先运行 $P_1$ ,再运行 $P_2$</li>
+<li>WHILE $x_i \neq 0$ DO $P$ END 意思是, $P$ 程序将一直被运行,直到 $x_i$ 等于 0</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><strong>定理：编程语言 WHILE 是图灵完备的</strong></p>
+</li>
+<li>
+<p><strong>证明:</strong> 我们将受限 RAM(Registermaschine)(只有 LOAD,STORE,CLOAD,CADD,CSUB 功能的 RAM) 中的每一步都用 WHILE 程序来代替计算，由于受限 RAM 是图灵完备的,所以 WHILE 也是图灵完备的。</p>
+</li>
+<li>
+<p>证明细节参看：<a href="https://zhuanlan.zhihu.com/p/343107128">while循环</a> ，源自 <a href="https://algo.rwth-aachen.de/Lehre/WS1920/BuK/BuK/h10.pdf">Unentscheidbarkeit des Halteproblems: WHILE-Programm, Vorlesung 10 in BUK von RWTH Aachen</a></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p>实现图灵完备的方法不是唯一的。例如，<a href="http://arxiv.org/abs/2301.04589">Schuurmans 2023</a> 就证明了，当可以使用外部存储时，大模型是图灵完备的。</p>
+</li>
+<li>
+<p>但是，这并不意味着 Agent + LLM 就是 AGI，毕竟我们现在的电脑本身就是图灵完备的，但是我们并不认为电脑就是 AGI。</p>
+</li>
+<li>
+<p>我们需要的是一个可以自适应的 Agent，而不是一个固定的 Agent。也就是可以通过学习来改变自己的行为，而不是通过人工的方式来改变自己的行为。</p>
+</li>
+</ul>
+<hr>
+<h2 id="以整数加法为例">以整数加法为例</h2>
+<blockquote>
+<p>我们希望 Agent 学会整数加法。但学会的方式不是我们给了它加法的程序让它执行，而是通过加法的真值，“推导”出加法的程序。模拟人做加法的方式，我们尝试让机器训练出加法程序</p>
+</blockquote>
+<hr>
+<ul>
+<li><strong>已知</strong>：
+<ul>
+<li>十以内的加减法（这部分的结果是背下来的）；</li>
+<li>用字符串来保存十进制的数字；</li>
+<li>有额外的存储可以利用（保存进位时的信息）；</li>
+</ul>
+</li>
+<li><strong>目标：</strong>
+<ul>
+<li>懂得如何利用已知的十以内的加减法的结果，进行多位的加减法运算；</li>
+<li>计算时需要从后向前计算；</li>
+<li>需要保留进位的信息；</li>
+<li>确保计算结果一定是准确的；</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p>这应该是一个强化学习的过程——只有计算正确时，才会获得奖励。其中，尝试探索的动作空间是：</p>
+<ul>
+<li>如何利用十以内的加减</li>
+<li>通过怎样的计算顺序</li>
+<li>如何利用额外的存储</li>
+</ul>
+</li>
+<li>
+<p>最终以此来生成一个完整的加法运算流程。</p>
+</li>
+</ul>
+<hr>
+<h2 id="使用-rl-训练-agent">使用 RL 训练 Agent</h2>
+<p>Agent 的 While 循环模式恰好符合 Bellman 方程的形式。</p>
+<hr>
+<p>通过强化学习训练 Agent，直观上，状态空间和奖励都不难定义，难的是究竟如何定义 Action 空间。</p>
+<hr>
+<ul>
+<li>例如十以内的加减法为什么可以成为加法的 Action？</li>
+<li>进一步，当我们尝试训练乘法时，九九乘法表一定在我们的 Action 空间中，那如何凭空让机器找到这个“九九乘法表”呢？</li>
+<li>甚至计算乘法时，加法也需要在 Action 空间中。这意味着，强化学习能学会内容是有序的，而且 Action 空间的生成也是依赖之前的训练结果的。</li>
+<li>这个结果并不意外，《技术的本质》一书中就提到过人类技术的发展是渐进的，而不是突变的。</li>
+</ul>
+<hr>
+<blockquote>
+<p>牛顿无法简单的通过阅读代数和几何来发明微积分。问题是，要生成全新的想法，还缺什么？</p>
+</blockquote>
+<p><strong>有可能达成 AGI 的新范式应当需要 Agent + LLM 的联合训练，而不是各自的单独训练。</strong></p>
+<hr>
+<h2 id="thanks">Thanks!</h2>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>大语言模型原理分享</title>
+      <link>https://blog.uglyboy.cn/slides/1.-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
+      
+      <guid>https://blog.uglyboy.cn/slides/1.-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</guid>
+      <description>什么是大语言模型？ 当我说了很多话之后，我马上要说 $\Box$ 数学公式描述 $w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是： $$ p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i}) $$ 预训练模型可以保证文字的连贯</description>
+      <content:encoded><![CDATA[<h2 id="什么是大语言模型">什么是大语言模型？</h2>
+<hr>
+<p>当我说了很多话之后，我马上要说 $\Box$</p>
+<hr>
+<h2 id="数学公式描述">数学公式描述</h2>
+<p>$w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是：</p>
+<p>$$
+p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
+$$</p>
+<hr>
+<ul>
+<li><strong>预训练模型可以保证文字的连贯性和合理性，但对于不具备响应指令的能力。</strong></li>
+<li>如果需要模型具有响应使用者指令的能力，所需要的是对预训练模型进行“人类指令对齐”。</li>
+<li>更具体的说，就是通过一些样本和形式，让模型知道我们正在生成的是一段对话，而不是一段文章。
+<ul>
+<li>模型生成的是上一句话的回答。</li>
+<li>模型只生成一次答复内容，不要在生成回答后，有继续生成下一段回答。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="大语言模型能做什么">大语言模型能做什么？</h2>
+<hr>
+<ul>
+<li>大模型能记住它看到过的一切信息。</li>
+<li>大模型对于已经看到过的信息，有一定的泛化能力（有限度的推广）。</li>
+</ul>
+<hr>
+<h3 id="大模型究竟能达到怎样的泛化能力">大模型究竟能达到怎样的泛化能力？</h3>
+<blockquote>
+<p>大模型可以涌现出智能吗？</p>
+</blockquote>
+<hr>
+<h2 id="大语言模型不能做什么">大语言模型不能做什么？</h2>
+<hr>
+<ol>
+<li>大模型无法判别一个 $\{[0|1]^*\}$ 序列中是否有奇数个 $1$。</li>
+<li>给定 $n$ 大模型无法生成 $(aa)^n$。</li>
+<li>大模型无法判定 $\{0^n\#1^n\}$ 形式的序列。</li>
+<li>大模型无法执行加法运算。</li>
+<li>$\dots$</li>
+</ol>
+<hr>
+<p>大语言模型没有，也不可能具有推理能力。</p>
+<p>大语言模型只是记住了足够多的别人的推理，然后用类比的方法将这些推理泛化了而已。</p>
+<hr>
+<h2 id="大语言模型是如何将信息泛化的">大语言模型是如何将信息泛化的？</h2>
+<hr>
+<ul>
+<li>通过相似度计算来进行泛化，然后通过概率分布来进行选择。
+<ol>
+<li>粗略的可以如下理解：可以用同义词替代的都能被泛化。</li>
+<li>这种泛化的替代能力是可以保留相对位置信息的（例如一道数学题中的数字变了，它可以泛化到后续的解题过程中，都用新数字替代原来的数字）。</li>
+<li>在训练样本充分的情况下，可以跨语言进行同义词泛化。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="大语言模型的上下文长度又是怎么回事">大语言模型的上下文长度又是怎么回事？</h2>
+<hr>
+<h2 id="为什么要限制上下文长度">为什么要限制上下文长度？</h2>
+<p>在预训练阶段，我们所有的样本都是在 $4k-1$ 的长度下，让模型学习第 $4k$ 个文字。所以训练的模型只能在 $4k$ 范围内工作，因为更长的文本没有见过，通常设计的预训练模型也没有尝试让模型去理解更长的文字。</p>
+<blockquote>
+<p>导致这种情况发生的最核心的难点是，我们没有足够多的长文本作为训练样本。</p>
+</blockquote>
+<hr>
+<h2 id="如何扩充到-200k">如何扩充到 $200k$</h2>
+<ul>
+<li>我们对模型中的位置指针做了些调整，让 $200k$ 的字符指向 $4k$ 的字符，类似的每个 $200k$ 以内的位置都指向了 $4k$ 以内的一个相应的位置上。这样十分长的文本就可以被模型“误认为”是曾经见过的短文本了。</li>
+<li>但这样处理，很多相对长度信息错乱，例如原本两个文本是相差 3 个词的，但在新的指向下，变成了 $3/50$ 个词，而且这样的位置指针是找不到对应信息的。所以我们构造了不那么多的 $200k$ 长的训练样本，来重新学习出新的位置指针下的模型。</li>
+</ul>
+<hr>
+<h2 id="会带来什么问题">会带来什么问题？</h2>
+<ul>
+<li>语义上的位置信息与真实位置信息的对应关系有可能被混淆。</li>
+<li>对位置信息的利用方面，会有一定的性能损失。
+<ul>
+<li>因为补充的 $200k$ 的样本主要都是小说，所以非小说的其他类型的上下文信息的使用，会被当作小说一样的使用。</li>
+<li>这一点是迁移学习带来的弊端，如果实践当中遇到问题，未来有可能用其他方法来优化。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="q--a">Q &amp; A</h1>
+<hr>
+<ol>
+<li>大模型如何才能按照用户要求的 word counts 回复？用户有时要求回复的特别长，比如 1 万字，如何能做到？</li>
+</ol>
+<hr>
+<ol start="2">
+<li>我们看到模型在榜单上的排名很高，不过在对话中感觉并没有排名低的“聪明”，大模型榜单和用户真实的体感有什么关系？</li>
+</ol>
+<hr>
+<ol start="3">
+<li>大模型的 prompt 有没有标准的一套语法（类似代码的语法）用来控制？现在看起来大家都在发挥自己的文风</li>
+</ol>
+<hr>
+<h2 id="分享预告">分享预告</h2>
+<ul>
+<li>RAG</li>
+<li>Agent</li>
+<li>推理加速</li>
+<li>$\dots$</li>
+</ul>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>大语言模型的数学理解</title>
       <link>https://blog.uglyboy.cn/posts/2023-11-09/</link>
