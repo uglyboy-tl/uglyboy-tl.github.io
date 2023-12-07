@@ -24,9 +24,17 @@
 </blockquote>
 <h2 id="字体配置">字体配置</h2>
 <p>首先，依然修改 <code>layouts/partials/extend_head.html</code> 文件<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ if or .Params.reveal .Site.Params.reveal }} {{ partial &#34;reveal.html&#34; . }} {{ end }}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{ if or .Params.reveal .Site.Params.reveal }}
+</span></span><span style="display:flex;"><span>{{ partial &#34;reveal.html&#34; . }}
+</span></span><span style="display:flex;"><span>{{ else }}
+</span></span><span style="display:flex;"><span>{{ if or .Params.mathjax .Site.Params.mathjax }} {{ partial &#34;mathjax.html&#34; . }} {{ end }}
+</span></span><span style="display:flex;"><span>{{ end }}
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>{{ if .Site.Params.changeFont }} {{ partial &#34;font.html&#34; . }} {{ end }}
-</span></span></code></pre></div><p>然后在 <code>layouts/partials</code> 下新建 <code>font.html</code> 文件：</p>
+</span></span></code></pre></div><blockquote>
+<p>Reveal.js 的配置中会用到 <code>mathjax</code>，但会与我们之前添加过的 <code>mathjax</code> 冲突，所以需要在这里做一下判断。</p>
+</blockquote>
+<p>然后在 <code>layouts/partials</code> 下新建 <code>font.html</code> 文件：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-webfont/1.6.0/style.min.css&#34;</span> /&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span>&gt;
@@ -49,6 +57,19 @@
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
 </span></span><span style="display:flex;"><span>document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span> () {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Reveal</span>.<span style="color:#a6e22e">initialize</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">mathjax3</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">mathjax</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">tex</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">inlineMath</span><span style="color:#f92672">:</span> [ [ <span style="color:#e6db74">&#39;$&#39;</span>, <span style="color:#e6db74">&#39;$&#39;</span> ], [ <span style="color:#e6db74">&#39;\\(&#39;</span>, <span style="color:#e6db74">&#39;\\)&#39;</span> ]  ],
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">displayMath</span><span style="color:#f92672">:</span> [ [<span style="color:#e6db74">&#34;$$&#34;</span>, <span style="color:#e6db74">&#34;$$&#34;</span>], [<span style="color:#e6db74">&#34;\\[&#34;</span>, <span style="color:#e6db74">&#34;\\]&#34;</span>], ],
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">processEscapes</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">processEnvironments</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">enableExplorer</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">skipHtmlTags</span><span style="color:#f92672">:</span> [ <span style="color:#e6db74">&#39;script&#39;</span>, <span style="color:#e6db74">&#39;noscript&#39;</span>, <span style="color:#e6db74">&#39;style&#39;</span>, <span style="color:#e6db74">&#39;textarea&#39;</span>, <span style="color:#e6db74">&#39;pre&#39;</span> ]
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        },
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">transition</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;fade&#39;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">progress</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">embedded</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
