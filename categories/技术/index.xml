@@ -13,12 +13,12 @@
       <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
       
       <guid>https://blog.uglyboy.cn/posts/2023-12-07/</guid>
-      <description>又开始折腾博客了。 基于 PaperMod 主题，给博客增加了两个基本功能： 更换中文更加友好的 [霞鹜文楷](https://github.com/lxgw/Lx</description>
+      <description>又开始折腾博客了。 基于 PaperMod 主题，给博客增加了两个基本功能： 更换中文更加友好的 霞鹜文楷 字体，当然同样的方法也适用于其他任何字体 因为我经常使用 Markdown 做</description>
       <content:encoded><![CDATA[<blockquote>
 <p>又开始折腾博客了。</p>
 <p>基于 <code>PaperMod</code> 主题，给博客增加了两个基本功能：</p>
 <ol>
-<li>更换中文更加友好的 <code>[霞鹜文楷](https://github.com/lxgw/LxgwWenKai)</code> 字体，当然同样的方法也适用于其他任何字体</li>
+<li>更换中文更加友好的 <a href="https://github.com/lxgw/LxgwWenKai">霞鹜文楷</a> 字体，当然同样的方法也适用于其他任何字体</li>
 <li>因为我经常使用 <code>Markdown</code> 做 PPT，所以希望博客也能支持这种类型的文档。</li>
 </ol>
 </blockquote>
