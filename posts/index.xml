@@ -34,13 +34,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ if or .Params.reveal .Site.Params.reveal }}
-</span></span><span class="line"><span class="cl">{{ partial &#34;reveal.html&#34; . }}
-</span></span><span class="line"><span class="cl">{{ else }}
-</span></span><span class="line"><span class="cl">{{ if or .Params.mathjax .Site.Params.mathjax }} {{ partial &#34;mathjax.html&#34; . }} {{ end }}
-</span></span><span class="line"><span class="cl">{{ end }}
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span> <span class="k">if</span> <span class="nx">or</span> <span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">reveal</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">reveal</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;reveal.html&#34;</span> <span class="p">.</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="k">else</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="k">if</span> <span class="nx">or</span> <span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">mathjax</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">mathjax</span> <span class="p">}}</span> <span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;mathjax.html&#34;</span> <span class="p">.</span> <span class="p">}}</span> <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{{ if .Site.Params.changeFont }} {{ partial &#34;font.html&#34; . }} {{ end }}
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="k">if</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">changeFont</span> <span class="p">}}</span> <span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;font.html&#34;</span> <span class="p">.</span> <span class="p">}}</span> <span class="p">{{</span> <span class="nx">end</span> <span class="p">}}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
@@ -740,7 +740,7 @@ $$</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git submodule update --init --recursive
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule update --init --recursive
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="本地调试">本地调试</h3>
