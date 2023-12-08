@@ -54,34 +54,77 @@
 <ol>
 <li>Create an initial config file (<code>autorestic.yml</code>) such as:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">locations</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">my-location</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span>: <span style="color:#ae81ff">/data</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">to</span>: <span style="color:#ae81ff">my-backend</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cron</span>: <span style="color:#e6db74">&#39;0 3 * * 0&#39;</span> <span style="color:#75715e"># Every Sunday at 3:00</span>
-</span></span></code></pre></div><p>You can read full <a href="https://autorestic.vercel.app/config">docs</a> to configure it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">locations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">my-location</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l">/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l">my-backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0 3 * * 0&#39;</span><span class="w"> </span><span class="c"># Every Sunday at 3:00</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can read full <a href="https://autorestic.vercel.app/config">docs</a> to configure it.</p>
 <ol start="2">
 <li>Create an empty file (<code>autorestic.lock.yml</code>)</li>
 <li>run [[docker-compose]] as below:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">autorestic</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">guixi/autorestic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">autorestic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">unless-stopped</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/etc/localtime:/etc/localtime:ro</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">$(pwd)/autorestic.yml:/root/.autorestic.yml:ro</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">$(pwd)/autorestic.lock.yml:/root/.autorestic.lock.yml</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">~/.config/rclone/rclone.conf:/root/.config/rclone/rclone.conf:ro </span> <span style="color:#75715e">#optional</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">my-volume:/data</span>
-</span></span></code></pre></div><h3 id="usage">Usage</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">autorestic</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">guixi/autorestic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">autorestic</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/etc/localtime:/etc/localtime:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">$(pwd)/autorestic.yml:/root/.autorestic.yml:ro</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">$(pwd)/autorestic.lock.yml:/root/.autorestic.lock.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">~/.config/rclone/rclone.conf:/root/.config/rclone/rclone.conf:ro </span><span class="w"> </span><span class="c">#optional</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">my-volume:/data</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="usage">Usage</h3>
 <p>you can use autorestic to show all buckups such as</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it autorestic autorestic exec -av -- snapshots
-</span></span></code></pre></div><p>and also use restic directly such as</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it autorestic restic
-</span></span></code></pre></div><h3 id="license">License</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it autorestic autorestic <span class="nb">exec</span> -av -- snapshots
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>and also use restic directly such as</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it autorestic restic
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="license">License</h3>
 <p><a href="https://github.com/uglyboy-tl/autorestic-docker/blob/main/LICENSE">MIT</a> © Uglyboy</p>
 ]]></content:encoded>
     </item>
