@@ -178,7 +178,8 @@
       <description>大语言模型的计算能力 LLM 的几个核心数学问题 N-GRAM 的计算能力问题 过参数化模型的统计学习问题 非凸的数值优化问题 对深度神经网络的数学理解 Transformer 算子的含义 fine-tuning 的</description>
       <content:encoded><![CDATA[<h2 id="大语言模型的计算能力">大语言模型的计算能力</h2>
 <hr>
-<h2 id="llm-的几个核心数学问题">LLM 的几个核心数学问题</h2>
+<h3 id="llm-的几个核心数学问题">LLM 的几个核心数学问题</h3>
+<hr>
 <ol>
 <li>N-GRAM 的计算能力问题</li>
 <li>过参数化模型的统计学习问题</li>
@@ -188,7 +189,7 @@
 <li>fine-tuning 的数学含义</li>
 </ol>
 <hr>
-<h2 id="n-gram-的计算能力">N-GRAM 的计算能力</h2>
+<h3 id="n-gram-的计算能力">N-GRAM 的计算能力</h3>
 <hr>
 <ul>
 <li>
@@ -218,7 +219,8 @@ $$</p>
 </li>
 </ul>
 <hr>
-<h2 id="大模型是-nfa-的证明">大模型是 NFA 的证明</h2>
+<h4 id="大模型是有穷自动机的证明过程">大模型是有穷自动机的证明过程</h4>
+<hr>
 <ul>
 <li>
 <p>令 $q_0 =\varepsilon$ 为初始状态，大语言模型的预测函数记为
@@ -261,7 +263,8 @@ $$</p>
 </li>
 </ul>
 <hr>
-<h2 id="大模型计算能力是有限的">大模型计算能力是有限的</h2>
+<h3 id="大模型计算能力是有限的">大模型计算能力是有限的</h3>
+<hr>
 <ul>
 <li>大模型不具备推理能力，这件事与模型的规模无关。</li>
 <li>大模型是通过语言概率分布的泛化来模拟出推理能力的假象。
@@ -273,7 +276,7 @@ $$</p>
 <li>我们需要新的范式来解决 AGI 问题。</li>
 </ul>
 <hr>
-<h2 id="agent--llm-可以成为完备图灵机">Agent + LLM 可以成为完备图灵机</h2>
+<h3 id="agent--llm-可以成为完备图灵机">Agent + LLM 可以成为完备图灵机</h3>
 <hr>
 <ul>
 <li>Agent 的基本范式是一个 While 程序。</li>
@@ -325,7 +328,8 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
-<h3 id="编程语言-while-语义-semnatik">编程语言 WHILE 语义 (Semnatik):</h3>
+<h4 id="编程语言-while-语义-semnatik">编程语言 WHILE 语义 (Semnatik):</h4>
+<hr>
 <ul>
 <li>一个 while 程序 $P$ ,通过传递 $k$ 个参数,返回一个结果, 即 $f:\mathbb{N}^k\rightarrow\mathbb{N}$</li>
 <li>其他未定义的参数可以在程序里被调用,但是必须设定为 $0$</li>
@@ -363,7 +367,8 @@ $$</p>
 </li>
 </ul>
 <hr>
-<h2 id="以整数加法为例">以整数加法为例</h2>
+<h3 id="以整数加法为例">以整数加法为例</h3>
+<hr>
 <blockquote>
 <p>我们希望 Agent 学会整数加法。但学会的方式不是我们给了它加法的程序让它执行，而是通过加法的真值，“推导”出加法的程序。模拟人做加法的方式，我们尝试让机器训练出加法程序</p>
 </blockquote>
@@ -400,10 +405,13 @@ $$</p>
 </li>
 </ul>
 <hr>
-<h2 id="使用-rl-训练-agent">使用 RL 训练 Agent</h2>
+<h3 id="使用-rl-训练-agent">使用 RL 训练 Agent</h3>
+<hr>
 <p>Agent 的 While 循环模式恰好符合 Bellman 方程的形式。</p>
 <hr>
+<blockquote>
 <p>通过强化学习训练 Agent，直观上，状态空间和奖励都不难定义，难的是究竟如何定义 Action 空间。</p>
+</blockquote>
 <hr>
 <ul>
 <li>例如十以内的加减法为什么可以成为加法的 Action？</li>
@@ -427,12 +435,15 @@ $$</p>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
       
       <guid>https://blog.uglyboy.cn/slides/1.-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</guid>
-      <description>什么是大语言模型？ 当我说了很多话之后，我马上要说 $\Box$ 数学公式描述 $w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是： $$ p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i}) $$ 大语言模型能做什么？ 大模型能</description>
-      <content:encoded><![CDATA[<h2 id="什么是大语言模型">什么是大语言模型？</h2>
+      <description>大语言模型原理分享 什么是大语言模型？ 当我说了很多话之后，我马上要说 $\Box$ 数学公式描述 $w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是： $$ p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i}) $$ 大语言模型</description>
+      <content:encoded><![CDATA[<h1 id="大语言模型br原理分享">大语言模型<!-- raw HTML omitted -->原理分享</h1>
+<hr>
+<h2 id="什么是大语言模型">什么是大语言模型？</h2>
 <hr>
 <p>当我说了很多话之后，我马上要说 $\Box$</p>
 <hr>
 <h2 id="数学公式描述">数学公式描述</h2>
+<hr>
 <p>$w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是：</p>
 <p>$$
 p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
