@@ -27,8 +27,7 @@
 </ul>
 <hr>
 <h3 id="一个典型-rag-系统的架构">一个典型 RAG 系统的架构</h3>
-<p><img loading="lazy" src="https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg" alt=""  />
-</p>
+<!-- raw HTML omitted -->
 <hr>
 <h3 id="rag-系统的核心技术要素">RAG 系统的核心技术要素：</h3>
 <ul>
@@ -89,9 +88,7 @@
 </li>
 </ul>
 <hr>
-<p><img loading="lazy" src="https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png" alt="w:1080"  />
-</p>
-<hr>
+<!-- raw HTML omitted -->
 <ul>
 <li>
 <p>大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。</p>
