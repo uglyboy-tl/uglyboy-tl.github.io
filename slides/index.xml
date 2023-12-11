@@ -798,7 +798,31 @@ $$</p>
 <hr>
 <h4 id="市场视角的演进">市场视角的演进</h4>
 <hr>
-<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">flowchart LR
+</span></span><span class="line"><span class="cl">  A[产品视角]
+</span></span><span class="line"><span class="cl">  B[客户视角]
+</span></span><span class="line"><span class="cl">  C[竞争视角]
+</span></span><span class="line"><span class="cl">  D[市场视角]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  A --&gt; B
+</span></span><span class="line"><span class="cl">  B --&gt; C
+</span></span><span class="line"><span class="cl">  C --&gt; D
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
 <h3 id="定义市场">定义市场</h3>
 <hr>
 <p>市场刻画了客户视角</p>
