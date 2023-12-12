@@ -8,7 +8,7 @@
     <language>zh-cn</language>
     <lastBuildDate>Sat, 15 Oct 2022 20:20:25 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/%E5%85%B1%E6%83%85/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>组织理论</title>
+      <title>组织理论讲义</title>
       <link>https://blog.uglyboy.cn/slides/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</link>
       <pubDate>Sat, 15 Oct 2022 20:20:25 +0800</pubDate>
       
@@ -232,13 +232,12 @@
       <pubDate>Thu, 11 Nov 2021 17:30:18 +0800</pubDate>
       
       <guid>https://blog.uglyboy.cn/posts/2021-11-11/</guid>
-      <description>组织的基本构成 非正式组织 组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“合作”这一说法取代。 [!example] 假如有两个司机都要通过一条狭</description>
+      <description>组织的基本构成 非正式组织 组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“合作”这一说法取代。 假如有两个司机都要通过一条狭窄</description>
       <content:encoded><![CDATA[<h2 id="组织的基本构成">组织的基本构成</h2>
 <h3 id="非正式组织">非正式组织</h3>
 <p>组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“<strong>合作</strong>”这一说法取代。</p>
 <blockquote>
-<p>[!example]
-假如有两个司机都要通过一条狭窄的山路，但路被一块巨石挡住了，至少两个人才搬得动。可以预想，前面的司机一定得把车停下来，等第二个人来，以解除力量上的限制。第二个司机同样也需要这样的合作。</p>
+<p>假如有两个司机都要通过一条狭窄的山路，但路被一块巨石挡住了，至少两个人才搬得动。可以预想，前面的司机一定得把车停下来，等第二个人来，以解除力量上的限制。第二个司机同样也需要这样的合作。</p>
 </blockquote>
 <p>只要合作是“<strong>有效率</strong><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>”的，那么合作就天然存在持续的可能性。如果存在一个适合的自由市场，这种合作就可以通过交易的方式继续延续。</p>
 <p>但天然就<strong>有效率</strong>的合作方式 <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，往往意味着标准化的能力模型，和可替代的合作方 <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。这样的合作模式就如同现在的劳动市场招工，进而可以形成一段时间内合作的组织。</p>
@@ -568,7 +567,7 @@
     </item>
     
     <item>
-      <title>共情理论</title>
+      <title>共情理论讲义</title>
       <link>https://blog.uglyboy.cn/slides/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA/</link>
       <pubDate>Tue, 20 Nov 2018 08:03:50 +0800</pubDate>
       
