@@ -30,7 +30,7 @@
 <h3 id="一个典型-rag-系统的架构">一个典型 RAG 系统的架构</h3>
 <!-- raw HTML omitted -->
 <hr>
-<h3 id="rag-系统的核心技术要素">RAG 系统的核心技术要素：</h3>
+<h3 id="rag-系统的核心技术要素">RAG 系统的核心技术要素</h3>
 <ul>
 <li>文档导入</li>
 <li>文档切分</li>
@@ -63,14 +63,12 @@
 </blockquote>
 <hr>
 <ul>
-<li>
-<p>人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）；</p>
+<li>人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）；
 <ul>
 <li>通常在产品上，我们可以用 <code>Save time</code> 和 <code>Kill time</code> 的模式来区分</li>
 </ul>
 </li>
-<li>
-<p>主动获取信息的手段被称为信息检索。</p>
+<li>主动获取信息的手段被称为信息检索。
 <ul>
 <li>RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。</li>
 </ul>
@@ -91,15 +89,12 @@
 <hr>
 <!-- raw HTML omitted -->
 <ul>
-<li>
-<p>大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。</p>
+<li>大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
 <ul>
 <li>仅靠大模型，是无法取消幻觉的。</li>
 </ul>
 </li>
-<li>
-<p>如果 RAG 做得不好，可能带来的是负面效果。</p>
-</li>
+<li>如果 RAG 做得不好，可能带来的是负面效果。</li>
 </ul>
 <hr>
 <h2 id="rag-的核心">RAG 的核心</h2>
@@ -190,12 +185,8 @@
 <h3 id="n-gram-的计算能力">N-GRAM 的计算能力</h3>
 <hr>
 <ul>
-<li>
-<p><strong>大语言模型的基本范式：</strong></p>
-</li>
-<li>
-<p>假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率：</p>
-</li>
+<li><strong>大语言模型的基本范式：</strong></li>
+<li>假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率：</li>
 </ul>
 <p>$$
 p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
@@ -220,15 +211,15 @@ $$</p>
 <h4 id="大模型是有穷自动机的证明过程">大模型是有穷自动机的证明过程</h4>
 <hr>
 <ul>
-<li>
-<p>令 $q_0 =\varepsilon$ 为初始状态，大语言模型的预测函数记为
-$$
+<li>令 $q_0 =\varepsilon$ 为初始状态，大语言模型的预测函数记为</li>
+</ul>
+<p>$$
 \phi:{s_0s_1s_2&hellip;s_{n-1}}\rightarrow s_n,s_i \in \Sigma
 $$</p>
-</li>
-<li>
-<p>取 $\delta$ 为：
-$$
+<ul>
+<li>取 $\delta$ 为：</li>
+</ul>
+<p>$$
 \begin{equation}
 \delta(q,\sigma) =
 \left \{
@@ -239,26 +230,19 @@ q \circ\phi(q) &amp; \sigma = \varepsilon
 \right.
 \end{equation}
 $$</p>
-</li>
-<li>
-<p>也就是将 $Q$ 设置为已经拥有的上文，持续输入或预测下一个字符。</p>
-</li>
+<ul>
+<li>也就是将 $Q$ 设置为已经拥有的上文，持续输入或预测下一个字符。</li>
 </ul>
 <hr>
 <ul>
-<li>
-<p>在 <a href="https://arxiv.org/abs/2009.11264">Bhattamishra et al. 2020</a> 中也有类似的实验，实验中基于 Transformer 的大语言模型甚至只能识别弱化的正则语言。</p>
+<li>在 <a href="https://arxiv.org/abs/2009.11264">Bhattamishra et al. 2020</a> 中也有类似的实验，实验中基于 Transformer 的大语言模型甚至只能识别弱化的正则语言。
 <ul>
 <li>大模型无法判别一个 ${[0|1]^*}$ 序列中是否有奇数个 $1$。</li>
 <li>给定 $n$ 大模型无法生成 $(aa)^n$。</li>
 </ul>
 </li>
-<li>
-<p>在 <a href="http://arxiv.org/abs/2310.16028">Zhou et al. 2023</a> 中还尝试论述了基于 Transformer 的大语言模型也无法实现加法运算之类的复杂运算。</p>
-</li>
-<li>
-<p>以及，有穷自动机无法判定 $\{0^n\#1^n\}$ 形式的序列；也无法进行基础的四则运算（无法处理括号的闭合和乘法的优先顺序）。</p>
-</li>
+<li>在 <a href="http://arxiv.org/abs/2310.16028">Zhou et al. 2023</a> 中还尝试论述了基于 Transformer 的大语言模型也无法实现加法运算之类的复杂运算。</li>
+<li>以及，有穷自动机无法判定 $\{0^n\#1^n\}$ 形式的序列；也无法进行基础的四则运算（无法处理括号的闭合和乘法的优先顺序）。</li>
 </ul>
 <hr>
 <h3 id="大模型计算能力是有限的">大模型计算能力是有限的</h3>
@@ -326,7 +310,7 @@ $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
-<h4 id="编程语言-while-语义-semnatik">编程语言 WHILE 语义 (Semnatik):</h4>
+<h4 id="编程语言-while-语义-semnatik">编程语言 WHILE 语义 (Semnatik)</h4>
 <hr>
 <ul>
 <li>一个 while 程序 $P$ ,通过传递 $k$ 个参数,返回一个结果, 即 $f:\mathbb{N}^k\rightarrow\mathbb{N}$</li>
@@ -342,27 +326,15 @@ $$</p>
 </ul>
 <hr>
 <ul>
-<li>
-<p><strong>定理：编程语言 WHILE 是图灵完备的</strong></p>
-</li>
-<li>
-<p><strong>证明:</strong> 我们将受限 RAM(Registermaschine)(只有 LOAD,STORE,CLOAD,CADD,CSUB 功能的 RAM) 中的每一步都用 WHILE 程序来代替计算，由于受限 RAM 是图灵完备的,所以 WHILE 也是图灵完备的。</p>
-</li>
-<li>
-<p>证明细节参看：<a href="https://zhuanlan.zhihu.com/p/343107128">while循环</a> ，源自 <a href="https://algo.rwth-aachen.de/Lehre/WS1920/BuK/BuK/h10.pdf">Unentscheidbarkeit des Halteproblems: WHILE-Programm, Vorlesung 10 in BUK von RWTH Aachen</a></p>
-</li>
+<li><strong>定理：编程语言 WHILE 是图灵完备的</strong></li>
+<li><strong>证明:</strong> 我们将受限 RAM(Registermaschine)(只有 LOAD,STORE,CLOAD,CADD,CSUB 功能的 RAM) 中的每一步都用 WHILE 程序来代替计算，由于受限 RAM 是图灵完备的,所以 WHILE 也是图灵完备的。</li>
+<li>证明细节参看：<a href="https://zhuanlan.zhihu.com/p/343107128">while循环</a> ，源自 <a href="https://algo.rwth-aachen.de/Lehre/WS1920/BuK/BuK/h10.pdf">Unentscheidbarkeit des Halteproblems: WHILE-Programm, Vorlesung 10 in BUK von RWTH Aachen</a></li>
 </ul>
 <hr>
 <ul>
-<li>
-<p>实现图灵完备的方法不是唯一的。例如，<a href="http://arxiv.org/abs/2301.04589">Schuurmans 2023</a> 就证明了，当可以使用外部存储时，大模型是图灵完备的。</p>
-</li>
-<li>
-<p>但是，这并不意味着 Agent + LLM 就是 AGI，毕竟我们现在的电脑本身就是图灵完备的，但是我们并不认为电脑就是 AGI。</p>
-</li>
-<li>
-<p>我们需要的是一个可以自适应的 Agent，而不是一个固定的 Agent。也就是可以通过学习来改变自己的行为，而不是通过人工的方式来改变自己的行为。</p>
-</li>
+<li>实现图灵完备的方法不是唯一的。例如，<a href="http://arxiv.org/abs/2301.04589">Schuurmans 2023</a> 就证明了，当可以使用外部存储时，大模型是图灵完备的。</li>
+<li>但是，这并不意味着 Agent + LLM 就是 AGI，毕竟我们现在的电脑本身就是图灵完备的，但是我们并不认为电脑就是 AGI。</li>
+<li>我们需要的是一个可以自适应的 Agent，而不是一个固定的 Agent。也就是可以通过学习来改变自己的行为，而不是通过人工的方式来改变自己的行为。</li>
 </ul>
 <hr>
 <h3 id="以整数加法为例">以整数加法为例</h3>
@@ -390,17 +362,14 @@ $$</p>
 </ul>
 <hr>
 <ul>
-<li>
-<p>这应该是一个强化学习的过程——只有计算正确时，才会获得奖励。其中，尝试探索的动作空间是：</p>
+<li>这应该是一个强化学习的过程——只有计算正确时，才会获得奖励。其中，尝试探索的动作空间是：
 <ul>
 <li>如何利用十以内的加减</li>
 <li>通过怎样的计算顺序</li>
 <li>如何利用额外的存储</li>
 </ul>
 </li>
-<li>
-<p>最终以此来生成一个完整的加法运算流程。</p>
-</li>
+<li>最终以此来生成一个完整的加法运算流程。</li>
 </ul>
 <hr>
 <h3 id="使用-rl-训练-agent">使用 RL 训练 Agent</h3>
@@ -423,7 +392,7 @@ $$</p>
 </blockquote>
 <p><strong>有可能达成 AGI 的新范式应当需要 Agent + LLM 的联合训练，而不是各自的单独训练。</strong></p>
 <hr>
-<h2 id="thanks">Thanks!</h2>
+<h2 id="thanks">Thanks</h2>
 ]]></content:encoded>
     </item>
     
