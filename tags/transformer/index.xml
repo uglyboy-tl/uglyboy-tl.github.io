@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 09 Nov 2023 12:08:22 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/transformer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>大语言模型的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2023-11-09/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-11-09/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
       <description>大语言模型的基本逻辑 大语言模型的本质是一个 N-GRAM 模型，即： 定义： 假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率： $$ p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i}) $$ 该模型是一</description>
       <content:encoded><![CDATA[<h2 id="大语言模型的基本逻辑">大语言模型的基本逻辑</h2>
 <p>大语言模型的本质是一个 <code>N-GRAM</code> 模型，即：</p>

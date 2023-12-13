@@ -8,10 +8,10 @@
     <language>zh-cn</language><atom:link href="https://blog.uglyboy.cn/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 更换字体 &amp; 使用 Reveal.js 做在线展示</title>
-      <link>https://blog.uglyboy.cn/posts/2023-12-07/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</link>
       <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-12-07/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</guid>
       <description>又开始折腾博客了。 基于 PaperMod 主题，给博客增加了两个基本功能： 更换中文更加友好的 霞鹜文楷 字体，当然同样的方法也适用于其他任何字体 因为我经常使用 Markdown 做</description>
       <content:encoded><![CDATA[<blockquote>
 <p>又开始折腾博客了。</p>
@@ -220,10 +220,10 @@
     
     <item>
       <title>浮躁的时代</title>
-      <link>https://blog.uglyboy.cn/posts/2023-12-01/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/12/01/%E6%B5%AE%E8%BA%81%E7%9A%84%E6%97%B6%E4%BB%A3/</link>
       <pubDate>Fri, 01 Dec 2023 08:56:12 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-12-01/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/12/01/%E6%B5%AE%E8%BA%81%E7%9A%84%E6%97%B6%E4%BB%A3/</guid>
       <description>浮躁的时代，浮躁的人们，浮躁的世界。</description>
       <content:encoded><![CDATA[<h2 id="从拼多多市值超过阿里说起">从拼多多市值超过阿里说起</h2>
 <p>昨天，拼多多的市值超过阿里了。</p>
@@ -281,10 +281,10 @@
     
     <item>
       <title>大语言模型的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2023-11-09/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-11-09/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
       <description>大语言模型的基本逻辑 大语言模型的本质是一个 N-GRAM 模型，即： 定义： 假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率： $$ p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i}) $$ 该模型是一</description>
       <content:encoded><![CDATA[<h2 id="大语言模型的基本逻辑">大语言模型的基本逻辑</h2>
 <p>大语言模型的本质是一个 <code>N-GRAM</code> 模型，即：</p>
@@ -451,10 +451,10 @@ $$</p>
     
     <item>
       <title>大语言模型的计算能力</title>
-      <link>https://blog.uglyboy.cn/posts/2023-10-30/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
       <pubDate>Mon, 30 Oct 2023 07:50:00 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-10-30/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
       <description>大模型是有穷自动机 非确定型有穷自动机（NFA）的定义 非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中 $Q$ 是</description>
       <content:encoded><![CDATA[<h2 id="大模型是有穷自动机">大模型是有穷自动机</h2>
 <h3 id="非确定型有穷自动机nfa的定义">非确定型有穷自动机（NFA）的定义</h3>
@@ -658,10 +658,10 @@ $$</p>
     
     <item>
       <title>所谓“压缩即是智慧”毫无意义</title>
-      <link>https://blog.uglyboy.cn/posts/2023-10-25/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</link>
       <pubDate>Wed, 25 Oct 2023 10:57:47 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-10-25/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</guid>
       <description>算数编码才是压缩的本质 一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 Compression for AGI - Jack Rae | Stanford MLSys #76 里面核心模式只有一个：</description>
       <content:encoded><![CDATA[<h2 id="算数编码才是压缩的本质">算数编码才是压缩的本质</h2>
 <p>一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 <a href="https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;t=247s">Compression for AGI - Jack Rae | Stanford MLSys #76</a></p>
@@ -699,10 +699,10 @@ $$</p>
     
     <item>
       <title>Hugo 搭建流程</title>
-      <link>https://blog.uglyboy.cn/posts/2023-10-18/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-10-18/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</guid>
       <description>基本安装 搭建站点 1 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 Git 仓库 1 2 git init git branch -m main # 兼容 Github 的设置 安装主题 1 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 1</description>
       <content:encoded><![CDATA[<h2 id="基本安装">基本安装</h2>
 <h3 id="搭建站点">搭建站点</h3>
@@ -1140,10 +1140,10 @@ $$</p>
     
     <item>
       <title>Scaling Law 的数学解读</title>
-      <link>https://blog.uglyboy.cn/posts/2023-10-10/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</link>
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-10-10/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</guid>
       <description>Dataset Size 和 Loss 的关系 最大似然估计（MLE） 一切机器学习的本质都是最大似然估计： 模型下的理想真实世界的概率分布：$p(x|\theta)$ 我们不知道</description>
       <content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
 <h3 id="最大似然估计mle">最大似然估计（MLE）</h3>
@@ -1428,10 +1428,10 @@ $$</p>
     
     <item>
       <title>组织理论</title>
-      <link>https://blog.uglyboy.cn/posts/2021-11-11/</link>
+      <link>https://blog.uglyboy.cn/posts/2021/11/11/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</link>
       <pubDate>Thu, 11 Nov 2021 17:30:18 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2021-11-11/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2021/11/11/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</guid>
       <description>组织的基本构成 非正式组织 组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“合作”这一说法取代。 假如有两个司机都要通过一条狭窄</description>
       <content:encoded><![CDATA[<h2 id="组织的基本构成">组织的基本构成</h2>
 <h3 id="非正式组织">非正式组织</h3>
@@ -1767,10 +1767,10 @@ $$</p>
     
     <item>
       <title>庖丁解牛|究竟什么是“战略”？</title>
-      <link>https://blog.uglyboy.cn/posts/2021-07-15/</link>
+      <link>https://blog.uglyboy.cn/posts/2021/07/15/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%98%E7%95%A5/</link>
       <pubDate>Thu, 15 Jul 2021 08:00:00 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2021-07-15/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2021/07/15/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%98%E7%95%A5/</guid>
       <description>前几日，在朋友圈看到前同事分享某大厂高管在 XX 创业营上开了一课《如何制定战略》，内容里有“使命、愿景、价值观”、还有“一颗心，一张图，一场仗”</description>
       <content:encoded><![CDATA[<blockquote>
 <p>前几日，在朋友圈看到前同事分享某大厂高管在 XX 创业营上开了一课《如何制定战略》，内容里有“使命、愿景、价值观”、还有“一颗心，一张图，一场仗”等行业黑话，而这两个话题凑一起，竟成了“从战略到执行的方法论”了。</p>
@@ -1862,10 +1862,10 @@ $$</p>
     
     <item>
       <title>黑暗森林法则和营销</title>
-      <link>https://blog.uglyboy.cn/posts/2021-07-01/</link>
+      <link>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</link>
       <pubDate>Thu, 01 Jul 2021 08:00:00 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2021-07-01/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</guid>
       <description>宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音，连呼吸都小心翼翼……他必须</description>
       <content:encoded><![CDATA[<blockquote>
 <p>宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音，连呼吸都小心翼翼……他必须小心，因为林中到处都有与他一样潜行的猎人。如果他发现了别的生命，不管是不是猎人，不管是天使还是魔鬼，不管是娇嫩的婴儿还是步履蹒跚的老人，能做的只有一件事：开枪消灭之！</p>
@@ -1950,10 +1950,10 @@ $$</p>
     
     <item>
       <title>社交与传播</title>
-      <link>https://blog.uglyboy.cn/posts/2018-08-16/</link>
+      <link>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</link>
       <pubDate>Thu, 16 Aug 2018 21:23:33 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2018-08-16/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</guid>
       <description>本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 共情。通过这项研究，基本解释了生活中大部</description>
       <content:encoded><![CDATA[<blockquote>
 <p>本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 <strong>共情</strong>。通过这项研究，基本解释了生活中大部分经济行为之外的现象背后的原理，也提供了一种新的创造价值的有效路径。</p>

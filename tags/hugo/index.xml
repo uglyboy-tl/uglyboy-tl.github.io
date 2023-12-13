@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 07 Dec 2023 10:09:58 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 更换字体 &amp; 使用 Reveal.js 做在线展示</title>
-      <link>https://blog.uglyboy.cn/posts/2023-12-07/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</link>
       <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-12-07/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</guid>
       <description>又开始折腾博客了。 基于 PaperMod 主题，给博客增加了两个基本功能： 更换中文更加友好的 霞鹜文楷 字体，当然同样的方法也适用于其他任何字体 因为我经常使用 Markdown 做</description>
       <content:encoded><![CDATA[<blockquote>
 <p>又开始折腾博客了。</p>
@@ -221,10 +221,10 @@
     
     <item>
       <title>Hugo 搭建流程</title>
-      <link>https://blog.uglyboy.cn/posts/2023-10-18/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
       
-      <guid>https://blog.uglyboy.cn/posts/2023-10-18/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</guid>
       <description>基本安装 搭建站点 1 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 Git 仓库 1 2 git init git branch -m main # 兼容 Github 的设置 安装主题 1 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 1</description>
       <content:encoded><![CDATA[<h2 id="基本安装">基本安装</h2>
 <h3 id="搭建站点">搭建站点</h3>
