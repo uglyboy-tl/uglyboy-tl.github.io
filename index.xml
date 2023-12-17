@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>拾柒读库</title>
     <link>https://blog.uglyboy.cn/</link>
     <description>Recent content on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Dec 2023 10:09:58 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Dec 2023 10:09:58 +0800</lastBuildDate>
+    <atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 更换字体 &amp; 使用 Reveal.js 做在线展示</title>
       <link>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</link>
       <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</guid>
       <description>又开始折腾博客了。 基于 PaperMod 主题，给博客增加了两个基本功能： 更换中文更加友好的 霞鹜文楷 字体，当然同样的方法也适用于其他任何字体 因为我经常使用 Markdown 做</description>
       <content:encoded><![CDATA[<blockquote>
@@ -218,12 +218,10 @@
 </div>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>浮躁的时代</title>
       <link>https://blog.uglyboy.cn/posts/2023/12/01/%E6%B5%AE%E8%BA%81%E7%9A%84%E6%97%B6%E4%BB%A3/</link>
       <pubDate>Fri, 01 Dec 2023 08:56:12 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2023/12/01/%E6%B5%AE%E8%BA%81%E7%9A%84%E6%97%B6%E4%BB%A3/</guid>
       <description>浮躁的时代，浮躁的人们，浮躁的世界。</description>
       <content:encoded><![CDATA[<h2 id="从拼多多市值超过阿里说起">从拼多多市值超过阿里说起</h2>
@@ -279,12 +277,10 @@
 <p>可他们身上却似乎又都带着 BGM：“<em>像我这样迷茫的人/像我这样寻找的人/像我这样碌碌无为的人/你还见过多少人</em>”</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>RAG 技术</title>
       <link>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</guid>
       <description># RAG 技术 --- - 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。 - 原理是在大语言模型的基础上，辅助检索技术，让大语言模型</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -449,12 +445,10 @@
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>大模型的计算能力</title>
       <link>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
       <description>## 大语言模型的计算能力 --- ### LLM 的几个核心数学问题 ----- 1. N-GRAM 的计算能力问题 2. 过参数化模型的统计学习问题 3. 非凸的数值优化问题 4. 对深度神经网络的数学理解</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -650,12 +644,10 @@ Agent 的 While 循环模式恰好符合 Bellman 方程的形式。
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>大语言模型原理分享</title>
       <link>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</link>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</guid>
       <description># 大语言模型&amp;lt;br&amp;gt;原理分享 --- ## 什么是大语言模型？ --- 当我说了很多话之后，我马上要说 $\Box$ --- ## 数学公式描述 ----- $w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -737,12 +729,10 @@ $$
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>大语言模型的数学理解</title>
       <link>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
       <description>大语言模型的基本逻辑 大语言模型的本质是一个 N-GRAM 模型，即： 定义： 假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率： $$ p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i}) $$ 该模型是一</description>
       <content:encoded><![CDATA[<h2 id="大语言模型的基本逻辑">大语言模型的基本逻辑</h2>
@@ -907,12 +897,10 @@ $$</p>
 </div>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>大语言模型的计算能力</title>
       <link>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
       <pubDate>Mon, 30 Oct 2023 07:50:00 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
       <description>大模型是有穷自动机 非确定型有穷自动机（NFA）的定义 非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中 $Q$ 是</description>
       <content:encoded><![CDATA[<h2 id="大模型是有穷自动机">大模型是有穷自动机</h2>
@@ -1114,12 +1102,10 @@ $$</p>
 </div>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>所谓“压缩即是智慧”毫无意义</title>
       <link>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</link>
       <pubDate>Wed, 25 Oct 2023 10:57:47 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</guid>
       <description>算数编码才是压缩的本质 一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 Compression for AGI - Jack Rae | Stanford MLSys #76 里面核心模式只有一个：</description>
       <content:encoded><![CDATA[<h2 id="算数编码才是压缩的本质">算数编码才是压缩的本质</h2>
@@ -1155,12 +1141,10 @@ $$</p>
 <p>所以那个演讲其实不过是个披着数学魔术的神奇表演，本质上不过是说：大模型谁的性能好，谁就是更好的大模型——典型的废话文学新版本了。</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Hugo 搭建流程</title>
       <link>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</guid>
       <description>基本安装 搭建站点 1 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 Git 仓库 1 2 git init git branch -m main # 兼容 Github 的设置 安装主题 1 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 1</description>
       <content:encoded><![CDATA[<h2 id="基本安装">基本安装</h2>
@@ -1596,12 +1580,10 @@ $$</p>
 </table>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Scaling Law 的数学解读</title>
       <link>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</link>
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</guid>
       <description>Dataset Size 和 Loss 的关系 最大似然估计（MLE） 一切机器学习的本质都是最大似然估计： 模型下的理想真实世界的概率分布：$p(x|\theta)$ 我们不知道</description>
       <content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
@@ -1762,12 +1744,10 @@ $$</p>
 </div>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>组织理论讲义</title>
       <link>https://blog.uglyboy.cn/slides/2022/10/15/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</link>
       <pubDate>Sat, 15 Oct 2022 20:20:25 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2022/10/15/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</guid>
       <description>组织背后的核心要素</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -1926,12 +1906,10 @@ $$</p>
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>科学决策讲义</title>
       <link>https://blog.uglyboy.cn/slides/2022/04/27/%E7%A7%91%E5%AD%A6%E5%86%B3%E7%AD%96%E8%AE%B2%E4%B9%89/</link>
       <pubDate>Wed, 27 Apr 2022 17:26:35 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2022/04/27/%E7%A7%91%E5%AD%A6%E5%86%B3%E7%AD%96%E8%AE%B2%E4%B9%89/</guid>
       <description># 科学决策 &amp;gt; 如何做出正确的决策 --- #### 什么是决策 ----- - 想做的事情很多，但没有足够的资源全做，所以要进行优先级排序； - 决策的基本原则： - 找到主要矛盾</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -2100,12 +2078,10 @@ flowchart LR
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>Autorestic</title>
       <link>https://blog.uglyboy.cn/posts/autorestic/</link>
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/autorestic/</guid>
       <description>完善的数据自动备份系统</description>
       <content:encoded><![CDATA[<blockquote>
@@ -2222,12 +2198,10 @@ flowchart LR
 <p><a href="https://github.com/uglyboy-tl/autorestic-docker/blob/main/LICENSE">MIT</a> © Uglyboy</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>组织理论</title>
       <link>https://blog.uglyboy.cn/posts/2021/11/11/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</link>
       <pubDate>Thu, 11 Nov 2021 17:30:18 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2021/11/11/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</guid>
       <description>组织的基本构成 非正式组织 组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“合作”这一说法取代。 假如有两个司机都要通过一条狭窄</description>
       <content:encoded><![CDATA[<h2 id="组织的基本构成">组织的基本构成</h2>
@@ -2561,12 +2535,10 @@ flowchart LR
 </div>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>庖丁解牛|究竟什么是“战略”？</title>
       <link>https://blog.uglyboy.cn/posts/2021/07/15/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%98%E7%95%A5/</link>
       <pubDate>Thu, 15 Jul 2021 08:00:00 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2021/07/15/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%98%E7%95%A5/</guid>
       <description>前几日，在朋友圈看到前同事分享某大厂高管在 XX 创业营上开了一课《如何制定战略》，内容里有“使命、愿景、价值观”、还有“一颗心，一张图，一场仗”</description>
       <content:encoded><![CDATA[<blockquote>
@@ -2656,12 +2628,10 @@ flowchart LR
 <p>至于怎样制定战略？我还有一个关于“<strong>竞争策略</strong>”的研究，相对深入地分析了这个问题，以后有机会可以继续庖丁解牛。</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>黑暗森林法则和营销</title>
       <link>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</link>
       <pubDate>Thu, 01 Jul 2021 08:00:00 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</guid>
       <description>宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音，连呼吸都小心翼翼……他必须</description>
       <content:encoded><![CDATA[<blockquote>
@@ -2744,12 +2714,10 @@ flowchart LR
 </div>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>共情理论讲义</title>
       <link>https://blog.uglyboy.cn/slides/2018/11/20/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</link>
       <pubDate>Tue, 20 Nov 2018 08:03:50 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2018/11/20/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</guid>
       <description>传统经济学未能描述的人类行为方式</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -2940,12 +2908,10 @@ flowchart LR
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>社交与传播</title>
       <link>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</link>
       <pubDate>Thu, 16 Aug 2018 21:23:33 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</guid>
       <description>本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 共情。通过这项研究，基本解释了生活中大部</description>
       <content:encoded><![CDATA[<blockquote>
@@ -3312,12 +3278,10 @@ flowchart LR
 <p>这三点在任何一段爱情里都不是孤立存在的，也会共同发挥作用。例如一个女生跟一个男生有精神上的共鸣，这并不妨碍她也希望男生能送她一个可以在朋友们面前炫耀的包包；也不会因为女生希望男生更辛苦些赚钱养家，或者买房买车，就意味着女生只爱男生的钱。</p>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>耐用品价格策略</title>
       <link>https://blog.uglyboy.cn/slides/2018/08/07/%E8%80%90%E7%94%A8%E5%93%81%E4%BB%B7%E6%A0%BC%E7%AD%96%E7%95%A5/</link>
       <pubDate>Tue, 07 Aug 2018 08:58:35 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2018/08/07/%E8%80%90%E7%94%A8%E5%93%81%E4%BB%B7%E6%A0%BC%E7%AD%96%E7%95%A5/</guid>
       <description># 耐用品的价格 &amp;gt; 比特币火热的原因 --- 使用寿命长的商品一般都是耐用品 ### 耐用品通俗定义 --- #### 耐用品的精准定义 ----- - 短期的价格需求弹性大于长期的价格需求</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -3394,12 +3358,10 @@ flowchart LR
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>游戏与游戏化</title>
       <link>https://blog.uglyboy.cn/slides/2018/01/29/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</link>
       <pubDate>Mon, 29 Jan 2018 10:24:35 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2018/01/29/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</guid>
       <description>## 游戏改变世界 从游戏到游戏化 --- ### 人类简史 ----- - 大自然为了生物更好的进化，把有意义的事情赋予了“好玩”的属性 - 人类为了更快的发展，学会了“理智”</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -3658,12 +3620,10 @@ flowchart LR
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>用户增长核心模型</title>
       <link>https://blog.uglyboy.cn/slides/2018/01/02/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Tue, 02 Jan 2018 11:04:35 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2018/01/02/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B/</guid>
       <description>## 用户增长核心模型 &amp;gt; 当我们谈规模时，我们应该做什么？ --- ## 核心模型 ----- 让我们快速进入主题 --- #### 核心模型 ----- $DAU$ 拆解后与如下三个因素有关： &amp;gt; $$ &amp;gt; DAU = (1&amp;#43;\frac{\lambda}{\gamma})\times DNU</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -3899,6 +3859,5 @@ $$
 </script>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

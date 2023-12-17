@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>游戏化 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/%E6%B8%B8%E6%88%8F%E5%8C%96/</link>
     <description>Recent content in 游戏化 on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 29 Jan 2018 10:24:35 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/%E6%B8%B8%E6%88%8F%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Jan 2018 10:24:35 +0800</lastBuildDate>
+    <atom:link href="https://blog.uglyboy.cn/tags/%E6%B8%B8%E6%88%8F%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>游戏与游戏化</title>
       <link>https://blog.uglyboy.cn/slides/2018/01/29/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</link>
       <pubDate>Mon, 29 Jan 2018 10:24:35 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2018/01/29/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</guid>
       <description>## 游戏改变世界 从游戏到游戏化 --- ### 人类简史 ----- - 大自然为了生物更好的进化，把有意义的事情赋予了“好玩”的属性 - 人类为了更快的发展，学会了“理智”</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -270,6 +270,5 @@
 </script>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>营销 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/%E8%90%A5%E9%94%80/</link>
     <description>Recent content in 营销 on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 01 Jul 2021 08:00:00 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/%E8%90%A5%E9%94%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jul 2021 08:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.uglyboy.cn/tags/%E8%90%A5%E9%94%80/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>黑暗森林法则和营销</title>
       <link>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</link>
       <pubDate>Thu, 01 Jul 2021 08:00:00 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</guid>
       <description>宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音，连呼吸都小心翼翼……他必须</description>
       <content:encoded><![CDATA[<blockquote>
@@ -94,12 +94,10 @@
 </div>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>共情理论讲义</title>
       <link>https://blog.uglyboy.cn/slides/2018/11/20/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</link>
       <pubDate>Tue, 20 Nov 2018 08:03:50 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2018/11/20/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</guid>
       <description>传统经济学未能描述的人类行为方式</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -290,12 +288,10 @@
 </script>
 ]]></content:encoded>
     </item>
-    
     <item>
       <title>游戏与游戏化</title>
       <link>https://blog.uglyboy.cn/slides/2018/01/29/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</link>
       <pubDate>Mon, 29 Jan 2018 10:24:35 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2018/01/29/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</guid>
       <description>## 游戏改变世界 从游戏到游戏化 --- ### 人类简史 ----- - 大自然为了生物更好的进化，把有意义的事情赋予了“好玩”的属性 - 人类为了更快的发展，学会了“理智”</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -554,6 +550,5 @@
 </script>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

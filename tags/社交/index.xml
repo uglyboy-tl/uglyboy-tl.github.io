@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>社交 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/%E7%A4%BE%E4%BA%A4/</link>
     <description>Recent content in 社交 on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Aug 2018 21:23:33 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/%E7%A4%BE%E4%BA%A4/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Aug 2018 21:23:33 +0800</lastBuildDate>
+    <atom:link href="https://blog.uglyboy.cn/tags/%E7%A4%BE%E4%BA%A4/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>社交与传播</title>
       <link>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</link>
       <pubDate>Thu, 16 Aug 2018 21:23:33 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</guid>
       <description>本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 共情。通过这项研究，基本解释了生活中大部</description>
       <content:encoded><![CDATA[<blockquote>
@@ -378,6 +378,5 @@
 <p>这三点在任何一段爱情里都不是孤立存在的，也会共同发挥作用。例如一个女生跟一个男生有精神上的共鸣，这并不妨碍她也希望男生能送她一个可以在朋友们面前炫耀的包包；也不会因为女生希望男生更辛苦些赚钱养家，或者买房买车，就意味着女生只爱男生的钱。</p>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>

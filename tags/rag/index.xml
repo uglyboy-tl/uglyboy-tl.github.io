@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RAG on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/rag/</link>
     <description>Recent content in RAG on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 23 Nov 2023 06:35:17 +0800</lastBuildDate><atom:link href="https://blog.uglyboy.cn/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Nov 2023 06:35:17 +0800</lastBuildDate>
+    <atom:link href="https://blog.uglyboy.cn/tags/rag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RAG 技术</title>
       <link>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
-      
       <guid>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</guid>
       <description># RAG 技术 --- - 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。 - 原理是在大语言模型的基础上，辅助检索技术，让大语言模型</description>
       <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
@@ -176,6 +176,5 @@
 </script>
 ]]></content:encoded>
     </item>
-    
   </channel>
 </rss>
