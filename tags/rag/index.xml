@@ -14,7 +14,7 @@
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</guid>
       <description># RAG 技术 --- - 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。 - 原理是在大语言模型的基础上，辅助检索技术，让大语言模型</description>
-      <content:encoded><![CDATA[<div class="reveal" style="height:50vh;max-height:540px;">
+      <content:encoded><![CDATA[<div class="reveal">
   <div class="slides">
     <section data-markdown>
       <textarea data-template>
