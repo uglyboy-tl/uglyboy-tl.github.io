@@ -170,10 +170,6 @@
     </section>
   </div>
 </div>
-<script type="text/javascript">
-  var ctx = document.getElementsByClassName("post-content")[0];
-  ctx.removeAttribute("class");
-</script>
 ]]></content:encoded>
     </item>
     <item>
@@ -369,10 +365,6 @@ Agent 的 While 循环模式恰好符合 Bellman 方程的形式。
     </section>
   </div>
 </div>
-<script type="text/javascript">
-  var ctx = document.getElementsByClassName("post-content")[0];
-  ctx.removeAttribute("class");
-</script>
 ]]></content:encoded>
     </item>
     <item>
@@ -454,10 +446,6 @@ $$
     </section>
   </div>
 </div>
-<script type="text/javascript">
-  var ctx = document.getElementsByClassName("post-content")[0];
-  ctx.removeAttribute("class");
-</script>
 ]]></content:encoded>
     </item>
     <item>
