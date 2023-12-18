@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/tags/automation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autorestic</title>
-      <link>https://blog.uglyboy.cn/posts/autorestic/</link>
+      <link>https://blog.uglyboy.cn/posts/2022/02/22/autorestic/</link>
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/autorestic/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2022/02/22/autorestic/</guid>
       <description>完善的数据自动备份系统</description>
       <content:encoded><![CDATA[<blockquote>
 <p>原本是打算不再在这里写技术类博客了，结果最近的一个小成果确实没啥合适的地方存放，所以还是留在这里吧。</p>
@@ -46,6 +46,11 @@
 <p>autorestic 的官方文档推荐的方式即配合 crontab 每 5 分钟执行一次的方式 将 autorestic 配置成一个伪服务，进而提供定时自动备份功能。</p>
 <h3 id="docker">docker</h3>
 <p>最后，终极的解决方案，是需要将这些工具组合起来，形成一套完整的工具链。于是将对应的工具打包进 docker image，就可以便捷的部署和使用对应的自动化备份方案了。</p>
+<h3 id="2023-12-18-更新">2023-12-18 更新</h3>
+<ul>
+<li>之前一直没有能自动进行 forget 操作，导致备份的数据越来越多。现在已经解决了这个问题，通过在 crontab 中添加 forget 操作，可以自动清理过期的备份数据了。</li>
+<li>之前的景象的 hostname 每次都是随机生成的，导致每次都会重新初始化，现在已经解决了这个问题，通过在 docker-compose 中添加 hostname，可以保证每次都是同一个 hostname 了。</li>
+</ul>
 <h2 id="最终的数据自动化备份解决方案">最终的数据自动化备份解决方案</h2>
 <p>我通过 <a href="https://github.com/uglyboy-tl/autorestic-docker">Github</a> 的自动化流程，构建了实现上述 autorestic 服务的 <a href="https://hub.docker.com/r/guixi/autorestic">镜像</a> ，使用说明如下：</p>
 <h3 id="features">Features</h3>
@@ -89,6 +94,7 @@
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
@@ -97,6 +103,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">guixi/autorestic</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">autorestic</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">autorestic</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/etc/localtime:/etc/localtime:ro</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">$(pwd)/autorestic.yml:/root/.autorestic.yml:ro</span><span class="w">
