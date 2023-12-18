@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 10 Dec 2023 09:55:03 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Agent 的使用指南</title>
-      <link>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <title>Agent 使用指南</title>
+      <link>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
       <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
       <description>## Agent 使用指南 --- ### 如何在真实世界中使用大模型？ &amp;gt; 我说想开灯，大模型能帮我开灯吗？ --- - 我们希望大模型能够直接的解决问题 - 这样的使用方法现在被人们</description>
       <content:encoded><![CDATA[<div class="reveal">
   <div class="slides">
