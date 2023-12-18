@@ -2220,8 +2220,8 @@ flowchart LR
 <p>最后，终极的解决方案，是需要将这些工具组合起来，形成一套完整的工具链。于是将对应的工具打包进 docker image，就可以便捷的部署和使用对应的自动化备份方案了。</p>
 <h3 id="2023-12-18-更新">2023-12-18 更新</h3>
 <ul>
-<li>之前一直没有能自动进行 forget 操作，导致备份的数据越来越多。现在已经解决了这个问题，通过在 crontab 中添加 forget 操作，可以自动清理过期的备份数据了。</li>
-<li>之前的景象的 hostname 每次都是随机生成的，导致每次都会重新初始化，现在已经解决了这个问题，通过在 docker-compose 中添加 hostname，可以保证每次都是同一个 hostname 了。</li>
+<li>之前一直没有能自动进行 forget 操作，导致备份的数据越来越多。现在已经解决了这个问题，已经通过在镜像的 crontab 中添加 forget 操作，可以自动清理过期的备份数据了。</li>
+<li>之前的镜像的 hostname 每次都是随机生成的，导致每次都会重新初始化，现在已经解决了这个问题，通过在 docker-compose 中添加 hostname，可以保证每次都是同一个 hostname 了。</li>
 </ul>
 <h2 id="最终的数据自动化备份解决方案">最终的数据自动化备份解决方案</h2>
 <p>我通过 <a href="https://github.com/uglyboy-tl/autorestic-docker">Github</a> 的自动化流程，构建了实现上述 autorestic 服务的 <a href="https://hub.docker.com/r/guixi/autorestic">镜像</a> ，使用说明如下：</p>
