@@ -6,8 +6,130 @@
     <description>Recent content on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Dec 2023 10:09:58 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 10 Dec 2023 09:55:03 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent 的使用指南</title>
+      <link>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>## Agent 使用指南 --- ### 如何在真实世界中使用大模型？ &amp;gt; 我说想开灯，大模型能帮我开灯吗？ --- - 我们希望大模型能够直接的解决问题 - 这样的使用方法现在被人们</description>
+      <content:encoded><![CDATA[<div class="reveal">
+  <div class="slides">
+    <section data-markdown>
+      <textarea data-template>
+      
+
+## Agent 使用指南
+
+---
+
+### 如何在真实世界中使用大模型？
+
+&gt; 我说想开灯，大模型能帮我开灯吗？
+
+---
+- 我们希望大模型能够直接的解决问题
+- 这样的使用方法现在被人们称为： **Agent**
+---
+#### 简单应用：如何修复一个 json 串？
+-----
+- 错误做法：
+  - 问大模型这个字符串哪里错了？
+  - 写代码修复字符串
+- 正确做法：
+  - &#34;Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.&#34;
+
+---
+#### 什么情况下我们需要 Agent ？
+-----
+- 不需要的情况：
+  - 操作简单，人可以快速解决；
+  - 规则清晰，程序可以按规则解决；
+- 需要的情况：
+  - 解决步骤繁琐，对于人来说是重复劳动；
+  - 情况复杂，不容易梳理清楚对应的解决规则；
+
+---
+#### 场景举例
+-----
+- Github 的 Copilot
+- MacOS 的 Copilot
+- 软件自动运维
+- Yi 6B 的自动安装助手
+- 上网助手
+- $\dots$
+---
+#### 高级场景举例
+-----
+- 自动软件开发（GPT Engineer）
+- 自动会议纪要
+  - 自动任务记录
+  - 自动会议预定
+  - 自动消息通知
+- 高级个人助理
+- 一切自动化流程中需要人工参与的部分
+---
+#### 解决复杂问题有哪些难点？
+-----
+- 解决复杂问题往往需要很多步骤；
+  - 而且正确的步骤往往也也需要探索；
+- Agent 需要能够正确的了解自己当前解决问题的进度；
+- 具体的步骤中，Agent 需要可以使用具体的工具；
+---
+#### 传统 Agent 的定义
+###### **Agent = LLM &#43; planning &#43; memory &#43; tools**
+-----
+&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/12/18/Pucaj8OELXfeTZm.jpg&#34;&gt;&lt;/center&gt;
+---
+### Agent 究竟是如何工作的？
+---
+#### ReAct：Agent 的核心模式
+&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/12/18/klDFI9n2Mq5Kf61.png&#34; width=&#34;70%&#34;&gt;&lt;/center&gt;
+---
+#### ReAct 的核心思想
+-----
+- 循环试错（以此来取消幻觉）；
+- 充分利用大模型的能力（复杂条件下也总能给出解决方案）；
+  - 大模型的知识足够多，且有泛化性，适合解决复杂问题；
+  - 大模型可以很好的理解复杂的条件，找出适合的解决方案；
+- 通过对历史行为的记录（记忆），避免重复错误的尝试；
+---
+### Agent 测验
+---
+
+#### 如何打造一个联网的 LLM ？
+-----
+- **[Thought]** 针对用户输入，让 LLM 判断应该从哪个`搜索引擎`用什么`关键词` 获取结果；
+- **[Act]** 获取`搜索引擎`在对应`关键词`下的搜索结果；
+- **[Obs]** 具体返回的搜索结果；
+- **[Thought]** 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索；
+
+---
+#### 如何打造 Yi 6B 的自动安装助手
+---
+#### 如何打造 MacOS 的 Copilot
+---
+#### 如何打造一个可以自动软件开发的 Agent
+
+---
+### 这件事需要产品做什么？
+---
+- **找到适合的场景**
+- 设计场景下的合理交互
+- 总结场景下的最佳实践(作为数据喂给模型就可以了)
+- 扩展场景
+---
+&gt; 大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理
+---
+
+# Q & A
+      </textarea>
+    </section>
+  </div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>Hugo 更换字体 &amp; 使用 Reveal.js 做在线展示</title>
       <link>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</link>
@@ -302,7 +424,7 @@
 
 ### 一个典型 RAG 系统的架构
 
-&lt;img style=&#34;margin: 0 auto;&#34; src=&#34;https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg&#34;&gt;
+&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg&#34;&gt;&lt;/center&gt;
 
 ---
 
@@ -359,7 +481,7 @@
 
 ---
 
-&lt;img class=&#34;r-stretch&#34; style=&#34;margin: 0 auto;&#34; src=&#34;https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png&#34;&gt;
+&lt;center&gt;&lt;img class=&#34;r-stretch&#34; src=&#34;https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png&#34;&gt;&lt;/center&gt;
 ---
 
 - 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
