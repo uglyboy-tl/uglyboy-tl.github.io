@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>分类 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/categories/</link>
@@ -8,20 +8,18 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.uglyboy.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>技术</title>
+      <link>https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>低熵生活</title>
       <link>https://blog.uglyboy.cn/categories/%E4%BD%8E%E7%86%B5%E7%94%9F%E6%B4%BB/</link>
       <pubDate>Sun, 28 Jan 2024 17:39:14 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/categories/%E4%BD%8E%E7%86%B5%E7%94%9F%E6%B4%BB/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>技术</title>
-      <link>https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Tue, 19 Dec 2023 08:56:27 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>机器学习</title>
@@ -29,7 +27,6 @@
       <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>商业洞察</title>
@@ -37,7 +34,6 @@
       <pubDate>Sat, 15 Oct 2022 20:20:25 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/categories/%E5%95%86%E4%B8%9A%E6%B4%9E%E5%AF%9F/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>理论研究</title>
@@ -45,7 +41,6 @@
       <pubDate>Thu, 11 Nov 2021 17:30:18 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/categories/%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
   </channel>
 </rss>

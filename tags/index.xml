@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>标签 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/</link>
@@ -8,12 +8,32 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.uglyboy.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Github</title>
+      <link>https://blog.uglyboy.cn/tags/github/</link>
+      <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLM</title>
+      <link>https://blog.uglyboy.cn/tags/llm/</link>
+      <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>poetry</title>
+      <link>https://blog.uglyboy.cn/tags/poetry/</link>
+      <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/poetry/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>十年总结</title>
       <link>https://blog.uglyboy.cn/tags/%E5%8D%81%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sun, 28 Jan 2024 17:39:14 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E5%8D%81%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>Hugo</title>
@@ -21,7 +41,6 @@
       <pubDate>Tue, 19 Dec 2023 08:56:27 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/hugo/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>Reveal.js</title>
@@ -29,7 +48,6 @@
       <pubDate>Tue, 19 Dec 2023 08:56:27 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/reveal.js/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>Agent</title>
@@ -37,15 +55,6 @@
       <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/agent/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>LLM</title>
-      <link>https://blog.uglyboy.cn/tags/llm/</link>
-      <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/tags/llm/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>大模型专题分享</title>
@@ -53,7 +62,6 @@
       <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98%E5%88%86%E4%BA%AB/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>战略</title>
@@ -61,7 +69,6 @@
       <pubDate>Fri, 01 Dec 2023 08:56:12 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E6%88%98%E7%95%A5/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>长期主义</title>
@@ -69,7 +76,6 @@
       <pubDate>Fri, 01 Dec 2023 08:56:12 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E9%95%BF%E6%9C%9F%E4%B8%BB%E4%B9%89/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>RAG</title>
@@ -77,7 +83,6 @@
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/rag/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>RoPE</title>
@@ -85,7 +90,6 @@
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/rope/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>Transformer</title>
@@ -93,7 +97,6 @@
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/transformer/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>Github Actions</title>
@@ -101,7 +104,6 @@
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/github-actions/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>Scaling Law</title>
@@ -109,7 +111,6 @@
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/scaling-law/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>孵化器教案</title>
@@ -117,7 +118,6 @@
       <pubDate>Sat, 15 Oct 2022 20:20:25 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E5%AD%B5%E5%8C%96%E5%99%A8%E6%95%99%E6%A1%88/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>共情</title>
@@ -125,7 +125,6 @@
       <pubDate>Sat, 15 Oct 2022 20:20:25 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E5%85%B1%E6%83%85/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>组织</title>
@@ -133,7 +132,6 @@
       <pubDate>Sat, 15 Oct 2022 20:20:25 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E7%BB%84%E7%BB%87/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>竞争策略</title>
@@ -141,7 +139,6 @@
       <pubDate>Wed, 27 Apr 2022 17:26:35 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E7%AB%9E%E4%BA%89%E7%AD%96%E7%95%A5/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>automation</title>
@@ -149,7 +146,6 @@
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/automation/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>docker</title>
@@ -157,7 +153,6 @@
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/docker/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>restic</title>
@@ -165,7 +160,6 @@
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/restic/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>营销</title>
@@ -173,7 +167,6 @@
       <pubDate>Thu, 01 Jul 2021 08:00:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E8%90%A5%E9%94%80/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>传播</title>
@@ -181,7 +174,6 @@
       <pubDate>Thu, 16 Aug 2018 21:23:33 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E4%BC%A0%E6%92%AD/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>社交</title>
@@ -189,7 +181,6 @@
       <pubDate>Thu, 16 Aug 2018 21:23:33 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E7%A4%BE%E4%BA%A4/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>价格</title>
@@ -197,7 +188,6 @@
       <pubDate>Tue, 07 Aug 2018 08:58:35 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E4%BB%B7%E6%A0%BC/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>游戏化</title>
@@ -205,7 +195,6 @@
       <pubDate>Mon, 29 Jan 2018 10:24:35 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E6%B8%B8%E6%88%8F%E5%8C%96/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
       <title>用户增长</title>
@@ -213,7 +202,6 @@
       <pubDate>Tue, 02 Jan 2018 11:04:35 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/</guid>
       <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
     </item>
   </channel>
 </rss>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>RAG on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/rag/</link>
     <description>Recent content in RAG on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 23 Nov 2023 06:35:17 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Dec 2023 13:18:48 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/rag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RAG 技术</title>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>低熵生活 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/categories/%E4%BD%8E%E7%86%B5%E7%94%9F%E6%B4%BB/</link>
     <description>Recent content in 低熵生活 on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Jan 2024 17:39:14 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jan 2024 18:49:29 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/categories/%E4%BD%8E%E7%86%B5%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023 年总结</title>

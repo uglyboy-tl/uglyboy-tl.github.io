@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Github on 拾柒读库</title>
+    <link>https://blog.uglyboy.cn/tags/github/</link>
+    <description>Recent content in Github on 拾柒读库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 15 Feb 2024 21:04:19 +0800</lastBuildDate>
+    <atom:link href="https://blog.uglyboy.cn/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UglyChain，面向开发者的大模型开发框架</title>
+      <link>https://blog.uglyboy.cn/posts/2024/02/15/uglychain%E9%9D%A2%E5%90%91%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/posts/2024/02/15/uglychain%E9%9D%A2%E5%90%91%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</guid>
+      <description>一个更好用的 LLM 应用构建工具</description>
+      <content:encoded><![CDATA[<h2 id="最近的新玩具uglychain">最近的新玩具：<strong>UglyChain</strong></h2>
+<p>先上链接：<a href="https://github.com/uglyboy-tl/UglyChain">UglyChain</a> ，文档：<a href="https://uglychain.uglyboy.cn/">https://uglychain.uglyboy.cn</a></p>
+<p>最近几个月都在开发这个项目。一方面是自己有更多的关于大模型开发的定制需求，需要更加底层的接触模型的接口，从零开始开发适合自己的脚手架对熟悉大模型应用有很大的帮助；另一方面也确实是因为当前主流的大模型开发框架，例如 <code>LangChain</code>，<code>LlamaIndex</code> 等工具对开发者并不友好，所有的功能都封装得太过，使得使用起来很不灵活，尤其是大模型这种常常遇到不可预期的错误的情况，很难定位和解决问题。</p>
+<p>这篇文章就不去赘述 UglyChain 的各种特性了，总得来说，预期的功能大部分都已经开发完成了，未来希望添加更多的高级功能，具体来说就是科研和业界最新最先进的技术栈，当然，以我的性格，从来都不是追求新，只是大模型的高速发展，新才有可能带来新能力新突破。</p>
+<p>折腾这个项目的过程中，还是有很多收获的，这里对这些做一些简单的记录。</p>
+<h3 id="python-项目管理新工具-poetry">Python 项目管理新工具 Poetry</h3>
+<p>以前都是用 venv + pip 来进行 Python 的虚拟空间管理，项目中的包管理并不便捷，而且 pip 删除包时并不能清除其依赖关系，导致时不时需要推倒重建虚拟空间，甚至曾经我最早想用大模型做 AutoDevOpt 时，想象的场景就是让大模型自动构建虚拟空间。</p>
+<p>poetry 可以很好的管理包的依赖关系，而且可以对安装的内容进行分组，例如一些包可以设置在 <code>dev</code> 环境，或者 <code>test</code>、<code>doc</code> 等等。而且 poetry 还可以更加自动化的分析出相关的依赖关系，在安装前提前排雷，并且对全部虚拟环境中的包可以一条命令全部升级（升级的方式也是按约定俗成的包版本管理方式来的）。</p>
+<p>因为这次的项目还需要发布包，而 Poetry 在这个过程中又进一步简化的操作，让个人开发者进行 Python 包的开发门槛降到了最低。</p>
+<h3 id="ruff-代码检查工具">ruff 代码检查工具</h3>
+<p>配合 <code>pyproject.toml</code> 中进行的设置，和 IDE(VSCode) 的自动提示功能，ruff 让 Python 代码更加规范，避免一些容易出问题的情况发生。</p>
+<p>关于 ruff 的更详细的介绍，这里也还是给上 <a href="https://docs.astral.sh/ruff/">链接</a>，大家自行学习。</p>
+<p>我的项目设置如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">ruff</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">line-length</span> <span class="p">=</span> <span class="mi">120</span> <span class="c"># YOLO</span>
+</span></span><span class="line"><span class="cl"><span class="nx">target-version</span> <span class="p">=</span> <span class="s2">&#34;py311&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">ruff</span><span class="p">.</span><span class="nx">lint</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">select</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;E&#34;</span><span class="p">,</span> <span class="c"># pycodestyle errors</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;W&#34;</span><span class="p">,</span> <span class="c"># pycodestyle warnings</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;F&#34;</span><span class="p">,</span> <span class="c"># pyflakes</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;I&#34;</span><span class="p">,</span> <span class="c"># isort</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;C&#34;</span><span class="p">,</span> <span class="c"># flake8-comprehensions</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;B&#34;</span><span class="p">,</span> <span class="c"># flake8-bugbear</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="github-的-pr-操作">Github 的 PR 操作</h3>
+<p>这次虽然是个人开发，但为了让项目看起来更加正规，还是研究了一下 Github 的 PR 操作：</p>
+<ol>
+<li>创建新分支</li>
+<li>开发代码，并发布和提交新分支</li>
+<li>主分支下就会看到有新分支提交，可以选择创建 PR</li>
+<li>创建 PR 请求后，对个人开发者而言，就可以进行合并了</li>
+</ol>
+<p>这个过程就会在 Github 中留下 PR 记录，这个流程一方面可以将不同的模块功能的开发相对独立的拆解出来，另一方面也在生成发行版时，可以更加直观的记录版本的新功能。</p>
+<h3 id="mkdocs-创建项目文档页面">Mkdocs 创建项目文档页面</h3>
+<p>Mkdocs 来创建和管理项目文档十分的方便，就体感来说，是比 Hugo 写博客要更加便捷的。</p>
+<p>除了生成项目文档外，可以十分便捷的一键发布到 Github 的 page 中，mkdocs 会自动在你的项目下创建页面文件的分支，并且自动发布。</p>
+<p>需要留意的是，如果想自动发布后能狗自定义页面网址，需要在项目根目录中保留一个 CNAME 文件，这个和 Hugo 是一样的。</p>
+<h2 id="大模型应用开发的前景">大模型应用开发的前景</h2>
+<p>这个领域也研究了大半年了。说一些自己的判断：</p>
+<ol>
+<li>大模型的能力还难以支撑复杂问题的解决，哪怕是 GPT4。所以当前 <code>Agent</code> 的解法可以解释成：将复杂问题变成简单问题，然后交给大模型来解决。所以才需要规划能力，使用工具的能力，<code>ReAct</code> 的能力等等。但是哪怕这样，最近的论文也表明，哪怕是问题已经很清晰的：旅行规划问题，大模型在 90% 的真实情况下没有办法给出很好的解法。类似的，<code>Text2SQL</code> 这个课题已经是大模型领域的经典问题了，但是面对真实复杂场景，大模型还是不堪重用的。它只能解决简单问题（复杂问题的样本大模型遇见的太少了）。</li>
+<li>上面这一点基本上宣告了大模型在一段时间内，成为生产力工具的方向是十分困难的。哪怕能走通，那大概率主体也不是大模型。所以换个视角来看，大模型自己的舒适区——自动化信息处理很可能是一段时间内的突破点。包括不限于：更优秀的资料整理者（筛选信息），特定主题的资料汇总（学术场景或者新闻场景），大量文档的快速阅读工作（例如 Github 项目阅读、简历筛选之类）。</li>
+<li>针对上面这种发展趋势，那 RAG 一定会是下个时期的最佳辅助——特定领域的信息整理，一定离不开领域下的信息搜索。当前的 RAG 还是做得太小了——针对个人或企业文档的对话问答搜索，这并没有那么强烈的真实需求，更像是拿着锤子找钉子。</li>
+<li>虽然第一点带来的 Agent 能力不能很好的发挥，但是还是需要一些更加稳定可靠的 Agent 能力的出现，这些将成为未来大模型能力进一步解放的基础。当前我的开发框架中选取了四个核心能力：结构化输出、Code Interpreter、ReAct、RAG，希望未来会有更多的突破出现。</li>
+</ol>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

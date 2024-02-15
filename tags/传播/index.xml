@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>传播 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/%E4%BC%A0%E6%92%AD/</link>
     <description>Recent content in 传播 on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Aug 2018 21:23:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 18 Dec 2023 18:17:44 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/%E4%BC%A0%E6%92%AD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>社交与传播</title>

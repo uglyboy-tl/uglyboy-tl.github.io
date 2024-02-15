@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hugo on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/hugo/</link>
     <description>Recent content in Hugo on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Dec 2023 08:56:27 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Dec 2023 13:30:22 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo &#43; Reveal.js 后续</title>

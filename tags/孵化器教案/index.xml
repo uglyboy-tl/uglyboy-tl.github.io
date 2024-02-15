@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>孵化器教案 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/%E5%AD%B5%E5%8C%96%E5%99%A8%E6%95%99%E6%A1%88/</link>
     <description>Recent content in 孵化器教案 on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 15 Oct 2022 20:20:25 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Dec 2023 10:12:20 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/%E5%AD%B5%E5%8C%96%E5%99%A8%E6%95%99%E6%A1%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>组织理论讲义</title>
