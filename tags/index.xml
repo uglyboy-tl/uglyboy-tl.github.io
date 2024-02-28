@@ -8,6 +8,34 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.uglyboy.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Alignment</title>
+      <link>https://blog.uglyboy.cn/tags/alignment/</link>
+      <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/alignment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLM</title>
+      <link>https://blog.uglyboy.cn/tags/llm/</link>
+      <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RLHF</title>
+      <link>https://blog.uglyboy.cn/tags/rlhf/</link>
+      <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/rlhf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SFT</title>
+      <link>https://blog.uglyboy.cn/tags/sft/</link>
+      <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/sft/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Github</title>
       <link>https://blog.uglyboy.cn/tags/github/</link>
       <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
@@ -15,14 +43,7 @@
       <description></description>
     </item>
     <item>
-      <title>LLM</title>
-      <link>https://blog.uglyboy.cn/tags/llm/</link>
-      <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/tags/llm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>poetry</title>
+      <title>Poetry</title>
       <link>https://blog.uglyboy.cn/tags/poetry/</link>
       <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/poetry/</guid>
@@ -141,21 +162,21 @@
       <description></description>
     </item>
     <item>
-      <title>automation</title>
+      <title>Automation</title>
       <link>https://blog.uglyboy.cn/tags/automation/</link>
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/automation/</guid>
       <description></description>
     </item>
     <item>
-      <title>docker</title>
+      <title>Docker</title>
       <link>https://blog.uglyboy.cn/tags/docker/</link>
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/docker/</guid>
       <description></description>
     </item>
     <item>
-      <title>restic</title>
+      <title>Restic</title>
       <link>https://blog.uglyboy.cn/tags/restic/</link>
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/restic/</guid>

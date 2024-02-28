@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Alignment on 拾柒读库</title>
+    <link>https://blog.uglyboy.cn/tags/alignment/</link>
+    <description>Recent content in Alignment on 拾柒读库</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 28 Feb 2024 19:26:41 +0800</lastBuildDate>
+    <atom:link href="https://blog.uglyboy.cn/tags/alignment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>大模型对齐的数学理解</title>
+      <link>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <description>AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。</p>
+<p>所以本篇文档就是先放下一切具体的 AI alignment 的方法，从问题定义出发，理解清楚 AI alignment 究竟是个什么过程，能解决什么问题，不能解决什么问题。</p>
+</blockquote>
+<h2 id="大模型对齐是一个贝叶斯学习">大模型对齐是一个贝叶斯学习</h2>
+<p>让我们先来看一看 <code>预训练模型</code> 和对齐获得 <code>chat 模型</code> 之间是什么关系</p>
+<p><strong>定义：</strong></p>
+<p>$content$ 表示语言序列，$chat$ 表示聊天对话。</p>
+<p>于是 $p(content)$ 就是通过 <code>预训练模型</code> 获得的语言概率分布，而 <code>chat 模型</code> 则是我们希望获得的 $p(content|chat)$，即在 <code>chat 模型</code> 中，语言序列的分布情况。</p>
+<p>有了上面的基本定义，非常容易看出这是一个很基础的贝叶斯学习问题：</p>
+<p>$$
+p(content|chat) =\frac{ p(chat|content)\cdot p(content)}{p(chat)}
+$$</p>
+<p>因为我们业务场景下需要用的只是 <code>chat 模型</code>，所以 $p(chat)=1$，那么想要获得 $p(content|chat)$，其实就变成了求解 $p(chat|content)$。</p>
+<p>所以很容易跳过求解细节，得到最终的结论：</p>
+<p>广义的 SFT 技术的本质，就是求解 $p(chat|content)$，更具体的说，就是获得“能够判别任意文本序列是否聊天对话”的能力。</p>
+<blockquote>
+<p>上面的推演过程可以将 chat 换成任何 SFT 的目标，例如 <code>指令跟随</code>，<code>Functall call</code>，<code>RAG 结果调优</code> 等等。</p>
+</blockquote>
+<h3 id="训练数据">训练数据</h3>
+<p>因为要求解的是一个判别问题，所以训练样本的准备就是准备很多的打了 $[1,-1]$ 标签的文本序列，然后训练就完事了。这里面没有，也不需要更复杂的数学原理了。</p>
+<h3 id="nlp-问题的学习范式">NLP 问题的学习范式</h3>
+<p>因为通常我们是对语言序列（Language）做判别，而不是对编码序列（String）做判别，所以这里有一个常用的利用了贝叶斯思想的技巧：</p>
+<p>我们要求的是 $p(chat|content)$，是判别一段人类语言文本是否是 chat，但是如果只是使用上一节中的样本，训练得到的将会是：$p(chat|string)$，也就是判别了一段随机字符串是否是 chat。这里有：</p>
+<p>$$
+p(chat|string) = p(chat|content)\cdot p(content|string)
+$$</p>
+<p>虽然理论上可以通过 $p(chat|string)$ 反推 $p(chat|content)$，但是训练获得的 $p^*(chat|string)$ 不是真实概率，相同数量的样本，在 $string$ 空间上训练 和在 $content$ 空间上训练，其误差和泛化性是有显著不同的（因为 $content$ 空间比 $string$ 空间小了很多很多）。</p>
+<p>所以，通常 NLP 问题往往构造的训练数据不是直接进行判别模型的训练的，而是在一个预训练的语言模型 $p(content|string)$ 基础上进行训练的。而恰好，$p(content|string) = p(content)$ 就是我们通过预训练得到的基础语言模型，不需要额外再去寻找其他关于语言模型的先验概率了。</p>
+<p>实操来说，就是会在 $p(content)$ 模型的基础上，进行判别模型的继续训练。</p>
+<h3 id="用-boosting-的思想进行调优">用 Boosting 的思想进行调优</h3>
+<p>因为我们准备的样本无法覆盖全部的 $content$ 空间，但我们比较确信我们的样本质量，那么就可以用 Boosting 的思想来优化我们的训练过程。具体来说，就是类似于如下的流程：</p>
+<ol>
+<li>用训练样本训练一个基础判别模型 $c^0$。</li>
+<li>用 $c^0$ 对训练样本进行判别，会找到一些错判或者漏判的样本。</li>
+<li>将错判和漏判的样本进行加权，然后重新训练模型，获得新的模型 $c^1$。</li>
+<li>重复上面的 2～3 过程，让训练样本能够发挥更大的效果。</li>
+</ol>
+<p>这个方法很充分的利用了训练样本，但是也会带来<strong>过拟合</strong>的问题，会导致模型的泛化性下降。</p>
+<p><strong>这一点很重要</strong>。因为和上面的 NLP 的范式结合，你会发现，在 NLP 的范式下来实践 Boosting 想法，提升 SFT 的训练样本的权重，实操上的执行手段就是 <strong>RLHF</strong>。</p>
+<p>所以这里就能得到一个不需要看实操细节就可以得到的结论：</p>
+<blockquote>
+<p>RLHF 可以更好的利用有限的训练样本，但会影响模型的泛化性。所以 RLHF 只能做有限的调优手段，不能作为 SFT 的主要手段。</p>
+</blockquote>
+<h3 id="实践中的流程简化">实践中的流程简化</h3>
+<p>因为我们最终要求解的是：$p(content|chat) = p(chat|content)\cdot p(content)$，同时呢，$p(chat|content)$ 又需要在 $p(content)$ 模型的基础上进行训练。所以在有深度模型这个描述能力极强的工具的帮助下，我们可以将两个流程合并到一起，直接通过训练样本训练出最终的 $p(content|chat)$ 模型。这个过程也是现在大家实践中真实使用的方式。</p>
+<p>从结果来说，这个方式没有任何问题。但是从操作过程来看，会存在一些小隐患：</p>
+<p>因为我们的样本本质上是要训练 $p(chat|content)$，所以评估训练质量是应该在 $p(chat|content)$ 空间上进行，看准确度和泛化性。但是我们现在直接拿到的是 $p(content|chat)$，就很难找到适合的评估指标了。两方面原因：</p>
+<ol>
+<li>$content$ 空间太大，本身就很难评估结果，包括不限于评估 $p(content)$ 和 $p(content|chat)$。</li>
+<li>$p(content|chat)$ 其实同时在考量 $p(content)$ 和 $p(chat|content)$ 两个模型的效果，加上原本 $p(content)$ 在不同测试集下的表现就不尽相同，更难以衡量 $p(chat|content)$ 工作的质量了。</li>
+</ol>
+<p>所以给到的建议是，通过</p>
+<p>$$
+p(chat|content) = \frac{p(content|chat)}{p(content)}
+$$</p>
+<p>来计算原本 AI alignment 在执行的目标：${p(chat|content)}$，然后对这个目标进行准确性和泛化性的评估。无论是评测样本的构造还是评估效果的可靠性都会得到极大的提升。</p>
+<h2 id="ai-alignment-这个手段能带来什么">AI Alignment 这个手段能带来什么</h2>
+<p>从定义来看，AI alignment 做的事情是给预训练的大语言模型添加关于使用场景的限定条件，例如：</p>
+<ol>
+<li>现在是 chat 场景了，你只输出你原本输出中属于 chat 的部分。什么？你不知道哪些是 chat 的部分？我给你一个条件概率 $p(chat|content)$，现在你知道了，可以输出了。</li>
+<li>现在你是一个文艺青年，你只输出你原本输出中文艺青年会表达的方式。什么？你不知道什么是文艺青年？我给你一个条件概率 $p(文艺青年|content)$，现在你知道了，可以输出了。</li>
+<li>现在你是一个会按照特定结构（例如 json）输出结果的语言工具，……</li>
+<li>……</li>
+</ol>
+<h3 id="ai-alignment-永远没办法让模型变得更好">AI Alignment 永远没办法让模型变得更好</h3>
+<p>从 AI alignment 的名称就知道，它做的事情是对齐，而不是提升。相当于大语言模型有很多的使用场景，我们通常得到的模型是一个在场景选取方面用均匀概率分布的模型。AI alignment 则是更明确的给出关于使用场景的先验信息，让模型从通用场景模型转化到专用场景的模型。</p>
+<p>但反过来说，如果一件事通用场景模型就做不到，那我们是没有办法找到一个专用场景，让模型能做到这件事的。</p>
+<p>例如指令追随，如果模型的能力不足，通用模型就一点都 follow 不了指令，那无论怎样做 SFT，都没有办法实现这个能力。其他能力也类似，包括不限于：数学计算能力、数数能力、简单的推理能力、理解和翻译能力。</p>
+<p>模型最终的能力不是：预训练模型的能力分 + Alignment 的能力分。而是这样的关系式：</p>
+<p>模型最终的能力 &lt;= 预训练模型的能力分，Alignment 可以让不等式左边更加接近上界。</p>
+<h2 id="关于贝叶斯思想">关于贝叶斯思想</h2>
+<p>上面的讨论中两次用到了贝叶斯概率的思想。这个思想对于解决现实世界的问题其实往往起着至关重要的作用（注意，这里讨论的不是贝叶斯学派跟频率学派的纷争，他们争论的要点是关于参数究竟是参数空间的后验还是先验的问题，我们当面讨论的话题两个学派都没有任何分歧的。）</p>
+<blockquote>
+<p>以新冠检测为例：如果一项检测技术，新冠患者阳性的概率是 95%，而健康人阳性的概率是 5%。那么你进行了这项检测，并且呈阳性，你感染新冠的概率有多大？95%？</p>
+<p>不，是需要看现在患者和健康人的比例才能知道你感染的概率（很有意思的现象，你是否感染，竟然跟所有人的比例有关）。</p>
+<p>$$
+\begin{equation}
+\begin{array}{lll}
+p(患者|阳性) =p(阳性|患者)\cdot p(患者) =0.95\cdot p(患者) \\
+p(健康人|阳性) =p(阳性|健康人)\cdot p(患者) = 0.05\cdot p(健康人)
+\end{array}
+\end{equation}
+$$</p>
+<p>像现在这种新冠基本绝迹的情况下，检测阳性很大概率是假阳性，问题不大。</p>
+<p>但如果是大流行的时候，往往没检测出阳性，也很有可能已经生病了。</p>
+</blockquote>
+<p>上面的例子给我们一个重要的冲击和启示：先验概率分布对后验概率分布的影响非常大。所以很多时候，或许更好的问题解决办法不是提升条件概率的精度，而是直接拿到更加准确的先验概率。</p>
+<h3 id="nlp-领域的人容易钻的牛角尖">NLP 领域的人容易钻的牛角尖</h3>
+<p>大模型是个很强大的工具，能解决很多以前解决不好的问题。所以 NLP 的“专家”们就开始拿着锤子找钉子，看到了很多以前做得不好的工作，希望用 NLP 来替代。但很可能他们找到的问题是优化条件概率，但对结果起更重要影响的是先验概率。</p>
+<h4 id="搜索排序打分">搜索排序打分</h4>
+<p>用户搜索一个 Query，我们需要判断返回结果的排序（给找回的文本打分，判断被用户选择的概率大小）</p>
+<p>$$
+p(answer|query) = p(query|answer)p(answer)
+$$</p>
+<p>NLP 的同学以为他们通过大模型拿到的是 $p(answer|query)$，但仔细思考，你会发现通用大模型获得的能力描述不了真实场景下的先验概率，所以 NLP 工具获得的只是 $p(query|answer)$，只表达了 query 和 answer 的相关性描述。表达不了用户对 $p(answer)$ 先验的喜好程度。</p>
+<p>所以带来的结果就是，当前的大部分 RAG 体系，只通过向量检索计算了文本相似度，并没有关于文本的静态质量分。</p>
+<p>但是对于真实用户的使用来说，更多的情况下，一个相对差一点的 $p(query|answer)$ 或许是可以接受的，但低质量的返回结果是不可接受的。</p>
+<h4 id="搜索的先验概率思想">搜索的先验概率思想</h4>
+<p>传统搜索中的很多解法其实都是更好的利用了先验概率，从而获得了更加精准和快速的结果。这里再举一个例子：</p>
+<blockquote>
+<p>用户搜索一个 Query，无论是大模型领域，还是搜索领域，第一步往往都值得做一个用户意图的识别，然后通过路由去寻找更好的专用模型（引擎）来回答问题。</p>
+<p>用户意图识别在搜索领域被称为类目预测。</p>
+<p>搜索中做类目预测的办法简单、粗暴、有效：</p>
+<ol>
+<li>将 query 分解成关键词</li>
+<li>按关键词组合，统计历史上同样关键词组合的用户，真实点击的内容所在的类目，得到 关键词组合&lt;-&gt;类目 的映射关系</li>
+<li>长尾关键词可能会找不到足够的历史数据而出错。但是搜索中大头流量都是可以找到精准的类目预测关系的。</li>
+</ol>
+</blockquote>
+<p>这个过程中，没有任何试图理解词的真实语义的尝试，但已经十分精准的解决了搜索在绝大部分时间（流量）下的用户意图识别问题。而且解决方案直观、高效、精度高。</p>
+<p>但是如果是使用大模型技术做意图识别，会漏掉先验概率对结果的影响（例如情人节搜鲜花和清明节搜鲜花，给出的鲜花品类应该是不同的，大语言模型是无法理解这种先验概率的变化的；搜索的模型也无法理解，但是可以快速捕捉到这种变化）。</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>restic on 拾柒读库</title>
+    <title>Restic on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/restic/</link>
-    <description>Recent content in restic on 拾柒读库</description>
+    <description>Recent content in Restic on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 20 Dec 2023 07:25:00 +0800</lastBuildDate>
