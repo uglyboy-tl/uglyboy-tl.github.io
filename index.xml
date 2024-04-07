@@ -6,8 +6,276 @@
     <description>Recent content on 拾柒读库</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 28 Feb 2024 19:26:41 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Apr 2024 10:30:19 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RAG 的数学理解</title>
+      <link>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <description>问题的定义 探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这</description>
+      <content:encoded><![CDATA[<h2 id="问题的定义">问题的定义</h2>
+<p>探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。</p>
+<p>但对于 LLM 的真实场景应用来说，我们不仅仅希望 LLM 给出像人一样的回答，而且对回答的答案是有着有别于语言概率分布的预期的。所以对于实际应用场景下的 LLM 的评估，并不是评估 LLM 原本的能力（泛化性），而是评估在很多具体问题下的回答距离某个我们认为合理的回答是否更接近。</p>
+<h3 id="更具体的阐述">更具体的阐述</h3>
+<p>什么叫做好的 <code>LLM</code>？是回答问题更加准确的模型吗？从 <code>LLM</code> 的训练过程的输入输出（优化目标）来看，非也。</p>
+<p><code>LLM</code> 的训练优化的核心目标是泛化性。这个能力其实和人类的智力测试所考察的能力是很类似的——是希望 <code>LLM</code> 具有更强的举一反三，寻找规律的能力，甚至是记忆力（长上下文的大海捞针），但是并不需要考察它已经背下了多少信息。</p>
+<blockquote>
+<p>很多时候我们对模型的考核是综合的，某种意义上也就混淆了“模型更聪明”和“知道的更多”之间的界限。
+所以一般我们认为更加精心挑选的训练样本可以提升模型的能力，以及更小的模型可以比参数更多的模型能力强，基本上都是过多的考察了“知道的更多”这部分的能力；但回归到我们更希望模型具有的“聪明”的能力上，例如“结构化输出”、“Function Cal”、一些简单的推理等等，模型规模带来的界限就异常的坚固了。</p>
+</blockquote>
+<p>对于 <code>LLM</code> 我们更看重它的“聪明”还是“知道的更多”呢？很遗憾，这两种能力不是完全兼容的。</p>
+<p>例如：一个具有良好泛化性能力的模型，是可以兼容各种粗别字、拼写错误、语法错误的语言模型。但如果一个模型具有这种能力，就需要其训练样本中存在含有错别字、拼写错误、语法错误的训练样本。这样的样本训练出来的结果，自然也会有概率输出错误。但这样的模型是更聪明了还是更笨了呢？</p>
+<p>类似的，如果希望模型能够充满创造力，那模型就需要拥有想像的能力，需要看到过各种神奇的想像。于是幻觉也正是创造力无法分割的一部分。那有幻觉的模型是更聪明的模型还是更笨的模型呢？</p>
+<p>所以这也带来了另一个问题：对于 <code>LLM</code> 现有的评测集究竟考察了哪种 <code>LLM</code> 的能力？是考察了它背住的正确答案的多少？还是在考察 <code>LLM</code> 的泛化性？</p>
+<p>因为从 <code>LLM</code> 的优化目标上来看，我们已经有了关于聪明的描述（就是泛化性，虽然我们当前的很多测试集存在问题）。但还有很多的使用场景下，我们更关注的不是模型的“聪明”程度，而是希望模型“知道的更多”，所以本文需要给这种能力重新做一个相对清晰的定义，然后才能进一步分析如何提升这种能力。</p>
+<blockquote>
+<p>其实这也是 RAG 对这类真实问题能极大提升效果的原因——提升“知道的更多”这个问题的精度的最重要的办法就是背更多的答案。利用了 RAG 做答案检索可以更加精准的给出结果，自然就更容易提升效果。这个后文中会有更多的论述和证明。</p>
+</blockquote>
+<h3 id="llm-能力的重新定义">LLM 能力的重新定义</h3>
+<p>$question$ 表示输入的语言序列，$answer$ 表示输出的语言序列，$score^{question}(answer)$ 表示在 $question$ 这个问题下，$answer$ 这个回答的评分，后面简记为：$score(answer)$。</p>
+<p>一个语言模型 <code>LLM</code> 是指一组概率分布：</p>
+<p>$$
+p^{LLM}(answer|question)
+$$</p>
+<p>表示在 <code>LLM</code> 这个语言模型中，通过 $question$ 这个输入生成 $answer$ 的概率。</p>
+<p>从而我们得到了语言模型在<strong>回答真实问题中</strong>的能力定义：</p>
+<p>$$
+Score^{LLM} = \sum p^{LLM}(answer|question)\cdot score(answer)
+$$</p>
+<p>通常，我们无法遍历得到全部的 $question$，同时也无法对全部的 $question$ 进行打分，所以模型实际的分数往往是通过采样的方式得到的估计值。</p>
+<h3 id="rag-的定义">RAG 的定义</h3>
+<blockquote>
+<p>这里给出的定义不是从 RAG 的名词含义出发得到的定义，而是从 RAG 这种手段的本质出发，得到的定义，即——<strong>如何改写 prompt 以获得更好的结果</strong>。</p>
+</blockquote>
+<p>对于一个已知的语言模型 <code>LLM</code>，我们希望找到最好的一组变换 $f:X\to X,X是语言序列$ 使得：</p>
+<p>$$
+Score^* = \max_{f} \sum p^{LLM}(answer|f(question))\cdot score(answer)
+$$</p>
+<p>并将最好的这组变换记作 $f^*$:</p>
+<p>$$
+f^* = \arg\max_{f} \sum p(answer|f(question))\cdot score(answer)
+$$</p>
+<p>当取 $f(x)=x$ 时，$Score_{f} = Score_{LLM}$，所以至少有：</p>
+<p>$$
+Score^* \geq Score_{LLM}
+$$</p>
+<p>即，一个合理的 RAG 手段至少不会让结果变得更差。</p>
+<h3 id="rag-进一步解析">RAG 进一步解析</h3>
+<blockquote>
+<p>这一节要解答：是不是使用 <code>RAG</code> 总能带来收益呢？如果原本的 <code>LLM</code> 已经很好了，是不是就不需要 <code>RAG</code> 了呢？</p>
+</blockquote>
+<p>从定义出发，很容易知道，<code>RAG</code> 一定是提效的。上一节也给出了一个简单的理论证明。但更加实践的角度来看，怎么保证 <code>RAG</code> 能带来更好的提升呢？</p>
+<h4 id="prompt-engineering">Prompt Engineering</h4>
+<p>对于大语言模型，大家都知道神奇的 “Let&rsquo;s think step by step”，对于大部分的 $question$，对其进行改写，加入 <code>Let's think step by step</code>，就能提升回答的效果。</p>
+<p>类似的，现在也有诸多的手段进行 <strong>Prompt Engineering</strong>，都是可以提升原始 LLM 的回答结果的。</p>
+<p>当然，这些手段是符合我们的 RAG 定义的，但是往往因为其没有更加充分的利用 $question$ 和 $answer$ 的有效信息，不会被归类到通常意义下的 RAG 当中。这部分内容也不放在我们讨论的重点。</p>
+<p>但这里有一个相关的技巧，是利用了通常意义下的 RAG 技术，所以值得拿出来单独说明一下的。</p>
+<h5 id="cot">CoT</h5>
+<p><code>CoT</code> 可以提升 <code>LLM</code> 的效果这一点也是被大家认同的结论。通常意义上来说，这也属于 <code>Prompt Engineering</code> 的一种技巧。但是 <code>CoT</code> 有别于 <code>Let's think step by step</code>，它需要根据 $question$ 和 $answer$ 进行构造。</p>
+<p>所以我们可以将已经构造好的 <code>CoT</code> Prompt 放到引擎中，即可通过检索的方式实现我们需要的 $f$，所以是可以通过 <code>RAG</code> 的方式实现 <code>CoT</code> 来优化 <code>LLM</code> 的结果的。</p>
+<h4 id="当我们能直接找到-answer">当我们能直接找到 $Answer$</h4>
+<p>这是另一个极端——极端乐观的情况。</p>
+<p>如果我们可以通过一些手段直接获得</p>
+<p>$$
+answer^* = \arg\max_{answer} score(answer)
+$$</p>
+<p>或者一个分数很高的 $answer^*$。则我们的问题将变成：</p>
+<p>找到 $f$ 使得 $f(question) = answer$。</p>
+<p>通过类似构造的方法：</p>
+<p>$$
+f(question) = \mbox{请输出如下内容} + answer
+$$</p>
+<p>即可得到这样的 $f$。</p>
+<h5 id="当我们能找到-n-个-answer">当我们能找到 $n$ 个 $Answer$</h5>
+<p>如果我们能准确的获得 $score(answer)$ 用上节中的方法，直接利用 $answer^<em>$ 构造 $f^</em>$ 即可。但是真实场景中，我们无法精准的获得 $score(answer)$ 的，所以可以利用 <code>LLM</code> 的能力，构造如下的 $f$：</p>
+<p>$$
+f(question) = \mbox{根据} + question + \mbox{从下述答案中选出最好的答案} + answer_{1} + answer_{2} + \dots
+$$</p>
+<p>这里的假定是 <code>LLM</code> 有更大的概率可以根据 $question$ 选出更优质的答案。虽然 “<code>LLM</code> 能选出最优答案”这件事未必令人确信，但如果不利用 <code>LLM</code>，则最合理的答案是几个答案的均匀分布随机，但这样未能更好的利用 $question$ 和 $answer$ 的相关信息。</p>
+<blockquote>
+<p>可以看到，在这个条件下，我们所获得的 <code>RAG</code> 的映射函数 $f^*$ 已经和现实意义下的 <code>RAG</code> 很相似了。</p>
+<p>这样的结果其实充分的说明了，我们通常意义下所使用的 <code>RAG</code> 方法，正是我们这个定义下的最自然的解决方案之一。也侧面说明了本文定义的合理性。</p>
+</blockquote>
+<h2 id="长文本与-rag">长文本与 RAG</h2>
+<p>其实从本文的定义很容易看出，长文本和 <code>RAG</code> 根本上就是完全不同的两个概念，完全没有什么可以比较的意义，讨论长文本和 <code>RAG</code> 的关系这件事其实非常的业余。无奈总有人带节奏说这个话题，所以还是单独拿出一定的篇幅来针对一个很细节的应用场景，来聊一聊这部分内容。</p>
+<h3 id="长文本应用的定义">长文本应用的定义</h3>
+<p>大语言模型的能力（应用价值）的定义如前文：</p>
+<p>$$
+Score_{LLM} = \sum p^{LLM}(answer|question)\cdot score(answer)
+$$</p>
+<p>长文本模型的能力并不会超出这样一个定义，所以想要体现长文本模型能力的价值，需要对上面的使用场景再添加更多的限制条件：</p>
+<ol>
+<li>我们有一段很长的上下文信息 $context$；</li>
+<li>我们的问题 $question$ 需要 $context$ 才能获得优质的答案 $answer$；</li>
+<li>原本的 <code>LLM</code> 不一定有能力直接容纳 $context + question$ 这么长的输入文本；</li>
+</ol>
+<p>在上述限制条件下我们称之为<strong>长文本应用</strong>。</p>
+<p>进而，通常意义下长文本给出的解决方案按照本文的定义，即：</p>
+<p>$$
+f^{Long}(question) = context + question
+$$</p>
+<p>当然，这样的 $f$ 是需要 <code>LLM</code> 具有长文本能力，才能实现的。</p>
+<h3 id="上文条件下的-rag-解">上文条件下的 <code>RAG</code> 解</h3>
+<p>从定义出发，</p>
+<p>$$
+f^* = \arg\max_{f} \sum p(answer|f(question))\cdot score(answer)
+$$</p>
+<p>所以</p>
+<p>$$
+f^* \geq f^{Long}
+$$</p>
+<p>而且因为 $f^{Long}$ 是个平凡的构造解，所以等号成立的概率几乎为零。即长文本带来的能力完全取代不了 <code>RAG</code> 带来的能力</p>
+<blockquote>
+<p>当然，因为我们并没有对 $f^<em>(question)$ 有任何限制，所以 $f^</em>(question)$ 甚至有可能比 $context + question$ 还要长，更需要 <code>LLM</code> 具有长文本的支持能力。
+所以反过来也一样，<code>RAG</code> 带来的能力也取代不了长文本带来的能力。
+这就是这一章开头提到的，这是两个完全不同的能力，没有可比性。</p>
+</blockquote>
+<h3 id="进一步解析">进一步解析</h3>
+<p>如上文描述，通常只有 $context$ 很长的情况下，才能充分体现出 <code>LLM</code> 长文本的价值。但是 $context$ 很长，往往又意味着，$context$ 中的信息存在大量的冗余，于是 $f^*$ 相比于 $f^{Long}$ 就有了更加充分的优化空间。</p>
+<p>为了说明这件事情，我们也用构造法构造一组解：</p>
+<ol>
+<li>将 $context$ 切片成很多个 $chunk_{i}$</li>
+<li>利用 <code>LLM</code>，对 $chunk_{i}$ 做判断，判断其对回答 $question$ 是否有帮助。</li>
+<li>将有帮助的 $chunk_{j}$ 保留并合并，即可形成新的 $context^*$ 相比于 $context$ 通常都是有提升的，（或者防杠精）<strong>至少是无害的，那在计算效率上也是提升</strong>。</li>
+</ol>
+<p>进一步，如果对 $question$ 有帮助的 $chunk_{i}$ 其实很少，那么我们对长文本的需求就急剧下降了。</p>
+<blockquote>
+<p>这一点是之前 <code>LLM</code> 长度不足时，大家利用 <code>RAG</code> 解决问题的理由之一；但真的没啥道理被误解成是 <code>RAG</code> 的主要作用。
+而且从这里的解析来看，这种方法也确实是个非常好的解决办法——<strong>至少是无害的，那在计算效率上也是提升</strong></p>
+</blockquote>
+<p>甚至在有价值的 $chunk_{j}$ 很多的情况下，我们可以构造这样的解：</p>
+<ol>
+<li>
+<p>将 $context$ 切片成很多个 $chunk_{i}$</p>
+</li>
+<li>
+<p>利用 <code>LLM</code>，利用 $chunk_{i} + question$ 生成答案 $answer_{i}$</p>
+</li>
+<li>
+<p>类似于第一章中的方法：</p>
+<p>$$
+f(question) = \mbox{根据} + question + \mbox{根据下述答案，生成更好的答案} + answer_{1} + answer_{2} + \dots$$</p>
+</li>
+</ol>
+<p>这样可以让任意的长度的 $context$ 都可以被极大的压缩，减小对 <code>LLM</code> 长上下文的依赖，并且不会损失最终的效果。</p>
+<blockquote>
+<p>当然，这样的 $f$ 也还有进一步的提升空间。LamaIndex 中已经有好多中很好的 $f$ 的构造，本文就不赘述了。</p>
+</blockquote>
+<p>所以如果非要对长文本和 <code>RAG</code> 进行比较，更通常的情况下，确实是对 <code>RAG</code> 技术的需求很高，但对长文本的需求，绝大部分都可以转化成利用 <code>RAG</code> 技术来解决。</p>
+<h2 id="为何是-rag">为何是 RAG</h2>
+<blockquote>
+<p>若如本文中的定义：“如何改写 prompt 以获得更好的结果”，那为什么我们还要把这个技术称为 <code>RAG</code> 呢？或者另一个相关的问题：“为何不通过 SFT 的方式让模型无需改写 prompt 即可获得更好的结果呢？”</p>
+</blockquote>
+<p>这是一个非常好的问题，甚至可以说，这个问题正好问出了本文给出 <code>LLM</code> 新定义的核心原因：<strong>因为 <code>LLM</code> 的能力强弱和真实场景下人们对答案的评估是不同的</strong>。</p>
+<p><code>LLM</code> 的核心能力是泛化性，即在未见过的样本上正确估计的能力。所以强大的 <code>LLM</code> 应当是可以面对满屏错别字和语法混乱的文章，也能顺利读下来并理解其含义的模型，这是 <code>LLM</code> 能力的体现。当然，这样的 <code>LLM</code> 一定能，并且擅长胡说八道，因为这也是泛化性的体现——只不过，更强大的模型说胡话的本领会更强，更加让人察觉不到他在说胡话（指在不知道标准答案的情况下）。</p>
+<p><strong>这种能力恰恰是 <code>LLM</code> 给这个世界最好的礼物。</strong></p>
+<p>但很多具体的应用场景中，我们对实际的回答是有要求有约束的，我们的约束条件跟 <code>LLM</code> 的能力并不是完全一致的。本文的定义，其实就是从真实场景的实际约束条件出发给出的基本定义——即在有 $question$ 的条件下，找到 $answer^*=\arg\max score(answer)$（这个写法中没有 <code>LLM</code>，就是说这个问题并不是必须使用 <code>LLM</code> 来解决的）。</p>
+<p>而非常有意思的是，解决这个问题的方法，在没有 <code>LLM</code> 之前，被定义为 <code>Retrieval</code>（或者是 <code>Search</code>）。</p>
+<p>所以 <code>RAG</code> 或者被成为 <code>RCG</code> 都 OK，从历史的发展角度来看，其实应当是出现了 <code>LLM</code> 后，这样一个强大的工具如何如何让 <code>Retrieval</code> 获得更好的结果——无论有没有 <code>LLM</code> 这件事其实都是 <code>Retrieval</code></p>
+<p>接下来十分自然的思考就是，<code>LLM</code> 的泛化性的能力（“聪明”的能力），如何帮助 <code>Retrieval</code> 更好的找到（或生成）准确的答案。十分自然的结合就是：用传统的 <code>Retrieval</code> 找到可能有价值的内容，让“聪明”的 <code>LLM</code> 最终判断、组合出最后的答案。这就和 <code>RAG</code> 的字面意义完全一致了。</p>
+<blockquote>
+<p>前文中也提到了，这其实也是当前大模型评估面临的问题：一些测试集测试的其实并不是大模型的泛化能力，而是真实场景下解决问题的能力。但如果模型针对这种问题提升所谓的“能力”，注定是以降低模型的泛化能力来实现的（参考《大模型对齐的数学理解》）。这其实也回答了，为什么不能用 SFT 替代 RAG。</p>
+<p>所以解决这个问题，需要的是在 <code>LLM</code> 的能力和真实问题之间加一层技术解决方案，让这个方案来更好的利用 <code>LLM</code> 的能力，并且可以获得真实场景下的“好”的答案。这个思路其实就是本文 <code>RAG</code> 的定义方式。</p>
+<p>或者更进一步描述一些行业的现象：为什么闭源的模型似乎比开源的模型好很多？不一定是模型天然的能力上，闭源比开源好；但在模型到真实问题之间，闭源的模型一定做了非常多的开源模型没有做的事情。</p>
+<p><strong>有多少人工就有多少智能！</strong></p>
+</blockquote>
+<p>补充一点：这里并不是说 SFT 没有用。在 RAG 中，其实有非常多的 SFT 可以发挥价值的地方。这里的观点仅仅是：<strong>SFT 无法替代 RAG 的价值</strong>。</p>
+<h3 id="为何-retrieval-总是有效果的">为何 Retrieval 总是有效果的？</h3>
+<blockquote>
+<p>哪怕接受了 Prompt 改写可以更好的解决真实场景的问题，但是也许有些人还是会对使用传统的 <code>Retrieval</code> 技术有芥蒂，希望有“端到端”的解决方案，少一些人工。所以这里解释清楚究竟 <code>Retrieval</code> 是如何发挥作用的。</p>
+</blockquote>
+<p>这里简单讨论的是一种很平凡的情况：</p>
+<p>对于给定的 $question$ 和 $context$ 只有其中的某个 $chunk_k$ 是对 $answer$ 有帮助的（这里的 $answer$ 可以理解为“正确”的答案）：</p>
+<p>$$
+\begin{equation}
+\begin{array}{ll}
+p(answer,question|chunk_i)\leq p(answer,question), &amp; i\neq k \\
+p(answer,question|chunk_i)&gt;p(answer,question), &amp; i = k
+\end{array}
+\end{equation}
+$$</p>
+<p>其中，$chunk_i$ 是 $context$ 的切片，即：</p>
+<p>$$
+\begin{equation}
+\begin{array}{ll}
+p(context) &amp;= p(chunk_1,chunk_2,\dots,chunk_n) \\
+&amp;= p(chunk_1)p(chunk_2)\dots p(chunk_n)
+\end{array}
+\end{equation}
+$$</p>
+<p>由 (1) 可知，当 $i\neq k$ 时：</p>
+<p>$$
+p(answer,question|chunk_i) = \frac{p(answer,question,chunk_i)}{p(chunk_i)}\leq p(answer,question)
+$$</p>
+<p>即：</p>
+<p>$$
+p(answer,question)p(chunk_i)\geq p(answer,question|chunk_i)
+$$</p>
+<p>而我们想知道 $context$ 和 $chunk_k$ 谁对 $answer$ 的影响更大，需要比较 $p(answer,question|context)$ 和 $p(answer,question|chunk_k)$ 的大小，于是有：</p>
+<p>$$
+\begin{equation}
+\begin{array}{ll}
+\frac{p(answer,question|context)}{p(answer,question|chunk_k)} &amp;= \frac{p(answer,question,context)}{p(context)}\cdot\frac{p(chunk_k)}{p(answer,question,chunk_k)} \\
+&amp;=\frac{p(answer,question,context)}{p(answer,question,chunk_k)\cdot\prod_{i\neq k}p(chunk_i)} \\
+&amp;= \frac{\prod_{i\neq k} p(answer,question,chunk_i)}{\prod_{i\neq k} p(answer,question)\cdot p(chunk_i)} \\
+&amp;\leq 1
+\end{array}
+\end{equation}
+$$</p>
+<p>从而证明了：</p>
+<p>$$
+p(answer,question|context)\leq p(answer,question|chunk_k)
+$$</p>
+<p>即，使用更短更精准的信息比更长的信息更有利于找到正确答案。</p>
+<blockquote>
+<p>推导过程中可看出，影响 $context$ 和 $chunk_{k}$ 对结果的影响产生差异的核心原因，不是 $chunk_{k}$ 对结果的正向影响里有多大，而是 $chunk_{i}$ 对结果的负向影响导致了 $context$ 的结果可靠性下降。</p>
+<p>这个结论其实是很符合直觉的。但是为了防止有些人对这个概念有误解，还是认真的推演了一下全过程。而且这个推导过程中只使用了条件概率，也就是这个结论跟方法无关——不管是使用 <code>LLM</code> 还是使用 <code>RAG</code>，抑或是未来任何更先进的手段，都不会脱离这个结论——即检索可以让结果变得更好。</p>
+<p>当然，在实操过程中，这个命题的条件未必可以完美的满足，例如检索过程中召回不足，或者有错误召回等等问题时，可能会导致结果更差。但这些问题其实才正是我们努力提升检索技术的动力。</p>
+</blockquote>
+<h4 id="再增加一些解释">再增加一些解释</h4>
+<p>上文中对于 $chunk_i$ 的定义，只有一个要求：</p>
+<p>$$
+p(context) = p(chunk_1)p(chunk_2)\dots p(chunk_n)
+$$</p>
+<p>甚至对证明过程做一定的优化，只需要保证：</p>
+<p>$$
+p(context)=p(chunk_1,chunk_2,\dots,chunk_n)
+$$</p>
+<p>即可（例如切片之间有重叠的情况）。但对于切片的长度、位置、形式其实没有任何要求。</p>
+<p>所以无论切片是从段落的维度，还是词句的维度，抑或是 token 的维度，乃至模型里面的 KVCache 的维度，都不影响我们的推导和结论。</p>
+<p>反过来说，同样也是表达 <code>RAG</code> 并不局限于对文本切片，任何对 $context$ 的信息做“切片”并检索的方式，都是 <code>RAG</code>。</p>
+<p><code>RAG</code> 是一类方法的定义，而不是某个具体实现的小技巧。</p>
+<h3 id="不存在通用的-rag">不存在通用的 RAG</h3>
+<p>首先从定义出发，不同的 $score(answer)$ 自然就会引导出不同的 <code>RAG</code> 解决方案。</p>
+<p>这样的定性答案可能会引起些诸多的误解，所以我们再给出两个例子简单说明一下。</p>
+<blockquote>
+<p>这里用我最常用的，关于淘宝和小红书如何卖奢侈品的例子来说明。</p>
+<p>如果是淘宝卖奢侈品，会认真介绍奢侈品品牌的历史，商品的原料，第三方评测，正品认证，物流，服务保障等等信息，来说明这个奢侈品的高端定位和专业性；</p>
+<p>如果是小红书卖奢侈品，会出现这样的介绍：“这个包包非常的贵！但我的男朋友非常爱我，买给了我～你的男朋友爱你吗？你也值得拥有这么贵的包包”。</p>
+</blockquote>
+<p>有些场景，答案更需要的是精准性，还有一些场景，答案需要的是与用户共情。而在第二类场景中，更共情的答案往往不是更精准的答案。而在通常的聊天沟通场景下，第二类需求是主流。</p>
+<blockquote>
+<p>如果一个大模型，你跟它聊任何内容，他都可以用古诗（或者流行歌曲的歌词）来给予还比较恰当的回答，那相比于一个给出标准正确答案的大模型，你会更愿意跟这个有诗意（情趣）的大模型聊天。</p>
+</blockquote>
+<p>另一方面，精准性在不同的场景下往往也有不同的定义。例如实现一个算法，有些场景需要的是高精度，有些场景需要的是高性能，边缘设备上则需要对资源消耗的控制等等。种种不同的环境下，对 $answer$ 的评分就会形成天然的差别。</p>
+<p>综上所述，即本节标题：不存在通用的 <code>RAG</code>。应当针对具体场景，针对性的对 <code>RAG</code> 调优。这个经验是跟传统的 <code>Search</code> 相一致的。</p>
+<h3 id="本文思路下的一些研究方向">本文思路下的一些研究方向</h3>
+<p>写这篇文章，并不是为了证明 <code>RAG</code> 有没有用，而是希望的是通过一个更加清晰的定义，让我们能够跳出一些技术细节，可以从一些宏观角度上来思考 <code>LLM</code> 到<strong>解决真实问题</strong>中间，还有哪些事情可以做。这里没有罗列传统检索中的常见技术或者已经被大部分人接受了的 <code>RAG</code> 技术或技巧。</p>
+<h4 id="估计-scoreanswer">估计 $score(answer)$</h4>
+<p>如果我们能很高效的估计出 $score(answer)$，极端理想的情况下，我们可以通过遍历所有的 $answer$ 来直接找到最好的 $answer$​，不依赖任何检索或者生成的能力。当然这件事从算力的角度来说也是不现实的。但是类似这样的思路，我们可以通过生成 + 评估的方式，将很多问题的优质答案提前索引起来，然后通过检索的方式快速召回，提升 <code>RAG</code> 的效果，减少 <code>LLM</code> 的资源消耗。</p>
+<p>这件事已经有很多的尝试了，主流的方法就是通过 <code>GPT4</code> 来对结果进行评估。</p>
+<h4 id="非构造的-f">非构造的 $f$</h4>
+<p>当前的 <code>RAG</code> 基本上都是构造性的 $f$，这样的 $f$ 距离 $f^*$ 不会很近。</p>
+<p>其实完全可能存在 $f(question)$ 是人类无法阅读的，但 <code>LLM</code> 可以很好的生成 $answer^*$ 的解。<a href="https://arxiv.org/abs/2403.12968">《LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression》</a> 就给出了一个这样的尝试。</p>
+<h4 id="已知-answer-的情况下如何反推-question-或者-fquestion">已知 $answer$ 的情况下，如何反推 $question$ 或者 $f(question)$</h4>
+<p>这个能力其实对于我们理解如何构造 $f$ 有着至关重要的作用，但现在我们对这件事其实还毫不了解。</p>
+<h4 id="更科学评估-llm-的能力">更科学评估 <code>LLM</code> 的能力</h4>
+<p>另一方面，跳开 <code>RAG</code> 的视角，而从本文最初的讨论出发，还有一个十分重要的问题值得解决。就是更合理的区分和评估 <code>LLM</code> 的泛化能力与掌握的知识。</p>
+<p>其实这一点也是合理评估 <code>RAG</code> 的基础之一。因为我们经常看到一些研究，<code>LLM</code> + <code>RAG</code> 似乎就可以提升 <code>LLM</code> 的能力。但是 <code>RAG</code> 真的能提升 <code>LLM</code> 的能力吗？究竟提升的是智力水平？还是仅仅是开卷考试？</p>
+<p>如果是泛泛的使用，这两种能力耦合在一起起作用，不做区分影响不大。但是如果是需要针对性的提升各方面能力，就需要能够对每一种能力做识别和判断，然后才能更好的带来进一步的提升。</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>大模型对齐的数学理解</title>
       <link>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>

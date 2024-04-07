@@ -8,17 +8,24 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.uglyboy.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>LLM</title>
+      <link>https://blog.uglyboy.cn/tags/llm/</link>
+      <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RAG</title>
+      <link>https://blog.uglyboy.cn/tags/rag/</link>
+      <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/tags/rag/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Alignment</title>
       <link>https://blog.uglyboy.cn/tags/alignment/</link>
       <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/alignment/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>LLM</title>
-      <link>https://blog.uglyboy.cn/tags/llm/</link>
-      <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/tags/llm/</guid>
       <description></description>
     </item>
     <item>
@@ -96,13 +103,6 @@
       <link>https://blog.uglyboy.cn/tags/%E9%95%BF%E6%9C%9F%E4%B8%BB%E4%B9%89/</link>
       <pubDate>Fri, 01 Dec 2023 08:56:12 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/tags/%E9%95%BF%E6%9C%9F%E4%B8%BB%E4%B9%89/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>RAG</title>
-      <link>https://blog.uglyboy.cn/tags/rag/</link>
-      <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/tags/rag/</guid>
       <description></description>
     </item>
     <item>
