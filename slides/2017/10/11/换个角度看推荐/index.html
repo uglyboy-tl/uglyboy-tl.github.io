@@ -1,0 +1,656 @@
+<!doctype html><html lang=zh-cn dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>换个角度看推荐 | 拾柒读库</title>
+<meta name=keywords content="推荐系统"><meta name=description content="
+  
+    
+      
+      
+
+## 换个角度看推荐
+
+> 从业务视角理解算法，用好算法
+
+---
+## 人工智能——生产力工具
+
+>导言
+
+---
+#### 从历史说起
+- 1946 年宾西法尼亚大学诞生了世界第一台电脑——ENIAC；
+- ENIAC 比人类算数快很多（每秒 5000 次加减法），引起世界一片惊叹和争论；
+- ENIAC 是什么，能做什么，只有科学家懂；
+- 我们不是科学家，但如今的我们可以用手机创造更大的生产力
+
+---
+#### 文明史就是工具进化史
+- 第一次工业革命，掀起了“羊吃人”运动，解放了大量生产力，促使了资本主义的诞生；
+- 第二次工业革命，人类进入电气化时代；包括后来计算机的普及，人没有被淘汰，而是利用工具创造了更大的价值；
+- **人工智能**，依旧不是为了替代人而产生的，而是解放人们在智力上的重复劳动。
+
+---
+#### 谁最应该用好*算法*？
+- 算法工程师类似于电脑制造商，负责造出更快的、性价比更高的电脑；他们的技能树不是“如何使用电脑”；
+- 业务同学（运营、产品）不需要理解电脑底层的电路原理、运转机制，但他们才是真正发挥电脑作用的人；
+	- 亚洲四大邪术之中国 PS 术，都是电脑达人吗？
+---
+## 算法原理
+
+> 第 1 节
+
+---
+
+> 如何理解“算法（人工智能）是解放人类在智力上的重复劳动的工具”？
+
+---
+#### 运营是如何进行推荐的？
+- 如果有一个货架需要运营同学来搭建，普通的运营会怎么做？
+	- 先解决千人一面的问题。
+	- 如果场景的最终指标是 ctr，那么就把 ctr 最高的那些商品放到场景中来；
+	- 商品的 ctr 跟场景是相关的，所以要数据驱动，保持场景中的商品始终是当前 ctr 最高的那些商品。
+---
+#### 进阶一下：分人群运营
+- 如果我们对人群做把控，男性和女性可以看到不同的货架，那么如下做就可以提升整体效果：
+	- 男性看到对男性而言 ctr 最高的商品；
+	- 女性看到对女性而言 ctr 最高的商品；
+---
+#### 再进阶一下：精细化运营
+- 如果能将用户区分得更加精细（例如：中国东北 30～35 岁高购买力男性），类似这样的简单组合，就可以将人分为大概 700 多类。
+- 推荐算法就是用类似的方法，可以自动的对上述分类进行数据驱动下的自动商品货架调整。
+- 推荐中最有效的策略（i2i）是这种分类：刚刚看过某个商品的人群，对他们而言哪些商品的 ctr 更高。
+
+---
+## 算法的本质
+
+> 第 2 节
+
+---
+### 推荐（搜索）算法的本质是学习用户的行为
+
+---
+#### 万物皆可“个性化”吗？
+- 推荐系统能对彩票进行推荐吗？
+	- 推荐算法学得是用户行为，而不是彩票；
+	- 用户做不到的事情，算法就学不到；
+- 思考：算法能学出商品的质量吗？
+
+---
+#### “学习用户行为”会发生什么？
+- 为了预测用户的行为，则必须要从用户的行为中学习；
+- 但如果一个场景下，用户也无法识别商品的好坏，那算法还有效吗？
+	- 电商购物场景下，用户能有效识别商品的好坏吗？他们怎么识别的？
+	- 算法同学说：“我的模型中考虑了客诉、物流、用户评论、DSR 等因素”，这些因素真的起作用了吗？
+---
+#### 帮助用户做出有效的行为
+- 推荐算法有效，背后的假设：**用户行为值得学习**
+- 产品设计上应当帮助用户做出有效的行为
+	- 例如，辅助用户决策，将用户评论、好评率、DSR 等信息外显出来；
+	- 增加点赞等丰富的用户后验的社交行为，帮助其他用户进行决策。
+---
+#### 用户行为都值得学习吗？
+- 人都会有犯错的时候。犯错的行为不值得学习；
+- 一些高门槛的领域里，大多数用户都不是资深用户，他们的行为就未必值得学习；
+- 推荐系统要是学习了这种行为会怎样？
+	- 推荐结果中充斥着大量标题党、牛皮癣、黄图、爆款等等；
+	- 用户无从选择时，只能利用上述信息进行决策；反过来，也使此类内容更容易获得高点击；
+	- 正确的做法：通过背书（例如品牌旗舰店），教会用户该看什么；
+
+---
+## 指标问题
+
+> 第 3 节
+
+---
+#### 如何评估推荐的效果
+- 推荐算法是学习过程，所以评估可以类比于考试：
+	- 学得好，成绩会提升；
+	- “应试教育”是存在的；
+	- 不忘初心，不“唯指标”论。观察到指标的提升，还要想一想是不是效果真的提升了。
+
+---
+#### 评估结果不是一切
+- 考试是衡量学习的手段，不要为了考试而学习；不要为了指标而制定策略。
+- 面对指标时，不要盲目认定“这是个黑盒”便放弃了思考；成绩不好反映的是学习过程出现了问题。
+- 成绩没反映出来问题也不代表没有问题
+
+---
+#### 统计数据会说谎
+-----
+
+> 如何让一个班级的成绩快速提升？
+
+#### 开除这个班级平均分以下的学生
+
+- 思考：
+	- 算法可以引领消费升级吗？
+	- 算法可以引领内容化吗？
+
+---
+#### 关于指标的误区
+- 当我们考核点击率、客单价时，统计指标是否反应了我们的本意：
+	- 我们希望同一拨人的指标均值得到提升；
+	- 更准确的，我们期待人的成长，而不是数据的增长。不加限制（例如有些人流失了）的点击率提升证明不了任何事情。
+	- 也回顾前面的话题：任何人群的指标增长都能证明业务的提升吗？例如作弊人群？新用户（无产品心智）人群？
+
+---
+#### 算法被应用时也需要小心
+
+> 推荐算法不以改变用户为目标
+
+- 我们希望学生学会更多知识，进而提升了成绩：
+	- 教育工作者的重点会考察学生还有哪些知识没掌握，然后教会学生；
+	- 算法会找出最容易考高分的卷子来提升成绩；
+	- 短期内，算法指导得成绩一定更好，甚至任何时候互换老师（AB 测试），算法的成绩都更高；
+	- 但算法无法指导学生变得更好。
+---
+## 总结
+---
+### 本文要点
+- 算法是工具，需要人来使用好这个工具；
+- 算法的基本原理：统计当前场景下，对于不同细分人群，怎样的推荐结果指标更好；
+- 算法的本质：学习用户行为！用户不懂的，算法也学不会。
+- 指标问题：算法是唯指标论的，但人不是。需要人把控算法，而不是算法控制人。
+
+---
+#### 算法在场景中应用的要点
+- 场景要解决用户什么问题？这个问题是否可以通过学习用户行为而习得？值得学习哪些用户行为？
+- 这件事用什么指标评估？需要哪些限定条件？除了指标，还有没有其他的佐证方式？
+- 项目的不同阶段需要不同的指标和做法，不盲目使用算法，同算法工程师沟通清楚需求。
+
+---
+#### 最后的一个小问题
+
+> 如果产品经理的 KPI 和 算法工程师的 KPI 是一样的，那产品和算法究竟应该听谁的？
+      
+    
+  
+"><meta name=author content="癸老师"><link rel=canonical href=https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/><link crossorigin=anonymous href=/assets/css/stylesheet.cc6fd0a2dde702c0d45161a7d2a7bb94f2f64524629d8772441f33721c30dbde.css integrity="sha256-zG/Qot3nAsDUUWGn0qe7lPL2RSRinYdyRB8zchww294=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.uglyboy.cn/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://blog.uglyboy.cn/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://blog.uglyboy.cn/favicon-32x32.png><link rel=apple-touch-icon href=https://blog.uglyboy.cn/apple-touch-icon.png><link rel=mask-icon href=https://blog.uglyboy.cn/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=stylesheet href=https://blog.uglyboy.cn/scss/main.min.bb0f243946b87c8f66307b9c43939ead878278180e8edada628b0d7ecd38edfc.css integrity="sha256-uw8kOUa4fI9mMHucQ5OerYeCeBgOjtraYosNfs047fw=" media=screen><link crossorigin=anonymous integrity="sha512-6OOowvyM6Wl3NXfUTUn/mriLicQy5IoKsrlagy6/YJgd/hYpz4LxVlsV/DBghjcbWwKV4jyheUInWZUjagYVKw==" href=https://lib.baomitu.com/reveal.js/5.0.4/reveal.min.css rel=stylesheet><link crossorigin=anonymous integrity="sha512-z8wQkuDRFwCBfoj7KOiu1MECaRVoXx6rZQWL21x0BsVVH7JkqCp1Otf39qve6CrCycOOL5o9vgfII5Smds23rg==" href=https://lib.baomitu.com/reveal.js/5.0.4/plugin/highlight/monokai.min.css rel=stylesheet><link crossorigin=anonymous integrity="sha512-RPqCDyRPg34CE04QpEtt720zRNPR9oZElahfl1OrNl+pxERwvXw7usOOsR+vP6HnDQEmw+ioz2Nh/XOGP8aV0w==" href=https://lib.baomitu.com/reveal.js/5.0.4/theme/dracula.min.css rel=stylesheet><script crossorigin=anonymous integrity="sha512-QHSv1pr0bBhvVetfEITKxd5J44EA5PThotU8T1zz5ZMM8jDH8QVVH7tOIJ4btdpxoHPDBLGxWNyxz/IpmUGfjA==" src=https://lib.baomitu.com/reveal.js/5.0.4/reveal.min.js></script><script crossorigin=anonymous integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" src=https://lib.baomitu.com/reveal.js/5.0.4/plugin/markdown/markdown.min.js></script><script crossorigin=anonymous integrity="sha512-xkVKkN0o7xECTHSUZ9zdsBYRXiAKH7CZ3aICpW6aQJZsufVVRLhEBTDjTpC1tPzm+gNZiOeW174zXAB2fOLsTg==" src=https://lib.baomitu.com/reveal.js/5.0.4/plugin/highlight/highlight.min.js></script><script crossorigin=anonymous integrity="sha512-skPZpuRwuUAnF9iEEFBXc4zJaucKcHUDgY1wDBTv0ILy82C2gn8MJsbcinzj2u8r/iZjD/78HRgw2/n//poOhQ==" src=https://lib.baomitu.com/reveal.js/5.0.4/plugin/math/math.min.js></script><script src=https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin@2.0.0/plugin/mermaid/mermaid.js></script><script src=https://blog.uglyboy.cn/js/pdfexport.min.f789aa24308cb2cd0ab0f81a0da9abffecb5ca23030cb66877a58c0fb9f4549b5cc4d6a4621b108e0a143a48512fa420e898721a6cda8dd070f26ede695540bd.js integrity="sha512-94mqJDCMss0KsPgaDamr/+y1yiMDDLZod6WMD7n0VJtcxNakYhsQjgoUOkhRL6Qg6JhyGmzajdBw8m7eaVVAvQ=="></script><script>document.addEventListener("DOMContentLoaded",function(){if(print_pdf=!1,window.location.search.match(/\?print-pdf.*$/)){print_pdf=!0,document.querySelector(".reveal").removeAttribute("style");var e=document.querySelector("body");e.style.setProperty("--gap","0","important"),e.style.setProperty("--content-gap","0","important"),document.querySelector("#top-link").style.display="none",document.querySelector("#background").style.display="none",document.querySelectorAll("header, footer, #vcomments").forEach(function(e){e.style.display="none"})}Reveal.initialize({mathjax3:{mathjax:"https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.min.js",tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{enableExplorer:!1,skipHtmlTags:["script","noscript","style","textarea","pre"]}},mermaid:{theme:"dark",darkMode:!0,flowchart:{useMaxWidth:!0,htmlLabels:!0}},transition:"fade",progress:!0,embedded:!print_pdf,pdfSeparateFragments:!1,plugins:[RevealMarkdown,RevealHighlight,RevealMath.MathJax3,RevealMermaid,PdfExport]}).then(()=>{print_pdf&&setTimeout(function(){window.print()},400)})})</script><link crossorigin=anonymous integrity="sha512-YZW7jSV4QrwpPzFxB77lAW4qNIeS6RaipaStONrpmbJsyh3zxM/3VoeQrrGlYkNS5nIjsKFURRHnsKhmE/vWmg==" href=https://lib.baomitu.com/lxgw-wenkai-webfont/latest/style.min.css rel=stylesheet><style>body,section{font-family:lxgw wenkai,sans-serif}</style><script crossorigin=anonymous integrity="sha512-FxPzcGnQGjqsUr1ofvicx9Y7T53thxBSvYCBdKeW/Sfr5dQVEkh70r7sl1TMsEVheXsoOTqXZ9z2t75JNeak/g==" src=https://lib.baomitu.com/valine/1.5.1/Valine.min.js></script><meta property="og:title" content="换个角度看推荐"><meta property="og:description" content="
+  
+    
+      
+      
+
+## 换个角度看推荐
+
+> 从业务视角理解算法，用好算法
+
+---
+## 人工智能——生产力工具
+
+>导言
+
+---
+#### 从历史说起
+- 1946 年宾西法尼亚大学诞生了世界第一台电脑——ENIAC；
+- ENIAC 比人类算数快很多（每秒 5000 次加减法），引起世界一片惊叹和争论；
+- ENIAC 是什么，能做什么，只有科学家懂；
+- 我们不是科学家，但如今的我们可以用手机创造更大的生产力
+
+---
+#### 文明史就是工具进化史
+- 第一次工业革命，掀起了“羊吃人”运动，解放了大量生产力，促使了资本主义的诞生；
+- 第二次工业革命，人类进入电气化时代；包括后来计算机的普及，人没有被淘汰，而是利用工具创造了更大的价值；
+- **人工智能**，依旧不是为了替代人而产生的，而是解放人们在智力上的重复劳动。
+
+---
+#### 谁最应该用好*算法*？
+- 算法工程师类似于电脑制造商，负责造出更快的、性价比更高的电脑；他们的技能树不是“如何使用电脑”；
+- 业务同学（运营、产品）不需要理解电脑底层的电路原理、运转机制，但他们才是真正发挥电脑作用的人；
+	- 亚洲四大邪术之中国 PS 术，都是电脑达人吗？
+---
+## 算法原理
+
+> 第 1 节
+
+---
+
+> 如何理解“算法（人工智能）是解放人类在智力上的重复劳动的工具”？
+
+---
+#### 运营是如何进行推荐的？
+- 如果有一个货架需要运营同学来搭建，普通的运营会怎么做？
+	- 先解决千人一面的问题。
+	- 如果场景的最终指标是 ctr，那么就把 ctr 最高的那些商品放到场景中来；
+	- 商品的 ctr 跟场景是相关的，所以要数据驱动，保持场景中的商品始终是当前 ctr 最高的那些商品。
+---
+#### 进阶一下：分人群运营
+- 如果我们对人群做把控，男性和女性可以看到不同的货架，那么如下做就可以提升整体效果：
+	- 男性看到对男性而言 ctr 最高的商品；
+	- 女性看到对女性而言 ctr 最高的商品；
+---
+#### 再进阶一下：精细化运营
+- 如果能将用户区分得更加精细（例如：中国东北 30～35 岁高购买力男性），类似这样的简单组合，就可以将人分为大概 700 多类。
+- 推荐算法就是用类似的方法，可以自动的对上述分类进行数据驱动下的自动商品货架调整。
+- 推荐中最有效的策略（i2i）是这种分类：刚刚看过某个商品的人群，对他们而言哪些商品的 ctr 更高。
+
+---
+## 算法的本质
+
+> 第 2 节
+
+---
+### 推荐（搜索）算法的本质是学习用户的行为
+
+---
+#### 万物皆可“个性化”吗？
+- 推荐系统能对彩票进行推荐吗？
+	- 推荐算法学得是用户行为，而不是彩票；
+	- 用户做不到的事情，算法就学不到；
+- 思考：算法能学出商品的质量吗？
+
+---
+#### “学习用户行为”会发生什么？
+- 为了预测用户的行为，则必须要从用户的行为中学习；
+- 但如果一个场景下，用户也无法识别商品的好坏，那算法还有效吗？
+	- 电商购物场景下，用户能有效识别商品的好坏吗？他们怎么识别的？
+	- 算法同学说：“我的模型中考虑了客诉、物流、用户评论、DSR 等因素”，这些因素真的起作用了吗？
+---
+#### 帮助用户做出有效的行为
+- 推荐算法有效，背后的假设：**用户行为值得学习**
+- 产品设计上应当帮助用户做出有效的行为
+	- 例如，辅助用户决策，将用户评论、好评率、DSR 等信息外显出来；
+	- 增加点赞等丰富的用户后验的社交行为，帮助其他用户进行决策。
+---
+#### 用户行为都值得学习吗？
+- 人都会有犯错的时候。犯错的行为不值得学习；
+- 一些高门槛的领域里，大多数用户都不是资深用户，他们的行为就未必值得学习；
+- 推荐系统要是学习了这种行为会怎样？
+	- 推荐结果中充斥着大量标题党、牛皮癣、黄图、爆款等等；
+	- 用户无从选择时，只能利用上述信息进行决策；反过来，也使此类内容更容易获得高点击；
+	- 正确的做法：通过背书（例如品牌旗舰店），教会用户该看什么；
+
+---
+## 指标问题
+
+> 第 3 节
+
+---
+#### 如何评估推荐的效果
+- 推荐算法是学习过程，所以评估可以类比于考试：
+	- 学得好，成绩会提升；
+	- “应试教育”是存在的；
+	- 不忘初心，不“唯指标”论。观察到指标的提升，还要想一想是不是效果真的提升了。
+
+---
+#### 评估结果不是一切
+- 考试是衡量学习的手段，不要为了考试而学习；不要为了指标而制定策略。
+- 面对指标时，不要盲目认定“这是个黑盒”便放弃了思考；成绩不好反映的是学习过程出现了问题。
+- 成绩没反映出来问题也不代表没有问题
+
+---
+#### 统计数据会说谎
+-----
+
+> 如何让一个班级的成绩快速提升？
+
+#### 开除这个班级平均分以下的学生
+
+- 思考：
+	- 算法可以引领消费升级吗？
+	- 算法可以引领内容化吗？
+
+---
+#### 关于指标的误区
+- 当我们考核点击率、客单价时，统计指标是否反应了我们的本意：
+	- 我们希望同一拨人的指标均值得到提升；
+	- 更准确的，我们期待人的成长，而不是数据的增长。不加限制（例如有些人流失了）的点击率提升证明不了任何事情。
+	- 也回顾前面的话题：任何人群的指标增长都能证明业务的提升吗？例如作弊人群？新用户（无产品心智）人群？
+
+---
+#### 算法被应用时也需要小心
+
+> 推荐算法不以改变用户为目标
+
+- 我们希望学生学会更多知识，进而提升了成绩：
+	- 教育工作者的重点会考察学生还有哪些知识没掌握，然后教会学生；
+	- 算法会找出最容易考高分的卷子来提升成绩；
+	- 短期内，算法指导得成绩一定更好，甚至任何时候互换老师（AB 测试），算法的成绩都更高；
+	- 但算法无法指导学生变得更好。
+---
+## 总结
+---
+### 本文要点
+- 算法是工具，需要人来使用好这个工具；
+- 算法的基本原理：统计当前场景下，对于不同细分人群，怎样的推荐结果指标更好；
+- 算法的本质：学习用户行为！用户不懂的，算法也学不会。
+- 指标问题：算法是唯指标论的，但人不是。需要人把控算法，而不是算法控制人。
+
+---
+#### 算法在场景中应用的要点
+- 场景要解决用户什么问题？这个问题是否可以通过学习用户行为而习得？值得学习哪些用户行为？
+- 这件事用什么指标评估？需要哪些限定条件？除了指标，还有没有其他的佐证方式？
+- 项目的不同阶段需要不同的指标和做法，不盲目使用算法，同算法工程师沟通清楚需求。
+
+---
+#### 最后的一个小问题
+
+> 如果产品经理的 KPI 和 算法工程师的 KPI 是一样的，那产品和算法究竟应该听谁的？
+      
+    
+  
+"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/"><meta property="article:section" content="slides"><meta property="article:published_time" content="2017-10-11T10:59:35+08:00"><meta property="article:modified_time" content="2024-09-14T13:44:01+08:00"><meta property="og:site_name" content="拾柒读库"><meta name=twitter:card content="summary"><meta name=twitter:title content="换个角度看推荐"><meta name=twitter:description content="
+  
+    
+      
+      
+
+## 换个角度看推荐
+
+> 从业务视角理解算法，用好算法
+
+---
+## 人工智能——生产力工具
+
+>导言
+
+---
+#### 从历史说起
+- 1946 年宾西法尼亚大学诞生了世界第一台电脑——ENIAC；
+- ENIAC 比人类算数快很多（每秒 5000 次加减法），引起世界一片惊叹和争论；
+- ENIAC 是什么，能做什么，只有科学家懂；
+- 我们不是科学家，但如今的我们可以用手机创造更大的生产力
+
+---
+#### 文明史就是工具进化史
+- 第一次工业革命，掀起了“羊吃人”运动，解放了大量生产力，促使了资本主义的诞生；
+- 第二次工业革命，人类进入电气化时代；包括后来计算机的普及，人没有被淘汰，而是利用工具创造了更大的价值；
+- **人工智能**，依旧不是为了替代人而产生的，而是解放人们在智力上的重复劳动。
+
+---
+#### 谁最应该用好*算法*？
+- 算法工程师类似于电脑制造商，负责造出更快的、性价比更高的电脑；他们的技能树不是“如何使用电脑”；
+- 业务同学（运营、产品）不需要理解电脑底层的电路原理、运转机制，但他们才是真正发挥电脑作用的人；
+	- 亚洲四大邪术之中国 PS 术，都是电脑达人吗？
+---
+## 算法原理
+
+> 第 1 节
+
+---
+
+> 如何理解“算法（人工智能）是解放人类在智力上的重复劳动的工具”？
+
+---
+#### 运营是如何进行推荐的？
+- 如果有一个货架需要运营同学来搭建，普通的运营会怎么做？
+	- 先解决千人一面的问题。
+	- 如果场景的最终指标是 ctr，那么就把 ctr 最高的那些商品放到场景中来；
+	- 商品的 ctr 跟场景是相关的，所以要数据驱动，保持场景中的商品始终是当前 ctr 最高的那些商品。
+---
+#### 进阶一下：分人群运营
+- 如果我们对人群做把控，男性和女性可以看到不同的货架，那么如下做就可以提升整体效果：
+	- 男性看到对男性而言 ctr 最高的商品；
+	- 女性看到对女性而言 ctr 最高的商品；
+---
+#### 再进阶一下：精细化运营
+- 如果能将用户区分得更加精细（例如：中国东北 30～35 岁高购买力男性），类似这样的简单组合，就可以将人分为大概 700 多类。
+- 推荐算法就是用类似的方法，可以自动的对上述分类进行数据驱动下的自动商品货架调整。
+- 推荐中最有效的策略（i2i）是这种分类：刚刚看过某个商品的人群，对他们而言哪些商品的 ctr 更高。
+
+---
+## 算法的本质
+
+> 第 2 节
+
+---
+### 推荐（搜索）算法的本质是学习用户的行为
+
+---
+#### 万物皆可“个性化”吗？
+- 推荐系统能对彩票进行推荐吗？
+	- 推荐算法学得是用户行为，而不是彩票；
+	- 用户做不到的事情，算法就学不到；
+- 思考：算法能学出商品的质量吗？
+
+---
+#### “学习用户行为”会发生什么？
+- 为了预测用户的行为，则必须要从用户的行为中学习；
+- 但如果一个场景下，用户也无法识别商品的好坏，那算法还有效吗？
+	- 电商购物场景下，用户能有效识别商品的好坏吗？他们怎么识别的？
+	- 算法同学说：“我的模型中考虑了客诉、物流、用户评论、DSR 等因素”，这些因素真的起作用了吗？
+---
+#### 帮助用户做出有效的行为
+- 推荐算法有效，背后的假设：**用户行为值得学习**
+- 产品设计上应当帮助用户做出有效的行为
+	- 例如，辅助用户决策，将用户评论、好评率、DSR 等信息外显出来；
+	- 增加点赞等丰富的用户后验的社交行为，帮助其他用户进行决策。
+---
+#### 用户行为都值得学习吗？
+- 人都会有犯错的时候。犯错的行为不值得学习；
+- 一些高门槛的领域里，大多数用户都不是资深用户，他们的行为就未必值得学习；
+- 推荐系统要是学习了这种行为会怎样？
+	- 推荐结果中充斥着大量标题党、牛皮癣、黄图、爆款等等；
+	- 用户无从选择时，只能利用上述信息进行决策；反过来，也使此类内容更容易获得高点击；
+	- 正确的做法：通过背书（例如品牌旗舰店），教会用户该看什么；
+
+---
+## 指标问题
+
+> 第 3 节
+
+---
+#### 如何评估推荐的效果
+- 推荐算法是学习过程，所以评估可以类比于考试：
+	- 学得好，成绩会提升；
+	- “应试教育”是存在的；
+	- 不忘初心，不“唯指标”论。观察到指标的提升，还要想一想是不是效果真的提升了。
+
+---
+#### 评估结果不是一切
+- 考试是衡量学习的手段，不要为了考试而学习；不要为了指标而制定策略。
+- 面对指标时，不要盲目认定“这是个黑盒”便放弃了思考；成绩不好反映的是学习过程出现了问题。
+- 成绩没反映出来问题也不代表没有问题
+
+---
+#### 统计数据会说谎
+-----
+
+> 如何让一个班级的成绩快速提升？
+
+#### 开除这个班级平均分以下的学生
+
+- 思考：
+	- 算法可以引领消费升级吗？
+	- 算法可以引领内容化吗？
+
+---
+#### 关于指标的误区
+- 当我们考核点击率、客单价时，统计指标是否反应了我们的本意：
+	- 我们希望同一拨人的指标均值得到提升；
+	- 更准确的，我们期待人的成长，而不是数据的增长。不加限制（例如有些人流失了）的点击率提升证明不了任何事情。
+	- 也回顾前面的话题：任何人群的指标增长都能证明业务的提升吗？例如作弊人群？新用户（无产品心智）人群？
+
+---
+#### 算法被应用时也需要小心
+
+> 推荐算法不以改变用户为目标
+
+- 我们希望学生学会更多知识，进而提升了成绩：
+	- 教育工作者的重点会考察学生还有哪些知识没掌握，然后教会学生；
+	- 算法会找出最容易考高分的卷子来提升成绩；
+	- 短期内，算法指导得成绩一定更好，甚至任何时候互换老师（AB 测试），算法的成绩都更高；
+	- 但算法无法指导学生变得更好。
+---
+## 总结
+---
+### 本文要点
+- 算法是工具，需要人来使用好这个工具；
+- 算法的基本原理：统计当前场景下，对于不同细分人群，怎样的推荐结果指标更好；
+- 算法的本质：学习用户行为！用户不懂的，算法也学不会。
+- 指标问题：算法是唯指标论的，但人不是。需要人把控算法，而不是算法控制人。
+
+---
+#### 算法在场景中应用的要点
+- 场景要解决用户什么问题？这个问题是否可以通过学习用户行为而习得？值得学习哪些用户行为？
+- 这件事用什么指标评估？需要哪些限定条件？除了指标，还有没有其他的佐证方式？
+- 项目的不同阶段需要不同的指标和做法，不盲目使用算法，同算法工程师沟通清楚需求。
+
+---
+#### 最后的一个小问题
+
+> 如果产品经理的 KPI 和 算法工程师的 KPI 是一样的，那产品和算法究竟应该听谁的？
+      
+    
+  
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"演示","item":"https://blog.uglyboy.cn/slides/"},{"@type":"ListItem","position":2,"name":"换个角度看推荐","item":"https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"换个角度看推荐","name":"换个角度看推荐","description":" ## 换个角度看推荐 \u0026gt; 从业务视角理解算法，用好算法 --- ## 人工智能——生产力工具 \u0026gt;导言 --- #### 从历史说起 - 1946 年宾西法尼亚大学诞生了世界第一台电脑——ENIAC； - ENIAC 比人类算数快很多（每秒 5000 次加减法），引起世界一片惊叹和争论； - ENIAC 是什么，能做什么，只有科学家懂； - 我们不是科学家，但如今的我们可以用手机创造更大的生产力 --- #### 文明史就是工具进化史 - 第一次工业革命，掀起了“羊吃人”运动，解放了大量生产力，促使了资本主义的诞生； - 第二次工业革命，人类进入电气化时代；包括后来计算机的普及，人没有被淘汰，而是利用工具创造了更大的价值； - **人工智能**，依旧不是为了替代人而产生的，而是解放人们在智力上的重复劳动。 --- #### 谁最应该用好*算法*？ - 算法工程师类似于电脑制造商，负责造出更快的、性价比更高的电脑；他们的技能树不是“如何使用电脑”； - 业务同学（运营、产品）不需要理解电脑底层的电路原理、运转机制，但他们才是真正发挥电脑作用的人； - 亚洲四大邪术之中国 PS 术，都是电脑达人吗？ --- ## 算法原理 \u0026gt; 第 1 节 --- \u0026gt; 如何理解“算法（人工智能）是解放人类在智力上的重复劳动的工具”？ --- #### 运营是如何进行推荐的？ - 如果有一个货架需要运营同学来搭建，普通的运营会怎么做？ - 先解决千人一面的问题。 - 如果场景的最终指标是 ctr，那么就把 ctr 最高的那些商品放到场景中来； - 商品的 ctr 跟场景是相关的，所以要数据驱动，保持场景中的商品始终是当前 ctr 最高的那些商品。 --- #### 进阶一下：分人群运营 - 如果我们对人群做把控，男性和女性可以看到不同的货架，那么如下做就可以提升整体效果： - 男性看到对男性而言 ctr 最高的商品； - 女性看到对女性而言 ctr 最高的商品； --- #### 再进阶一下：精细化运营 - 如果能将用户区分得更加精细（例如：中国东北 30～35 岁高购买力男性），类似这样的简单组合，就可以将人分为大概 700 多类。 - 推荐算法就是用类似的方法，可以自动的对上述分类进行数据驱动下的自动商品货架调整。 - 推荐中最有效的策略（i2i）是这种分类：刚刚看过某个商品的人群，对他们而言哪些商品的 ctr 更高。 --- ## 算法的本质 \u0026gt; 第 2 节 --- ### 推荐（搜索）算法的本质是学习用户的行为 --- #### 万物皆可“个性化”吗？ - 推荐系统能对彩票进行推荐吗？ - 推荐算法学得是用户行为，而不是彩票； - 用户做不到的事情，算法就学不到； - 思考：算法能学出商品的质量吗？ --- #### “学习用户行为”会发生什么？ - 为了预测用户的行为，则必须要从用户的行为中学习； - 但如果一个场景下，用户也无法识别商品的好坏，那算法还有效吗？ - 电商购物场景下，用户能有效识别商品的好坏吗？他们怎么识别的？ - 算法同学说：“我的模型中考虑了客诉、物流、用户评论、DSR 等因素”，这些因素真的起作用了吗？ --- #### 帮助用户做出有效的行为 - 推荐算法有效，背后的假设：**用户行为值得学习** - 产品设计上应当帮助用户做出有效的行为 - 例如，辅助用户决策，将用户评论、好评率、DSR 等信息外显出来； - 增加点赞等丰富的用户后验的社交行为，帮助其他用户进行决策。 --- #### 用户行为都值得学习吗？ - 人都会有犯错的时候。犯错的行为不值得学习； - 一些高门槛的领域里，大多数用户都不是资深用户，他们的行为就未必值得学习； - 推荐系统要是学习了这种行为会怎样？ - 推荐结果中充斥着大量标题党、牛皮癣、黄图、爆款等等； - 用户无从选择时，只能利用上述信息进行决策；反过来，也使此类内容更容易获得高点击； - 正确的做法：通过背书（例如品牌旗舰店），教会用户该看什么； --- ## 指标问题 \u0026gt; 第 3 节 --- #### 如何评估推荐的效果 - 推荐算法是学习过程，所以评估可以类比于考试： - 学得好，成绩会提升； - “应试教育”是存在的； - 不忘初心，不“唯指标”论。观察到指标的提升，还要想一想是不是效果真的提升了。 --- #### 评估结果不是一切 - 考试是衡量学习的手段，不要为了考试而学习；不要为了指标而制定策略。 - 面对指标时，不要盲目认定“这是个黑盒”便放弃了思考；成绩不好反映的是学习过程出现了问题。 - 成绩没反映出来问题也不代表没有问题 --- #### 统计数据会说谎 ----- \u0026gt; 如何让一个班级的成绩快速提升？ #### 开除这个班级平均分以下的学生 - 思考： - 算法可以引领消费升级吗？ - 算法可以引领内容化吗？ --- #### 关于指标的误区 - 当我们考核点击率、客单价时，统计指标是否反应了我们的本意： - 我们希望同一拨人的指标均值得到提升； - 更准确的，我们期待人的成长，而不是数据的增长。不加限制（例如有些人流失了）的点击率提升证明不了任何事情。 - 也回顾前面的话题：任何人群的指标增长都能证明业务的提升吗？例如作弊人群？新用户（无产品心智）人群？ --- #### 算法被应用时也需要小心 \u0026gt; 推荐算法不以改变用户为目标 - 我们希望学生学会更多知识，进而提升了成绩： - 教育工作者的重点会考察学生还有哪些知识没掌握，然后教会学生； - 算法会找出最容易考高分的卷子来提升成绩； - 短期内，算法指导得成绩一定更好，甚至任何时候互换老师（AB 测试），算法的成绩都更高； - 但算法无法指导学生变得更好。 --- ## 总结 --- ### 本文要点 - 算法是工具，需要人来使用好这个工具； - 算法的基本原理：统计当前场景下，对于不同细分人群，怎样的推荐结果指标更好； - 算法的本质：学习用户行为！用户不懂的，算法也学不会。 - 指标问题：算法是唯指标论的，但人不是。需要人把控算法，而不是算法控制人。 --- #### 算法在场景中应用的要点 - 场景要解决用户什么问题？这个问题是否可以通过学习用户行为而习得？值得学习哪些用户行为？ - 这件事用什么指标评估？需要哪些限定条件？除了指标，还有没有其他的佐证方式？ - 项目的不同阶段需要不同的指标和做法，不盲目使用算法，同算法工程师沟通清楚需求。 --- #### 最后的一个小问题 \u0026gt; 如果产品经理的 KPI 和 算法工程师的 KPI 是一样的，那产品和算法究竟应该听谁的？ ","keywords":["推荐系统"],"articleBody":" ## 换个角度看推荐 \u003e 从业务视角理解算法，用好算法 --- ## 人工智能——生产力工具 \u003e导言 --- #### 从历史说起 - 1946 年宾西法尼亚大学诞生了世界第一台电脑——ENIAC； - ENIAC 比人类算数快很多（每秒 5000 次加减法），引起世界一片惊叹和争论； - ENIAC 是什么，能做什么，只有科学家懂； - 我们不是科学家，但如今的我们可以用手机创造更大的生产力 --- #### 文明史就是工具进化史 - 第一次工业革命，掀起了“羊吃人”运动，解放了大量生产力，促使了资本主义的诞生； - 第二次工业革命，人类进入电气化时代；包括后来计算机的普及，人没有被淘汰，而是利用工具创造了更大的价值； - **人工智能**，依旧不是为了替代人而产生的，而是解放人们在智力上的重复劳动。 --- #### 谁最应该用好*算法*？ - 算法工程师类似于电脑制造商，负责造出更快的、性价比更高的电脑；他们的技能树不是“如何使用电脑”； - 业务同学（运营、产品）不需要理解电脑底层的电路原理、运转机制，但他们才是真正发挥电脑作用的人； - 亚洲四大邪术之中国 PS 术，都是电脑达人吗？ --- ## 算法原理 \u003e 第 1 节 --- \u003e 如何理解“算法（人工智能）是解放人类在智力上的重复劳动的工具”？ --- #### 运营是如何进行推荐的？ - 如果有一个货架需要运营同学来搭建，普通的运营会怎么做？ - 先解决千人一面的问题。 - 如果场景的最终指标是 ctr，那么就把 ctr 最高的那些商品放到场景中来； - 商品的 ctr 跟场景是相关的，所以要数据驱动，保持场景中的商品始终是当前 ctr 最高的那些商品。 --- #### 进阶一下：分人群运营 - 如果我们对人群做把控，男性和女性可以看到不同的货架，那么如下做就可以提升整体效果： - 男性看到对男性而言 ctr 最高的商品； - 女性看到对女性而言 ctr 最高的商品； --- #### 再进阶一下：精细化运营 - 如果能将用户区分得更加精细（例如：中国东北 30～35 岁高购买力男性），类似这样的简单组合，就可以将人分为大概 700 多类。 - 推荐算法就是用类似的方法，可以自动的对上述分类进行数据驱动下的自动商品货架调整。 - 推荐中最有效的策略（i2i）是这种分类：刚刚看过某个商品的人群，对他们而言哪些商品的 ctr 更高。 --- ## 算法的本质 \u003e 第 2 节 --- ### 推荐（搜索）算法的本质是学习用户的行为 --- #### 万物皆可“个性化”吗？ - 推荐系统能对彩票进行推荐吗？ - 推荐算法学得是用户行为，而不是彩票； - 用户做不到的事情，算法就学不到； - 思考：算法能学出商品的质量吗？ --- #### “学习用户行为”会发生什么？ - 为了预测用户的行为，则必须要从用户的行为中学习； - 但如果一个场景下，用户也无法识别商品的好坏，那算法还有效吗？ - 电商购物场景下，用户能有效识别商品的好坏吗？他们怎么识别的？ - 算法同学说：“我的模型中考虑了客诉、物流、用户评论、DSR 等因素”，这些因素真的起作用了吗？ --- #### 帮助用户做出有效的行为 - 推荐算法有效，背后的假设：**用户行为值得学习** - 产品设计上应当帮助用户做出有效的行为 - 例如，辅助用户决策，将用户评论、好评率、DSR 等信息外显出来； - 增加点赞等丰富的用户后验的社交行为，帮助其他用户进行决策。 --- #### 用户行为都值得学习吗？ - 人都会有犯错的时候。犯错的行为不值得学习； - 一些高门槛的领域里，大多数用户都不是资深用户，他们的行为就未必值得学习； - 推荐系统要是学习了这种行为会怎样？ - 推荐结果中充斥着大量标题党、牛皮癣、黄图、爆款等等； - 用户无从选择时，只能利用上述信息进行决策；反过来，也使此类内容更容易获得高点击； - 正确的做法：通过背书（例如品牌旗舰店），教会用户该看什么； --- ## 指标问题 \u003e 第 3 节 --- #### 如何评估推荐的效果 - 推荐算法是学习过程，所以评估可以类比于考试： - 学得好，成绩会提升； - “应试教育”是存在的； - 不忘初心，不“唯指标”论。观察到指标的提升，还要想一想是不是效果真的提升了。 --- #### 评估结果不是一切 - 考试是衡量学习的手段，不要为了考试而学习；不要为了指标而制定策略。 - 面对指标时，不要盲目认定“这是个黑盒”便放弃了思考；成绩不好反映的是学习过程出现了问题。 - 成绩没反映出来问题也不代表没有问题 --- #### 统计数据会说谎 ----- \u003e 如何让一个班级的成绩快速提升？ #### 开除这个班级平均分以下的学生 - 思考： - 算法可以引领消费升级吗？ - 算法可以引领内容化吗？ --- #### 关于指标的误区 - 当我们考核点击率、客单价时，统计指标是否反应了我们的本意： - 我们希望同一拨人的指标均值得到提升； - 更准确的，我们期待人的成长，而不是数据的增长。不加限制（例如有些人流失了）的点击率提升证明不了任何事情。 - 也回顾前面的话题：任何人群的指标增长都能证明业务的提升吗？例如作弊人群？新用户（无产品心智）人群？ --- #### 算法被应用时也需要小心 \u003e 推荐算法不以改变用户为目标 - 我们希望学生学会更多知识，进而提升了成绩： - 教育工作者的重点会考察学生还有哪些知识没掌握，然后教会学生； - 算法会找出最容易考高分的卷子来提升成绩； - 短期内，算法指导得成绩一定更好，甚至任何时候互换老师（AB 测试），算法的成绩都更高； - 但算法无法指导学生变得更好。 --- ## 总结 --- ### 本文要点 - 算法是工具，需要人来使用好这个工具； - 算法的基本原理：统计当前场景下，对于不同细分人群，怎样的推荐结果指标更好； - 算法的本质：学习用户行为！用户不懂的，算法也学不会。 - 指标问题：算法是唯指标论的，但人不是。需要人把控算法，而不是算法控制人。 --- #### 算法在场景中应用的要点 - 场景要解决用户什么问题？这个问题是否可以通过学习用户行为而习得？值得学习哪些用户行为？ - 这件事用什么指标评估？需要哪些限定条件？除了指标，还有没有其他的佐证方式？ - 项目的不同阶段需要不同的指标和做法，不盲目使用算法，同算法工程师沟通清楚需求。 --- #### 最后的一个小问题 \u003e 如果产品经理的 KPI 和 算法工程师的 KPI 是一样的，那产品和算法究竟应该听谁的？ ","wordCount":"2337","inLanguage":"zh-cn","datePublished":"2017-10-11T10:59:35+08:00","dateModified":"2024-09-14T13:44:01+08:00","author":{"@type":"Person","name":"癸老师"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/"},"publisher":{"@type":"Organization","name":"拾柒读库","logo":{"@type":"ImageObject","url":"https://blog.uglyboy.cn/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://blog.uglyboy.cn/ accesskey=h title="拾柒读库 (Alt + H)">拾柒读库</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://blog.uglyboy.cn/posts/ title=文章><span>文章</span></a></li><li><a href=https://blog.uglyboy.cn/slides/ title=演示><span>演示</span></a></li><li><a href=https://blog.uglyboy.cn/categories/ title=分类><span>分类</span></a></li><li><a href=https://blog.uglyboy.cn/tags/ title=标签><span>标签</span></a></li><li><a href=https://blog.uglyboy.cn/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://blog.uglyboy.cn/archives/ title=时间轴><span>时间轴</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">换个角度看推荐</h1><div class=post-meta><span title='2017-10-11 10:59:35 +0800 CST'>2017-10-11</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;癸老师</div></header><div class=post-content><div class=reveal><div class=slides><section data-markdown><textarea data-template>
+      
+
+## 换个角度看推荐
+
+&gt; 从业务视角理解算法，用好算法
+
+---
+## 人工智能——生产力工具
+
+&gt;导言
+
+---
+#### 从历史说起
+- 1946 年宾西法尼亚大学诞生了世界第一台电脑——ENIAC；
+- ENIAC 比人类算数快很多（每秒 5000 次加减法），引起世界一片惊叹和争论；
+- ENIAC 是什么，能做什么，只有科学家懂；
+- 我们不是科学家，但如今的我们可以用手机创造更大的生产力
+
+---
+#### 文明史就是工具进化史
+- 第一次工业革命，掀起了“羊吃人”运动，解放了大量生产力，促使了资本主义的诞生；
+- 第二次工业革命，人类进入电气化时代；包括后来计算机的普及，人没有被淘汰，而是利用工具创造了更大的价值；
+- **人工智能**，依旧不是为了替代人而产生的，而是解放人们在智力上的重复劳动。
+
+---
+#### 谁最应该用好*算法*？
+- 算法工程师类似于电脑制造商，负责造出更快的、性价比更高的电脑；他们的技能树不是“如何使用电脑”；
+- 业务同学（运营、产品）不需要理解电脑底层的电路原理、运转机制，但他们才是真正发挥电脑作用的人；
+	- 亚洲四大邪术之中国 PS 术，都是电脑达人吗？
+---
+## 算法原理
+
+&gt; 第 1 节
+
+---
+
+&gt; 如何理解“算法（人工智能）是解放人类在智力上的重复劳动的工具”？
+
+---
+#### 运营是如何进行推荐的？
+- 如果有一个货架需要运营同学来搭建，普通的运营会怎么做？
+	- 先解决千人一面的问题。
+	- 如果场景的最终指标是 ctr，那么就把 ctr 最高的那些商品放到场景中来；
+	- 商品的 ctr 跟场景是相关的，所以要数据驱动，保持场景中的商品始终是当前 ctr 最高的那些商品。
+---
+#### 进阶一下：分人群运营
+- 如果我们对人群做把控，男性和女性可以看到不同的货架，那么如下做就可以提升整体效果：
+	- 男性看到对男性而言 ctr 最高的商品；
+	- 女性看到对女性而言 ctr 最高的商品；
+---
+#### 再进阶一下：精细化运营
+- 如果能将用户区分得更加精细（例如：中国东北 30～35 岁高购买力男性），类似这样的简单组合，就可以将人分为大概 700 多类。
+- 推荐算法就是用类似的方法，可以自动的对上述分类进行数据驱动下的自动商品货架调整。
+- 推荐中最有效的策略（i2i）是这种分类：刚刚看过某个商品的人群，对他们而言哪些商品的 ctr 更高。
+
+---
+## 算法的本质
+
+&gt; 第 2 节
+
+---
+### 推荐（搜索）算法的本质是学习用户的行为
+
+---
+#### 万物皆可“个性化”吗？
+- 推荐系统能对彩票进行推荐吗？
+	- 推荐算法学得是用户行为，而不是彩票；
+	- 用户做不到的事情，算法就学不到；
+- 思考：算法能学出商品的质量吗？
+
+---
+#### “学习用户行为”会发生什么？
+- 为了预测用户的行为，则必须要从用户的行为中学习；
+- 但如果一个场景下，用户也无法识别商品的好坏，那算法还有效吗？
+	- 电商购物场景下，用户能有效识别商品的好坏吗？他们怎么识别的？
+	- 算法同学说：“我的模型中考虑了客诉、物流、用户评论、DSR 等因素”，这些因素真的起作用了吗？
+---
+#### 帮助用户做出有效的行为
+- 推荐算法有效，背后的假设：**用户行为值得学习**
+- 产品设计上应当帮助用户做出有效的行为
+	- 例如，辅助用户决策，将用户评论、好评率、DSR 等信息外显出来；
+	- 增加点赞等丰富的用户后验的社交行为，帮助其他用户进行决策。
+---
+#### 用户行为都值得学习吗？
+- 人都会有犯错的时候。犯错的行为不值得学习；
+- 一些高门槛的领域里，大多数用户都不是资深用户，他们的行为就未必值得学习；
+- 推荐系统要是学习了这种行为会怎样？
+	- 推荐结果中充斥着大量标题党、牛皮癣、黄图、爆款等等；
+	- 用户无从选择时，只能利用上述信息进行决策；反过来，也使此类内容更容易获得高点击；
+	- 正确的做法：通过背书（例如品牌旗舰店），教会用户该看什么；
+
+---
+## 指标问题
+
+&gt; 第 3 节
+
+---
+#### 如何评估推荐的效果
+- 推荐算法是学习过程，所以评估可以类比于考试：
+	- 学得好，成绩会提升；
+	- “应试教育”是存在的；
+	- 不忘初心，不“唯指标”论。观察到指标的提升，还要想一想是不是效果真的提升了。
+
+---
+#### 评估结果不是一切
+- 考试是衡量学习的手段，不要为了考试而学习；不要为了指标而制定策略。
+- 面对指标时，不要盲目认定“这是个黑盒”便放弃了思考；成绩不好反映的是学习过程出现了问题。
+- 成绩没反映出来问题也不代表没有问题
+
+---
+#### 统计数据会说谎
+-----
+
+&gt; 如何让一个班级的成绩快速提升？
+
+#### 开除这个班级平均分以下的学生
+
+- 思考：
+	- 算法可以引领消费升级吗？
+	- 算法可以引领内容化吗？
+
+---
+#### 关于指标的误区
+- 当我们考核点击率、客单价时，统计指标是否反应了我们的本意：
+	- 我们希望同一拨人的指标均值得到提升；
+	- 更准确的，我们期待人的成长，而不是数据的增长。不加限制（例如有些人流失了）的点击率提升证明不了任何事情。
+	- 也回顾前面的话题：任何人群的指标增长都能证明业务的提升吗？例如作弊人群？新用户（无产品心智）人群？
+
+---
+#### 算法被应用时也需要小心
+
+&gt; 推荐算法不以改变用户为目标
+
+- 我们希望学生学会更多知识，进而提升了成绩：
+	- 教育工作者的重点会考察学生还有哪些知识没掌握，然后教会学生；
+	- 算法会找出最容易考高分的卷子来提升成绩；
+	- 短期内，算法指导得成绩一定更好，甚至任何时候互换老师（AB 测试），算法的成绩都更高；
+	- 但算法无法指导学生变得更好。
+---
+## 总结
+---
+### 本文要点
+- 算法是工具，需要人来使用好这个工具；
+- 算法的基本原理：统计当前场景下，对于不同细分人群，怎样的推荐结果指标更好；
+- 算法的本质：学习用户行为！用户不懂的，算法也学不会。
+- 指标问题：算法是唯指标论的，但人不是。需要人把控算法，而不是算法控制人。
+
+---
+#### 算法在场景中应用的要点
+- 场景要解决用户什么问题？这个问题是否可以通过学习用户行为而习得？值得学习哪些用户行为？
+- 这件事用什么指标评估？需要哪些限定条件？除了指标，还有没有其他的佐证方式？
+- 项目的不同阶段需要不同的指标和做法，不盲目使用算法，同算法工程师沟通清楚需求。
+
+---
+#### 最后的一个小问题
+
+&gt; 如果产品经理的 KPI 和 算法工程师的 KPI 是一样的，那产品和算法究竟应该听谁的？
+      </textarea></section></div></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.uglyboy.cn/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/>推荐系统</a></li></ul><nav class=paginav><a class=prev href=https://blog.uglyboy.cn/slides/2018/01/02/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B/><span class=title>« 上一页</span><br><span>用户增长核心模型</span></a></nav></footer><div id=vcomments></div><script>new Valine({el:"#vcomments",appId:"7dZMqcgsP9ytL8PRta4yxE82-gzGzoHsz",appKey:"OZC3GQ22dNzPoeRiFcpbuplk",placeholder:"来都来了，说两句~"})</script></article></main><footer class=footer><span>&copy; 2024 <a href=https://blog.uglyboy.cn/>拾柒读库</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制代码";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制代码"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

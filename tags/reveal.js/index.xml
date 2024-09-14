@@ -4,7 +4,7 @@
     <title>Reveal.js on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/reveal.js/</link>
     <description>Recent content in Reveal.js on 拾柒读库</description>
-    <generator>Hugo -- 0.133.0</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 20 Dec 2023 13:30:22 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/reveal.js/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,8 @@
       <link>https://blog.uglyboy.cn/posts/2023/12/19/hugo--reveal.js-%E5%90%8E%E7%BB%AD/</link>
       <pubDate>Tue, 19 Dec 2023 08:56:27 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/12/19/hugo--reveal.js-%E5%90%8E%E7%BB%AD/</guid>
-      <description>上一篇 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/&#34;&gt;上一篇&lt;/a&gt; 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p><a href="https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/">上一篇</a> 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：</p>
 </blockquote>
@@ -268,7 +269,16 @@
       <link>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</link>
       <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</guid>
-      <description>又开始折腾博客了。 基于 PaperMod 主题，给博客增加了两个基本功能： 更换中文更加友好的 霞鹜文楷 字体，当然同样的方法也适用于其他任何字体 因为我经常使用 Markdown 做</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;又开始折腾博客了。&lt;/p&gt;
+&lt;p&gt;基于 &lt;code&gt;PaperMod&lt;/code&gt; 主题，给博客增加了两个基本功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更换中文更加友好的 &lt;a href=&#34;https://github.com/lxgw/LxgwWenKai&#34;&gt;霞鹜文楷&lt;/a&gt; 字体，当然同样的方法也适用于其他任何字体&lt;/li&gt;
+&lt;li&gt;因为我经常使用 &lt;code&gt;Markdown&lt;/code&gt; 做 PPT，所以希望博客也能支持这种类型的文档。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;字体配置&#34;&gt;字体配置&lt;/h2&gt;
+&lt;p&gt;首先，依然修改 &lt;code&gt;layouts/partials/extend_head.html&lt;/code&gt; 文件&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>又开始折腾博客了。</p>
 <p>基于 <code>PaperMod</code> 主题，给博客增加了两个基本功能：</p>

@@ -4,7 +4,7 @@
     <title>RLHF on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/rlhf/</link>
     <description>Recent content in RLHF on 拾柒读库</description>
-    <generator>Hugo -- 0.133.0</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 28 Feb 2024 19:26:41 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/rlhf/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,8 @@
       <link>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
       <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
-      <description>AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。</p>
 <p>所以本篇文档就是先放下一切具体的 AI alignment 的方法，从问题定义出发，理解清楚 AI alignment 究竟是个什么过程，能解决什么问题，不能解决什么问题。</p>

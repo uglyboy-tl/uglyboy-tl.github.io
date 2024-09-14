@@ -4,7 +4,7 @@
     <title>文章 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/posts/</link>
     <description>Recent content in 文章 on 拾柒读库</description>
-    <generator>Hugo -- 0.133.0</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh-cn</language>
     <atom:link href="https://blog.uglyboy.cn/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -49,7 +49,8 @@
       <link>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
       <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
-      <description>问题的定义 探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这</description>
+      <description>&lt;h2 id=&#34;问题的定义&#34;&gt;问题的定义&lt;/h2&gt;
+&lt;p&gt;探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="问题的定义">问题的定义</h2>
 <p>探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。</p>
 <p>但对于 LLM 的真实场景应用来说，我们不仅仅希望 LLM 给出像人一样的回答，而且对回答的答案是有着有别于语言概率分布的预期的。所以对于实际应用场景下的 LLM 的评估，并不是评估 LLM 原本的能力（泛化性），而是评估在很多具体问题下的回答距离某个我们认为合理的回答是否更接近。</p>
@@ -317,7 +318,8 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
       <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
-      <description>AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。</p>
 <p>所以本篇文档就是先放下一切具体的 AI alignment 的方法，从问题定义出发，理解清楚 AI alignment 究竟是个什么过程，能解决什么问题，不能解决什么问题。</p>
@@ -550,7 +552,8 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2023/12/19/hugo--reveal.js-%E5%90%8E%E7%BB%AD/</link>
       <pubDate>Tue, 19 Dec 2023 08:56:27 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/12/19/hugo--reveal.js-%E5%90%8E%E7%BB%AD/</guid>
-      <description>上一篇 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/&#34;&gt;上一篇&lt;/a&gt; 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p><a href="https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/">上一篇</a> 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：</p>
 </blockquote>
@@ -805,7 +808,16 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</link>
       <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</guid>
-      <description>又开始折腾博客了。 基于 PaperMod 主题，给博客增加了两个基本功能： 更换中文更加友好的 霞鹜文楷 字体，当然同样的方法也适用于其他任何字体 因为我经常使用 Markdown 做</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;又开始折腾博客了。&lt;/p&gt;
+&lt;p&gt;基于 &lt;code&gt;PaperMod&lt;/code&gt; 主题，给博客增加了两个基本功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更换中文更加友好的 &lt;a href=&#34;https://github.com/lxgw/LxgwWenKai&#34;&gt;霞鹜文楷&lt;/a&gt; 字体，当然同样的方法也适用于其他任何字体&lt;/li&gt;
+&lt;li&gt;因为我经常使用 &lt;code&gt;Markdown&lt;/code&gt; 做 PPT，所以希望博客也能支持这种类型的文档。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;字体配置&#34;&gt;字体配置&lt;/h2&gt;
+&lt;p&gt;首先，依然修改 &lt;code&gt;layouts/partials/extend_head.html&lt;/code&gt; 文件&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>又开始折腾博客了。</p>
 <p>基于 <code>PaperMod</code> 主题，给博客增加了两个基本功能：</p>
@@ -1074,7 +1086,14 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
-      <description>大语言模型的基本逻辑 大语言模型的本质是一个 N-GRAM 模型，即： 定义： 假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率： $$ p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i}) $$ 该模型是一</description>
+      <description>&lt;h2 id=&#34;大语言模型的基本逻辑&#34;&gt;大语言模型的基本逻辑&lt;/h2&gt;
+&lt;p&gt;大语言模型的本质是一个 &lt;code&gt;N-GRAM&lt;/code&gt; 模型，即：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率：&lt;/p&gt;
+&lt;p&gt;$$
+p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
+$$&lt;/p&gt;
+&lt;p&gt;该模型是一个 $N-1$ 阶的马尔可夫链，称为 &lt;code&gt;N-GRAM&lt;/code&gt; 模型&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="大语言模型的基本逻辑">大语言模型的基本逻辑</h2>
 <p>大语言模型的本质是一个 <code>N-GRAM</code> 模型，即：</p>
 <p><strong>定义：</strong></p>
@@ -1242,7 +1261,18 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
       <pubDate>Mon, 30 Oct 2023 07:50:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
-      <description>大模型是有穷自动机 非确定型有穷自动机（NFA）的定义 非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中 $Q$ 是</description>
+      <description>&lt;h2 id=&#34;大模型是有穷自动机&#34;&gt;大模型是有穷自动机&lt;/h2&gt;
+&lt;h3 id=&#34;非确定型有穷自动机nfa的定义&#34;&gt;非确定型有穷自动机（NFA）的定义&lt;/h3&gt;
+&lt;p&gt;非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$Q$ 是一个有穷集合，称为&lt;strong&gt;状态集&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;$\Sigma$ 是一个有穷集合，称为&lt;strong&gt;字母表&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;$\delta:Q\times\Sigma_\varepsilon\rightarrow \mathcal{P}(Q)$ 是&lt;strong&gt;转移函数&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;$q_0\in Q$ 是&lt;strong&gt;起始状态&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;$F \subseteq Q$ 是&lt;strong&gt;接受状态集&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;大模型是-nfa-的证明&#34;&gt;大模型是 NFA 的证明&lt;/h3&gt;
+&lt;p&gt;令 $q_0 =\varepsilon$ 为初始状态，大语言模型的预测函数记为&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="大模型是有穷自动机">大模型是有穷自动机</h2>
 <h3 id="非确定型有穷自动机nfa的定义">非确定型有穷自动机（NFA）的定义</h3>
 <p>非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中</p>
@@ -1447,7 +1477,18 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</link>
       <pubDate>Wed, 25 Oct 2023 10:57:47 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</guid>
-      <description>算数编码才是压缩的本质 一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 Compression for AGI - Jack Rae | Stanford MLSys #76 里面核心模式只有一个：</description>
+      <description>&lt;h2 id=&#34;算数编码才是压缩的本质&#34;&gt;算数编码才是压缩的本质&lt;/h2&gt;
+&lt;p&gt;一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 &lt;a href=&#34;https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;amp;t=247s&#34;&gt;Compression for AGI - Jack Rae | Stanford MLSys #76&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;里面核心模式只有一个：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;假定我有一个程序 f，我将 f 的代码传输给另一端；&lt;/li&gt;
+&lt;li&gt;我有一个序列需要传输，我通过 f 对逐个字符出现的概率进行了预测；&lt;/li&gt;
+&lt;li&gt;我根据算数编码，将结果编码后，传输给了另一端；&lt;/li&gt;
+&lt;li&gt;最后传输的信息量最小。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;这不过是算数编码的定义好不好！！！&lt;/strong&gt; 哪里有什么神奇的地方。。。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="算数编码才是压缩的本质">算数编码才是压缩的本质</h2>
 <p>一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 <a href="https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;t=247s">Compression for AGI - Jack Rae | Stanford MLSys #76</a></p>
 <p>里面核心模式只有一个：</p>
@@ -1486,7 +1527,209 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</guid>
-      <description>基本安装 搭建站点 1 hugo new site &amp;lt;name of site&amp;gt; -f yml 初始化 Git 仓库 1 2 git init git branch -m main # 兼容 Github 的设置 安装主题 1 git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod 若是已经安装过主题的，需要下面的命令激活 1</description>
+      <description>&lt;h2 id=&#34;基本安装&#34;&gt;基本安装&lt;/h2&gt;
+&lt;h3 id=&#34;搭建站点&#34;&gt;搭建站点&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new site &amp;lt;name of site&amp;gt; -f yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;初始化-git-仓库&#34;&gt;初始化 Git 仓库&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -m main &lt;span class=&#34;c1&#34;&gt;# 兼容 Github 的设置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;安装主题&#34;&gt;安装主题&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule add --depth&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;若是已经安装过主题的，需要下面的命令激活&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule update --init --recursive
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;本地调试&#34;&gt;本地调试&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;添加新文章&#34;&gt;添加新文章&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new posts/my-first-post.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;h3 id=&#34;配置-configyml&#34;&gt;配置 &lt;code&gt;config.yml&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;baseURL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;https://examplesite.com/&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;languageCode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;zh-cn&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ExampleSite&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;theme&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;PaperMod&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;timeZone&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Asia/Shanghai&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enableInlineShortcodes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enableGitInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enableRobotsTXT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enableEmoji&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;hasCJKLanguage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;outputs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;home&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;l&#34;&gt;HTML, RSS, JSON]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Params&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ExampleSite&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ExampleSite description&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;author&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;xxx&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;homeInfoParams&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Hi there wave&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Can be Info, links, about...&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;socialIcons&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# optional&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;rss&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;/index.xml&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ShowFullTextinRSS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ShowReadingTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;ShowCodeCopyButtons&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;DateFormat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2006-01-02&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 日期格式化&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;menu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;identifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;home&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;主页&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;weight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;identifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;search&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;搜索&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;/search&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;weight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;identifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;tags&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;标签&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;/tags&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;weight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;identifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;archives&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;时间轴&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;/archives&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;weight&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;配置-contentarchivesmd&#34;&gt;配置 &lt;code&gt;content/archives.md&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: &amp;#34;时间轴&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;layout: &amp;#34;archives&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;summary: archives
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;配置-contentsearchmd&#34;&gt;配置 &lt;code&gt;content/search.md&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: &amp;#34;搜索&amp;#34; # in any language you want
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;layout: &amp;#34;search&amp;#34; # is necessary
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;summary: &amp;#34;search&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;placeholder: &amp;#34;Typing something...&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;增加-latex-数学公式的支持&#34;&gt;增加 Latex 数学公式的支持&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;layouts/partials&lt;/code&gt; 路径下新建文件 &lt;code&gt;extend_head.html&lt;/code&gt;：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="基本安装">基本安装</h2>
 <h3 id="搭建站点">搭建站点</h3>
 <div class="highlight"><div class="chroma">
@@ -1889,36 +2132,36 @@ $$</p>
 <li>在 Pages 项目下设置 <strong>Deploy Keys</strong>，填入 Public Key，记得选中 <strong>Allow write access</strong></li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>添加 public key</th>
-<th>Success</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/PhTNCuG6okXRqaA.jpg" alt=""  />
+  <thead>
+      <tr>
+          <th style="text-align: left">添加 public key</th>
+          <th style="text-align: left">Success</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/PhTNCuG6okXRqaA.jpg" alt=""  />
 </a></td>
-<td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/7b2PYUsfqCp6x5g.jpg" alt=""  />
+          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/7b2PYUsfqCp6x5g.jpg" alt=""  />
 </a></td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>添加 private key</th>
-<th>Success</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/bVgQDTKcXytfIGn.jpg" alt=""  />
+  <thead>
+      <tr>
+          <th style="text-align: left">添加 private key</th>
+          <th style="text-align: left">Success</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/bVgQDTKcXytfIGn.jpg" alt=""  />
 </a></td>
-<td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/WyYNH4azm3LOGwn.jpg" alt=""  />
+          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/WyYNH4azm3LOGwn.jpg" alt=""  />
 </a></td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table>
 ]]></content:encoded>
     </item>
@@ -1927,7 +2170,15 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</link>
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</guid>
-      <description>Dataset Size 和 Loss 的关系 最大似然估计（MLE） 一切机器学习的本质都是最大似然估计： 模型下的理想真实世界的概率分布：$p(x|\theta)$ 我们不知道</description>
+      <description>&lt;h2 id=&#34;dataset-size-和-loss-的关系&#34;&gt;Dataset Size 和 Loss 的关系&lt;/h2&gt;
+&lt;h3 id=&#34;最大似然估计mle&#34;&gt;最大似然估计（MLE）&lt;/h3&gt;
+&lt;p&gt;一切机器学习的本质都是最大似然估计：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;模型下的理想真实世界的概率分布：$p(x|\theta)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们不知道真实世界的分布，所以我们要用样本估计似然函数 $L(\theta|x)$&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
 <h3 id="最大似然估计mle">最大似然估计（MLE）</h3>
 <p>一切机器学习的本质都是最大似然估计：</p>
@@ -2220,7 +2471,11 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2021/11/11/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</link>
       <pubDate>Thu, 11 Nov 2021 17:30:18 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2021/11/11/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</guid>
-      <description>组织的基本构成 非正式组织 组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“合作”这一说法取代。 假如有两个司机都要通过一条狭窄</description>
+      <description>&lt;h2 id=&#34;组织的基本构成&#34;&gt;组织的基本构成&lt;/h2&gt;
+&lt;h3 id=&#34;非正式组织&#34;&gt;非正式组织&lt;/h3&gt;
+&lt;p&gt;组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“&lt;strong&gt;合作&lt;/strong&gt;”这一说法取代。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;假如有两个司机都要通过一条狭窄的山路，但路被一块巨石挡住了，至少两个人才搬得动。可以预想，前面的司机一定得把车停下来，等第二个人来，以解除力量上的限制。第二个司机同样也需要这样的合作。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="组织的基本构成">组织的基本构成</h2>
 <h3 id="非正式组织">非正式组织</h3>
 <p>组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“<strong>合作</strong>”这一说法取代。</p>
@@ -2557,7 +2812,8 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2021/07/15/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%98%E7%95%A5/</link>
       <pubDate>Thu, 15 Jul 2021 08:00:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2021/07/15/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%98%E7%95%A5/</guid>
-      <description>前几日，在朋友圈看到前同事分享某大厂高管在 XX 创业营上开了一课《如何制定战略》，内容里有“使命、愿景、价值观”、还有“一颗心，一张图，一场仗”</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;前几日，在朋友圈看到前同事分享某大厂高管在 XX 创业营上开了一课《如何制定战略》，内容里有“使命、愿景、价值观”、还有“一颗心，一张图，一场仗”等行业黑话，而这两个话题凑一起，竟成了“从战略到执行的方法论”了。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>前几日，在朋友圈看到前同事分享某大厂高管在 XX 创业营上开了一课《如何制定战略》，内容里有“使命、愿景、价值观”、还有“一颗心，一张图，一场仗”等行业黑话，而这两个话题凑一起，竟成了“从战略到执行的方法论”了。</p>
 <p>什么是战略？战略到底是一门玄学还是一门科学？回想在老东家经历过的各个时期的“战略”，心有戚戚焉。</p>
@@ -2650,7 +2906,8 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</link>
       <pubDate>Thu, 01 Jul 2021 08:00:00 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</guid>
-      <description>宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音，连呼吸都小心翼翼……他必须</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音，连呼吸都小心翼翼……他必须小心，因为林中到处都有与他一样潜行的猎人。如果他发现了别的生命，不管是不是猎人，不管是天使还是魔鬼，不管是娇嫩的婴儿还是步履蹒跚的老人，能做的只有一件事：开枪消灭之！&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音，连呼吸都小心翼翼……他必须小心，因为林中到处都有与他一样潜行的猎人。如果他发现了别的生命，不管是不是猎人，不管是天使还是魔鬼，不管是娇嫩的婴儿还是步履蹒跚的老人，能做的只有一件事：开枪消灭之！</p>
 <p>在这片森林中，他人就是地狱，就是永恒的威胁，任何暴露自己存在的生命都将很快被消灭。这就是宇宙文明的图景，这就是对费米悖论的解释。<!-- raw HTML omitted --></p>
@@ -2736,7 +2993,8 @@ $$</p>
       <link>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</link>
       <pubDate>Thu, 16 Aug 2018 21:23:33 +0800</pubDate>
       <guid>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</guid>
-      <description>本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 共情。通过这项研究，基本解释了生活中大部</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 &lt;strong&gt;共情&lt;/strong&gt;。通过这项研究，基本解释了生活中大部分经济行为之外的现象背后的原理，也提供了一种新的创造价值的有效路径。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 <strong>共情</strong>。通过这项研究，基本解释了生活中大部分经济行为之外的现象背后的原理，也提供了一种新的创造价值的有效路径。</p>
 <p>当然，本文的结论也可以用很多其他理论来解释，但从第一性原理出发，从一个基点扩展到整个社交和传播领域，会更好的让我们理解现象背后的道理。</p>
