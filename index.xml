@@ -6,7 +6,7 @@
     <description>Recent content on 拾柒读库</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 14 Sep 2024 13:44:01 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2024 13:23:10 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>谈一谈什么是幸福的工作</title>
@@ -6571,6 +6571,273 @@ $$
     </section>
   </div>
 </div>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>场景的用户认知度（熟客率）研究</title>
+      <link>https://blog.uglyboy.cn/posts/2016/09/14/%E5%9C%BA%E6%99%AF%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E7%9F%A5%E5%BA%A6%E7%86%9F%E5%AE%A2%E7%8E%87%E7%A0%94%E7%A9%B6/</link>
+      <pubDate>Wed, 14 Sep 2016 22:40:50 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/posts/2016/09/14/%E5%9C%BA%E6%99%AF%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E7%9F%A5%E5%BA%A6%E7%86%9F%E5%AE%A2%E7%8E%87%E7%A0%94%E7%A9%B6/</guid>
+      <description>如何用数据描述用户心智</description>
+      <content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>个性化推荐去年在我们集团取得了非常优异的成绩，为大促、日常场景都带来了非常大的突破，我身边的朋友们也都纷纷说现在的淘宝的个性化很棒。尤其是首图个性化技术，为我们打开了崭新的一扇窗，让诸多场景的日活、成交等核心指标都有了翻倍的提升。</p>
+<p>有了更先进的技术，却也带来了一些新的疑问——首图个性化究竟给各个具体的业务 场景带来了什么？各种业务指标的提升可能更多的反映着首图个性化的效果，与场景内的效 果怎样并没有特别大的关系了。所以我们需要有一个新的判定标准，让我们自己知道——现在场景内的效果并不能让用户满意，不急于通过首图来引流；或者现在场景内的用户认知度 和归属感很高，应当获得更多的引流来吸引更多的用户。</p>
+<p>如果存在这样一个判定标准，那么它应当是用户对一个场景的认知情况——即当用户 并不知道现在场景内的推荐效果时，他依然愿意来到这个场景的意愿。这便是我的一个基本假设：<strong>用户对一个场景的认知（喜爱程度）是可以不依赖于用户在场景内的行为，而仅仅通 过用户对场景的访问频率即可反映出来。</strong></p>
+<h2 id="熟客率定义">熟客率定义</h2>
+<p>依据上文的基本假设，我们可以给出熟客率的定义：</p>
+<p>$$
+\text{熟客率} = \frac{\text{单位时间内内用户访问某场景的次数}}{\text{单位时间内用户访问手淘的次数}}
+$$</p>
+<p>上述数据中有一些技术细节实现起来较复杂（例如一次访问手淘会多次访问某场景；或场景的 PV 日志是仅仅是请求的日志，未必是真实访问等等），我们用了一个粗略的方法来近似的得到熟客率：</p>
+<p>$$
+\text{熟客率} = \frac{\text{某场景月访问天数}}{\text{手淘的月访问天数}}
+$$</p>
+<p>于是对每一个用户，都可以算出他最近一个月在各个场景的访问频度（熟客率）了。</p>
+<p>对某一个特定的场景而言，我们想要了解的是类似于：“高频用户的占比”这样的指标，来了解用户对于一个场景的喜爱程度，所以我们按照用户熟客率统计用户的分布情况：</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/hoOVZyXNMgtTf9b.png" alt=""  />
+</p>
+<p>除去搜索的图型比较特别外，其他的场景数据都很像一个指数分布，于是我们对用户分布情况取对数再来观察：</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/oFK9liBgCGrIesH.png" alt=""  />
+</p>
+<p>从这个图来看，基本符合我们的假设：用户分布情况是接近于指数分布的，但在访问频度为 1 的位置会产生很奇异的拐点，中间也有很多位置并不平滑。进一步分析发现，这样的现象主要是因为部分用户对手淘的访问天数过短，造成他们的访问信息并不具有有效性。为此，我们仅统计每月访问手淘 15 天以上的用户（用户量为：139523167，基本覆盖手淘的活跃用户）。</p>
+<p>重新统计的上图如下：</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/Sdw1re3Nvatq4uO.png" alt=""  />
+</p>
+<p>这一回，整个曲线都变得平滑了（仅仅是在 0.3~0.4 附近感觉有拐点）。根据这个图，我们增加如下的假设：对一个场景而言，有认知的用户的的分布模型是一个指数分布；高频访问的用户基本都是有认知的用户。</p>
+<h2 id="场景指标的计算">场景指标的计算</h2>
+<p>接上文，我们根据熟客率的指标可以用回归的方法统计出“有认知”的用户再场景内访问频率的分布情况：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">斜率</th>
+          <th style="text-align: left">截距</th>
+          <th style="text-align: left">有认知的用户量</th>
+          <th style="text-align: left">认知用户平均熟客率</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">猜你喜欢</td>
+          <td style="text-align: left">1.7431016306</td>
+          <td style="text-align: left">16.357052585</td>
+          <td style="text-align: left">7285426</td>
+          <td style="text-align: left">57.37%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">有好货</td>
+          <td style="text-align: left">5.6656943459</td>
+          <td style="text-align: left">16.580370553</td>
+          <td style="text-align: left">2802272</td>
+          <td style="text-align: left">17.65%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">发现好店</td>
+          <td style="text-align: left">7.198381533</td>
+          <td style="text-align: left">17.412020797</td>
+          <td style="text-align: left">5066519</td>
+          <td style="text-align: left">13.89%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">她在买</td>
+          <td style="text-align: left">6.7192760078</td>
+          <td style="text-align: left">13.955514186</td>
+          <td style="text-align: left">171191</td>
+          <td style="text-align: left">14.88%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">女装</td>
+          <td style="text-align: left">7.8873829626</td>
+          <td style="text-align: left">16.842386083</td>
+          <td style="text-align: left">2615908</td>
+          <td style="text-align: left">12.68%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">男装</td>
+          <td style="text-align: left">9.3844322456</td>
+          <td style="text-align: left">14.08435403</td>
+          <td style="text-align: left">139428</td>
+          <td style="text-align: left">10.66%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">搜索</td>
+          <td style="text-align: left">4.7601938755</td>
+          <td style="text-align: left">19.56287163</td>
+          <td style="text-align: left">65829803</td>
+          <td style="text-align: left">21.01%</td>
+      </tr>
+  </tbody>
+</table>
+<p>其中的斜率就是指数分布的概率密度函数中的系数 $\lambda$，根据 $\lambda$ 可以算出数学期望（平均 熟客率），截距和 $\lambda$ 合在一起可以计算出指数分布的用户总量：</p>
+<p>$$
+f(x) = \lambda e^{-\lambda}
+$$</p>
+<p>从而就能得到上面表格中的数据指标。</p>
+<p>我们再根据这个数据去反推一下没有场景认知的用户访问情况：</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/KdSPQm8AXbMiHOE.png" alt=""  />
+</p>
+<p>图形也是呈指数分布，但这里的降幅快了很多（而且相比于原有的数据，误差增加了不少）。还是通过取对数，再根据散点图来观察：</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/4Wi9dRLp7uoxzrX.png" alt=""  />
+</p>
+<p>通过这个图来观察的话，指数分布的趋势明显了很多。用类似的方法，我们可以得到：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">斜率</th>
+          <th style="text-align: left">截距</th>
+          <th style="text-align: left">无认知的用户量</th>
+          <th style="text-align: left">无认知用户平均访问频率</th>
+          <th style="text-align: left">认知用户占比</th>
+          <th style="text-align: left">认知用户转化增益</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">猜你喜欢</td>
+          <td style="text-align: left">9.3894679073</td>
+          <td style="text-align: left">17.8609986824</td>
+          <td style="text-align: left">6085443</td>
+          <td style="text-align: left">10.65%</td>
+          <td style="text-align: left">54.49%</td>
+          <td style="text-align: left">5.4</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">有好货</td>
+          <td style="text-align: left">19.6362279409</td>
+          <td style="text-align: left">19.0102797422</td>
+          <td style="text-align: left">9183358</td>
+          <td style="text-align: left">5.09%</td>
+          <td style="text-align: left">23.38%</td>
+          <td style="text-align: left">3.5</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">发现好店</td>
+          <td style="text-align: left">18.7503695019</td>
+          <td style="text-align: left">18.2540393165</td>
+          <td style="text-align: left">4514594</td>
+          <td style="text-align: left">5.33%</td>
+          <td style="text-align: left">52.88%</td>
+          <td style="text-align: left">2.6</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">她在买</td>
+          <td style="text-align: left">27.7360657413</td>
+          <td style="text-align: left">19.191585643</td>
+          <td style="text-align: left">7793901</td>
+          <td style="text-align: left">3.61%</td>
+          <td style="text-align: left">2.15%</td>
+          <td style="text-align: left">4.1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">女装</td>
+          <td style="text-align: left">61.7233508719</td>
+          <td style="text-align: left">21.8490324548</td>
+          <td style="text-align: left">49941863</td>
+          <td style="text-align: left">1.62%</td>
+          <td style="text-align: left">4.98%</td>
+          <td style="text-align: left">7.8</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">男装</td>
+          <td style="text-align: left">22.816772562</td>
+          <td style="text-align: left">17.6569131267</td>
+          <td style="text-align: left">2041953</td>
+          <td style="text-align: left">4.38%</td>
+          <td style="text-align: left">6.39%</td>
+          <td style="text-align: left">2.4</td>
+      </tr>
+  </tbody>
+</table>
+<p>其中的认知用户转化增益是指一个用户从无认知转变为有认知的用户，其访问频率提升的倍数。当然，并不是无认知的用户一定可以转化为有认知的用户，以女装为例，部分无认知的用户（例如男性）就很难转化为有认知的用户。</p>
+<p>注：这里的结论是，各个场景的用户分布都是两个指数分布的叠加，两个指数分布的参数不同。对于这个结论，我这边也通过其他的数据分析验证了这样的结果。另外对于这两个指数分布的参数求解问题，上文中的方法并不是最合适的方法，更合理的方式应该是用 EM 算法来反复迭代求解两个系数。本文的数据足以说明结论，所以没有进一步采用更精确的求解方法。</p>
+<p>另注：上述表格中用户量仅仅是统计分析的趋势值，并不是真实值预估，因为对重要指标计算基本没有影响，所以我并没有很细致的做归一化等工作。这个绝对数值还不能用来作为场景间评估和考量标准。</p>
+<h2 id="指标的可靠性分析">指标的可靠性分析</h2>
+<h3 id="用户维度熟客率指标的可靠性">用户维度熟客率指标的可靠性</h3>
+<p>因为场景下的用户分为：有认知的和无认知的两类，尤其是在熟客率较低的部分，两类用户不可分。为了便于分析，本节的讨论都仅针对有认知的用户进行分析，采样的方法：仅取熟客率大于 $0.5$ 的用户</p>
+<p>用户的熟客率是用一个月分访问频率来描述的，这个指标在某一天的体现即：一部分用户访问了手淘的用户这一天访问某场景的比例。熟客率的稳定性即：高频访问的用户和低频访问的用户是明显可分的——通常情况下不会出现大量的高频用户和低频用户的访问比例发生反转</p>
+<p>为验证这个结论我们用猜你喜欢的数据，统计了熟客率在 $0.5$<del>$0.6$ 之间的用户和熟客率 再 $0.6$</del>$0.7$ 之间的用户，他们再过去一个月中，每天访问概率的变化情况：</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/gdtCXfuTQrcIS6e.png" alt=""  />
+</p>
+<p>是跟次日回访率一致的——用户再某一天的访问概率跟入口情况和时间周期有密切的联系， 但依然可以非常明显的看出：不同熟客率区间的用户，他们的访问概率是很明显的不同的， 但趋势又非常的一致。这说明熟客率这个指标是一个很稳定的衡量用户对场景认知的指标。</p>
+<h3 id="用户熟客率与客户价值之间的关联">用户熟客率与客户价值之间的关联</h3>
+<p>用户价值是指用户在场景内的具体行为贡献，包括点击、购买、客单价等等。因为熟客率计算是完全不考虑用户在场景内的行为的，所以跟诸如：CTR，CVR 等指标没有直接关联。我们想统计一下熟客率是否跟用户价值是正相关的。为简化研究复杂度（或者说我偷了个懒），这里仅统计了点击率（uctr），来验证用户熟客率和客户价值之间的关系。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">0%</th>
+          <th style="text-align: left">10%</th>
+          <th style="text-align: left">20%</th>
+          <th style="text-align: left">30%</th>
+          <th style="text-align: left">40%</th>
+          <th style="text-align: left">50%</th>
+          <th style="text-align: left">60%</th>
+          <th style="text-align: left">70%</th>
+          <th style="text-align: left">80%</th>
+          <th style="text-align: left">90%</th>
+          <th style="text-align: left">100.00%</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">有好货</td>
+          <td style="text-align: left">37.29%</td>
+          <td style="text-align: left">41.91%</td>
+          <td style="text-align: left">47.34%</td>
+          <td style="text-align: left">50.48%</td>
+          <td style="text-align: left">52.69%</td>
+          <td style="text-align: left">54.36%</td>
+          <td style="text-align: left">55.92%</td>
+          <td style="text-align: left">57.71%</td>
+          <td style="text-align: left">60.13%</td>
+          <td style="text-align: left">63.20%</td>
+          <td style="text-align: left">67.11%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">猜你喜欢</td>
+          <td style="text-align: left">57.78%</td>
+          <td style="text-align: left">64.47%</td>
+          <td style="text-align: left">69.98%</td>
+          <td style="text-align: left">74.35%</td>
+          <td style="text-align: left">78.15%</td>
+          <td style="text-align: left">81.56%</td>
+          <td style="text-align: left">84.59%</td>
+          <td style="text-align: left">87.41%</td>
+          <td style="text-align: left">90.20%</td>
+          <td style="text-align: left">93.33%</td>
+          <td style="text-align: left">95.60%</td>
+      </tr>
+  </tbody>
+</table>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/8sYMwxuSc7j9C2E.png" alt=""  />
+</p>
+<p>如预期的，点击率同用户的熟客率很明显的正相关，即熟客率越高，点击率越高。有充分的理由相信，pctr，cvr， 客单价等指标也会有显著的相关性，但具体的结论还待进一步研究。</p>
+<p>同时这个结论也反向反映了另一个结论：上文中场景认知用户的指数分布系数 λ 越小，场景内价值体现的越好（高熟客率的用户占比更多，从而价值指标的平均值更高）。用通俗的话来解释就是：我们应当培养更多的老用户，他们能贡献更大的价值（虽然看上去是很显然的结论，但数据可以模型化这个结论并进一步的量化带来的收益）。</p>
+<h3 id="相关结果对场景优化方向的指导性">相关结果对场景优化方向的指导性</h3>
+<p>我们反过来再分析一下场景下的“有认知用户平均熟客率（访问频度）”和“无认知用户平均熟客率”这两个指标。</p>
+<p>无认知的用户更多的是通过偶然的点击或者首图个性化吸引到场景内的，好的首图个性化可以提升这部分用户的占比，同时也可以提升这部分用户的熟客率分布曲线，创造出更多的将无认知用户转化为有认知用户的可能性；同时，好的首图个性化也能提升有认知的用户的熟客率分布曲线，从而提升场景价值。</p>
+<p>不同场景的“无认知用户平均熟客率”描述的是一个场景比较客观的，对新用户的友好程度——在手淘上位置隐藏越深，对新手而言越不友好；没有首图个性化对新手不友好；场景里用户心智不明确或者缺少新手引导等等，也是对新手的不友好。种种因素都会导致这个指标的高低；</p>
+<p>认知用户占比，说明的是流量冗余的问题（上文中的认知用户占比的计算可能因为未归一化带来较大的误差，不能作为一个确定值来对待，但整体趋势问题不大，例如猜你喜欢的认知用户占比远高于女装）。如果认知用户占比很低，说明流量中大量的都是新用户或者无认知用户。这个指标也说明了另一个潜在的问题：我们现有统计用户留存的指标都没有考虑用户本身的属性，像女装这类场景的用户留存，可能更多的反映的是首图的引流效果，而并不是场景内的真实的用户留存能力。</p>
+<p>对于占比很低的场景，需要的工作有三点：</p>
+<ol>
+<li>因种种原因决定了用户分布中大量的都是新用户，所以需要在产品设计上对新用户更友好；</li>
+<li>提升场景内的用户留存能力（将新用户转化为老用户的能力）；</li>
+<li>控制外部引流。现在场景的主要问题不是流量不足，而是场景本身兜不住这么大的流量。</li>
+</ol>
+<p>当然，最核心的，最能创造价值的，还是有认知用户的熟客率指标。不断提升有认知 用户的熟客率指标，是一个产品长久发展的核心！另外我们也可以根据现有的有认知用户， 观察一个场景究竟更能吸引怎样的用户，以此来决定产品定位的调整或者做定向的投放来引流。</p>
+<h2 id="熟客率指标作为算法优化指标的尝试">熟客率指标作为算法优化指标的尝试</h2>
+<p>以猜你喜欢数据为例，对两个不同的分桶统计了单日访问率指标和次日回访率（）曲线是两个桶之间的差值：</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/UNTaBvFnRbzSIGx.png" alt=""  />
+</p>
+<p>因为我这边并不知道猜你喜欢上具体做得是什么实验，所以没有办法进行物理含义的分析。但是从图上还是可以看到，熟客率是一个可衡量的指标，能够对具体的算法实验进行效果评估。</p>
+<p>另一方面，熟客率指标的整体趋势和回访率是比较接近的，但在一些特定的点上会有较大的差异性。带来这部分差异的，应该就是“有认知的用户”和“没有认知的用户”对待一些变化的不同反映。</p>
+<p>关于熟客率作为算法指标的优化，这部分现在还不是很成熟，需要进一步的探究。</p>
+<h2 id="展望">展望</h2>
+<p>为了简化工作量，相关的统计和计算都做了不少的简化，也由此带来了一些系统误差。例如用访问天代替访问次，会在物理含义上出现较大的变化，也会带来数据分析上的一些问题（指数分布会限制在 $0$~$1$,$1$ 的地方在特定情况下会产生奇异点）。没有用 em 算法来计算，新用户的数据的可靠性也不能保证。所以后续希望能和 BI 的同学合作，把数据的准确性提升来。</p>
+<p>另外前两天袁全给了一些指导性的建议，后续可以尝试用类似的方法考察用户在品牌（店铺）上的认知度，计算用户对商家而言的价值。</p>
+<p>再者，通过 $\text{熟客率}&gt;0.5$ 的条件，可以圈定一个产品的高认知用户群，以此可以定向的分析用户图谱，做用户访谈等等，能更好的得到对产品而言更有价值的用户划分，以此来指导产品的后续改进方向。</p>
+<p>另外能否产出算法可优化指标方面，可能还需要进一步的探索。个人预期是，至少找到一些明确的能提升用户熟客率的手段（也许会带来其他指标的下降），给算法优化背后的物理意义一些更明确的理论阐述</p>
 ]]></content:encoded>
     </item>
   </channel>
