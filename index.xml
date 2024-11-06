@@ -4,10 +4,144 @@
     <title>拾柒读库</title>
     <link>https://blog.uglyboy.cn/</link>
     <description>Recent content on 拾柒读库</description>
-    <generator>Hugo -- 0.134.3</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 26 Sep 2024 10:27:32 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 06 Nov 2024 22:28:54 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>大模型的推理能力</title>
+      <link>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</link>
+      <pubDate>Wed, 06 Nov 2024 18:44:15 +0800</pubDate>
+      <guid>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</guid>
+      <description>对推理能力的一个科学描述</description>
+      <content:encoded><![CDATA[<h2 id="引言">引言</h2>
+<p>自 GPT3.5 引爆大模型概念以来，大家都期盼着 AGI<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 的到来。但与此同时，当下各类大模型虽然依据 Scaling Law<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，不断提升各方面的性能，但是关于模型的推理能力，总显得不足。</p>
+<p>甚至科研界针对大模型究竟是否可能具有推理能力，也争论不休。例如下列近期比较热烈的讨论：</p>
+<ul>
+<li>DeepMind 的 <a href="https://arxiv.org/html/2402.04494v1">Grandmaster-Level Chess Without Search</a></li>
+<li>Apple 的 <a href="https://arxiv.org/abs/2410.05229">GSM-Symbolic: Understanding the Limitations of Mathematical Reasoning in Large Language Models</a></li>
+<li>MIT 的 <a href="https://www.nature.com/articles/s41586-024-07522-w">Language is primarily a tool for communication rather than thought</a></li>
+<li>Google Brain 的 <a href="https://arxiv.org/abs/2402.12875">Chain of Thought Empowers Transformers to Solve Inherently Serial Problems</a></li>
+<li><a href="https://www.strangeloopcanon.com/p/what-can-llms-never-do">What can LLMs never do?</a></li>
+</ul>
+<p>虽然笔者之前的文章已经用比较直观的方式证明了 LLM 的基本范式 <code>N-GRAM</code> 是一个有穷自动机，无法像通用图灵机一样完成各种任务，甚至简单的四则运算也做不到，从而侧面证明了 LLM 不可能具有推理能力。但是“究竟什么是推理能力？”这个话题，之前并没有进行过完整的阐述。</p>
+<p>本文将对什么是推理能力这个话题进行深入的说明，进而将 LLM 未来如何能实现 AGI 的路线图进行一个完整而具体的展现。</p>
+<h2 id="推理逻辑算法图灵机">推理、逻辑、算法、图灵机</h2>
+<h3 id="推理和数理逻辑">推理和数理逻辑</h3>
+<p>研究推理能力，那首先需要有一个“推理”的明确的说明或定义。推理这个概念来自于逻辑学，古早的逻辑学更偏向于哲学，但现代的逻辑学已经是数理逻辑的一部分了。</p>
+<p><strong>数理逻辑</strong>（Mathematical logic）是用数学方法研究诸如推理的有效性、证明的真实性、数学的真理性和计算的可行性等这类现象中的逻辑问题的一门学问。现在公认的数理逻辑创始人是莱布尼兹。他的目的是选出一种“通用代数”，其中把一切推理都化归为计算。</p>
+<blockquote>
+<p>更为具体的解释：我们希望研究的是“正确的推理过程”，而数理逻辑的目标是将推理过程变成一种计算过程（算法），进而通过计算的结果来判断推理的正确性。</p>
+</blockquote>
+<p>这个愿望被布尔代数<strong>基本</strong>实现了——我们可以将任何数学语句或自然语言的命题翻译为为布尔代数的逻辑表达式，然后对表达式进行判定是否为真。当然，这个实现是不完美的，罗素在数理逻辑中发现了悖论；而哥德尔证明了悖论是一切逻辑体系中必然存在的命题——也就是说，一定存在我们无法判定是否为真的逻辑表达式。</p>
+<h3 id="计算和图灵机">计算和图灵机</h3>
+<p>有了数理逻辑这种工具，推理能力被转化为了计算能力。可计算能力又如何衡量呢？在另一条时间线上，一个叫图灵的“年轻人”在研究“算法”的能力，而这条线恰好将计算能力的清晰的描述了出来。</p>
+<p>图灵提出了一种通用图灵机，并证明了当前人类能想象到的一切算法，都可以用通用图灵机实现。</p>
+<blockquote>
+<p>当然，他的副产物：有穷自动机、上下文无关文法等算法模式，能力是弱于图灵机的。这也是笔者用于证明当前的 LLM 不具有推理能力的重要工具。</p>
+</blockquote>
+<p>于此同时，图灵还深入研究了图灵机进行计算的可判定性，也就是停机定理：存在这样的图灵机，我们无法判断它是否陷入了无限循环，能否停机。</p>
+<p>非常有趣的是，停机定理的证明和歌德尔不完备定理的证明思路很类似，都是将一切命题（算法）转化为一串数字，然后再证明这其中的不合理性。</p>
+<blockquote>
+<p>甚至，我们可以直接通过停机定理来证明歌德尔不完备定理：
+我们将数理逻辑体系下的逻辑命题转化为一个计算问题，然后通过算法对这个问题计算。于是逻辑命题能否判定就变成了判断这个算法的结果或者判定这个算法无法停机（也就是这是个逻辑悖论）。
+但由于停机定理的存在，我们并不能对一切逻辑命题给出上面的判定，从而，一定有逻辑命题是我们无法给出任何判定的。</p>
+</blockquote>
+<h3 id="计算机和可编译">计算机和可编译</h3>
+<p>上面的论述是理论层面的描述，我们需要一个针对真实“推理”问题的可操作的工具。幸好还有一个人，跟图灵所处同一时代，用另一种方式真实实现了“通用图灵机”，并且它还成为了人类进步的重要工具：计算机之父——冯·诺依曼。</p>
+<p>我们今天的手机、电脑等等各种电子产品，基本都是冯·诺依曼架构下实现的。而今天的程序员，则不断将图灵理论中的概念算法，转换成真实世界中不断运行中的程序。</p>
+<p>而这其中，刨除停机定理中描述的无法判定的算法问题，绝大部分算法能否执行的重要判定标准是：<strong>可编译</strong> <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
+<p>从而最终，我们有了关于推理的全部知识：<strong>一个正确的推理，是将其所有逻辑过程通过数理逻辑相容的编码进行描述，然后看该编码能否通过其对应的编译器的编译</strong>。</p>
+<ul>
+<li>Lean4 就是一门进行数学推理的可编译代码。</li>
+<li><a href="https://arxiv.org/abs/2405.18357">Faithful Logical Reasoning via Symbolic Chain-of-Thought</a> 这篇文章介绍了一些外部推理工具如何帮助大模型进行无谬误的推理，并提出了一个新的推理编码（符号逻辑推理）。</li>
+</ul>
+<h2 id="提升推理能力">提升推理能力</h2>
+<p>上一节中，我们有了清晰的定义，知道了什么叫做“推理”以及“可验证的正确推理”。那么什么是推理能力呢？</p>
+<h3 id="推理过程的数学描述">推理过程的数学描述</h3>
+<p>针对真实世界的推理问题，其基本范式都符合如下的描述：</p>
+<ol>
+<li>我们有一些已知条件或者背景信息（知识）；</li>
+<li>我们有一个预期的结果：
+<ul>
+<li>可能是类似数学证明题，我们有一个命题，希望知道其是否正确；</li>
+<li>可能是类似规划问题，虽然我们不知道最终的答案，但我们可以验证怎样的答案符合我们的预期；</li>
+<li>也可能是类似计算机竞赛的算法问题，我们不仅仅要求答案符合预期，还期望计算的过程更快，使用更少的资源等等；</li>
+</ul>
+</li>
+<li>我们的推理过程其实可以看作是一个检索过程——在已知信息和目标结果之间寻找并补充适合的逻辑代码，让其可通过我们所需要的推理编译器。</li>
+</ol>
+<h3 id="推理能力">推理能力</h3>
+<p>当前大模型欠缺的，正是上面描述的推理过程的能力 <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
+<p>笔者以前文章中给出过结论：通过强化学习的 Agent 模式可以实现通用图灵机，进而实现 AGI。今天用新的关于推理的数学定义，再次推演出这个结论：</p>
+<blockquote>
+<p>强化学习（Reinforcement learning，RL）讨论的问题是一个<strong>智能体 (agent)</strong> 怎么在一个复杂不确定的 <strong>环境 (environment)</strong> 里面去极大化它能获得的奖励。通过感知所处环境的 <strong>状态 (state)</strong> 对 <strong>动作 (action)</strong> 的 <strong>反应 (reward)</strong>， 来指导更好的动作，从而获得最大的 <strong>收益 (return)</strong>，这被称为在交互中学习，这样的学习方法就被称作强化学习。
+它的一个巨大优势，就是可以将多步之后的奖励，拆解反馈到很多步以前的状态中，从而可以更快的学习到重要的经验。
+这一点和我们进行推理过程时所需要的能力是完全一致的：因为我们的推理过程的最终结果是可验证（可编译）的，通过时可以给予一个巨大的奖励。而强化学习的过程就是不断通过后验的奖励，让系统在下一次时更快更好的找到适合的推理过程。</p>
+</blockquote>
+<p>甚至可以给出结论：推理能力提升的过程，就是一个标准的强化学习过程 <sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+<h2 id="技术瓶颈">技术瓶颈</h2>
+<p>从过去一年里 LLM 的发展来看，推理能力的进展无疑是缓慢的。甚至应该也有其他的研究者摸到了所谓“推理为何物”的基本认知，但依然在解决这个课题的方面，没看到什么显著突破。</p>
+<p>核心的技术瓶颈，在于两个方面：</p>
+<ol>
+<li>对推理过程的符号化描述 <sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>；</li>
+<li>强化学习中对非确定型状态空间 <sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> 的描述和建模。</li>
+</ol>
+<h3 id="推理的符号化描述">推理的符号化描述</h3>
+<p>如果是从数学角度来看，推理的符号化描述的工具已经是完备的了。但从真实应用出发，却没那么容易将我们人类知识中的大量推理过程进行符号化表达。</p>
+<p>这里的最核心的难点，不在于符号体系本身，而是人类有大量蕴含推理知识的表达，还没有用符号体系进行描述，于是很多人类的推理过程在转译成符号化描述时，是不完备甚至缺失的。</p>
+<blockquote>
+<p>这一点在 Lean4 语言中非常明显。理论上，Lean4 是完备的，可以进行各种数学推理。但是真正用起来的时候，却会发现基本没法用——因为人类的大量证明过程中，会用到很多理所应当的定理，比如理所应当的加法交换率，分配率，可被整除等等。但这些概念在数学中其实并不是公理，也不是基础概念，是需要从集合论一直证明到自然数是一个阿贝尔环，才能使用的逻辑前提。
+所以 Lean4 中缺失的不是逻辑，而是很多基础推导过程的证明。而这种问题存在于所有的逻辑符号化编码中。</p>
+</blockquote>
+<p>人类的知识蕴含在语言中，而语言的进化又蕴含了非常多的逻辑知识。在这些基本的知识没有被全面的符号化描述前，任何符号化描述的推导过程都是不完备的。</p>
+<p>而另一方面，我们无论是尝试用 LLM 来学习这种 符号化描述的表达，还是用强化学习，都需要大量的数据作为食材。而更不幸的时，我们连推理的符号化描述体系都还没统一和建立起来，更不用提所需要的大量学习样本了。</p>
+<p>所以短期内快速的提升人工智能的推理能力，从数据和表达的层面来看，都是基本不可能的。</p>
+<h3 id="强化学习方面的瓶颈">强化学习方面的瓶颈</h3>
+<p>强化学习方面，我们的工具库也是不足的。</p>
+<p>例如针对下面的命题，我们是有能力构建完善的符号化描述和样本库的：</p>
+<ul>
+<li>自然数（实数）加法的运算规则。</li>
+</ul>
+<p>我们希望用强化学习的方式，从足够多的样本中学习出加法的运算规则。但面对这个命题时，就会发现，如何在强化学习中表达这种非确定型的命题的状态空间和动作空间是一个巨大的难题。</p>
+<p>如果单说解决这个问题，给出一些例如操作存储、按位移动等操作类型，或许也可以表达动作空间和状态空间，但是这种方式基本上是对着答案设计动作空间。针对更广泛的各种符号化描述的真实问题，如何描述状态空间和动作空间，并能进行有效的计算？是一个实打实的难题。</p>
+<p>甚至相比于强化学习模型，LLM 模型可以在更长的序列中进行 token 的概率预测，甚至状态空间和动作空间都是 token 表达的泛化类型，这也使得 LLM 在统计已有的数据的奖励权重方面，其泛化性和易用性都是强于当下的强化学习模型的。</p>
+<p>那有没有办法让强化学习也可以利用长序列编码的方式表达状态和动作空间，并用类似于 LLM 模型的方式来计算激励函数呢？看起来是个可行的路线，但似乎依然需要先有更适合的关于状态空间的符号化表达，以及全新的一套强化学习机制，来更通用的适应各种不同的非确定型的真实问题。</p>
+<h2 id="结论">结论</h2>
+<p>短期内 AGI 不可实现。而 LLM 的能力基本已到瓶颈，一段时间内大家的竞争将更聚焦在应用层面。</p>
+<p>如果想尝试探索提升 LLM 的推理能力，那最重要的两个方向：</p>
+<ol>
+<li>推理的符号化表达，以及构建更多的符号化表达的数据（这里或许可以用 LLM 来帮忙生成或转译）；</li>
+<li>更强大的强化学习范式。</li>
+</ol>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>通用人工智能&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>大模型的尺度规则：随着参数规模的扩大，模型能力更强&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>甚至如果将回归测试也看作是编译的规则，那么对算法进行一定程度的准确性判断也可以通过编译的方式来实现。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>甚至“能力”一词表达的，都不是推理过程的效率高低，而是推理过程能成功的概率。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>这也是现在包括 o1 在内的各种推理模型背后的核心原理。当然，经验不沉淀在强化学习模型中，而是沉淀在基座模型中，无疑会损失很多推理的能力。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>其实叫做编码也可以，但容易跟传统的编码概念混淆，毕竟推理所要求的编码是可编译的；而 LLM 要求的编码只要有可预测性即可。&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>这种表述也许有更专业的表达。笔者想说的是，强化学习中动作空间当下是未知的，只有动作出现后，我们才会知道原来还有这样的动作；但是理论上最终的动作空间总是有办法可以被全部表达出来的，也许表达的方式是某个动作编码的判别器。所以这里或许需要有新的对动作空间的数学描述方式，才有可能用传统的强化学习的方式来枚举所有的动作空间。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>编码的意义</title>
       <link>https://blog.uglyboy.cn/posts/2024/09/18/%E7%BC%96%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89/</link>
@@ -2426,13 +2560,11 @@ $$</p>
 <p>我们也逐步来分析这个问题，首先是传统统计学习的学习方法和深度神经网络之间的选择。从结果上看，我们选择了深度神经网络，因为我们不可能见过所有人说过的所有话，所以我们希望我们训练的模型在我们未见过的样本上也能取得很好的效果，这就是<strong>模型的泛化能力</strong>。而实验表明，深度神经网络的泛化性更好。为什么呢？</p>
 <h3 id="过参数化是泛化性好的本质原因">过参数化是泛化性好的本质原因</h3>
 <p>在传统统计学习中，我们希望使用的参数尽可能的少（奥卡姆剃刀原理），这样才能带来更好的泛化效果。另一方面，我们又希望我们的模型的表达能力尽可能的强，这样才能更好的拟合真实的概率空间。所以会有经典的微笑曲线：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/11/11/X9Q8xVuroRI3fzU.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/11/11/X9Q8xVuroRI3fzU.png"></p>
 <p>假设空间的大小不能太小，也不能太大（否则会过拟合）。</p>
 <p>但当时的人们都没有尝试一件事情，就是如果进一步增大参数空间（已经发生过拟合之后），会发生什么？</p>
 <p>下图是实际发生的事情：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/10/21/hIYNgQoBmRy32PH.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2023/10/21/hIYNgQoBmRy32PH.png"></p>
 <p>随着参数空间的继续增大，泛化性又逐步的提升了，而且比过拟合之前的最优值还要好了。</p>
 <p>这件事是深度学习拥有良好泛化性的本质原因——<strong>过参数化</strong>。如 <a href="http://arxiv.org/abs/1802.01396">Belkin et al(2018)</a> 中描述的，其实这种能力也并不是深度神经网络所独有的，而是一切过参数化的机器学习方法都能具备的性质。</p>
 <p>深度神经网络一方面可以通过网络结构学习任意形状的可积函数的分布，另一方面，又可以通过过参数化获得良好的泛化性，于是就成为了真实世界大部分问题的最优机器学习方法——我们可以从猜测真实问题的函数结构中解脱出来，也不用担心样本量少无法遍历全部解空间。</p>
@@ -3422,32 +3554,28 @@ $$</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">添加 public key</th>
-          <th style="text-align: left">Success</th>
+          <th>添加 public key</th>
+          <th>Success</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/PhTNCuG6okXRqaA.jpg" alt=""  />
-</a></td>
-          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/7b2PYUsfqCp6x5g.jpg" alt=""  />
-</a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/PhTNCuG6okXRqaA.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/7b2PYUsfqCp6x5g.jpg"></a></td>
       </tr>
   </tbody>
 </table>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">添加 private key</th>
-          <th style="text-align: left">Success</th>
+          <th>添加 private key</th>
+          <th>Success</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/bVgQDTKcXytfIGn.jpg" alt=""  />
-</a></td>
-          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/WyYNH4azm3LOGwn.jpg" alt=""  />
-</a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/bVgQDTKcXytfIGn.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/WyYNH4azm3LOGwn.jpg"></a></td>
       </tr>
   </tbody>
 </table>
@@ -4983,8 +5111,7 @@ flowchart LR
 <p>淘宝上的社交产品，甚至乃至阿里系的社交产品，都是针对功利社交的产品。钉钉之于微信，就是典型的例子。</p>
 </blockquote>
 <p>相比之下，<strong>共情社交</strong>则处于鄙视链的上游，以马斯洛的需求理论来说，“功利社交”更多的是解决生理（第一层次）和安全（第二层次）方面的需求，而“共情社交”则是解决情感和认同（第三层次）、尊重（第四层次）方面的需求。</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/10/19/wlmUHxGBseifKjS.png" alt="需求理论"  />
-</p>
+<p><img alt="需求理论" loading="lazy" src="https://s2.loli.net/2023/10/19/wlmUHxGBseifKjS.png"></p>
 <p>本文也主要致力于研究共情社交方面的核心要素。</p>
 <h3 id="共情社交的目的">共情社交的目的</h3>
 <p>以马斯洛的需求理论来看，共情社交的目的就是获得情感认同和尊重。为了更好的从一个客观角度来描述这件事，我们认为一切情感或认同等等的行为都是信息传递和交互的过程，于是上面描述的共情社交所带来的过程可以描述为：“获得内部信息和外部信息的一致性”或者说“与外部信息形成共识”。</p>
@@ -6793,77 +6920,74 @@ $$</p>
 $$</p>
 <p>于是对每一个用户，都可以算出他最近一个月在各个场景的访问频度（熟客率）了。</p>
 <p>对某一个特定的场景而言，我们想要了解的是类似于：“高频用户的占比”这样的指标，来了解用户对于一个场景的喜爱程度，所以我们按照用户熟客率统计用户的分布情况：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/hoOVZyXNMgtTf9b.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/hoOVZyXNMgtTf9b.png"></p>
 <p>除去搜索的图型比较特别外，其他的场景数据都很像一个指数分布，于是我们对用户分布情况取对数再来观察：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/oFK9liBgCGrIesH.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/oFK9liBgCGrIesH.png"></p>
 <p>从这个图来看，基本符合我们的假设：用户分布情况是接近于指数分布的，但在访问频度为 1 的位置会产生很奇异的拐点，中间也有很多位置并不平滑。进一步分析发现，这样的现象主要是因为部分用户对手淘的访问天数过短，造成他们的访问信息并不具有有效性。为此，我们仅统计每月访问手淘 15 天以上的用户（用户量为：139523167，基本覆盖手淘的活跃用户）。</p>
 <p>重新统计的上图如下：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/Sdw1re3Nvatq4uO.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/Sdw1re3Nvatq4uO.png"></p>
 <p>这一回，整个曲线都变得平滑了（仅仅是在 0.3~0.4 附近感觉有拐点）。根据这个图，我们增加如下的假设：对一个场景而言，有认知的用户的的分布模型是一个指数分布；高频访问的用户基本都是有认知的用户。</p>
 <h2 id="场景指标的计算">场景指标的计算</h2>
 <p>接上文，我们根据熟客率的指标可以用回归的方法统计出“有认知”的用户再场景内访问频率的分布情况：</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left"></th>
-          <th style="text-align: left">斜率</th>
-          <th style="text-align: left">截距</th>
-          <th style="text-align: left">有认知的用户量</th>
-          <th style="text-align: left">认知用户平均熟客率</th>
+          <th></th>
+          <th>斜率</th>
+          <th>截距</th>
+          <th>有认知的用户量</th>
+          <th>认知用户平均熟客率</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">猜你喜欢</td>
-          <td style="text-align: left">1.7431016306</td>
-          <td style="text-align: left">16.357052585</td>
-          <td style="text-align: left">7285426</td>
-          <td style="text-align: left">57.37%</td>
+          <td>猜你喜欢</td>
+          <td>1.7431016306</td>
+          <td>16.357052585</td>
+          <td>7285426</td>
+          <td>57.37%</td>
       </tr>
       <tr>
-          <td style="text-align: left">有好货</td>
-          <td style="text-align: left">5.6656943459</td>
-          <td style="text-align: left">16.580370553</td>
-          <td style="text-align: left">2802272</td>
-          <td style="text-align: left">17.65%</td>
+          <td>有好货</td>
+          <td>5.6656943459</td>
+          <td>16.580370553</td>
+          <td>2802272</td>
+          <td>17.65%</td>
       </tr>
       <tr>
-          <td style="text-align: left">发现好店</td>
-          <td style="text-align: left">7.198381533</td>
-          <td style="text-align: left">17.412020797</td>
-          <td style="text-align: left">5066519</td>
-          <td style="text-align: left">13.89%</td>
+          <td>发现好店</td>
+          <td>7.198381533</td>
+          <td>17.412020797</td>
+          <td>5066519</td>
+          <td>13.89%</td>
       </tr>
       <tr>
-          <td style="text-align: left">她在买</td>
-          <td style="text-align: left">6.7192760078</td>
-          <td style="text-align: left">13.955514186</td>
-          <td style="text-align: left">171191</td>
-          <td style="text-align: left">14.88%</td>
+          <td>她在买</td>
+          <td>6.7192760078</td>
+          <td>13.955514186</td>
+          <td>171191</td>
+          <td>14.88%</td>
       </tr>
       <tr>
-          <td style="text-align: left">女装</td>
-          <td style="text-align: left">7.8873829626</td>
-          <td style="text-align: left">16.842386083</td>
-          <td style="text-align: left">2615908</td>
-          <td style="text-align: left">12.68%</td>
+          <td>女装</td>
+          <td>7.8873829626</td>
+          <td>16.842386083</td>
+          <td>2615908</td>
+          <td>12.68%</td>
       </tr>
       <tr>
-          <td style="text-align: left">男装</td>
-          <td style="text-align: left">9.3844322456</td>
-          <td style="text-align: left">14.08435403</td>
-          <td style="text-align: left">139428</td>
-          <td style="text-align: left">10.66%</td>
+          <td>男装</td>
+          <td>9.3844322456</td>
+          <td>14.08435403</td>
+          <td>139428</td>
+          <td>10.66%</td>
       </tr>
       <tr>
-          <td style="text-align: left">搜索</td>
-          <td style="text-align: left">4.7601938755</td>
-          <td style="text-align: left">19.56287163</td>
-          <td style="text-align: left">65829803</td>
-          <td style="text-align: left">21.01%</td>
+          <td>搜索</td>
+          <td>4.7601938755</td>
+          <td>19.56287163</td>
+          <td>65829803</td>
+          <td>21.01%</td>
       </tr>
   </tbody>
 </table>
@@ -6873,78 +6997,76 @@ f(x) = \lambda e^{-\lambda}
 $$</p>
 <p>从而就能得到上面表格中的数据指标。</p>
 <p>我们再根据这个数据去反推一下没有场景认知的用户访问情况：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/KdSPQm8AXbMiHOE.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/KdSPQm8AXbMiHOE.png"></p>
 <p>图形也是呈指数分布，但这里的降幅快了很多（而且相比于原有的数据，误差增加了不少）。还是通过取对数，再根据散点图来观察：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/4Wi9dRLp7uoxzrX.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/4Wi9dRLp7uoxzrX.png"></p>
 <p>通过这个图来观察的话，指数分布的趋势明显了很多。用类似的方法，我们可以得到：</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left"></th>
-          <th style="text-align: left">斜率</th>
-          <th style="text-align: left">截距</th>
-          <th style="text-align: left">无认知的用户量</th>
-          <th style="text-align: left">无认知用户平均访问频率</th>
-          <th style="text-align: left">认知用户占比</th>
-          <th style="text-align: left">认知用户转化增益</th>
+          <th></th>
+          <th>斜率</th>
+          <th>截距</th>
+          <th>无认知的用户量</th>
+          <th>无认知用户平均访问频率</th>
+          <th>认知用户占比</th>
+          <th>认知用户转化增益</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">猜你喜欢</td>
-          <td style="text-align: left">9.3894679073</td>
-          <td style="text-align: left">17.8609986824</td>
-          <td style="text-align: left">6085443</td>
-          <td style="text-align: left">10.65%</td>
-          <td style="text-align: left">54.49%</td>
-          <td style="text-align: left">5.4</td>
+          <td>猜你喜欢</td>
+          <td>9.3894679073</td>
+          <td>17.8609986824</td>
+          <td>6085443</td>
+          <td>10.65%</td>
+          <td>54.49%</td>
+          <td>5.4</td>
       </tr>
       <tr>
-          <td style="text-align: left">有好货</td>
-          <td style="text-align: left">19.6362279409</td>
-          <td style="text-align: left">19.0102797422</td>
-          <td style="text-align: left">9183358</td>
-          <td style="text-align: left">5.09%</td>
-          <td style="text-align: left">23.38%</td>
-          <td style="text-align: left">3.5</td>
+          <td>有好货</td>
+          <td>19.6362279409</td>
+          <td>19.0102797422</td>
+          <td>9183358</td>
+          <td>5.09%</td>
+          <td>23.38%</td>
+          <td>3.5</td>
       </tr>
       <tr>
-          <td style="text-align: left">发现好店</td>
-          <td style="text-align: left">18.7503695019</td>
-          <td style="text-align: left">18.2540393165</td>
-          <td style="text-align: left">4514594</td>
-          <td style="text-align: left">5.33%</td>
-          <td style="text-align: left">52.88%</td>
-          <td style="text-align: left">2.6</td>
+          <td>发现好店</td>
+          <td>18.7503695019</td>
+          <td>18.2540393165</td>
+          <td>4514594</td>
+          <td>5.33%</td>
+          <td>52.88%</td>
+          <td>2.6</td>
       </tr>
       <tr>
-          <td style="text-align: left">她在买</td>
-          <td style="text-align: left">27.7360657413</td>
-          <td style="text-align: left">19.191585643</td>
-          <td style="text-align: left">7793901</td>
-          <td style="text-align: left">3.61%</td>
-          <td style="text-align: left">2.15%</td>
-          <td style="text-align: left">4.1</td>
+          <td>她在买</td>
+          <td>27.7360657413</td>
+          <td>19.191585643</td>
+          <td>7793901</td>
+          <td>3.61%</td>
+          <td>2.15%</td>
+          <td>4.1</td>
       </tr>
       <tr>
-          <td style="text-align: left">女装</td>
-          <td style="text-align: left">61.7233508719</td>
-          <td style="text-align: left">21.8490324548</td>
-          <td style="text-align: left">49941863</td>
-          <td style="text-align: left">1.62%</td>
-          <td style="text-align: left">4.98%</td>
-          <td style="text-align: left">7.8</td>
+          <td>女装</td>
+          <td>61.7233508719</td>
+          <td>21.8490324548</td>
+          <td>49941863</td>
+          <td>1.62%</td>
+          <td>4.98%</td>
+          <td>7.8</td>
       </tr>
       <tr>
-          <td style="text-align: left">男装</td>
-          <td style="text-align: left">22.816772562</td>
-          <td style="text-align: left">17.6569131267</td>
-          <td style="text-align: left">2041953</td>
-          <td style="text-align: left">4.38%</td>
-          <td style="text-align: left">6.39%</td>
-          <td style="text-align: left">2.4</td>
+          <td>男装</td>
+          <td>22.816772562</td>
+          <td>17.6569131267</td>
+          <td>2041953</td>
+          <td>4.38%</td>
+          <td>6.39%</td>
+          <td>2.4</td>
       </tr>
   </tbody>
 </table>
@@ -6956,61 +7078,59 @@ $$</p>
 <p>因为场景下的用户分为：有认知的和无认知的两类，尤其是在熟客率较低的部分，两类用户不可分。为了便于分析，本节的讨论都仅针对有认知的用户进行分析，采样的方法：仅取熟客率大于 $0.5$ 的用户</p>
 <p>用户的熟客率是用一个月分访问频率来描述的，这个指标在某一天的体现即：一部分用户访问了手淘的用户这一天访问某场景的比例。熟客率的稳定性即：高频访问的用户和低频访问的用户是明显可分的——通常情况下不会出现大量的高频用户和低频用户的访问比例发生反转</p>
 <p>为验证这个结论我们用猜你喜欢的数据，统计了熟客率在 $0.5$<del>$0.6$ 之间的用户和熟客率 再 $0.6$</del>$0.7$ 之间的用户，他们再过去一个月中，每天访问概率的变化情况：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/gdtCXfuTQrcIS6e.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/gdtCXfuTQrcIS6e.png"></p>
 <p>是跟次日回访率一致的——用户再某一天的访问概率跟入口情况和时间周期有密切的联系， 但依然可以非常明显的看出：不同熟客率区间的用户，他们的访问概率是很明显的不同的， 但趋势又非常的一致。这说明熟客率这个指标是一个很稳定的衡量用户对场景认知的指标。</p>
 <h3 id="用户熟客率与客户价值之间的关联">用户熟客率与客户价值之间的关联</h3>
 <p>用户价值是指用户在场景内的具体行为贡献，包括点击、购买、客单价等等。因为熟客率计算是完全不考虑用户在场景内的行为的，所以跟诸如：CTR，CVR 等指标没有直接关联。我们想统计一下熟客率是否跟用户价值是正相关的。为简化研究复杂度（或者说我偷了个懒），这里仅统计了点击率（uctr），来验证用户熟客率和客户价值之间的关系。</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left"></th>
-          <th style="text-align: left">0%</th>
-          <th style="text-align: left">10%</th>
-          <th style="text-align: left">20%</th>
-          <th style="text-align: left">30%</th>
-          <th style="text-align: left">40%</th>
-          <th style="text-align: left">50%</th>
-          <th style="text-align: left">60%</th>
-          <th style="text-align: left">70%</th>
-          <th style="text-align: left">80%</th>
-          <th style="text-align: left">90%</th>
-          <th style="text-align: left">100.00%</th>
+          <th></th>
+          <th>0%</th>
+          <th>10%</th>
+          <th>20%</th>
+          <th>30%</th>
+          <th>40%</th>
+          <th>50%</th>
+          <th>60%</th>
+          <th>70%</th>
+          <th>80%</th>
+          <th>90%</th>
+          <th>100.00%</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">有好货</td>
-          <td style="text-align: left">37.29%</td>
-          <td style="text-align: left">41.91%</td>
-          <td style="text-align: left">47.34%</td>
-          <td style="text-align: left">50.48%</td>
-          <td style="text-align: left">52.69%</td>
-          <td style="text-align: left">54.36%</td>
-          <td style="text-align: left">55.92%</td>
-          <td style="text-align: left">57.71%</td>
-          <td style="text-align: left">60.13%</td>
-          <td style="text-align: left">63.20%</td>
-          <td style="text-align: left">67.11%</td>
+          <td>有好货</td>
+          <td>37.29%</td>
+          <td>41.91%</td>
+          <td>47.34%</td>
+          <td>50.48%</td>
+          <td>52.69%</td>
+          <td>54.36%</td>
+          <td>55.92%</td>
+          <td>57.71%</td>
+          <td>60.13%</td>
+          <td>63.20%</td>
+          <td>67.11%</td>
       </tr>
       <tr>
-          <td style="text-align: left">猜你喜欢</td>
-          <td style="text-align: left">57.78%</td>
-          <td style="text-align: left">64.47%</td>
-          <td style="text-align: left">69.98%</td>
-          <td style="text-align: left">74.35%</td>
-          <td style="text-align: left">78.15%</td>
-          <td style="text-align: left">81.56%</td>
-          <td style="text-align: left">84.59%</td>
-          <td style="text-align: left">87.41%</td>
-          <td style="text-align: left">90.20%</td>
-          <td style="text-align: left">93.33%</td>
-          <td style="text-align: left">95.60%</td>
+          <td>猜你喜欢</td>
+          <td>57.78%</td>
+          <td>64.47%</td>
+          <td>69.98%</td>
+          <td>74.35%</td>
+          <td>78.15%</td>
+          <td>81.56%</td>
+          <td>84.59%</td>
+          <td>87.41%</td>
+          <td>90.20%</td>
+          <td>93.33%</td>
+          <td>95.60%</td>
       </tr>
   </tbody>
 </table>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/8sYMwxuSc7j9C2E.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/8sYMwxuSc7j9C2E.png"></p>
 <p>如预期的，点击率同用户的熟客率很明显的正相关，即熟客率越高，点击率越高。有充分的理由相信，pctr，cvr， 客单价等指标也会有显著的相关性，但具体的结论还待进一步研究。</p>
 <p>同时这个结论也反向反映了另一个结论：上文中场景认知用户的指数分布系数 λ 越小，场景内价值体现的越好（高熟客率的用户占比更多，从而价值指标的平均值更高）。用通俗的话来解释就是：我们应当培养更多的老用户，他们能贡献更大的价值（虽然看上去是很显然的结论，但数据可以模型化这个结论并进一步的量化带来的收益）。</p>
 <h3 id="相关结果对场景优化方向的指导性">相关结果对场景优化方向的指导性</h3>
@@ -7027,8 +7147,7 @@ $$</p>
 <p>当然，最核心的，最能创造价值的，还是有认知用户的熟客率指标。不断提升有认知 用户的熟客率指标，是一个产品长久发展的核心！另外我们也可以根据现有的有认知用户， 观察一个场景究竟更能吸引怎样的用户，以此来决定产品定位的调整或者做定向的投放来引流。</p>
 <h2 id="熟客率指标作为算法优化指标的尝试">熟客率指标作为算法优化指标的尝试</h2>
 <p>以猜你喜欢数据为例，对两个不同的分桶统计了单日访问率指标和次日回访率（）曲线是两个桶之间的差值：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/UNTaBvFnRbzSIGx.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/UNTaBvFnRbzSIGx.png"></p>
 <p>因为我这边并不知道猜你喜欢上具体做得是什么实验，所以没有办法进行物理含义的分析。但是从图上还是可以看到，熟客率是一个可衡量的指标，能够对具体的算法实验进行效果评估。</p>
 <p>另一方面，熟客率指标的整体趋势和回访率是比较接近的，但在一些特定的点上会有较大的差异性。带来这部分差异的，应该就是“有认知的用户”和“没有认知的用户”对待一些变化的不同反映。</p>
 <p>关于熟客率作为算法指标的优化，这部分现在还不是很成熟，需要进一步的探究。</p>

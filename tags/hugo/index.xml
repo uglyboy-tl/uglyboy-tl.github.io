@@ -4,7 +4,7 @@
     <title>Hugo on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/hugo/</link>
     <description>Recent content in Hugo on 拾柒读库</description>
-    <generator>Hugo -- 0.134.3</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 20 Dec 2023 13:30:22 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
@@ -1095,32 +1095,28 @@
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">添加 public key</th>
-          <th style="text-align: left">Success</th>
+          <th>添加 public key</th>
+          <th>Success</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/PhTNCuG6okXRqaA.jpg" alt=""  />
-</a></td>
-          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/7b2PYUsfqCp6x5g.jpg" alt=""  />
-</a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/PhTNCuG6okXRqaA.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/7b2PYUsfqCp6x5g.jpg"></a></td>
       </tr>
   </tbody>
 </table>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">添加 private key</th>
-          <th style="text-align: left">Success</th>
+          <th>添加 private key</th>
+          <th>Success</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/bVgQDTKcXytfIGn.jpg" alt=""  />
-</a></td>
-          <td style="text-align: left"><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/WyYNH4azm3LOGwn.jpg" alt=""  />
-</a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/bVgQDTKcXytfIGn.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/WyYNH4azm3LOGwn.jpg"></a></td>
       </tr>
   </tbody>
 </table>
