@@ -1471,11 +1471,11 @@ $$</p>
 <p>我们也逐步来分析这个问题，首先是传统统计学习的学习方法和深度神经网络之间的选择。从结果上看，我们选择了深度神经网络，因为我们不可能见过所有人说过的所有话，所以我们希望我们训练的模型在我们未见过的样本上也能取得很好的效果，这就是<strong>模型的泛化能力</strong>。而实验表明，深度神经网络的泛化性更好。为什么呢？</p>
 <h3 id="过参数化是泛化性好的本质原因">过参数化是泛化性好的本质原因</h3>
 <p>在传统统计学习中，我们希望使用的参数尽可能的少（奥卡姆剃刀原理），这样才能带来更好的泛化效果。另一方面，我们又希望我们的模型的表达能力尽可能的强，这样才能更好的拟合真实的概率空间。所以会有经典的微笑曲线：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/11/11/X9Q8xVuroRI3fzU.png"></p>
+<p><img alt="2qe95" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/caba559c77a8265e9f2d8e80df97e666.png"></p>
 <p>假设空间的大小不能太小，也不能太大（否则会过拟合）。</p>
 <p>但当时的人们都没有尝试一件事情，就是如果进一步增大参数空间（已经发生过拟合之后），会发生什么？</p>
 <p>下图是实际发生的事情：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/10/21/hIYNgQoBmRy32PH.png"></p>
+<p><img alt="6kj97" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/70ad342e678188e5f5b011264353d943.png"></p>
 <p>随着参数空间的继续增大，泛化性又逐步的提升了，而且比过拟合之前的最优值还要好了。</p>
 <p>这件事是深度学习拥有良好泛化性的本质原因——<strong>过参数化</strong>。如 <a href="http://arxiv.org/abs/1802.01396">Belkin et al(2018)</a> 中描述的，其实这种能力也并不是深度神经网络所独有的，而是一切过参数化的机器学习方法都能具备的性质。</p>
 <p>深度神经网络一方面可以通过网络结构学习任意形状的可积函数的分布，另一方面，又可以通过过参数化获得良好的泛化性，于是就成为了真实世界大部分问题的最优机器学习方法——我们可以从猜测真实问题的函数结构中解脱出来，也不用担心样本量少无法遍历全部解空间。</p>
@@ -2471,8 +2471,8 @@ $$</p>
   </thead>
   <tbody>
       <tr>
-          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/PhTNCuG6okXRqaA.jpg"></a></td>
-          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/7b2PYUsfqCp6x5g.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img alt="deploy-keys-1" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/a94d37f0dd668df3f707654313a5e949.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img alt="deploy-keys-2" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/dd59f719ce2905d9aeb8ecab1bb1e2af.jpg"></a></td>
       </tr>
   </tbody>
 </table>
@@ -2485,8 +2485,8 @@ $$</p>
   </thead>
   <tbody>
       <tr>
-          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/bVgQDTKcXytfIGn.jpg"></a></td>
-          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/WyYNH4azm3LOGwn.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img alt="secrets-1" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/d47a214db6716738b60e199cb523c4b1.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img alt="secrets-2" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/117c9fb649ea9562b4c281e0b2142b14.jpg"></a></td>
       </tr>
   </tbody>
 </table>
@@ -3347,7 +3347,7 @@ $$</p>
 <p>淘宝上的社交产品，甚至乃至阿里系的社交产品，都是针对功利社交的产品。钉钉之于微信，就是典型的例子。</p>
 </blockquote>
 <p>相比之下，<strong>共情社交</strong>则处于鄙视链的上游，以马斯洛的需求理论来说，“功利社交”更多的是解决生理（第一层次）和安全（第二层次）方面的需求，而“共情社交”则是解决情感和认同（第三层次）、尊重（第四层次）方面的需求。</p>
-<p><img alt="需求理论" loading="lazy" src="https://s2.loli.net/2023/10/19/wlmUHxGBseifKjS.png"></p>
+<p><img alt="需求理论" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/b005b863a4f284e4a6d963805d12c6c4.png"></p>
 <p>本文也主要致力于研究共情社交方面的核心要素。</p>
 <h3 id="共情社交的目的">共情社交的目的</h3>
 <p>以马斯洛的需求理论来看，共情社交的目的就是获得情感认同和尊重。为了更好的从一个客观角度来描述这件事，我们认为一切情感或认同等等的行为都是信息传递和交互的过程，于是上面描述的共情社交所带来的过程可以描述为：“获得内部信息和外部信息的一致性”或者说“与外部信息形成共识”。</p>
@@ -3706,12 +3706,12 @@ $$</p>
 $$</p>
 <p>于是对每一个用户，都可以算出他最近一个月在各个场景的访问频度（熟客率）了。</p>
 <p>对某一个特定的场景而言，我们想要了解的是类似于：“高频用户的占比”这样的指标，来了解用户对于一个场景的喜爱程度，所以我们按照用户熟客率统计用户的分布情况：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/hoOVZyXNMgtTf9b.png"></p>
+<p><img alt="eh9us" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/ed36fef5db6aa9a3a0d485a801b9bba1.png"></p>
 <p>除去搜索的图型比较特别外，其他的场景数据都很像一个指数分布，于是我们对用户分布情况取对数再来观察：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/oFK9liBgCGrIesH.png"></p>
+<p><img alt="1de9k" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/4a9d5159812fb1bcb0dc7719467b5efb.png"></p>
 <p>从这个图来看，基本符合我们的假设：用户分布情况是接近于指数分布的，但在访问频度为 1 的位置会产生很奇异的拐点，中间也有很多位置并不平滑。进一步分析发现，这样的现象主要是因为部分用户对手淘的访问天数过短，造成他们的访问信息并不具有有效性。为此，我们仅统计每月访问手淘 15 天以上的用户（用户量为：139523167，基本覆盖手淘的活跃用户）。</p>
 <p>重新统计的上图如下：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/Sdw1re3Nvatq4uO.png"></p>
+<p><img alt="r4srx" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/22e865edcd6e328d9e8dae49e470329f.png"></p>
 <p>这一回，整个曲线都变得平滑了（仅仅是在 0.3~0.4 附近感觉有拐点）。根据这个图，我们增加如下的假设：对一个场景而言，有认知的用户的的分布模型是一个指数分布；高频访问的用户基本都是有认知的用户。</p>
 <h2 id="场景指标的计算">场景指标的计算</h2>
 <p>接上文，我们根据熟客率的指标可以用回归的方法统计出“有认知”的用户再场景内访问频率的分布情况：</p>
@@ -3783,9 +3783,9 @@ f(x) = \lambda e^{-\lambda}
 $$</p>
 <p>从而就能得到上面表格中的数据指标。</p>
 <p>我们再根据这个数据去反推一下没有场景认知的用户访问情况：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/KdSPQm8AXbMiHOE.png"></p>
+<p><img alt="ppjon" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/d9bdc2064350252b725e10fef415af1d.png"></p>
 <p>图形也是呈指数分布，但这里的降幅快了很多（而且相比于原有的数据，误差增加了不少）。还是通过取对数，再根据散点图来观察：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/4Wi9dRLp7uoxzrX.png"></p>
+<p><img alt="haxhn" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/bcd7581514347ac8c1f4f2237786d5e1.png"></p>
 <p>通过这个图来观察的话，指数分布的趋势明显了很多。用类似的方法，我们可以得到：</p>
 <table>
   <thead>
@@ -3864,7 +3864,7 @@ $$</p>
 <p>因为场景下的用户分为：有认知的和无认知的两类，尤其是在熟客率较低的部分，两类用户不可分。为了便于分析，本节的讨论都仅针对有认知的用户进行分析，采样的方法：仅取熟客率大于 $0.5$ 的用户</p>
 <p>用户的熟客率是用一个月分访问频率来描述的，这个指标在某一天的体现即：一部分用户访问了手淘的用户这一天访问某场景的比例。熟客率的稳定性即：高频访问的用户和低频访问的用户是明显可分的——通常情况下不会出现大量的高频用户和低频用户的访问比例发生反转</p>
 <p>为验证这个结论我们用猜你喜欢的数据，统计了熟客率在 $0.5$<del>$0.6$ 之间的用户和熟客率 再 $0.6$</del>$0.7$ 之间的用户，他们再过去一个月中，每天访问概率的变化情况：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/gdtCXfuTQrcIS6e.png"></p>
+<p><img alt="3esx3" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/577e89955a2765d9c6bbb38c526427af.png"></p>
 <p>是跟次日回访率一致的——用户再某一天的访问概率跟入口情况和时间周期有密切的联系， 但依然可以非常明显的看出：不同熟客率区间的用户，他们的访问概率是很明显的不同的， 但趋势又非常的一致。这说明熟客率这个指标是一个很稳定的衡量用户对场景认知的指标。</p>
 <h3 id="用户熟客率与客户价值之间的关联">用户熟客率与客户价值之间的关联</h3>
 <p>用户价值是指用户在场景内的具体行为贡献，包括点击、购买、客单价等等。因为熟客率计算是完全不考虑用户在场景内的行为的，所以跟诸如：CTR，CVR 等指标没有直接关联。我们想统计一下熟客率是否跟用户价值是正相关的。为简化研究复杂度（或者说我偷了个懒），这里仅统计了点击率（uctr），来验证用户熟客率和客户价值之间的关系。</p>
@@ -3916,7 +3916,7 @@ $$</p>
       </tr>
   </tbody>
 </table>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/8sYMwxuSc7j9C2E.png"></p>
+<p><img alt="pftq1" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/7c2e807c970ece961bffa00abcc0e33e.png"></p>
 <p>如预期的，点击率同用户的熟客率很明显的正相关，即熟客率越高，点击率越高。有充分的理由相信，pctr，cvr， 客单价等指标也会有显著的相关性，但具体的结论还待进一步研究。</p>
 <p>同时这个结论也反向反映了另一个结论：上文中场景认知用户的指数分布系数 λ 越小，场景内价值体现的越好（高熟客率的用户占比更多，从而价值指标的平均值更高）。用通俗的话来解释就是：我们应当培养更多的老用户，他们能贡献更大的价值（虽然看上去是很显然的结论，但数据可以模型化这个结论并进一步的量化带来的收益）。</p>
 <h3 id="相关结果对场景优化方向的指导性">相关结果对场景优化方向的指导性</h3>
@@ -3933,7 +3933,7 @@ $$</p>
 <p>当然，最核心的，最能创造价值的，还是有认知用户的熟客率指标。不断提升有认知 用户的熟客率指标，是一个产品长久发展的核心！另外我们也可以根据现有的有认知用户， 观察一个场景究竟更能吸引怎样的用户，以此来决定产品定位的调整或者做定向的投放来引流。</p>
 <h2 id="熟客率指标作为算法优化指标的尝试">熟客率指标作为算法优化指标的尝试</h2>
 <p>以猜你喜欢数据为例，对两个不同的分桶统计了单日访问率指标和次日回访率（）曲线是两个桶之间的差值：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2024/09/18/UNTaBvFnRbzSIGx.png"></p>
+<p><img alt="6dtdw" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/c1ab411d8d1424b4545620fe8d1db359.png"></p>
 <p>因为我这边并不知道猜你喜欢上具体做得是什么实验，所以没有办法进行物理含义的分析。但是从图上还是可以看到，熟客率是一个可衡量的指标，能够对具体的算法实验进行效果评估。</p>
 <p>另一方面，熟客率指标的整体趋势和回访率是比较接近的，但在一些特定的点上会有较大的差异性。带来这部分差异的，应该就是“有认知的用户”和“没有认知的用户”对待一些变化的不同反映。</p>
 <p>关于熟客率作为算法指标的优化，这部分现在还不是很成熟，需要进一步的探究。</p>

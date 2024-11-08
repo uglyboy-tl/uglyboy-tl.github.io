@@ -6,7 +6,7 @@
     <description>Recent content in RoPE on 拾柒读库</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 14 Nov 2023 21:09:55 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Nov 2024 22:15:47 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/rope/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>大语言模型的数学理解</title>
@@ -65,11 +65,11 @@ $$</p>
 <p>我们也逐步来分析这个问题，首先是传统统计学习的学习方法和深度神经网络之间的选择。从结果上看，我们选择了深度神经网络，因为我们不可能见过所有人说过的所有话，所以我们希望我们训练的模型在我们未见过的样本上也能取得很好的效果，这就是<strong>模型的泛化能力</strong>。而实验表明，深度神经网络的泛化性更好。为什么呢？</p>
 <h3 id="过参数化是泛化性好的本质原因">过参数化是泛化性好的本质原因</h3>
 <p>在传统统计学习中，我们希望使用的参数尽可能的少（奥卡姆剃刀原理），这样才能带来更好的泛化效果。另一方面，我们又希望我们的模型的表达能力尽可能的强，这样才能更好的拟合真实的概率空间。所以会有经典的微笑曲线：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/11/11/X9Q8xVuroRI3fzU.png"></p>
+<p><img alt="2qe95" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/caba559c77a8265e9f2d8e80df97e666.png"></p>
 <p>假设空间的大小不能太小，也不能太大（否则会过拟合）。</p>
 <p>但当时的人们都没有尝试一件事情，就是如果进一步增大参数空间（已经发生过拟合之后），会发生什么？</p>
 <p>下图是实际发生的事情：</p>
-<p><img loading="lazy" src="https://s2.loli.net/2023/10/21/hIYNgQoBmRy32PH.png"></p>
+<p><img alt="6kj97" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/70ad342e678188e5f5b011264353d943.png"></p>
 <p>随着参数空间的继续增大，泛化性又逐步的提升了，而且比过拟合之前的最优值还要好了。</p>
 <p>这件事是深度学习拥有良好泛化性的本质原因——<strong>过参数化</strong>。如 <a href="http://arxiv.org/abs/1802.01396">Belkin et al(2018)</a> 中描述的，其实这种能力也并不是深度神经网络所独有的，而是一切过参数化的机器学习方法都能具备的性质。</p>
 <p>深度神经网络一方面可以通过网络结构学习任意形状的可积函数的分布，另一方面，又可以通过过参数化获得良好的泛化性，于是就成为了真实世界大部分问题的最优机器学习方法——我们可以从猜测真实问题的函数结构中解脱出来，也不用担心样本量少无法遍历全部解空间。</p>

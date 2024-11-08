@@ -6,7 +6,7 @@
     <description>Recent content in Github Actions on 拾柒读库</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Dec 2023 09:25:29 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Nov 2024 22:15:47 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 搭建流程</title>
@@ -626,8 +626,8 @@
   </thead>
   <tbody>
       <tr>
-          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/PhTNCuG6okXRqaA.jpg"></a></td>
-          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/7b2PYUsfqCp6x5g.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-1.jpg"><img alt="deploy-keys-1" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/a94d37f0dd668df3f707654313a5e949.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/deploy-keys-2.jpg"><img alt="deploy-keys-2" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/dd59f719ce2905d9aeb8ecab1bb1e2af.jpg"></a></td>
       </tr>
   </tbody>
 </table>
@@ -640,8 +640,8 @@
   </thead>
   <tbody>
       <tr>
-          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/bVgQDTKcXytfIGn.jpg"></a></td>
-          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img loading="lazy" src="https://s2.loli.net/2023/10/19/WyYNH4azm3LOGwn.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-1.jpg"><img alt="secrets-1" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/d47a214db6716738b60e199cb523c4b1.jpg"></a></td>
+          <td><a href="https://github.com/peaceiris/actions-gh-pages/blob/main/images/secrets-2.jpg"><img alt="secrets-2" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/117c9fb649ea9562b4c281e0b2142b14.jpg"></a></td>
       </tr>
   </tbody>
 </table>

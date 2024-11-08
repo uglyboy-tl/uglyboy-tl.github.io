@@ -6,7 +6,7 @@
     <description>Recent content in 大模型专题分享 on 拾柒读库</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 18 Dec 2023 16:29:54 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Nov 2024 10:28:26 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Agent 使用指南</title>
@@ -253,6 +253,7 @@
     &lt;section data-markdown&gt;
       &lt;textarea data-template&gt;
       
+
 # RAG 技术
 
 ---
@@ -267,7 +268,7 @@
 
 ### 一个典型 RAG 系统的架构
 
-&amp;lt;center&amp;gt;&amp;lt;img src=&amp;#34;https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg&amp;#34;&amp;gt;&amp;lt;/center&amp;gt;
+&amp;lt;center&amp;gt;&amp;lt;img src=&amp;#34;https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg&amp;#34;&amp;gt;&amp;lt;/center&amp;gt;
 
 ---
 
@@ -324,7 +325,7 @@
 
 ---
 
-&amp;lt;center&amp;gt;&amp;lt;img src=&amp;#34;https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png&amp;#34;&amp;gt;&amp;lt;/center&amp;gt;
+&amp;lt;center&amp;gt;&amp;lt;img src=&amp;#34;https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png&amp;#34;&amp;gt;&amp;lt;/center&amp;gt;
 ---
 
 - 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
@@ -409,6 +410,7 @@
     <section data-markdown>
       <textarea data-template>
       
+
 # RAG 技术
 
 ---
@@ -423,7 +425,7 @@
 
 ### 一个典型 RAG 系统的架构
 
-&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg&#34;&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&#34;https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg&#34;&gt;&lt;/center&gt;
 
 ---
 
@@ -480,7 +482,7 @@
 
 ---
 
-&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png&#34;&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&#34;https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png&#34;&gt;&lt;/center&gt;
 ---
 
 - 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。

@@ -252,6 +252,7 @@
     &lt;section data-markdown&gt;
       &lt;textarea data-template&gt;
       
+
 # RAG 技术
 
 ---
@@ -266,7 +267,7 @@
 
 ### 一个典型 RAG 系统的架构
 
-&amp;lt;center&amp;gt;&amp;lt;img src=&amp;#34;https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg&amp;#34;&amp;gt;&amp;lt;/center&amp;gt;
+&amp;lt;center&amp;gt;&amp;lt;img src=&amp;#34;https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg&amp;#34;&amp;gt;&amp;lt;/center&amp;gt;
 
 ---
 
@@ -323,7 +324,7 @@
 
 ---
 
-&amp;lt;center&amp;gt;&amp;lt;img src=&amp;#34;https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png&amp;#34;&amp;gt;&amp;lt;/center&amp;gt;
+&amp;lt;center&amp;gt;&amp;lt;img src=&amp;#34;https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png&amp;#34;&amp;gt;&amp;lt;/center&amp;gt;
 ---
 
 - 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
@@ -408,6 +409,7 @@
     <section data-markdown>
       <textarea data-template>
       
+
 # RAG 技术
 
 ---
@@ -422,7 +424,7 @@
 
 ### 一个典型 RAG 系统的架构
 
-&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/11/26/UcTsI8xJVdMFfRt.jpg&#34;&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&#34;https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg&#34;&gt;&lt;/center&gt;
 
 ---
 
@@ -479,7 +481,7 @@
 
 ---
 
-&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/11/27/B1NkImf2eKrZl7J.png&#34;&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&#34;https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png&#34;&gt;&lt;/center&gt;
 ---
 
 - 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
