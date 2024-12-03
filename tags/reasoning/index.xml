@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/tags/reasoning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>大模型的推理能力</title>
-      <link>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/11/06/</link>
       <pubDate>Wed, 06 Nov 2024 18:44:15 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/11/06/</guid>
       <description>对推理能力的一个科学描述</description>
       <content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>自 GPT3.5 引爆大模型概念以来，大家都期盼着 AGI<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 的到来。但与此同时，当下各类大模型虽然依据 Scaling Law<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，不断提升各方面的性能，但是关于模型的推理能力，总显得不足。</p>

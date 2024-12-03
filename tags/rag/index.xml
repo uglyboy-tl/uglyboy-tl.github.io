@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/tags/rag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RAG 的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/04/07/</link>
       <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/04/07/</guid>
       <description>&lt;h2 id=&#34;问题的定义&#34;&gt;问题的定义&lt;/h2&gt;
 &lt;p&gt;探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="问题的定义">问题的定义</h2>
@@ -279,9 +279,9 @@ $$</p>
     </item>
     <item>
       <title>RAG 技术</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/11/23/</link>
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/11/23/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;

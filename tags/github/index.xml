@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UglyChain，面向开发者的大模型开发框架</title>
-      <link>https://blog.uglyboy.cn/posts/2024/02/15/uglychain%E9%9D%A2%E5%90%91%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/02/15/</link>
       <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/02/15/uglychain%E9%9D%A2%E5%90%91%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/02/15/</guid>
       <description>一个更好用的 LLM 应用构建工具</description>
       <content:encoded><![CDATA[<h2 id="最近的新玩具uglychain">最近的新玩具：<strong>UglyChain</strong></h2>
 <p>先上链接：<a href="https://github.com/uglyboy-tl/UglyChain">UglyChain</a> ，文档：<a href="https://uglychain.uglyboy.cn/">https://uglychain.uglyboy.cn</a></p>

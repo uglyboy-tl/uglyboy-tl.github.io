@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/tags/%E7%BC%96%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>大模型的推理能力</title>
-      <link>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/11/06/</link>
       <pubDate>Wed, 06 Nov 2024 18:44:15 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/11/06/</guid>
       <description>对推理能力的一个科学描述</description>
       <content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>自 GPT3.5 引爆大模型概念以来，大家都期盼着 AGI<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 的到来。但与此同时，当下各类大模型虽然依据 Scaling Law<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，不断提升各方面的性能，但是关于模型的推理能力，总显得不足。</p>
@@ -144,9 +144,9 @@
     </item>
     <item>
       <title>编码的意义</title>
-      <link>https://blog.uglyboy.cn/posts/2024/09/18/%E7%BC%96%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/09/18/</link>
       <pubDate>Wed, 18 Sep 2024 10:38:40 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/09/18/%E7%BC%96%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/09/18/</guid>
       <description>大模型发挥能力被忽视的要素</description>
       <content:encoded><![CDATA[<h2 id="导言">导言</h2>
 <p>伴随着大模型研究的推进和在应用中的实践，我们发现了一个现象——对于现有的 LLM 模型而言，一个好的编码可能会对其模型能力带来极大的助力。</p>

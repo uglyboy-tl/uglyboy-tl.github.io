@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>大模型的推理能力</title>
-      <link>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/11/06/</link>
       <pubDate>Wed, 06 Nov 2024 18:44:15 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/11/06/</guid>
       <description>对推理能力的一个科学描述</description>
       <content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>自 GPT3.5 引爆大模型概念以来，大家都期盼着 AGI<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 的到来。但与此同时，当下各类大模型虽然依据 Scaling Law<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，不断提升各方面的性能，但是关于模型的推理能力，总显得不足。</p>
@@ -144,9 +144,9 @@
     </item>
     <item>
       <title>编码的意义</title>
-      <link>https://blog.uglyboy.cn/posts/2024/09/18/%E7%BC%96%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/09/18/</link>
       <pubDate>Wed, 18 Sep 2024 10:38:40 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/09/18/%E7%BC%96%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/09/18/</guid>
       <description>大模型发挥能力被忽视的要素</description>
       <content:encoded><![CDATA[<h2 id="导言">导言</h2>
 <p>伴随着大模型研究的推进和在应用中的实践，我们发现了一个现象——对于现有的 LLM 模型而言，一个好的编码可能会对其模型能力带来极大的助力。</p>
@@ -343,9 +343,9 @@ $$</p>
     </item>
     <item>
       <title>RAG 的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/04/07/</link>
       <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/04/07/</guid>
       <description>&lt;h2 id=&#34;问题的定义&#34;&gt;问题的定义&lt;/h2&gt;
 &lt;p&gt;探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="问题的定义">问题的定义</h2>
@@ -612,9 +612,9 @@ $$</p>
     </item>
     <item>
       <title>大模型对齐的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/02/27/</link>
       <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/02/27/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
@@ -733,9 +733,9 @@ $$</p>
     </item>
     <item>
       <title>Agent 使用指南</title>
-      <link>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/12/10/</link>
       <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/12/10/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -968,9 +968,9 @@ $$</p>
     </item>
     <item>
       <title>RAG 技术</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/11/23/</link>
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/11/23/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -1289,9 +1289,9 @@ $$</p>
     </item>
     <item>
       <title>大模型的计算能力</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/11/21/</link>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/11/21/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -1670,9 +1670,9 @@ Agent 的 While 循环模式恰好符合 Bellman 方程的形式。
     </item>
     <item>
       <title>大语言模型原理分享</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/11/21/</link>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/11/21/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -1823,9 +1823,9 @@ $$
     </item>
     <item>
       <title>大语言模型的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/11/09/</link>
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/11/09/</guid>
       <description>&lt;h2 id=&#34;大语言模型的基本逻辑&#34;&gt;大语言模型的基本逻辑&lt;/h2&gt;
 &lt;p&gt;大语言模型的本质是一个 &lt;code&gt;N-GRAM&lt;/code&gt; 模型，即：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;
@@ -1996,9 +1996,9 @@ $$</p>
     </item>
     <item>
       <title>大语言模型的计算能力</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/30/</link>
       <pubDate>Mon, 30 Oct 2023 07:50:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/30/</guid>
       <description>&lt;h2 id=&#34;大模型是有穷自动机&#34;&gt;大模型是有穷自动机&lt;/h2&gt;
 &lt;h3 id=&#34;非确定型有穷自动机nfa的定义&#34;&gt;非确定型有穷自动机（NFA）的定义&lt;/h3&gt;
 &lt;p&gt;非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中&lt;/p&gt;
@@ -2212,9 +2212,9 @@ $$</p>
     </item>
     <item>
       <title>所谓“压缩即是智慧”毫无意义</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/25/</link>
       <pubDate>Wed, 25 Oct 2023 10:57:47 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/25/</guid>
       <description>&lt;h2 id=&#34;算数编码才是压缩的本质&#34;&gt;算数编码才是压缩的本质&lt;/h2&gt;
 &lt;p&gt;一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 &lt;a href=&#34;https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;amp;t=247s&#34;&gt;Compression for AGI - Jack Rae | Stanford MLSys #76&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;里面核心模式只有一个：&lt;/p&gt;
@@ -2262,9 +2262,9 @@ $$</p>
     </item>
     <item>
       <title>Scaling Law 的数学解读</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/10/</link>
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/10/</guid>
       <description>&lt;h2 id=&#34;dataset-size-和-loss-的关系&#34;&gt;Dataset Size 和 Loss 的关系&lt;/h2&gt;
 &lt;h3 id=&#34;最大似然估计mle&#34;&gt;最大似然估计（MLE）&lt;/h3&gt;
 &lt;p&gt;一切机器学习的本质都是最大似然估计：&lt;/p&gt;
@@ -2434,9 +2434,9 @@ $$</p>
     </item>
     <item>
       <title>换个角度看推荐</title>
-      <link>https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/</link>
+      <link>https://blog.uglyboy.cn/slides/2017/10/11/</link>
       <pubDate>Wed, 11 Oct 2017 10:59:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2017/10/11/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -2771,9 +2771,9 @@ $$</p>
     </item>
     <item>
       <title>场景的用户认知度（熟客率）研究</title>
-      <link>https://blog.uglyboy.cn/posts/2016/09/14/%E5%9C%BA%E6%99%AF%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E7%9F%A5%E5%BA%A6%E7%86%9F%E5%AE%A2%E7%8E%87%E7%A0%94%E7%A9%B6/</link>
+      <link>https://blog.uglyboy.cn/posts/2016/09/14/</link>
       <pubDate>Wed, 14 Sep 2016 22:40:50 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2016/09/14/%E5%9C%BA%E6%99%AF%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E7%9F%A5%E5%BA%A6%E7%86%9F%E5%AE%A2%E7%8E%87%E7%A0%94%E7%A9%B6/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2016/09/14/</guid>
       <description>如何用数据描述用户心智</description>
       <content:encoded><![CDATA[<h2 id="背景">背景</h2>
 <p>个性化推荐去年在我们集团取得了非常优异的成绩，为大促、日常场景都带来了非常大的突破，我身边的朋友们也都纷纷说现在的淘宝的个性化很棒。尤其是首图个性化技术，为我们打开了崭新的一扇窗，让诸多场景的日活、成交等核心指标都有了翻倍的提升。</p>

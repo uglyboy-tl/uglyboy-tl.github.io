@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>大模型的推理能力</title>
-      <link>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/11/06/</link>
       <pubDate>Wed, 06 Nov 2024 18:44:15 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/11/06/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8E%A8%E7%90%86%E8%83%BD%E5%8A%9B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/11/06/</guid>
       <description>对推理能力的一个科学描述</description>
       <content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>自 GPT3.5 引爆大模型概念以来，大家都期盼着 AGI<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 的到来。但与此同时，当下各类大模型虽然依据 Scaling Law<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，不断提升各方面的性能，但是关于模型的推理能力，总显得不足。</p>
@@ -144,9 +144,9 @@
     </item>
     <item>
       <title>编码的意义</title>
-      <link>https://blog.uglyboy.cn/posts/2024/09/18/%E7%BC%96%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/09/18/</link>
       <pubDate>Wed, 18 Sep 2024 10:38:40 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/09/18/%E7%BC%96%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/09/18/</guid>
       <description>大模型发挥能力被忽视的要素</description>
       <content:encoded><![CDATA[<h2 id="导言">导言</h2>
 <p>伴随着大模型研究的推进和在应用中的实践，我们发现了一个现象——对于现有的 LLM 模型而言，一个好的编码可能会对其模型能力带来极大的助力。</p>
@@ -343,9 +343,9 @@ $$</p>
     </item>
     <item>
       <title>谈一谈什么是幸福的工作</title>
-      <link>https://blog.uglyboy.cn/posts/2024/07/21/%E8%B0%88%E4%B8%80%E8%B0%88%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%B8%E7%A6%8F%E7%9A%84%E5%B7%A5%E4%BD%9C/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/07/21/</link>
       <pubDate>Sun, 21 Jul 2024 18:16:51 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/07/21/%E8%B0%88%E4%B8%80%E8%B0%88%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%B8%E7%A6%8F%E7%9A%84%E5%B7%A5%E4%BD%9C/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/07/21/</guid>
       <description>为什么我们觉得工作不开心？</description>
       <content:encoded><![CDATA[<h2 id="从雷军的年度演讲说起">从雷军的年度演讲说起</h2>
 <p>最近，小米的发布会上，雷军花了一个小时讲述小米造车的故事，又一次成了互联网的热点。当然，按照互联网成王败寇的准则，现在雷军身上的一切必将镀上一层光环，讲话中的每个做法，都会成为新的成功学标杆。所以在当下的时间点，每一种解读小米或雷军的成功之处的声音，都仿佛追逐热点的“苍蝇”，“很难评”。</p>
@@ -380,9 +380,9 @@ $$</p>
     </item>
     <item>
       <title>RAG 的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/04/07/</link>
       <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/04/07/rag-%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/04/07/</guid>
       <description>&lt;h2 id=&#34;问题的定义&#34;&gt;问题的定义&lt;/h2&gt;
 &lt;p&gt;探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<h2 id="问题的定义">问题的定义</h2>
@@ -649,9 +649,9 @@ $$</p>
     </item>
     <item>
       <title>大模型对齐的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/02/27/</link>
       <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/02/27/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AF%B9%E9%BD%90%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/02/27/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
@@ -770,9 +770,9 @@ $$</p>
     </item>
     <item>
       <title>UglyChain，面向开发者的大模型开发框架</title>
-      <link>https://blog.uglyboy.cn/posts/2024/02/15/uglychain%E9%9D%A2%E5%90%91%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/02/15/</link>
       <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/02/15/uglychain%E9%9D%A2%E5%90%91%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/02/15/</guid>
       <description>一个更好用的 LLM 应用构建工具</description>
       <content:encoded><![CDATA[<h2 id="最近的新玩具uglychain">最近的新玩具：<strong>UglyChain</strong></h2>
 <p>先上链接：<a href="https://github.com/uglyboy-tl/UglyChain">UglyChain</a> ，文档：<a href="https://uglychain.uglyboy.cn/">https://uglychain.uglyboy.cn</a></p>
@@ -848,9 +848,9 @@ $$</p>
     </item>
     <item>
       <title>2023 年总结</title>
-      <link>https://blog.uglyboy.cn/posts/2024/01/28/2023-%E5%B9%B4%E6%80%BB%E7%BB%93/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/01/28/</link>
       <pubDate>Sun, 28 Jan 2024 17:39:14 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/01/28/2023-%E5%B9%B4%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/01/28/</guid>
       <description>2023 年总结，也是过去十年的总结</description>
       <content:encoded><![CDATA[<blockquote>
 <p>这是一份迟到的 2023 年总结，因为我一直在思考，如何总结这一年，想着想着，就成了十年总结了。</p>
@@ -883,9 +883,9 @@ $$</p>
     </item>
     <item>
       <title>Hugo &#43; Reveal.js 后续</title>
-      <link>https://blog.uglyboy.cn/posts/2023/12/19/hugo--reveal.js-%E5%90%8E%E7%BB%AD/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/12/19/</link>
       <pubDate>Tue, 19 Dec 2023 08:56:27 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/12/19/hugo--reveal.js-%E5%90%8E%E7%BB%AD/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/12/19/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/&#34;&gt;上一篇&lt;/a&gt; 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
@@ -1139,9 +1139,9 @@ $$</p>
     </item>
     <item>
       <title>Agent 使用指南</title>
-      <link>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/12/10/</link>
       <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/12/10/agent-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/12/10/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -1374,9 +1374,9 @@ $$</p>
     </item>
     <item>
       <title>Hugo 更换字体 &amp; 使用 Reveal.js 做在线展示</title>
-      <link>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/12/07/</link>
       <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/12/07/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;又开始折腾博客了。&lt;/p&gt;
 &lt;p&gt;基于 &lt;code&gt;PaperMod&lt;/code&gt; 主题，给博客增加了两个基本功能：&lt;/p&gt;
@@ -1593,9 +1593,9 @@ $$</p>
     </item>
     <item>
       <title>浮躁的时代</title>
-      <link>https://blog.uglyboy.cn/posts/2023/12/01/%E6%B5%AE%E8%BA%81%E7%9A%84%E6%97%B6%E4%BB%A3/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/12/01/</link>
       <pubDate>Fri, 01 Dec 2023 08:56:12 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/12/01/%E6%B5%AE%E8%BA%81%E7%9A%84%E6%97%B6%E4%BB%A3/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/12/01/</guid>
       <description>浮躁的时代，浮躁的人们，浮躁的世界。</description>
       <content:encoded><![CDATA[<h2 id="从拼多多市值超过阿里说起">从拼多多市值超过阿里说起</h2>
 <p>昨天，拼多多的市值超过阿里了。</p>
@@ -1652,9 +1652,9 @@ $$</p>
     </item>
     <item>
       <title>RAG 技术</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/11/23/</link>
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/23/rag-%E6%8A%80%E6%9C%AF/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/11/23/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -1973,9 +1973,9 @@ $$</p>
     </item>
     <item>
       <title>大模型的计算能力</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/11/21/</link>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/11/21/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -2354,9 +2354,9 @@ Agent 的 While 循环模式恰好符合 Bellman 方程的形式。
     </item>
     <item>
       <title>大语言模型原理分享</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</link>
+      <link>https://blog.uglyboy.cn/slides/2023/11/21/</link>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/21/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2023/11/21/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -2507,9 +2507,9 @@ $$
     </item>
     <item>
       <title>大语言模型的数学理解</title>
-      <link>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/11/09/</link>
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/11/09/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/11/09/</guid>
       <description>&lt;h2 id=&#34;大语言模型的基本逻辑&#34;&gt;大语言模型的基本逻辑&lt;/h2&gt;
 &lt;p&gt;大语言模型的本质是一个 &lt;code&gt;N-GRAM&lt;/code&gt; 模型，即：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;
@@ -2680,9 +2680,9 @@ $$</p>
     </item>
     <item>
       <title>大语言模型的计算能力</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/30/</link>
       <pubDate>Mon, 30 Oct 2023 07:50:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/30/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/30/</guid>
       <description>&lt;h2 id=&#34;大模型是有穷自动机&#34;&gt;大模型是有穷自动机&lt;/h2&gt;
 &lt;h3 id=&#34;非确定型有穷自动机nfa的定义&#34;&gt;非确定型有穷自动机（NFA）的定义&lt;/h3&gt;
 &lt;p&gt;非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中&lt;/p&gt;
@@ -2896,9 +2896,9 @@ $$</p>
     </item>
     <item>
       <title>所谓“压缩即是智慧”毫无意义</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/25/</link>
       <pubDate>Wed, 25 Oct 2023 10:57:47 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/25/%E6%89%80%E8%B0%93%E5%8E%8B%E7%BC%A9%E5%8D%B3%E6%98%AF%E6%99%BA%E6%85%A7%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/25/</guid>
       <description>&lt;h2 id=&#34;算数编码才是压缩的本质&#34;&gt;算数编码才是压缩的本质&lt;/h2&gt;
 &lt;p&gt;一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 &lt;a href=&#34;https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;amp;t=247s&#34;&gt;Compression for AGI - Jack Rae | Stanford MLSys #76&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;里面核心模式只有一个：&lt;/p&gt;
@@ -2946,9 +2946,9 @@ $$</p>
     </item>
     <item>
       <title>Hugo 搭建流程</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/18/</link>
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/18/</guid>
       <description>&lt;h2 id=&#34;基本安装&#34;&gt;基本安装&lt;/h2&gt;
 &lt;h3 id=&#34;搭建站点&#34;&gt;搭建站点&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -3585,9 +3585,9 @@ $$</p>
     </item>
     <item>
       <title>Scaling Law 的数学解读</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/10/</link>
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/10/</guid>
       <description>&lt;h2 id=&#34;dataset-size-和-loss-的关系&#34;&gt;Dataset Size 和 Loss 的关系&lt;/h2&gt;
 &lt;h3 id=&#34;最大似然估计mle&#34;&gt;最大似然估计（MLE）&lt;/h3&gt;
 &lt;p&gt;一切机器学习的本质都是最大似然估计：&lt;/p&gt;
@@ -3757,9 +3757,9 @@ $$</p>
     </item>
     <item>
       <title>组织理论讲义</title>
-      <link>https://blog.uglyboy.cn/slides/2022/10/15/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</link>
+      <link>https://blog.uglyboy.cn/slides/2022/10/15/</link>
       <pubDate>Sat, 15 Oct 2022 20:20:25 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2022/10/15/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2022/10/15/</guid>
       <description>组织背后的核心要素</description>
       <content:encoded><![CDATA[<div class="reveal">
   <div class="slides">
@@ -3915,9 +3915,9 @@ $$</p>
     </item>
     <item>
       <title>科学决策讲义</title>
-      <link>https://blog.uglyboy.cn/slides/2022/04/27/%E7%A7%91%E5%AD%A6%E5%86%B3%E7%AD%96%E8%AE%B2%E4%B9%89/</link>
+      <link>https://blog.uglyboy.cn/slides/2022/04/27/</link>
       <pubDate>Wed, 27 Apr 2022 17:26:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2022/04/27/%E7%A7%91%E5%AD%A6%E5%86%B3%E7%AD%96%E8%AE%B2%E4%B9%89/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2022/04/27/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -4242,9 +4242,9 @@ flowchart LR
     </item>
     <item>
       <title>Autorestic</title>
-      <link>https://blog.uglyboy.cn/posts/2022/02/22/autorestic/</link>
+      <link>https://blog.uglyboy.cn/posts/2022/02/22/</link>
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2022/02/22/autorestic/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2022/02/22/</guid>
       <description>完善的数据自动备份系统</description>
       <content:encoded><![CDATA[<blockquote>
 <p>原本是打算不再在这里写技术类博客了，结果最近的一个小成果确实没啥合适的地方存放，所以还是留在这里吧。</p>
@@ -4371,9 +4371,9 @@ flowchart LR
     </item>
     <item>
       <title>组织理论</title>
-      <link>https://blog.uglyboy.cn/posts/2021/11/11/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</link>
+      <link>https://blog.uglyboy.cn/posts/2021/11/11/</link>
       <pubDate>Thu, 11 Nov 2021 17:30:18 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2021/11/11/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2021/11/11/</guid>
       <description>&lt;h2 id=&#34;组织的基本构成&#34;&gt;组织的基本构成&lt;/h2&gt;
 &lt;h3 id=&#34;非正式组织&#34;&gt;非正式组织&lt;/h3&gt;
 &lt;p&gt;组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“&lt;strong&gt;合作&lt;/strong&gt;”这一说法取代。&lt;/p&gt;
@@ -4712,9 +4712,9 @@ flowchart LR
     </item>
     <item>
       <title>庖丁解牛|究竟什么是“战略”？</title>
-      <link>https://blog.uglyboy.cn/posts/2021/07/15/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%98%E7%95%A5/</link>
+      <link>https://blog.uglyboy.cn/posts/2021/07/15/</link>
       <pubDate>Thu, 15 Jul 2021 08:00:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2021/07/15/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B%E7%A9%B6%E7%AB%9F%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%98%E7%95%A5/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2021/07/15/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;前几日，在朋友圈看到前同事分享某大厂高管在 XX 创业营上开了一课《如何制定战略》，内容里有“使命、愿景、价值观”、还有“一颗心，一张图，一场仗”等行业黑话，而这两个话题凑一起，竟成了“从战略到执行的方法论”了。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
@@ -4806,9 +4806,9 @@ flowchart LR
     </item>
     <item>
       <title>黑暗森林法则和营销</title>
-      <link>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</link>
+      <link>https://blog.uglyboy.cn/posts/2021/07/01/</link>
       <pubDate>Thu, 01 Jul 2021 08:00:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2021/07/01/%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99%E5%92%8C%E8%90%A5%E9%94%80/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2021/07/01/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;宇宙就是一座黑暗森林，每个文明都是带枪的猎人，像幽灵般潜行于林间，轻轻拨开挡路的树枝，竭力不让脚步发出一点儿声音，连呼吸都小心翼翼……他必须小心，因为林中到处都有与他一样潜行的猎人。如果他发现了别的生命，不管是不是猎人，不管是天使还是魔鬼，不管是娇嫩的婴儿还是步履蹒跚的老人，能做的只有一件事：开枪消灭之！&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
@@ -4893,9 +4893,9 @@ flowchart LR
     </item>
     <item>
       <title>共情理论讲义</title>
-      <link>https://blog.uglyboy.cn/slides/2018/11/20/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</link>
+      <link>https://blog.uglyboy.cn/slides/2018/11/20/</link>
       <pubDate>Tue, 20 Nov 2018 08:03:50 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2018/11/20/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2018/11/20/</guid>
       <description>传统经济学未能描述的人类行为方式</description>
       <content:encoded><![CDATA[<div class="reveal">
   <div class="slides">
@@ -5083,9 +5083,9 @@ flowchart LR
     </item>
     <item>
       <title>社交与传播</title>
-      <link>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</link>
+      <link>https://blog.uglyboy.cn/posts/2018/08/16/</link>
       <pubDate>Thu, 16 Aug 2018 21:23:33 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2018/08/16/%E7%A4%BE%E4%BA%A4%E4%B8%8E%E4%BC%A0%E6%92%AD/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2018/08/16/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 &lt;strong&gt;共情&lt;/strong&gt;。通过这项研究，基本解释了生活中大部分经济行为之外的现象背后的原理，也提供了一种新的创造价值的有效路径。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
@@ -5453,9 +5453,9 @@ flowchart LR
     </item>
     <item>
       <title>耐用品价格策略</title>
-      <link>https://blog.uglyboy.cn/slides/2018/08/07/%E8%80%90%E7%94%A8%E5%93%81%E4%BB%B7%E6%A0%BC%E7%AD%96%E7%95%A5/</link>
+      <link>https://blog.uglyboy.cn/slides/2018/08/07/</link>
       <pubDate>Tue, 07 Aug 2018 08:58:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2018/08/07/%E8%80%90%E7%94%A8%E5%93%81%E4%BB%B7%E6%A0%BC%E7%AD%96%E7%95%A5/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2018/08/07/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -5596,9 +5596,9 @@ flowchart LR
     </item>
     <item>
       <title>游戏与游戏化</title>
-      <link>https://blog.uglyboy.cn/slides/2018/01/29/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</link>
+      <link>https://blog.uglyboy.cn/slides/2018/01/29/</link>
       <pubDate>Mon, 29 Jan 2018 10:24:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2018/01/29/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2018/01/29/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -6103,9 +6103,9 @@ flowchart LR
     </item>
     <item>
       <title>用户增长核心模型</title>
-      <link>https://blog.uglyboy.cn/slides/2018/01/02/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B/</link>
+      <link>https://blog.uglyboy.cn/slides/2018/01/02/</link>
       <pubDate>Tue, 02 Jan 2018 11:04:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2018/01/02/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2018/01/02/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -6566,9 +6566,9 @@ $$
     </item>
     <item>
       <title>换个角度看推荐</title>
-      <link>https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/</link>
+      <link>https://blog.uglyboy.cn/slides/2017/10/11/</link>
       <pubDate>Wed, 11 Oct 2017 10:59:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2017/10/11/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/</guid>
+      <guid>https://blog.uglyboy.cn/slides/2017/10/11/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -6903,9 +6903,9 @@ $$
     </item>
     <item>
       <title>场景的用户认知度（熟客率）研究</title>
-      <link>https://blog.uglyboy.cn/posts/2016/09/14/%E5%9C%BA%E6%99%AF%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E7%9F%A5%E5%BA%A6%E7%86%9F%E5%AE%A2%E7%8E%87%E7%A0%94%E7%A9%B6/</link>
+      <link>https://blog.uglyboy.cn/posts/2016/09/14/</link>
       <pubDate>Wed, 14 Sep 2016 22:40:50 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2016/09/14/%E5%9C%BA%E6%99%AF%E7%9A%84%E7%94%A8%E6%88%B7%E8%AE%A4%E7%9F%A5%E5%BA%A6%E7%86%9F%E5%AE%A2%E7%8E%87%E7%A0%94%E7%A9%B6/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2016/09/14/</guid>
       <description>如何用数据描述用户心智</description>
       <content:encoded><![CDATA[<h2 id="背景">背景</h2>
 <p>个性化推荐去年在我们集团取得了非常优异的成绩，为大促、日常场景都带来了非常大的突破，我身边的朋友们也都纷纷说现在的淘宝的个性化很棒。尤其是首图个性化技术，为我们打开了崭新的一扇窗，让诸多场景的日活、成交等核心指标都有了翻倍的提升。</p>

@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autorestic</title>
-      <link>https://blog.uglyboy.cn/posts/2022/02/22/autorestic/</link>
+      <link>https://blog.uglyboy.cn/posts/2022/02/22/</link>
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2022/02/22/autorestic/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2022/02/22/</guid>
       <description>完善的数据自动备份系统</description>
       <content:encoded><![CDATA[<blockquote>
 <p>原本是打算不再在这里写技术类博客了，结果最近的一个小成果确实没啥合适的地方存放，所以还是留在这里吧。</p>

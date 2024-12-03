@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UglyChain，面向开发者的大模型开发框架</title>
-      <link>https://blog.uglyboy.cn/posts/2024/02/15/uglychain%E9%9D%A2%E5%90%91%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</link>
+      <link>https://blog.uglyboy.cn/posts/2024/02/15/</link>
       <pubDate>Thu, 15 Feb 2024 20:13:32 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2024/02/15/uglychain%E9%9D%A2%E5%90%91%E5%BC%80%E5%8F%91%E8%80%85%E7%9A%84%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2024/02/15/</guid>
       <description>一个更好用的 LLM 应用构建工具</description>
       <content:encoded><![CDATA[<h2 id="最近的新玩具uglychain">最近的新玩具：<strong>UglyChain</strong></h2>
 <p>先上链接：<a href="https://github.com/uglyboy-tl/UglyChain">UglyChain</a> ，文档：<a href="https://uglychain.uglyboy.cn/">https://uglychain.uglyboy.cn</a></p>
@@ -88,9 +88,9 @@
     </item>
     <item>
       <title>Hugo &#43; Reveal.js 后续</title>
-      <link>https://blog.uglyboy.cn/posts/2023/12/19/hugo--reveal.js-%E5%90%8E%E7%BB%AD/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/12/19/</link>
       <pubDate>Tue, 19 Dec 2023 08:56:27 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/12/19/hugo--reveal.js-%E5%90%8E%E7%BB%AD/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/12/19/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/&#34;&gt;上一篇&lt;/a&gt; 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
@@ -344,9 +344,9 @@
     </item>
     <item>
       <title>Hugo 更换字体 &amp; 使用 Reveal.js 做在线展示</title>
-      <link>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/12/07/</link>
       <pubDate>Thu, 07 Dec 2023 10:09:58 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/12/07/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;又开始折腾博客了。&lt;/p&gt;
 &lt;p&gt;基于 &lt;code&gt;PaperMod&lt;/code&gt; 主题，给博客增加了两个基本功能：&lt;/p&gt;
@@ -563,9 +563,9 @@
     </item>
     <item>
       <title>Hugo 搭建流程</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/18/</link>
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/18/</guid>
       <description>&lt;h2 id=&#34;基本安装&#34;&gt;基本安装&lt;/h2&gt;
 &lt;h3 id=&#34;搭建站点&#34;&gt;搭建站点&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1202,9 +1202,9 @@
     </item>
     <item>
       <title>Autorestic</title>
-      <link>https://blog.uglyboy.cn/posts/2022/02/22/autorestic/</link>
+      <link>https://blog.uglyboy.cn/posts/2022/02/22/</link>
       <pubDate>Tue, 22 Feb 2022 06:44:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2022/02/22/autorestic/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2022/02/22/</guid>
       <description>完善的数据自动备份系统</description>
       <content:encoded><![CDATA[<blockquote>
 <p>原本是打算不再在这里写技术类博客了，结果最近的一个小成果确实没啥合适的地方存放，所以还是留在这里吧。</p>

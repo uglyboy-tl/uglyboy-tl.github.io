@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo 搭建流程</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/18/</link>
       <pubDate>Wed, 18 Oct 2023 11:57:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/18/hugo-%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/18/</guid>
       <description>&lt;h2 id=&#34;基本安装&#34;&gt;基本安装&lt;/h2&gt;
 &lt;h3 id=&#34;搭建站点&#34;&gt;搭建站点&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;

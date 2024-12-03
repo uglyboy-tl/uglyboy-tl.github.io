@@ -10,9 +10,9 @@
     <atom:link href="https://blog.uglyboy.cn/tags/scaling-law/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scaling Law 的数学解读</title>
-      <link>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</link>
+      <link>https://blog.uglyboy.cn/posts/2023/10/10/</link>
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/posts/2023/10/10/scaling-law-%E7%9A%84%E6%95%B0%E5%AD%A6%E8%A7%A3%E8%AF%BB/</guid>
+      <guid>https://blog.uglyboy.cn/posts/2023/10/10/</guid>
       <description>&lt;h2 id=&#34;dataset-size-和-loss-的关系&#34;&gt;Dataset Size 和 Loss 的关系&lt;/h2&gt;
 &lt;h3 id=&#34;最大似然估计mle&#34;&gt;最大似然估计（MLE）&lt;/h3&gt;
 &lt;p&gt;一切机器学习的本质都是最大似然估计：&lt;/p&gt;
