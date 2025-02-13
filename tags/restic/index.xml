@@ -4,7 +4,7 @@
     <title>Restic on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/restic/</link>
     <description>Recent content in Restic on 拾柒读库</description>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.143.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 13 Nov 2024 22:28:11 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/restic/index.xml" rel="self" type="application/rss+xml" />
@@ -15,8 +15,7 @@
       <guid>https://blog.uglyboy.cn/posts/2022/02/22/</guid>
       <description>完善的数据自动备份系统</description>
       <content:encoded><![CDATA[<blockquote>
-<p>原本是打算不再在这里写技术类博客了，结果最近的一个小成果确实没啥合适的地方存放，所以还是留在这里吧。</p>
-</blockquote>
+<p>原本是打算不再在这里写技术类博客了，结果最近的一个小成果确实没啥合适的地方存放，所以还是留在这里吧。</p></blockquote>
 <p>自从开始使用树莓派，忧虑的一个重要问题就是：万一我的硬盘坏了可怎么办？通常的方案是硬盘组磁盘列阵，例如 raid1，raid5，raid10。可惜这套方案价格太高，不符合我用树莓派做 NAS 的风格。所以还是追求一套通常且通用的数据备份方案。</p>
 <p>其间尝试了一些手段，例如：rclone，Duplicati，rsync，自己写 shell 脚本等等，但是如何构建一个完善的数据备份方案还是比较复杂的，需要考虑包括备份的可靠性，备份文件的大小（冗余程度），备份的版本管理，按不同时效留档等很多的要素。</p>
 <p>最终，终于遇到了 <a href="https://autorestic.vercel.app/">automation</a> ，并依此打造了一套完善的备份方案。</p>

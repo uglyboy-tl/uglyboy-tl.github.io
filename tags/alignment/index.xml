@@ -4,7 +4,7 @@
     <title>Alignment on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/alignment/</link>
     <description>Recent content in Alignment on 拾柒读库</description>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.143.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 28 Feb 2024 19:26:41 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/alignment/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +17,7 @@
 &lt;p&gt;AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
 <p>AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。</p>
-<p>所以本篇文档就是先放下一切具体的 AI alignment 的方法，从问题定义出发，理解清楚 AI alignment 究竟是个什么过程，能解决什么问题，不能解决什么问题。</p>
-</blockquote>
+<p>所以本篇文档就是先放下一切具体的 AI alignment 的方法，从问题定义出发，理解清楚 AI alignment 究竟是个什么过程，能解决什么问题，不能解决什么问题。</p></blockquote>
 <h2 id="大模型对齐是一个贝叶斯学习">大模型对齐是一个贝叶斯学习</h2>
 <p>让我们先来看一看 <code>预训练模型</code> 和对齐获得 <code>chat 模型</code> 之间是什么关系</p>
 <p><strong>定义：</strong></p>
@@ -32,8 +31,7 @@ $$</p>
 <p>所以很容易跳过求解细节，得到最终的结论：</p>
 <p>广义的 SFT 技术的本质，就是求解 $p(chat|content)$，更具体的说，就是获得“能够判别任意文本序列是否聊天对话”的能力。</p>
 <blockquote>
-<p>上面的推演过程可以将 chat 换成任何 SFT 的目标，例如 <code>指令跟随</code>，<code>Functall call</code>，<code>RAG 结果调优</code> 等等。</p>
-</blockquote>
+<p>上面的推演过程可以将 chat 换成任何 SFT 的目标，例如 <code>指令跟随</code>，<code>Functall call</code>，<code>RAG 结果调优</code> 等等。</p></blockquote>
 <h3 id="训练数据">训练数据</h3>
 <p>因为要求解的是一个判别问题，所以训练样本的准备就是准备很多的打了 $[1,-1]$ 标签的文本序列，然后训练就完事了。这里面没有，也不需要更复杂的数学原理了。</p>
 <h3 id="nlp-问题的学习范式">NLP 问题的学习范式</h3>
@@ -57,8 +55,7 @@ $$</p>
 <p><strong>这一点很重要</strong>。因为和上面的 NLP 的范式结合，你会发现，在 NLP 的范式下来实践 Boosting 想法，提升 SFT 的训练样本的权重，实操上的执行手段就是 <strong>RLHF</strong>。</p>
 <p>所以这里就能得到一个不需要看实操细节就可以得到的结论：</p>
 <blockquote>
-<p>RLHF 可以更好的利用有限的训练样本，但会影响模型的泛化性。所以 RLHF 只能做有限的调优手段，不能作为 SFT 的主要手段。</p>
-</blockquote>
+<p>RLHF 可以更好的利用有限的训练样本，但会影响模型的泛化性。所以 RLHF 只能做有限的调优手段，不能作为 SFT 的主要手段。</p></blockquote>
 <h3 id="实践中的流程简化">实践中的流程简化</h3>
 <p>因为我们最终要求解的是：$p(content|chat) = p(chat|content)\cdot p(content)$，同时呢，$p(chat|content)$ 又需要在 $p(content)$ 模型的基础上进行训练。所以在有深度模型这个描述能力极强的工具的帮助下，我们可以将两个流程合并到一起，直接通过训练样本训练出最终的 $p(content|chat)$ 模型。这个过程也是现在大家实践中真实使用的方式。</p>
 <p>从结果来说，这个方式没有任何问题。但是从操作过程来看，会存在一些小隐患：</p>
@@ -100,8 +97,7 @@ p(健康人|阳性) =p(阳性|健康人)\cdot p(患者) = 0.05\cdot p(健康人)
 \end{equation}
 $$</p>
 <p>像现在这种新冠基本绝迹的情况下，检测阳性很大概率是假阳性，问题不大。</p>
-<p>但如果是大流行的时候，往往没检测出阳性，也很有可能已经生病了。</p>
-</blockquote>
+<p>但如果是大流行的时候，往往没检测出阳性，也很有可能已经生病了。</p></blockquote>
 <p>上面的例子给我们一个重要的冲击和启示：先验概率分布对后验概率分布的影响非常大。所以很多时候，或许更好的问题解决办法不是提升条件概率的精度，而是直接拿到更加准确的先验概率。</p>
 <h3 id="nlp-领域的人容易钻的牛角尖">NLP 领域的人容易钻的牛角尖</h3>
 <p>大模型是个很强大的工具，能解决很多以前解决不好的问题。所以 NLP 的“专家”们就开始拿着锤子找钉子，看到了很多以前做得不好的工作，希望用 NLP 来替代。但很可能他们找到的问题是优化条件概率，但对结果起更重要影响的是先验概率。</p>
@@ -123,8 +119,7 @@ $$</p>
 <li>将 query 分解成关键词</li>
 <li>按关键词组合，统计历史上同样关键词组合的用户，真实点击的内容所在的类目，得到 关键词组合&lt;-&gt;类目 的映射关系</li>
 <li>长尾关键词可能会找不到足够的历史数据而出错。但是搜索中大头流量都是可以找到精准的类目预测关系的。</li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <p>这个过程中，没有任何试图理解词的真实语义的尝试，但已经十分精准的解决了搜索在绝大部分时间（流量）下的用户意图识别问题。而且解决方案直观、高效、精度高。</p>
 <p>但是如果是使用大模型技术做意图识别，会漏掉先验概率对结果的影响（例如情人节搜鲜花和清明节搜鲜花，给出的鲜花品类应该是不同的，大语言模型是无法理解这种先验概率的变化的；搜索的模型也无法理解，但是可以快速捕捉到这种变化）。</p>
 ]]></content:encoded>

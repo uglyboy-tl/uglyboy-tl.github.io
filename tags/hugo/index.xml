@@ -4,7 +4,7 @@
     <title>Hugo on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/hugo/</link>
     <description>Recent content in Hugo on 拾柒读库</description>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.143.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 08 Nov 2024 22:15:47 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
@@ -16,8 +16,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/&#34;&gt;上一篇&lt;/a&gt; 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
-<p><a href="https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/">上一篇</a> 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：</p>
-</blockquote>
+<p><a href="https://blog.uglyboy.cn/posts/2023/12/07/hugo-%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93-%E4%BD%BF%E7%94%A8-reveal.js-%E5%81%9A%E5%9C%A8%E7%BA%BF%E5%B1%95%E7%A4%BA/">上一篇</a> 介绍了如何在 Hugo 中使用 Reveal.js 进行 Slide 分享后，这段时间把自己历史的分享逐一迁移到博客上了。这个过程中，又发现了上次方案的一些问题，并做了很多细节的调整，整理如下：</p></blockquote>
 <h3 id="基础配置">基础配置</h3>
 <p><code>layouts/partials/reveal.html</code> 文件是 Reveal.js 的核心配置文件，这里有一些调整：</p>
 <div class="highlight"><div class="chroma">
@@ -275,8 +274,7 @@
 &lt;ol&gt;
 &lt;li&gt;更换中文更加友好的 &lt;a href=&#34;https://github.com/lxgw/LxgwWenKai&#34;&gt;霞鹜文楷&lt;/a&gt; 字体，当然同样的方法也适用于其他任何字体&lt;/li&gt;
 &lt;li&gt;因为我经常使用 &lt;code&gt;Markdown&lt;/code&gt; 做 PPT，所以希望博客也能支持这种类型的文档。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;字体配置&#34;&gt;字体配置&lt;/h2&gt;
 &lt;p&gt;首先，依然修改 &lt;code&gt;layouts/partials/extend_head.html&lt;/code&gt; 文件&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;</description>
       <content:encoded><![CDATA[<blockquote>
@@ -285,8 +283,7 @@
 <ol>
 <li>更换中文更加友好的 <a href="https://github.com/lxgw/LxgwWenKai">霞鹜文楷</a> 字体，当然同样的方法也适用于其他任何字体</li>
 <li>因为我经常使用 <code>Markdown</code> 做 PPT，所以希望博客也能支持这种类型的文档。</li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <h2 id="字体配置">字体配置</h2>
 <p>首先，依然修改 <code>layouts/partials/extend_head.html</code> 文件<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>：</p>
 <div class="highlight"><div class="chroma">
@@ -310,8 +307,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>Reveal.js 的配置中会用到 <code>mathjax</code>，但会与我们之前添加过的 <code>mathjax</code> 冲突，所以需要在这里做一下判断。</p>
-</blockquote>
+<p>Reveal.js 的配置中会用到 <code>mathjax</code>，但会与我们之前添加过的 <code>mathjax</code> 冲突，所以需要在这里做一下判断。</p></blockquote>
 <p>然后在 <code>layouts/partials</code> 下新建 <code>font.html</code> 文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1071,8 +1067,7 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>记得在 Page 仓库的设置中开启 Github Pages，选择 <code>main</code> 分支，用你的仓库名替换 <code>your-repo/your-repo.github.io</code>。</p>
-</blockquote>
+<p>记得在 Page 仓库的设置中开启 Github Pages，选择 <code>main</code> 分支，用你的仓库名替换 <code>your-repo/your-repo.github.io</code>。</p></blockquote>
 <h3 id="生成私钥">生成私钥</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

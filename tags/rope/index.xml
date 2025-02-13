@@ -4,7 +4,7 @@
     <title>RoPE on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/rope/</link>
     <description>Recent content in RoPE on 拾柒读库</description>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.143.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 13 Nov 2024 22:28:11 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/rope/index.xml" rel="self" type="application/rss+xml" />
@@ -58,19 +58,16 @@ $$</p>
 </ol>
 <p>都可以转化到上述的范式中，进而获得更强大的计算能力（通用图灵机）。</p>
 <blockquote>
-<p>Agent 的重要意义其实是帮助 LLM 获得图灵完备性。当然，现在的 Agent 所缺乏的是自适应能力，还强依赖于 <code>Prompt Engineering</code>，不能自适应，不能进化，也没有利用上足够多的人类知识。</p>
-</blockquote>
+<p>Agent 的重要意义其实是帮助 LLM 获得图灵完备性。当然，现在的 Agent 所缺乏的是自适应能力，还强依赖于 <code>Prompt Engineering</code>，不能自适应，不能进化，也没有利用上足够多的人类知识。</p></blockquote>
 <h2 id="大语言模型的泛化性">大语言模型的泛化性</h2>
 <p>从机器学习的角度看，大语言模型是一个生成式模型——学习原始数据的概率分布。这里有一个基础的问题：用哪种机器学习的方法来学习这个生成式模型。</p>
 <p>我们也逐步来分析这个问题，首先是传统统计学习的学习方法和深度神经网络之间的选择。从结果上看，我们选择了深度神经网络，因为我们不可能见过所有人说过的所有话，所以我们希望我们训练的模型在我们未见过的样本上也能取得很好的效果，这就是<strong>模型的泛化能力</strong>。而实验表明，深度神经网络的泛化性更好。为什么呢？</p>
 <h3 id="过参数化是泛化性好的本质原因">过参数化是泛化性好的本质原因</h3>
 <p>在传统统计学习中，我们希望使用的参数尽可能的少（奥卡姆剃刀原理），这样才能带来更好的泛化效果。另一方面，我们又希望我们的模型的表达能力尽可能的强，这样才能更好的拟合真实的概率空间。所以会有经典的微笑曲线：</p>
-<p><img alt="2qe95" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/caba559c77a8265e9f2d8e80df97e666.png"></p>
-<p>假设空间的大小不能太小，也不能太大（否则会过拟合）。</p>
+<img alt="2qe95" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/caba559c77a8265e9f2d8e80df97e666.png"><p>假设空间的大小不能太小，也不能太大（否则会过拟合）。</p>
 <p>但当时的人们都没有尝试一件事情，就是如果进一步增大参数空间（已经发生过拟合之后），会发生什么？</p>
 <p>下图是实际发生的事情：</p>
-<p><img alt="6kj97" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/70ad342e678188e5f5b011264353d943.png"></p>
-<p>随着参数空间的继续增大，泛化性又逐步的提升了，而且比过拟合之前的最优值还要好了。</p>
+<img alt="6kj97" loading="lazy" src="https://oss.uglyboy.cn/image/2024/11/70ad342e678188e5f5b011264353d943.png"><p>随着参数空间的继续增大，泛化性又逐步的提升了，而且比过拟合之前的最优值还要好了。</p>
 <p>这件事是深度学习拥有良好泛化性的本质原因——<strong>过参数化</strong>。如 <a href="http://arxiv.org/abs/1802.01396">Belkin et al(2018)</a> 中描述的，其实这种能力也并不是深度神经网络所独有的，而是一切过参数化的机器学习方法都能具备的性质。</p>
 <p>深度神经网络一方面可以通过网络结构学习任意形状的可积函数的分布，另一方面，又可以通过过参数化获得良好的泛化性，于是就成为了真实世界大部分问题的最优机器学习方法——我们可以从猜测真实问题的函数结构中解脱出来，也不用担心样本量少无法遍历全部解空间。</p>
 <h3 id="过参数化带来的思考">过参数化带来的思考</h3>
@@ -155,8 +152,7 @@ $$</p>
 <h3 id="transformer-算子的信息编码">Transformer 算子的信息编码</h3>
 <p>类似于上面位置编码的分析，我们知道分析算子的核心，是考虑它保留了什么信息（或者说舍弃了什么信息，是否有不应当舍弃的信息被舍弃了）。</p>
 <blockquote>
-<p>Transformer 信息编码的设计表达的是：某个位置所蕴含的信息，只与这个位置之前的所有文本间两两的相似度信息有关。</p>
-</blockquote>
+<p>Transformer 信息编码的设计表达的是：某个位置所蕴含的信息，只与这个位置之前的所有文本间两两的相似度信息有关。</p></blockquote>
 <p>其中极为重要的信息是如下公式：</p>
 <p>$$
 Attention(Query,Source) = \sum_{i=1}Similarity(Query,Key_i)*Value_i
@@ -168,8 +164,7 @@ $$</p>
 <p>这部分其实在数学上值得分析的内容不多，因为对齐的操作本质上是一个偏应用的操作，是让预训练模型更加符合人类的使用场景的操作。所以对齐之后，模型能力层面是没有本质提升的，更多的是在方便人类使用的层面获得了提升。这部分从应用和工程角度是需要而且极为重要的，但没有额外的数学信息。</p>
 <p>其中只有一个话题值得探索，即为什么对齐的操作选择了强化学习而不是继续用传统的模式识别的方法训练？</p>
 <blockquote>
-<p>坊间的笑谈是，当时 OpenAI 负责对齐的团队恰好手边有现成的 RL 的算法，所以就用它搞出了 RLHF。</p>
-</blockquote>
+<p>坊间的笑谈是，当时 OpenAI 负责对齐的团队恰好手边有现成的 RL 的算法，所以就用它搞出了 RLHF。</p></blockquote>
 <p>网上关于这个问题有一些解释，大体上就是表达 RL 的调整效率是高于传统的模式识别的。这部分内容我还没有仔细的研究，就先不胡扯了。</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>

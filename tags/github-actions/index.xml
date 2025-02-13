@@ -4,7 +4,7 @@
     <title>Github Actions on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/github-actions/</link>
     <description>Recent content in Github Actions on 拾柒读库</description>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.143.1</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 08 Nov 2024 22:15:47 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
@@ -596,8 +596,7 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>记得在 Page 仓库的设置中开启 Github Pages，选择 <code>main</code> 分支，用你的仓库名替换 <code>your-repo/your-repo.github.io</code>。</p>
-</blockquote>
+<p>记得在 Page 仓库的设置中开启 Github Pages，选择 <code>main</code> 分支，用你的仓库名替换 <code>your-repo/your-repo.github.io</code>。</p></blockquote>
 <h3 id="生成私钥">生成私钥</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
