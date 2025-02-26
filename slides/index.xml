@@ -4,14 +4,14 @@
     <title>演示 on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/slides/</link>
     <description>Recent content in 演示 on 拾柒读库</description>
-    <generator>Hugo -- 0.143.1</generator>
+    <generator>Hugo -- 0.144.2</generator>
     <language>zh-cn</language>
     <atom:link href="https://blog.uglyboy.cn/slides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Agent 使用指南</title>
-      <link>https://blog.uglyboy.cn/slides/2023/12/10/</link>
+      <link>https://blog.uglyboy.cn/slides/agent-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
       <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/12/10/</guid>
+      <guid>https://blog.uglyboy.cn/slides/agent-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -244,9 +244,9 @@
     </item>
     <item>
       <title>RAG 技术</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/23/</link>
+      <link>https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/23/</guid>
+      <guid>https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -565,9 +565,9 @@
     </item>
     <item>
       <title>大模型的计算能力</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/21/</link>
+      <link>https://blog.uglyboy.cn/slides/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</link>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/21/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -946,9 +946,9 @@ Agent 的 While 循环模式恰好符合 Bellman 方程的形式。
     </item>
     <item>
       <title>大语言模型原理分享</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/21/</link>
+      <link>https://blog.uglyboy.cn/slides/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</link>
       <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/21/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%88%86%E4%BA%AB/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -1099,9 +1099,9 @@ $$
     </item>
     <item>
       <title>组织理论讲义</title>
-      <link>https://blog.uglyboy.cn/slides/2022/10/15/</link>
+      <link>https://blog.uglyboy.cn/slides/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</link>
       <pubDate>Sat, 15 Oct 2022 20:20:25 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2022/10/15/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E7%BB%84%E7%BB%87%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</guid>
       <description>组织背后的核心要素</description>
       <content:encoded><![CDATA[<div class="reveal">
   <div class="slides">
@@ -1257,9 +1257,9 @@ $$
     </item>
     <item>
       <title>科学决策讲义</title>
-      <link>https://blog.uglyboy.cn/slides/2022/04/27/</link>
+      <link>https://blog.uglyboy.cn/slides/%E7%A7%91%E5%AD%A6%E5%86%B3%E7%AD%96%E8%AE%B2%E4%B9%89/</link>
       <pubDate>Wed, 27 Apr 2022 17:26:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2022/04/27/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E7%A7%91%E5%AD%A6%E5%86%B3%E7%AD%96%E8%AE%B2%E4%B9%89/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -1584,9 +1584,9 @@ flowchart LR
     </item>
     <item>
       <title>共情理论讲义</title>
-      <link>https://blog.uglyboy.cn/slides/2018/11/20/</link>
+      <link>https://blog.uglyboy.cn/slides/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</link>
       <pubDate>Tue, 20 Nov 2018 08:03:50 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2018/11/20/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E5%85%B1%E6%83%85%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89/</guid>
       <description>传统经济学未能描述的人类行为方式</description>
       <content:encoded><![CDATA[<div class="reveal">
   <div class="slides">
@@ -1774,9 +1774,9 @@ flowchart LR
     </item>
     <item>
       <title>耐用品价格策略</title>
-      <link>https://blog.uglyboy.cn/slides/2018/08/07/</link>
+      <link>https://blog.uglyboy.cn/slides/%E8%80%90%E7%94%A8%E5%93%81%E4%BB%B7%E6%A0%BC%E7%AD%96%E7%95%A5/</link>
       <pubDate>Tue, 07 Aug 2018 08:58:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2018/08/07/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E8%80%90%E7%94%A8%E5%93%81%E4%BB%B7%E6%A0%BC%E7%AD%96%E7%95%A5/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -1917,9 +1917,9 @@ flowchart LR
     </item>
     <item>
       <title>游戏与游戏化</title>
-      <link>https://blog.uglyboy.cn/slides/2018/01/29/</link>
+      <link>https://blog.uglyboy.cn/slides/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</link>
       <pubDate>Mon, 29 Jan 2018 10:24:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2018/01/29/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E6%B8%B8%E6%88%8F%E4%B8%8E%E6%B8%B8%E6%88%8F%E5%8C%96/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -2424,9 +2424,9 @@ flowchart LR
     </item>
     <item>
       <title>用户增长核心模型</title>
-      <link>https://blog.uglyboy.cn/slides/2018/01/02/</link>
+      <link>https://blog.uglyboy.cn/slides/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B/</link>
       <pubDate>Tue, 02 Jan 2018 11:04:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2018/01/02/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
@@ -2887,9 +2887,9 @@ $$
     </item>
     <item>
       <title>换个角度看推荐</title>
-      <link>https://blog.uglyboy.cn/slides/2017/10/11/</link>
+      <link>https://blog.uglyboy.cn/slides/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/</link>
       <pubDate>Wed, 11 Oct 2017 10:59:35 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2017/10/11/</guid>
+      <guid>https://blog.uglyboy.cn/slides/%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E6%8E%A8%E8%8D%90/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;

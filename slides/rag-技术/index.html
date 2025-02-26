@@ -1,0 +1,469 @@
+<!doctype html><html lang=zh-cn dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>RAG 技术 | 拾柒读库</title>
+<meta name=keywords content="LLM,RAG,大模型专题分享"><meta name=description content='
+  
+    
+      
+      
+
+# RAG 技术
+
+---
+
+- 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。
+- 原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以：
+  - 降低幻觉出现概率
+  - 适应垂直场景应用
+  - 弥补数据实时性不足
+
+---
+
+### 一个典型 RAG 系统的架构
+
+<center><img src="https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg"></center>
+
+---
+
+### RAG 系统的核心技术要素
+
+- 文档导入
+- 文档切分
+- 文档向量化
+- 向量数据库选型
+- 检索算法
+- 文档排序
+- Prompt 生成
+- $\dots$
+---
+
+市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 *某一种 RAG 的方法* 变成了 *通用 RAG 的框架*，从而让我们迷失了 RAG 的真正价值。
+
+---
+
+## 从定义出发，RAG 就是
+
+## 检索 + 生成
+
+---
+- Chat With Documents 属于 RAG
+- 用户对话中保留历史记忆 属于 RAG
+- 网页搜索 + LLM 属于 RAG
+- 自动调用 API 接口获取信息 属于 RAG
+- 调用数据库获取信息 属于 RAG
+- $\dots$
+- **上面各种方法一起使用也属于 RAG**
+
+---
+
+## RAG 究竟意味着什么？
+
+> 为什么我们要使用检索
+
+---
+
+- 人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）；
+  - 通常在产品上，我们可以用 *Save time* 和 *Kill time* 的模式来区分
+- 主动获取信息的手段被称为信息检索。
+  - RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。
+---
+
+## LLM 很难独立完成检索
+
+---
+- 最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，**我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果**。
+  - 对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。
+  - 我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。
+  - 一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。
+
+---
+
+<center><img src="https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png"></center>
+---
+
+- 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
+  - 仅靠大模型，是无法取消幻觉的。
+- 如果 RAG 做得不好，可能带来的是负面效果。
+---
+
+## RAG 的核心
+## 如何用好检索
+
+---
+
+## 检索的发展史
+
+1. 图书馆的索引式检索（Yahoo 等目录网页）；
+2. 关键词召回（传统搜索）；
+3. 向量相似度（个性化推荐）；
+4. 自然语言回答问题（大模型）；
+
+> 这些方法不是递进的，而是并列的。
+
+---
+
+## 新概念下的 RAG 框架
+
+---
+1. 对用户问题分类，判断使用哪些检索器；
+2. 根据用户问题，找到最适合的检索器检索方式（Query、SQL、API 调用等）；
+3. 召回的结果，判断与用户问题的相关性，进行合理过滤或改进；
+4. 用适合的方式组织召回结果，提供给 LLM 进行汇总并回答用户问题；
+5. （可选）判断是否很好的回答了用户的问题，是否需要重新再来一遍（这其实就进化成 Agent 了）。
+
+---
+- 可以使用不同的 LLM 来执行不同的任务，这样就可以在计算速度和资源上得到极大的节约，并针对特定问题取得更好的效果。
+- 检索器的各种优化技术都值得使用：
+  - 包括传统的关键词搜索（QP）
+  - 向量检索只是其中的一种手段；同时向量检索也应当额外建立适合的索引。
+  - 知识图谱是有效的检索器之一。
+  - 利用好结构化信息（数据库 或 API）。
+- 好的检索器依赖好的数据。
+---
+
+# Q & A
+
+---
+
+#### 如果我们有一些私有的数据，如何让大模型能够利用这些私有数据呢？
+
+-----
+- 通过微调的方式，将私有数据加入到大模型的训练数据中。
+- 通过检索的方式，将私有数据加入到大模型的上下文中。
+- **以上方法都用**
+
+---
+
+#### 怎样才能更好的提升 RAG 的效果？
+
+-----
+
+最核心的要素其实是：找到更优质的数据（准确、结构化）
+
+---
+
+#### 产品和开发要深入研究 Prompt Engineering 吗？
+
+-----
+
+永远都不要这样做，这件事交给 SFT
+
+- 概念对比
+- Let’s think step by step
+- 通用优化 Prompt 的 Prompt
+- function call
+- Self RAG
+- 让模型来学习如何 Prompt Engineering
+      
+    
+  
+'><meta name=author content="癸老师"><link rel=canonical href=https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/><meta name=google-site-verification content="3G6_t7vAxMLWAnWZ3vEdzO31bCfdUbjWEHHCL_KDnjw"><link crossorigin=anonymous href=/assets/css/stylesheet.12d3050c0383b8fe83070e2bf48ca83339c46b207da8650cd35b45c866d40674.css integrity="sha256-EtMFDAODuP6DBw4r9IyoMznEayB9qGUM01tFyGbUBnQ=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.uglyboy.cn/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://blog.uglyboy.cn/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://blog.uglyboy.cn/favicon-32x32.png><link rel=apple-touch-icon href=https://blog.uglyboy.cn/apple-touch-icon.png><link rel=mask-icon href=https://blog.uglyboy.cn/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><link rel=stylesheet href=https://blog.uglyboy.cn/scss/main.min.bb0f243946b87c8f66307b9c43939ead878278180e8edada628b0d7ecd38edfc.css integrity="sha256-uw8kOUa4fI9mMHucQ5OerYeCeBgOjtraYosNfs047fw=" media=screen><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css integrity="sha512-0AUO8B5ll9y1ERV/55xq3HeccBGnvAJQsVGitNac/iQCLyDTGLUBMPqlupIWp/rJg0hV3WWHusXchEIdqFAv1Q==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/monokai.min.css integrity="sha512-z8wQkuDRFwCBfoj7KOiu1MECaRVoXx6rZQWL21x0BsVVH7JkqCp1Otf39qve6CrCycOOL5o9vgfII5Smds23rg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/dracula.min.css integrity="sha512-RPqCDyRPg34CE04QpEtt720zRNPR9oZElahfl1OrNl+pxERwvXw7usOOsR+vP6HnDQEmw+ioz2Nh/XOGP8aV0w==" crossorigin=anonymous referrerpolicy=no-referrer><script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js integrity="sha512-sMRSj1Ns64C2OE6VNS7WrV63OHW7dLAvi96CXRoy9AEe/tKF+868fhUJpc5ZKS166lwhe2ArCYjFitLJUY+VWA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/markdown/markdown.min.js integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/highlight.min.js integrity="sha512-xkVKkN0o7xECTHSUZ9zdsBYRXiAKH7CZ3aICpW6aQJZsufVVRLhEBTDjTpC1tPzm+gNZiOeW174zXAB2fOLsTg==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/math/math.min.js integrity="sha512-r8CLLeBm1OZX6ll1USdj99rqbY3Y9no8A1YUMy0l/kk+KFnlsQT5E/8gEs59Q7BRta0jBOZVwLqvmlWtdBzrXw==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin@2.0.0/plugin/mermaid/mermaid.js></script><script src=https://blog.uglyboy.cn/js/pdfexport.min.f789aa24308cb2cd0ab0f81a0da9abffecb5ca23030cb66877a58c0fb9f4549b5cc4d6a4621b108e0a143a48512fa420e898721a6cda8dd070f26ede695540bd.js integrity="sha512-94mqJDCMss0KsPgaDamr/+y1yiMDDLZod6WMD7n0VJtcxNakYhsQjgoUOkhRL6Qg6JhyGmzajdBw8m7eaVVAvQ=="></script><script>document.addEventListener("DOMContentLoaded",function(){if(print_pdf=!1,window.location.search.match(/\?print-pdf.*$/)){print_pdf=!0,document.querySelector(".reveal").removeAttribute("style");var e=document.querySelector("body");e.style.setProperty("--gap","0","important"),e.style.setProperty("--content-gap","0","important"),document.querySelector("#top-link").style.display="none",document.querySelector("#background").style.display="none",document.querySelectorAll("header, footer, #vcomments").forEach(function(e){e.style.display="none"})}Reveal.initialize({mathjax3:{mathjax:"https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.min.js",tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{enableExplorer:!1,skipHtmlTags:["script","noscript","style","textarea","pre"]}},mermaid:{theme:"dark",darkMode:!0,flowchart:{useMaxWidth:!0,htmlLabels:!0}},transition:"fade",progress:!0,embedded:!print_pdf,pdfSeparateFragments:!1,plugins:[RevealMarkdown,RevealHighlight,RevealMath.MathJax3,RevealMermaid,PdfExport]}).then(()=>{print_pdf&&setTimeout(function(){window.print()},400)})})</script><link crossorigin=anonymous integrity="sha512-YZW7jSV4QrwpPzFxB77lAW4qNIeS6RaipaStONrpmbJsyh3zxM/3VoeQrrGlYkNS5nIjsKFURRHnsKhmE/vWmg==" href=https://lib.baomitu.com/lxgw-wenkai-webfont/latest/style.min.css rel=stylesheet><style>body,section{font-family:lxgw wenkai,sans-serif}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-0T89SF4PSW"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-0T89SF4PSW")</script><meta property="og:url" content="https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/"><meta property="og:site_name" content="拾柒读库"><meta property="og:title" content="RAG 技术"><meta property="og:description" content=' # RAG 技术 --- - 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。 - 原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以： - 降低幻觉出现概率 - 适应垂直场景应用 - 弥补数据实时性不足 --- ### 一个典型 RAG 系统的架构 <center><img src="https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg"></center> --- ### RAG 系统的核心技术要素 - 文档导入 - 文档切分 - 文档向量化 - 向量数据库选型 - 检索算法 - 文档排序 - Prompt 生成 - $\dots$ --- 市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 *某一种 RAG 的方法* 变成了 *通用 RAG 的框架*，从而让我们迷失了 RAG 的真正价值。 --- ## 从定义出发，RAG 就是 ## 检索 + 生成 --- - Chat With Documents 属于 RAG - 用户对话中保留历史记忆 属于 RAG - 网页搜索 + LLM 属于 RAG - 自动调用 API 接口获取信息 属于 RAG - 调用数据库获取信息 属于 RAG - $\dots$ - **上面各种方法一起使用也属于 RAG** --- ## RAG 究竟意味着什么？ > 为什么我们要使用检索 --- - 人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）； - 通常在产品上，我们可以用 *Save time* 和 *Kill time* 的模式来区分 - 主动获取信息的手段被称为信息检索。 - RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。 --- ## LLM 很难独立完成检索 --- - 最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，**我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果**。 - 对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。 - 我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。 - 一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。 --- <center><img src="https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png"></center> --- - 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。 - 仅靠大模型，是无法取消幻觉的。 - 如果 RAG 做得不好，可能带来的是负面效果。 --- ## RAG 的核心 ## 如何用好检索 --- ## 检索的发展史 1. 图书馆的索引式检索（Yahoo 等目录网页）； 2. 关键词召回（传统搜索）； 3. 向量相似度（个性化推荐）； 4. 自然语言回答问题（大模型）； > 这些方法不是递进的，而是并列的。 --- ## 新概念下的 RAG 框架 --- 1. 对用户问题分类，判断使用哪些检索器； 2. 根据用户问题，找到最适合的检索器检索方式（Query、SQL、API 调用等）； 3. 召回的结果，判断与用户问题的相关性，进行合理过滤或改进； 4. 用适合的方式组织召回结果，提供给 LLM 进行汇总并回答用户问题； 5. （可选）判断是否很好的回答了用户的问题，是否需要重新再来一遍（这其实就进化成 Agent 了）。 --- - 可以使用不同的 LLM 来执行不同的任务，这样就可以在计算速度和资源上得到极大的节约，并针对特定问题取得更好的效果。 - 检索器的各种优化技术都值得使用： - 包括传统的关键词搜索（QP） - 向量检索只是其中的一种手段；同时向量检索也应当额外建立适合的索引。 - 知识图谱是有效的检索器之一。 - 利用好结构化信息（数据库 或 API）。 - 好的检索器依赖好的数据。 --- # Q & A --- #### 如果我们有一些私有的数据，如何让大模型能够利用这些私有数据呢？ ----- - 通过微调的方式，将私有数据加入到大模型的训练数据中。 - 通过检索的方式，将私有数据加入到大模型的上下文中。 - **以上方法都用** --- #### 怎样才能更好的提升 RAG 的效果？ ----- 最核心的要素其实是：找到更优质的数据（准确、结构化） --- #### 产品和开发要深入研究 Prompt Engineering 吗？ ----- 永远都不要这样做，这件事交给 SFT - 概念对比 - Let’s think step by step - 通用优化 Prompt 的 Prompt - function call - Self RAG - 让模型来学习如何 Prompt Engineering '><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="slides"><meta property="article:published_time" content="2023-11-23T06:35:17+08:00"><meta property="article:modified_time" content="2024-11-08T10:28:26+08:00"><meta property="article:tag" content="LLM"><meta property="article:tag" content="RAG"><meta property="article:tag" content="大模型专题分享"><meta name=twitter:card content="summary"><meta name=twitter:title content="RAG 技术"><meta name=twitter:description content='
+  
+    
+      
+      
+
+# RAG 技术
+
+---
+
+- 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。
+- 原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以：
+  - 降低幻觉出现概率
+  - 适应垂直场景应用
+  - 弥补数据实时性不足
+
+---
+
+### 一个典型 RAG 系统的架构
+
+<center><img src="https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg"></center>
+
+---
+
+### RAG 系统的核心技术要素
+
+- 文档导入
+- 文档切分
+- 文档向量化
+- 向量数据库选型
+- 检索算法
+- 文档排序
+- Prompt 生成
+- $\dots$
+---
+
+市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 *某一种 RAG 的方法* 变成了 *通用 RAG 的框架*，从而让我们迷失了 RAG 的真正价值。
+
+---
+
+## 从定义出发，RAG 就是
+
+## 检索 + 生成
+
+---
+- Chat With Documents 属于 RAG
+- 用户对话中保留历史记忆 属于 RAG
+- 网页搜索 + LLM 属于 RAG
+- 自动调用 API 接口获取信息 属于 RAG
+- 调用数据库获取信息 属于 RAG
+- $\dots$
+- **上面各种方法一起使用也属于 RAG**
+
+---
+
+## RAG 究竟意味着什么？
+
+> 为什么我们要使用检索
+
+---
+
+- 人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）；
+  - 通常在产品上，我们可以用 *Save time* 和 *Kill time* 的模式来区分
+- 主动获取信息的手段被称为信息检索。
+  - RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。
+---
+
+## LLM 很难独立完成检索
+
+---
+- 最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，**我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果**。
+  - 对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。
+  - 我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。
+  - 一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。
+
+---
+
+<center><img src="https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png"></center>
+---
+
+- 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
+  - 仅靠大模型，是无法取消幻觉的。
+- 如果 RAG 做得不好，可能带来的是负面效果。
+---
+
+## RAG 的核心
+## 如何用好检索
+
+---
+
+## 检索的发展史
+
+1. 图书馆的索引式检索（Yahoo 等目录网页）；
+2. 关键词召回（传统搜索）；
+3. 向量相似度（个性化推荐）；
+4. 自然语言回答问题（大模型）；
+
+> 这些方法不是递进的，而是并列的。
+
+---
+
+## 新概念下的 RAG 框架
+
+---
+1. 对用户问题分类，判断使用哪些检索器；
+2. 根据用户问题，找到最适合的检索器检索方式（Query、SQL、API 调用等）；
+3. 召回的结果，判断与用户问题的相关性，进行合理过滤或改进；
+4. 用适合的方式组织召回结果，提供给 LLM 进行汇总并回答用户问题；
+5. （可选）判断是否很好的回答了用户的问题，是否需要重新再来一遍（这其实就进化成 Agent 了）。
+
+---
+- 可以使用不同的 LLM 来执行不同的任务，这样就可以在计算速度和资源上得到极大的节约，并针对特定问题取得更好的效果。
+- 检索器的各种优化技术都值得使用：
+  - 包括传统的关键词搜索（QP）
+  - 向量检索只是其中的一种手段；同时向量检索也应当额外建立适合的索引。
+  - 知识图谱是有效的检索器之一。
+  - 利用好结构化信息（数据库 或 API）。
+- 好的检索器依赖好的数据。
+---
+
+# Q & A
+
+---
+
+#### 如果我们有一些私有的数据，如何让大模型能够利用这些私有数据呢？
+
+-----
+- 通过微调的方式，将私有数据加入到大模型的训练数据中。
+- 通过检索的方式，将私有数据加入到大模型的上下文中。
+- **以上方法都用**
+
+---
+
+#### 怎样才能更好的提升 RAG 的效果？
+
+-----
+
+最核心的要素其实是：找到更优质的数据（准确、结构化）
+
+---
+
+#### 产品和开发要深入研究 Prompt Engineering 吗？
+
+-----
+
+永远都不要这样做，这件事交给 SFT
+
+- 概念对比
+- Let’s think step by step
+- 通用优化 Prompt 的 Prompt
+- function call
+- Self RAG
+- 让模型来学习如何 Prompt Engineering
+      
+    
+  
+'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"演示","item":"https://blog.uglyboy.cn/slides/"},{"@type":"ListItem","position":2,"name":"RAG 技术","item":"https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"RAG 技术","name":"RAG 技术","description":" # RAG 技术 --- - 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。 - 原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以： - 降低幻觉出现概率 - 适应垂直场景应用 - 弥补数据实时性不足 --- ### 一个典型 RAG 系统的架构 \u0026lt;center\u0026gt;\u0026lt;img src=\u0026#34;https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg\u0026#34;\u0026gt;\u0026lt;/center\u0026gt; --- ### RAG 系统的核心技术要素 - 文档导入 - 文档切分 - 文档向量化 - 向量数据库选型 - 检索算法 - 文档排序 - Prompt 生成 - $\\dots$ --- 市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 *某一种 RAG 的方法* 变成了 *通用 RAG 的框架*，从而让我们迷失了 RAG 的真正价值。 --- ## 从定义出发，RAG 就是 ## 检索 \u0026#43; 生成 --- - Chat With Documents 属于 RAG - 用户对话中保留历史记忆 属于 RAG - 网页搜索 \u0026#43; LLM 属于 RAG - 自动调用 API 接口获取信息 属于 RAG - 调用数据库获取信息 属于 RAG - $\\dots$ - **上面各种方法一起使用也属于 RAG** --- ## RAG 究竟意味着什么？ \u0026gt; 为什么我们要使用检索 --- - 人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）； - 通常在产品上，我们可以用 *Save time* 和 *Kill time* 的模式来区分 - 主动获取信息的手段被称为信息检索。 - RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。 --- ## LLM 很难独立完成检索 --- - 最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，**我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果**。 - 对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。 - 我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。 - 一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。 --- \u0026lt;center\u0026gt;\u0026lt;img src=\u0026#34;https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png\u0026#34;\u0026gt;\u0026lt;/center\u0026gt; --- - 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。 - 仅靠大模型，是无法取消幻觉的。 - 如果 RAG 做得不好，可能带来的是负面效果。 --- ## RAG 的核心 ## 如何用好检索 --- ## 检索的发展史 1. 图书馆的索引式检索（Yahoo 等目录网页）； 2. 关键词召回（传统搜索）； 3. 向量相似度（个性化推荐）； 4. 自然语言回答问题（大模型）； \u0026gt; 这些方法不是递进的，而是并列的。 --- ## 新概念下的 RAG 框架 --- 1. 对用户问题分类，判断使用哪些检索器； 2. 根据用户问题，找到最适合的检索器检索方式（Query、SQL、API 调用等）； 3. 召回的结果，判断与用户问题的相关性，进行合理过滤或改进； 4. 用适合的方式组织召回结果，提供给 LLM 进行汇总并回答用户问题； 5. （可选）判断是否很好的回答了用户的问题，是否需要重新再来一遍（这其实就进化成 Agent 了）。 --- - 可以使用不同的 LLM 来执行不同的任务，这样就可以在计算速度和资源上得到极大的节约，并针对特定问题取得更好的效果。 - 检索器的各种优化技术都值得使用： - 包括传统的关键词搜索（QP） - 向量检索只是其中的一种手段；同时向量检索也应当额外建立适合的索引。 - 知识图谱是有效的检索器之一。 - 利用好结构化信息（数据库 或 API）。 - 好的检索器依赖好的数据。 --- # Q \u0026 A --- #### 如果我们有一些私有的数据，如何让大模型能够利用这些私有数据呢？ ----- - 通过微调的方式，将私有数据加入到大模型的训练数据中。 - 通过检索的方式，将私有数据加入到大模型的上下文中。 - **以上方法都用** --- #### 怎样才能更好的提升 RAG 的效果？ ----- 最核心的要素其实是：找到更优质的数据（准确、结构化） --- #### 产品和开发要深入研究 Prompt Engineering 吗？ ----- 永远都不要这样做，这件事交给 SFT - 概念对比 - Let’s think step by step - 通用优化 Prompt 的 Prompt - function call - Self RAG - 让模型来学习如何 Prompt Engineering ","keywords":["LLM","RAG","大模型专题分享"],"articleBody":" # RAG 技术 --- - 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。 - 原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以： - 降低幻觉出现概率 - 适应垂直场景应用 - 弥补数据实时性不足 --- ### 一个典型 RAG 系统的架构 \u003ccenter\u003e\u003cimg src=\"https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg\"\u003e\u003c/center\u003e --- ### RAG 系统的核心技术要素 - 文档导入 - 文档切分 - 文档向量化 - 向量数据库选型 - 检索算法 - 文档排序 - Prompt 生成 - $\\dots$ --- 市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 *某一种 RAG 的方法* 变成了 *通用 RAG 的框架*，从而让我们迷失了 RAG 的真正价值。 --- ## 从定义出发，RAG 就是 ## 检索 + 生成 --- - Chat With Documents 属于 RAG - 用户对话中保留历史记忆 属于 RAG - 网页搜索 + LLM 属于 RAG - 自动调用 API 接口获取信息 属于 RAG - 调用数据库获取信息 属于 RAG - $\\dots$ - **上面各种方法一起使用也属于 RAG** --- ## RAG 究竟意味着什么？ \u003e 为什么我们要使用检索 --- - 人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）； - 通常在产品上，我们可以用 *Save time* 和 *Kill time* 的模式来区分 - 主动获取信息的手段被称为信息检索。 - RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。 --- ## LLM 很难独立完成检索 --- - 最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，**我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果**。 - 对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。 - 我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。 - 一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。 --- \u003ccenter\u003e\u003cimg src=\"https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png\"\u003e ","wordCount":"1431","inLanguage":"zh-cn","datePublished":"2023-11-23T06:35:17+08:00","dateModified":"2024-11-08T10:28:26+08:00","author":{"@type":"Person","name":"癸老师"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/"},"publisher":{"@type":"Organization","name":"拾柒读库","logo":{"@type":"ImageObject","url":"https://blog.uglyboy.cn/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://blog.uglyboy.cn/ accesskey=h title="拾柒读库 (Alt + H)">拾柒读库</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://blog.uglyboy.cn/posts/ title=文章><span>文章</span></a></li><li><a href=https://blog.uglyboy.cn/slides/ title=演示><span>演示</span></a></li><li><a href=https://blog.uglyboy.cn/categories/ title=分类><span>分类</span></a></li><li><a href=https://blog.uglyboy.cn/tags/ title=标签><span>标签</span></a></li><li><a href=https://blog.uglyboy.cn/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://blog.uglyboy.cn/archives/ title=时间轴><span>时间轴</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">RAG 技术</h1><div class=post-meta><span title='2023-11-23 06:35:17 +0800 CST'>2023-11-23</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;癸老师</div></header><div class=post-content><div class=reveal><div class=slides><section data-markdown><textarea data-template>
+      
+
+# RAG 技术
+
+---
+
+- 检索增强的生成系统（Retrieve Augment Generation）简称 RAG。
+- 原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以：
+  - 降低幻觉出现概率
+  - 适应垂直场景应用
+  - 弥补数据实时性不足
+
+---
+
+### 一个典型 RAG 系统的架构
+
+&lt;center&gt;&lt;img src=&#34;https://oss.uglyboy.cn/image/2024/11/30e352cefa60c93ac742a0aee2d81cf7.jpg&#34;&gt;&lt;/center&gt;
+
+---
+
+### RAG 系统的核心技术要素
+
+- 文档导入
+- 文档切分
+- 文档向量化
+- 向量数据库选型
+- 检索算法
+- 文档排序
+- Prompt 生成
+- $\dots$
+---
+
+市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 *某一种 RAG 的方法* 变成了 *通用 RAG 的框架*，从而让我们迷失了 RAG 的真正价值。
+
+---
+
+## 从定义出发，RAG 就是
+
+## 检索 &#43; 生成
+
+---
+- Chat With Documents 属于 RAG
+- 用户对话中保留历史记忆 属于 RAG
+- 网页搜索 &#43; LLM 属于 RAG
+- 自动调用 API 接口获取信息 属于 RAG
+- 调用数据库获取信息 属于 RAG
+- $\dots$
+- **上面各种方法一起使用也属于 RAG**
+
+---
+
+## RAG 究竟意味着什么？
+
+&gt; 为什么我们要使用检索
+
+---
+
+- 人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）；
+  - 通常在产品上，我们可以用 *Save time* 和 *Kill time* 的模式来区分
+- 主动获取信息的手段被称为信息检索。
+  - RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。
+---
+
+## LLM 很难独立完成检索
+
+---
+- 最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，**我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果**。
+  - 对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。
+  - 我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。
+  - 一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。
+
+---
+
+&lt;center&gt;&lt;img src=&#34;https://oss.uglyboy.cn/image/2024/11/4257471c0658350b4ddf3ec478c1a96c.png&#34;&gt;&lt;/center&gt;
+---
+
+- 大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
+  - 仅靠大模型，是无法取消幻觉的。
+- 如果 RAG 做得不好，可能带来的是负面效果。
+---
+
+## RAG 的核心
+## 如何用好检索
+
+---
+
+## 检索的发展史
+
+1. 图书馆的索引式检索（Yahoo 等目录网页）；
+2. 关键词召回（传统搜索）；
+3. 向量相似度（个性化推荐）；
+4. 自然语言回答问题（大模型）；
+
+&gt; 这些方法不是递进的，而是并列的。
+
+---
+
+## 新概念下的 RAG 框架
+
+---
+1. 对用户问题分类，判断使用哪些检索器；
+2. 根据用户问题，找到最适合的检索器检索方式（Query、SQL、API 调用等）；
+3. 召回的结果，判断与用户问题的相关性，进行合理过滤或改进；
+4. 用适合的方式组织召回结果，提供给 LLM 进行汇总并回答用户问题；
+5. （可选）判断是否很好的回答了用户的问题，是否需要重新再来一遍（这其实就进化成 Agent 了）。
+
+---
+- 可以使用不同的 LLM 来执行不同的任务，这样就可以在计算速度和资源上得到极大的节约，并针对特定问题取得更好的效果。
+- 检索器的各种优化技术都值得使用：
+  - 包括传统的关键词搜索（QP）
+  - 向量检索只是其中的一种手段；同时向量检索也应当额外建立适合的索引。
+  - 知识图谱是有效的检索器之一。
+  - 利用好结构化信息（数据库 或 API）。
+- 好的检索器依赖好的数据。
+---
+
+# Q & A
+
+---
+
+#### 如果我们有一些私有的数据，如何让大模型能够利用这些私有数据呢？
+
+-----
+- 通过微调的方式，将私有数据加入到大模型的训练数据中。
+- 通过检索的方式，将私有数据加入到大模型的上下文中。
+- **以上方法都用**
+
+---
+
+#### 怎样才能更好的提升 RAG 的效果？
+
+-----
+
+最核心的要素其实是：找到更优质的数据（准确、结构化）
+
+---
+
+#### 产品和开发要深入研究 Prompt Engineering 吗？
+
+-----
+
+永远都不要这样做，这件事交给 SFT
+
+- 概念对比
+- Let’s think step by step
+- 通用优化 Prompt 的 Prompt
+- function call
+- Self RAG
+- 让模型来学习如何 Prompt Engineering
+      </textarea></section></div></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.uglyboy.cn/tags/llm/>LLM</a></li><li><a href=https://blog.uglyboy.cn/tags/rag/>RAG</a></li><li><a href=https://blog.uglyboy.cn/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98%E5%88%86%E4%BA%AB/>大模型专题分享</a></li></ul><nav class=paginav><a class=prev href=https://blog.uglyboy.cn/posts/2023/12/01/><span class=title>« 上一页</span><br><span>浮躁的时代</span>
+</a><a class=next href=https://blog.uglyboy.cn/slides/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B/><span class=title>下一页 »</span><br><span>大模型的计算能力</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2025 <a href=https://blog.uglyboy.cn/>拾柒读库</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制代码";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制代码"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

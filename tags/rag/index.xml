@@ -4,7 +4,7 @@
     <title>RAG on 拾柒读库</title>
     <link>https://blog.uglyboy.cn/tags/rag/</link>
     <description>Recent content in RAG on 拾柒读库</description>
-    <generator>Hugo -- 0.143.1</generator>
+    <generator>Hugo -- 0.144.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 08 Nov 2024 10:28:26 +0800</lastBuildDate>
     <atom:link href="https://blog.uglyboy.cn/tags/rag/index.xml" rel="self" type="application/rss+xml" />
@@ -265,9 +265,9 @@ $$</p>
     </item>
     <item>
       <title>RAG 技术</title>
-      <link>https://blog.uglyboy.cn/slides/2023/11/23/</link>
+      <link>https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/</link>
       <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
-      <guid>https://blog.uglyboy.cn/slides/2023/11/23/</guid>
+      <guid>https://blog.uglyboy.cn/slides/rag-%E6%8A%80%E6%9C%AF/</guid>
       <description>&lt;div class=&#34;reveal&#34;&gt;
   &lt;div class=&#34;slides&#34;&gt;
     &lt;section data-markdown&gt;
