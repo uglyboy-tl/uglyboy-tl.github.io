@@ -1,0 +1,52 @@
+# 拾柒读库
+
+## 播客
+- [从编码到 AGI](https://uglyboy-tl.github.io/podcasts/2026/02/26/)
+
+## 文章
+- [35 岁被裁不是年龄的错，是公司的发动机早已冷透了](https://uglyboy-tl.github.io/posts/2026/06/08/)
+- [当一个退学博士，掀翻了整个学术界的牌桌](https://uglyboy-tl.github.io/posts/2026/06/03/)
+- [系统理论](https://uglyboy-tl.github.io/posts/2026/05/26/)
+- [新营销模式的经济学视角研究报告](https://uglyboy-tl.github.io/posts/2025/10/11/)
+- [从“流量租用”到“流量虹吸”](https://uglyboy-tl.github.io/posts/2025/10/09/)
+- [大模型的推理能力](https://uglyboy-tl.github.io/posts/2024/11/06/)
+- [编码的意义](https://uglyboy-tl.github.io/posts/2024/09/18/)
+- [谈一谈什么是幸福的工作](https://uglyboy-tl.github.io/posts/2024/07/21/)
+- [RAG 的数学理解](https://uglyboy-tl.github.io/posts/2024/04/07/)
+- [大模型对齐的数学理解](https://uglyboy-tl.github.io/posts/2024/02/27/)
+- [UglyChain，面向开发者的大模型开发框架](https://uglyboy-tl.github.io/posts/2024/02/15/)
+- [Hugo + Reveal.js 后续](https://uglyboy-tl.github.io/posts/2023/12/19/)
+- [Hugo 更换字体 & 使用 Reveal.js 做在线展示](https://uglyboy-tl.github.io/posts/2023/12/07/)
+- [浮躁的时代](https://uglyboy-tl.github.io/posts/2023/12/01/)
+- [大语言模型的数学理解](https://uglyboy-tl.github.io/posts/2023/11/09/)
+- [大语言模型的计算能力](https://uglyboy-tl.github.io/posts/2023/10/30/)
+- [所谓“压缩即是智慧”毫无意义](https://uglyboy-tl.github.io/posts/2023/10/25/)
+- [Hugo 搭建流程](https://uglyboy-tl.github.io/posts/2023/10/18/)
+- [Scaling Law 的数学解读](https://uglyboy-tl.github.io/posts/2023/10/10/)
+- [Autorestic](https://uglyboy-tl.github.io/posts/2022/02/22/)
+- [组织理论](https://uglyboy-tl.github.io/posts/2021/11/11/)
+- [庖丁解牛|究竟什么是“战略”？](https://uglyboy-tl.github.io/posts/2021/07/15/)
+- [黑暗森林法则和营销](https://uglyboy-tl.github.io/posts/2021/07/01/)
+- [社交与传播](https://uglyboy-tl.github.io/posts/2018/08/16/)
+- [价格理论](https://uglyboy-tl.github.io/posts/2018/07/09/)
+- [竞争理论](https://uglyboy-tl.github.io/posts/2017/12/24/)
+- [场景的用户认知度（熟客率）研究](https://uglyboy-tl.github.io/posts/2016/09/14/)
+
+## 演示
+- [从编码到 AGI](https://uglyboy-tl.github.io/slides/2025/06/06/)
+- [Agent 使用指南](https://uglyboy-tl.github.io/slides/2023/12/10/)
+- [RAG 技术](https://uglyboy-tl.github.io/slides/2023/11/23/)
+- [大语言模型原理分享](https://uglyboy-tl.github.io/slides/2023/11/21/)
+- [大模型的计算能力](https://uglyboy-tl.github.io/slides/2023/11/20/)
+- [组织理论讲义](https://uglyboy-tl.github.io/slides/2022/10/15/)
+- [科学决策讲义](https://uglyboy-tl.github.io/slides/2022/04/27/)
+- [共情理论讲义](https://uglyboy-tl.github.io/slides/2018/11/20/)
+- [耐用品价格策略](https://uglyboy-tl.github.io/slides/2018/08/07/)
+- [游戏与游戏化](https://uglyboy-tl.github.io/slides/2018/01/29/)
+- [用户增长核心模型](https://uglyboy-tl.github.io/slides/2018/01/02/)
+- [换个角度看推荐](https://uglyboy-tl.github.io/slides/2017/10/11/)
+
+## 游戏
+- [哔哩哔哩入学考试](https://uglyboy-tl.github.io/games/bilibili/)
+- [琅琊榜](https://uglyboy-tl.github.io/games/%E7%90%85%E7%90%8A%E6%A6%9C/)
+- [猜拳](https://uglyboy-tl.github.io/games/%E7%8C%9C%E6%8B%B3/)

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>游戏 on 拾柒读库</title>
+    <link>https://uglyboy-tl.github.io/games/</link>
+    <description>Recent content in 游戏 on 拾柒读库</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <atom:link href="https://uglyboy-tl.github.io/games/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>哔哩哔哩入学考试</title>
+      <link>https://uglyboy-tl.github.io/games/bilibili/</link>
+      <pubDate>Mon, 18 May 2026 17:16:45 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/games/bilibili/</guid>
+      <description>这是一个模拟哔哩哔哩入学考试的问答游戏</description>
+      <content:encoded><![CDATA[<p>INCLUDE questions.ink</p>
+<p>VAR score = 0
+VAR max = 5</p>
+<p>哔哩哔哩入学考试
+欢迎来到哔哩哔哩入学考试！这是一个模拟 B 站入学考试的问答游戏。整个挑战包括 5 道题，题库随机。</p>
+<p>本次考试共 5 道题，题库随机。</p>
+<p>那么，让我们开始吧～</p>
+<ul>
+<li>准备
+#clear
+-&gt; loop(get_next_question(start))</li>
+</ul>
+<p>=== loop(question)
+~ temp option = 0
+{get_content(question)}</p>
+<ul>
+<li>[{get_option_A(question)}]
+~ option = 1</li>
+<li>[{get_option_B(question)}]
+~ option = 2</li>
+<li>[{get_option_C(question)}]
+~ option = 3</li>
+<li>[{get_option_D(question)}]
+~ option = 4</li>
+</ul>
+<ul>
+<li>-&gt; check(question, option) -&gt;
+-&gt; loop(get_next_question(question))</li>
+</ul>
+<p>== function get_next_question(question)
+{</p>
+<ul>
+<li>QUESTION_LIST? question:
+~ QUESTION_LIST -= question
+~ temp random_question = LIST_RANDOM(QUESTION_LIST)
+~ return random_question</li>
+<li>else:
+~ return LIST_RANDOM(QUESTION_LIST)
+}</li>
+</ul>
+<p>== check(question, option)
+#clear
+{
+- answer(question) == option:
+~ temp q_score = get_question_score(question)
+~ score += q_score
+答对了！+{q_score}分
+- else:
+答错了!
+}
+{</p>
+<ul>
+<li>get_question_explanation(question) != &ldquo;&rdquo;:
+解析：{get_question_explanation(question)}
+}
+{ check &gt;= max:
+-&gt; 放榜
+}
+-&gt;-&gt;</li>
+</ul>
+<p>== function answer(question)
+~ return get_answer(question)</p>
+<p>== 放榜</p>
+<p>{</p>
+<ul>
+<li>score &gt;= 0 &amp;&amp; score &lt;= 39:</li>
+</ul>
+<p>学海无涯</p>
+<p>emmmmm，本群的得分太低了，可能二次元并不适合大家，不如重新学习一遍吧😵</p>
+<ul>
+<li>score &gt;= 40 &amp;&amp; score &lt;= 79:</li>
+</ul>
+<p>再接再厉</p>
+<p>还不错😄，再接再厉，争取成为更硬核的 KOL🎮</p>
+<ul>
+<li>score &gt;= 80 &amp;&amp; score &lt;= 100:</li>
+</ul>
+<p>太棒了</p>
+<p>太棒了🎉，你们就是哔哩哔哩的 KOL👍</p>
+<p>}</p>
+<p>-&gt; end</p>
+<p>=== end</p>
+<ul>
+<li>继续学习</li>
+</ul>
+<p>#RESTART</p>
+<p>-&gt; DONE</p>
+<ul>
+<li>退出</li>
+</ul>
+<p>-&gt; END</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>琅琊榜</title>
+      <link>https://uglyboy-tl.github.io/games/%E7%90%85%E7%90%8A%E6%A6%9C/</link>
+      <pubDate>Sat, 16 May 2026 07:30:25 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/games/%E7%90%85%E7%90%8A%E6%A6%9C/</guid>
+      <description>用“王权”的框架构建的琅琊榜游戏， 当前只有第一章</description>
+      <content:encoded><![CDATA[<p>INCLUDE cards.ink
+INCLUDE events.ink
+INCLUDE conditions.ink
+INCLUDE stats.ink</p>
+<p>VAR next_card = ()</p>
+<p>-&gt; loop(start)</p>
+<p>=== loop(card)</p>
+<h1 id="clear">CLEAR</h1>
+<p>-&gt; check_stats -&gt;
+{get_content(card)}</p>
+<ul>
+<li>[{get_left_option(card)}]
+-&gt; do_event(left_event(card)) -&gt;</li>
+<li>[{get_right_option(card)}]
+-&gt; do_event(right_event(card)) -&gt;</li>
+</ul>
+<ul>
+<li>-&gt; loop(get_next_card(card))</li>
+</ul>
+<p>== function get_next_card(card)
+{</p>
+<ul>
+<li>LIST_COUNT(next_card) &gt; 0:
+~ temp c = next_card
+~ next_card = ()
+~ return c</li>
+<li>CARD_LIST? card:
+~ CARD_LIST -= card
+~ temp random_card = LIST_RANDOM(CARD_LIST)
+~ CARD_LIST += card
+~ return random_card</li>
+<li>else:
+~ return LIST_RANDOM(CARD_LIST)
+}</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>猜拳</title>
+      <link>https://uglyboy-tl.github.io/games/%E7%8C%9C%E6%8B%B3/</link>
+      <pubDate>Fri, 25 Apr 2025 12:34:12 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/games/%E7%8C%9C%E6%8B%B3/</guid>
+      <description>一个简单的猜拳游戏，支持多局对战。</description>
+      <content:encoded><![CDATA[<p>VAR gestures=0</p>
+<p>-&gt; 猜拳游戏 (3) -&gt; other
+== 猜拳游戏 (n)
+我们开始猜拳吧, {n} 局 { (n + n%2)/2} 胜
+~ temp win=0
+~ temp loss=0
+-&gt; 猜拳 (win,loss,n)
+= 猜拳 (win,loss,n)
+~ temp roll = RANDOM(0, 2)</p>
+<ul>
+<li>[石头]✊ 🆚 &lt;&gt;
+~ gestures=2</li>
+<li>[剪刀]✌️ 🆚 &lt;&gt;
+~ gestures=1</li>
+<li>[布]🖐️ 🆚 &lt;&gt;
+~ gestures=0</li>
+</ul>
+<ul>
+<li>{
+<ul>
+<li>roll == 2:
+✊</li>
+<li>roll == 1:
+✌️</li>
+<li>roll == 0:
+🖐️
+}
+{</li>
+<li>gestures == roll:
+平局，继续 -&gt; 猜拳 (win,loss,n)</li>
+<li>gestures - roll == 1 || roll - gestures == 2:
+这把我赢了 &lt;&gt;
+~ win += 1</li>
+<li>else:
+这把我输了 &lt;&gt;
+~ loss +=1
+}
+{</li>
+<li>win&gt;n/2:
+我赢了 -&gt; 结束 (n)</li>
+<li>loss &gt; n/2:
+我输了 -&gt; 结束 (n)</li>
+<li>else:
+再来 -&gt; 猜拳 (win,loss,n)
+}
+-&gt;-&gt;</li>
+</ul>
+</li>
+</ul>
+<p>= 结束 (n)</p>
+<ul>
+<li>[再来一次]
+#CLEAR
+-&gt; 猜拳游戏 (n)</li>
+<li>[退出]
+-&gt;-&gt;</li>
+</ul>
+<ul>
+<li>-&gt;-&gt;</li>
+</ul>
+<p>=== other
+现在可以继续执行其他剧情了。
+-&gt;DONE</p>
+<p>=== end</p>
+<ul>
+<li>从头来过
+#RESTART
+-&gt; DONE</li>
+<li>结束游戏
+-&gt; END</li>
+</ul>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

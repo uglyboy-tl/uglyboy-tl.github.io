@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>大模型专题分享 on 拾柒读库</title>
+    <link>https://uglyboy-tl.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98%E5%88%86%E4%BA%AB/</link>
+    <description>Recent content in 大模型专题分享 on 拾柒读库</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 08 Apr 2026 08:45:28 +0800</lastBuildDate>
+    <atom:link href="https://uglyboy-tl.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent 使用指南</title>
+      <link>https://uglyboy-tl.github.io/slides/2023/12/10/</link>
+      <pubDate>Sun, 10 Dec 2023 09:55:03 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/slides/2023/12/10/</guid>
+      <description>&lt;h2 id=&#34;agent-使用指南&#34;&gt;Agent 使用指南&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;如何在真实世界中使用大模型&#34;&gt;如何在真实世界中使用大模型？&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我说想开灯，大模型能帮我开灯吗？&lt;/p&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;我们希望大模型能够直接的解决问题&lt;/li&gt;
+&lt;li&gt;这样的使用方法现在被人们称为： &lt;strong&gt;Agent&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;简单应用如何修复一个-json-串&#34;&gt;简单应用：如何修复一个 json 串？&lt;/h4&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;错误做法：
+&lt;ul&gt;
+&lt;li&gt;问大模型这个字符串哪里错了？&lt;/li&gt;
+&lt;li&gt;写代码修复字符串&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;正确做法：
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;什么情况下我们需要-agent-&#34;&gt;什么情况下我们需要 Agent ？&lt;/h4&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;不需要的情况：
+&lt;ul&gt;
+&lt;li&gt;操作简单，人可以快速解决；&lt;/li&gt;
+&lt;li&gt;规则清晰，程序可以按规则解决；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;需要的情况：
+&lt;ul&gt;
+&lt;li&gt;解决步骤繁琐，对于人来说是重复劳动；&lt;/li&gt;
+&lt;li&gt;情况复杂，不容易梳理清楚对应的解决规则；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;场景举例&#34;&gt;场景举例&lt;/h4&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;Github 的 Copilot&lt;/li&gt;
+&lt;li&gt;MacOS 的 Copilot&lt;/li&gt;
+&lt;li&gt;软件自动运维&lt;/li&gt;
+&lt;li&gt;Yi 6B 的自动安装助手&lt;/li&gt;
+&lt;li&gt;上网助手&lt;/li&gt;
+&lt;li&gt;$\dots$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;高级场景举例&#34;&gt;高级场景举例&lt;/h4&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;自动软件开发（GPT Engineer）&lt;/li&gt;
+&lt;li&gt;自动会议纪要
+&lt;ul&gt;
+&lt;li&gt;自动任务记录&lt;/li&gt;
+&lt;li&gt;自动会议预定&lt;/li&gt;
+&lt;li&gt;自动消息通知&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;高级个人助理&lt;/li&gt;
+&lt;li&gt;一切自动化流程中需要人工参与的部分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;解决复杂问题有哪些难点&#34;&gt;解决复杂问题有哪些难点？&lt;/h4&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;解决复杂问题往往需要很多步骤；
+&lt;ul&gt;
+&lt;li&gt;而且正确的步骤往往也也需要探索；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Agent 需要能够正确的了解自己当前解决问题的进度；&lt;/li&gt;
+&lt;li&gt;具体的步骤中，Agent 需要可以使用具体的工具；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;传统-agent-的定义&#34;&gt;传统 Agent 的定义&lt;/h4&gt;
+&lt;h6 id=&#34;agent--llm--planning--memory--tools&#34;&gt;&lt;strong&gt;Agent = LLM + planning + memory + tools&lt;/strong&gt;&lt;/h6&gt;
+&lt;hr&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h4 id=&#34;如何打造一个联网的-llm-&#34;&gt;如何打造一个联网的 LLM ？&lt;/h4&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[Thought]&lt;/strong&gt; 针对用户输入，让 LLM 判断应该从哪个 &lt;code&gt;搜索引擎&lt;/code&gt; 用什么 &lt;code&gt;关键词&lt;/code&gt; 获取结果；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Act]&lt;/strong&gt; 获取 &lt;code&gt;搜索引擎&lt;/code&gt; 在对应 &lt;code&gt;关键词&lt;/code&gt; 下的搜索结果；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Obs]&lt;/strong&gt; 具体返回的搜索结果；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Thought]&lt;/strong&gt; 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;如何打造-yi-6b-的自动安装助手&#34;&gt;如何打造 Yi 6B 的自动安装助手&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;如何打造-macos-的-copilot&#34;&gt;如何打造 MacOS 的 Copilot&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;如何打造一个可以自动软件开发的-agent&#34;&gt;如何打造一个可以自动软件开发的 Agent&lt;/h4&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;这件事需要产品做什么&#34;&gt;这件事需要产品做什么？&lt;/h3&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;找到适合的场景&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;设计场景下的合理交互&lt;/li&gt;
+&lt;li&gt;总结场景下的最佳实践 (作为数据喂给模型就可以了)&lt;/li&gt;
+&lt;li&gt;扩展场景&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="agent-使用指南">Agent 使用指南</h2>
+<hr>
+<h3 id="如何在真实世界中使用大模型">如何在真实世界中使用大模型？</h3>
+<blockquote>
+<p>我说想开灯，大模型能帮我开灯吗？</p></blockquote>
+<hr>
+<ul>
+<li>我们希望大模型能够直接的解决问题</li>
+<li>这样的使用方法现在被人们称为： <strong>Agent</strong></li>
+</ul>
+<hr>
+<h4 id="简单应用如何修复一个-json-串">简单应用：如何修复一个 json 串？</h4>
+<hr>
+<ul>
+<li>错误做法：
+<ul>
+<li>问大模型这个字符串哪里错了？</li>
+<li>写代码修复字符串</li>
+</ul>
+</li>
+<li>正确做法：
+<ul>
+<li>&ldquo;Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.&rdquo;</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="什么情况下我们需要-agent-">什么情况下我们需要 Agent ？</h4>
+<hr>
+<ul>
+<li>不需要的情况：
+<ul>
+<li>操作简单，人可以快速解决；</li>
+<li>规则清晰，程序可以按规则解决；</li>
+</ul>
+</li>
+<li>需要的情况：
+<ul>
+<li>解决步骤繁琐，对于人来说是重复劳动；</li>
+<li>情况复杂，不容易梳理清楚对应的解决规则；</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="场景举例">场景举例</h4>
+<hr>
+<ul>
+<li>Github 的 Copilot</li>
+<li>MacOS 的 Copilot</li>
+<li>软件自动运维</li>
+<li>Yi 6B 的自动安装助手</li>
+<li>上网助手</li>
+<li>$\dots$</li>
+</ul>
+<hr>
+<h4 id="高级场景举例">高级场景举例</h4>
+<hr>
+<ul>
+<li>自动软件开发（GPT Engineer）</li>
+<li>自动会议纪要
+<ul>
+<li>自动任务记录</li>
+<li>自动会议预定</li>
+<li>自动消息通知</li>
+</ul>
+</li>
+<li>高级个人助理</li>
+<li>一切自动化流程中需要人工参与的部分</li>
+</ul>
+<hr>
+<h4 id="解决复杂问题有哪些难点">解决复杂问题有哪些难点？</h4>
+<hr>
+<ul>
+<li>解决复杂问题往往需要很多步骤；
+<ul>
+<li>而且正确的步骤往往也也需要探索；</li>
+</ul>
+</li>
+<li>Agent 需要能够正确的了解自己当前解决问题的进度；</li>
+<li>具体的步骤中，Agent 需要可以使用具体的工具；</li>
+</ul>
+<hr>
+<h4 id="传统-agent-的定义">传统 Agent 的定义</h4>
+<h6 id="agent--llm--planning--memory--tools"><strong>Agent = LLM + planning + memory + tools</strong></h6>
+<hr>
+<!-- raw HTML omitted -->
+<h4 id="如何打造一个联网的-llm-">如何打造一个联网的 LLM ？</h4>
+<hr>
+<ul>
+<li><strong>[Thought]</strong> 针对用户输入，让 LLM 判断应该从哪个 <code>搜索引擎</code> 用什么 <code>关键词</code> 获取结果；</li>
+<li><strong>[Act]</strong> 获取 <code>搜索引擎</code> 在对应 <code>关键词</code> 下的搜索结果；</li>
+<li><strong>[Obs]</strong> 具体返回的搜索结果；</li>
+<li><strong>[Thought]</strong> 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索；</li>
+</ul>
+<hr>
+<h4 id="如何打造-yi-6b-的自动安装助手">如何打造 Yi 6B 的自动安装助手</h4>
+<hr>
+<h4 id="如何打造-macos-的-copilot">如何打造 MacOS 的 Copilot</h4>
+<hr>
+<h4 id="如何打造一个可以自动软件开发的-agent">如何打造一个可以自动软件开发的 Agent</h4>
+<hr>
+<h3 id="这件事需要产品做什么">这件事需要产品做什么？</h3>
+<hr>
+<ul>
+<li><strong>找到适合的场景</strong></li>
+<li>设计场景下的合理交互</li>
+<li>总结场景下的最佳实践 (作为数据喂给模型就可以了)</li>
+<li>扩展场景</li>
+</ul>
+<hr>
+<blockquote>
+<p>大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理</p></blockquote>
+<hr>
+<h1 id="q--a">Q &amp; A</h1>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>RAG 技术</title>
+      <link>https://uglyboy-tl.github.io/slides/2023/11/23/</link>
+      <pubDate>Thu, 23 Nov 2023 06:35:17 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/slides/2023/11/23/</guid>
+      <description>&lt;h1 id=&#34;rag-技术&#34;&gt;RAG 技术&lt;/h1&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;检索增强的生成系统（Retrieve Augment Generation）简称 RAG。&lt;/li&gt;
+&lt;li&gt;原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以：
+&lt;ul&gt;
+&lt;li&gt;降低幻觉出现概率&lt;/li&gt;
+&lt;li&gt;适应垂直场景应用&lt;/li&gt;
+&lt;li&gt;弥补数据实时性不足&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;一个典型-rag-系统的架构&#34;&gt;一个典型 RAG 系统的架构&lt;/h3&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;rag-系统的核心技术要素&#34;&gt;RAG 系统的核心技术要素&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;文档导入&lt;/li&gt;
+&lt;li&gt;文档切分&lt;/li&gt;
+&lt;li&gt;文档向量化&lt;/li&gt;
+&lt;li&gt;向量数据库选型&lt;/li&gt;
+&lt;li&gt;检索算法&lt;/li&gt;
+&lt;li&gt;文档排序&lt;/li&gt;
+&lt;li&gt;Prompt 生成&lt;/li&gt;
+&lt;li&gt;$\dots$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 &lt;em&gt;某一种 RAG 的方法&lt;/em&gt; 变成了 &lt;em&gt;通用 RAG 的框架&lt;/em&gt;，从而让我们迷失了 RAG 的真正价值。&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h1 id="rag-技术">RAG 技术</h1>
+<hr>
+<ul>
+<li>检索增强的生成系统（Retrieve Augment Generation）简称 RAG。</li>
+<li>原理是在大语言模型的基础上，辅助检索技术，让大语言模型能够获得与用户问题相关的更多上下文信息，使得的大语言模型可以：
+<ul>
+<li>降低幻觉出现概率</li>
+<li>适应垂直场景应用</li>
+<li>弥补数据实时性不足</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="一个典型-rag-系统的架构">一个典型 RAG 系统的架构</h3>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="rag-系统的核心技术要素">RAG 系统的核心技术要素</h3>
+<ul>
+<li>文档导入</li>
+<li>文档切分</li>
+<li>文档向量化</li>
+<li>向量数据库选型</li>
+<li>检索算法</li>
+<li>文档排序</li>
+<li>Prompt 生成</li>
+<li>$\dots$</li>
+</ul>
+<hr>
+<p>市面上大部分的关于 RAG 的介绍都是类似上面的逻辑进行的，然后就顺利的将 <em>某一种 RAG 的方法</em> 变成了 <em>通用 RAG 的框架</em>，从而让我们迷失了 RAG 的真正价值。</p>
+<hr>
+<h2 id="从定义出发rag-就是">从定义出发，RAG 就是</h2>
+<h2 id="检索--生成">检索 + 生成</h2>
+<hr>
+<ul>
+<li>Chat With Documents 属于 RAG</li>
+<li>用户对话中保留历史记忆 属于 RAG</li>
+<li>网页搜索 + LLM 属于 RAG</li>
+<li>自动调用 API 接口获取信息 属于 RAG</li>
+<li>调用数据库获取信息 属于 RAG</li>
+<li>$\dots$</li>
+<li><strong>上面各种方法一起使用也属于 RAG</strong></li>
+</ul>
+<hr>
+<h2 id="rag-究竟意味着什么">RAG 究竟意味着什么？</h2>
+<blockquote>
+<p>为什么我们要使用检索</p></blockquote>
+<hr>
+<ul>
+<li>人类行为的两种模式：主动获取信息（功利动机行为）和被动获取信息（共情动机行为）；
+<ul>
+<li>通常在产品上，我们可以用 <em>Save time</em> 和 <em>Kill time</em> 的模式来区分</li>
+</ul>
+</li>
+<li>主动获取信息的手段被称为信息检索。
+<ul>
+<li>RAG 更标准的说法应当是有了 LLM 能力加持的信息检索。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="llm-很难独立完成检索">LLM 很难独立完成检索</h2>
+<hr>
+<ul>
+<li>最核心的问题是，对于如何引导大模型按照我们的意愿生成内容，<strong>我们无法直接控制，我们只能通过增加上下文的方式来影响生成结果</strong>。
+<ul>
+<li>对于大模型来说，它会如何回答一个问题依赖的不是训练框架，而是训练数据。</li>
+<li>我们无法直接控制大模型的生成结果，但是我们可以通过增加上下文的方式来影响生成结果。</li>
+<li>一个问题，我们可以提供相关的上下文，然后利用大模型的泛化能力，让它生成我们想要的答案。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<!-- raw HTML omitted -->
+<ul>
+<li>大模型的“记忆力”并不可靠，不同的上下文会引导出怎样的结果是不确定的。
+<ul>
+<li>仅靠大模型，是无法取消幻觉的。</li>
+</ul>
+</li>
+<li>如果 RAG 做得不好，可能带来的是负面效果。</li>
+</ul>
+<hr>
+<h2 id="rag-的核心">RAG 的核心</h2>
+<h2 id="如何用好检索">如何用好检索</h2>
+<hr>
+<h2 id="检索的发展史">检索的发展史</h2>
+<ol>
+<li>图书馆的索引式检索（Yahoo 等目录网页）；</li>
+<li>关键词召回（传统搜索）；</li>
+<li>向量相似度（个性化推荐）；</li>
+<li>自然语言回答问题（大模型）；</li>
+</ol>
+<blockquote>
+<p>这些方法不是递进的，而是并列的。</p></blockquote>
+<hr>
+<h2 id="新概念下的-rag-框架">新概念下的 RAG 框架</h2>
+<hr>
+<ol>
+<li>对用户问题分类，判断使用哪些检索器；</li>
+<li>根据用户问题，找到最适合的检索器检索方式（Query、SQL、API 调用等）；</li>
+<li>召回的结果，判断与用户问题的相关性，进行合理过滤或改进；</li>
+<li>用适合的方式组织召回结果，提供给 LLM 进行汇总并回答用户问题；</li>
+<li>（可选）判断是否很好的回答了用户的问题，是否需要重新再来一遍（这其实就进化成 Agent 了）。</li>
+</ol>
+<hr>
+<ul>
+<li>可以使用不同的 LLM 来执行不同的任务，这样就可以在计算速度和资源上得到极大的节约，并针对特定问题取得更好的效果。</li>
+<li>检索器的各种优化技术都值得使用：
+<ul>
+<li>包括传统的关键词搜索（QP）</li>
+<li>向量检索只是其中的一种手段；同时向量检索也应当额外建立适合的索引。</li>
+<li>知识图谱是有效的检索器之一。</li>
+<li>利用好结构化信息（数据库 或 API）。</li>
+</ul>
+</li>
+<li>好的检索器依赖好的数据。</li>
+</ul>
+<hr>
+<h1 id="q--a">Q &amp; A</h1>
+<hr>
+<h4 id="如果我们有一些私有的数据如何让大模型能够利用这些私有数据呢">如果我们有一些私有的数据，如何让大模型能够利用这些私有数据呢？</h4>
+<hr>
+<ul>
+<li>通过微调的方式，将私有数据加入到大模型的训练数据中。</li>
+<li>通过检索的方式，将私有数据加入到大模型的上下文中。</li>
+<li><strong>以上方法都用</strong></li>
+</ul>
+<hr>
+<h4 id="怎样才能更好的提升-rag-的效果">怎样才能更好的提升 RAG 的效果？</h4>
+<hr>
+<p>最核心的要素其实是：找到更优质的数据（准确、结构化）</p>
+<hr>
+<h4 id="产品和开发要深入研究-prompt-engineering-吗">产品和开发要深入研究 Prompt Engineering 吗？</h4>
+<hr>
+<p>永远都不要这样做，这件事交给 SFT</p>
+<ul>
+<li>概念对比</li>
+<li>Let’s think step by step</li>
+<li>通用优化 Prompt 的 Prompt</li>
+<li>function call</li>
+<li>Self RAG</li>
+<li>让模型来学习如何 Prompt Engineering</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>大语言模型原理分享</title>
+      <link>https://uglyboy-tl.github.io/slides/2023/11/21/</link>
+      <pubDate>Tue, 21 Nov 2023 01:45:37 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/slides/2023/11/21/</guid>
+      <description>&lt;h2 id=&#34;大语言模型原理分享&#34;&gt;大语言模型&lt;!-- raw HTML omitted --&gt;原理分享&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;什么是大语言模型&#34;&gt;什么是大语言模型？&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;当我说了很多话之后，我马上要说 $\Box$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;数学公式描述&#34;&gt;数学公式描述&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;$w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是：&lt;/p&gt;
+&lt;p&gt;$$
+p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;大语言模型能做什么&#34;&gt;大语言模型能做什么？&lt;/h3&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;大模型能记住它看到过的一切信息。&lt;/li&gt;
+&lt;li&gt;大模型对于已经看到过的信息，有一定的泛化能力（有限度的推广）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;大模型能达到怎样的泛化能力&#34;&gt;大模型能达到怎样的泛化能力？&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大模型可以涌现出智能吗？&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="大语言模型原理分享">大语言模型<!-- raw HTML omitted -->原理分享</h2>
+<hr>
+<h3 id="什么是大语言模型">什么是大语言模型？</h3>
+<hr>
+<p>当我说了很多话之后，我马上要说 $\Box$</p>
+<hr>
+<h3 id="数学公式描述">数学公式描述</h3>
+<hr>
+<p>$w_1, w_2,\dots, w_{N}$ 是一个单词序列，这个序列的概率分布是：</p>
+<p>$$
+p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
+$$</p>
+<hr>
+<h3 id="大语言模型能做什么">大语言模型能做什么？</h3>
+<hr>
+<ul>
+<li>大模型能记住它看到过的一切信息。</li>
+<li>大模型对于已经看到过的信息，有一定的泛化能力（有限度的推广）。</li>
+</ul>
+<hr>
+<h4 id="大模型能达到怎样的泛化能力">大模型能达到怎样的泛化能力？</h4>
+<blockquote>
+<p>大模型可以涌现出智能吗？</p></blockquote>
+<hr>
+<h3 id="大语言模型不能做什么">大语言模型不能做什么？</h3>
+<hr>
+<ol>
+<li>大模型无法判别一个 $\{[0|1]^*\}$ 序列中是否有奇数个 $1$。</li>
+<li>给定 $n$ 大模型无法生成 $(aa)^n$。</li>
+<li>大模型无法判定 $\{0^n\#1^n\}$ 形式的序列。</li>
+<li>大模型无法执行加法运算。</li>
+<li>$\dots$</li>
+</ol>
+<hr>
+<p>大语言模型没有，也不可能具有推理能力。</p>
+<blockquote>
+<p>大语言模型只是记住了足够多的别人的推理，然后用类比的方法将这些推理泛化了而已。</p></blockquote>
+<hr>
+<h3 id="大语言模型是如何将信息泛化的">大语言模型是如何将信息泛化的？</h3>
+<hr>
+<ul>
+<li>通过相似度计算来进行泛化，然后通过概率分布来进行选择。
+<ol>
+<li>粗略的可以如下理解：可以用同义词替代的都能被泛化。</li>
+<li>这种泛化的替代能力是可以保留相对位置信息的（例如一道数学题中的数字变了，它可以泛化到后续的解题过程中，都用新数字替代原来的数字）。</li>
+<li>在训练样本充分的情况下，可以跨语言进行同义词泛化。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h2 id="q--a">Q &amp; A</h2>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

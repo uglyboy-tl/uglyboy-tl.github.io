@@ -1,0 +1,235 @@
+<!doctype html><html lang=zh dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Agent 使用指南 | 拾柒读库</title><meta name=keywords content="LLM,Agent,大模型专题分享"><meta name=description content="Agent 使用指南
+
+如何在真实世界中使用大模型？
+
+我说想开灯，大模型能帮我开灯吗？
+
+
+我们希望大模型能够直接的解决问题
+这样的使用方法现在被人们称为： Agent
+
+
+简单应用：如何修复一个 json 串？
+
+
+错误做法：
+
+问大模型这个字符串哪里错了？
+写代码修复字符串
+
+
+正确做法：
+
+&ldquo;Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.&rdquo;
+
+
+
+
+什么情况下我们需要 Agent ？
+
+
+不需要的情况：
+
+操作简单，人可以快速解决；
+规则清晰，程序可以按规则解决；
+
+
+需要的情况：
+
+解决步骤繁琐，对于人来说是重复劳动；
+情况复杂，不容易梳理清楚对应的解决规则；
+
+
+
+
+场景举例
+
+
+Github 的 Copilot
+MacOS 的 Copilot
+软件自动运维
+Yi 6B 的自动安装助手
+上网助手
+$\dots$
+
+
+高级场景举例
+
+
+自动软件开发（GPT Engineer）
+自动会议纪要
+
+自动任务记录
+自动会议预定
+自动消息通知
+
+
+高级个人助理
+一切自动化流程中需要人工参与的部分
+
+
+解决复杂问题有哪些难点？
+
+
+解决复杂问题往往需要很多步骤；
+
+而且正确的步骤往往也也需要探索；
+
+
+Agent 需要能够正确的了解自己当前解决问题的进度；
+具体的步骤中，Agent 需要可以使用具体的工具；
+
+
+传统 Agent 的定义
+Agent = LLM + planning + memory + tools
+
+
+如何打造一个联网的 LLM ？
+
+
+[Thought] 针对用户输入，让 LLM 判断应该从哪个 搜索引擎 用什么 关键词 获取结果；
+[Act] 获取 搜索引擎 在对应 关键词 下的搜索结果；
+[Obs] 具体返回的搜索结果；
+[Thought] 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索；
+
+
+如何打造 Yi 6B 的自动安装助手
+
+如何打造 MacOS 的 Copilot
+
+如何打造一个可以自动软件开发的 Agent
+
+这件事需要产品做什么？
+
+
+找到适合的场景
+设计场景下的合理交互
+总结场景下的最佳实践 (作为数据喂给模型就可以了)
+扩展场景
+
+
+
+大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理"><meta name=author content="癸老师"><link rel=canonical href=https://uglyboy-tl.github.io/slides/2023/12/10/><link crossorigin=anonymous href=/assets/css/stylesheet.e5e648926efb6029103f7617c3b138c0e736da6a292e53be5ca137773d237712.css integrity="sha256-5eZIkm77YCkQP3YXw7E4wOc22mopLlO+XKE3dz0jdxI=" rel="preload stylesheet" as=style><link rel=icon href=https://uglyboy-tl.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://uglyboy-tl.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://uglyboy-tl.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://uglyboy-tl.github.io/apple-touch-icon.png><link rel=mask-icon href=https://uglyboy-tl.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh href=https://uglyboy-tl.github.io/slides/2023/12/10/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><link rel=stylesheet href=https://lib.baomitu.com/lxgw-wenkai-webfont/latest/style.min.css><script async src="https://www.googletagmanager.com/gtag/js?id=G-0T89SF4PSW"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-0T89SF4PSW")}</script><meta property="og:url" content="https://uglyboy-tl.github.io/slides/2023/12/10/"><meta property="og:site_name" content="拾柒读库"><meta property="og:title" content="Agent 使用指南"><meta property="og:description" content="Agent 使用指南 如何在真实世界中使用大模型？ 我说想开灯，大模型能帮我开灯吗？
+我们希望大模型能够直接的解决问题 这样的使用方法现在被人们称为： Agent 简单应用：如何修复一个 json 串？ 错误做法： 问大模型这个字符串哪里错了？ 写代码修复字符串 正确做法： “Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.” 什么情况下我们需要 Agent ？ 不需要的情况： 操作简单，人可以快速解决； 规则清晰，程序可以按规则解决； 需要的情况： 解决步骤繁琐，对于人来说是重复劳动； 情况复杂，不容易梳理清楚对应的解决规则； 场景举例 Github 的 Copilot MacOS 的 Copilot 软件自动运维 Yi 6B 的自动安装助手 上网助手 $\dots$ 高级场景举例 自动软件开发（GPT Engineer） 自动会议纪要 自动任务记录 自动会议预定 自动消息通知 高级个人助理 一切自动化流程中需要人工参与的部分 解决复杂问题有哪些难点？ 解决复杂问题往往需要很多步骤； 而且正确的步骤往往也也需要探索； Agent 需要能够正确的了解自己当前解决问题的进度； 具体的步骤中，Agent 需要可以使用具体的工具； 传统 Agent 的定义 Agent = LLM + planning + memory + tools 如何打造一个联网的 LLM ？ [Thought] 针对用户输入，让 LLM 判断应该从哪个 搜索引擎 用什么 关键词 获取结果； [Act] 获取 搜索引擎 在对应 关键词 下的搜索结果； [Obs] 具体返回的搜索结果； [Thought] 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索； 如何打造 Yi 6B 的自动安装助手 如何打造 MacOS 的 Copilot 如何打造一个可以自动软件开发的 Agent 这件事需要产品做什么？ 找到适合的场景 设计场景下的合理交互 总结场景下的最佳实践 (作为数据喂给模型就可以了) 扩展场景 大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="slides"><meta property="article:published_time" content="2023-12-10T09:55:03+08:00"><meta property="article:modified_time" content="2026-04-08T08:45:28+08:00"><meta property="article:tag" content="LLM"><meta property="article:tag" content="Agent"><meta property="article:tag" content="大模型专题分享"><meta name=twitter:card content="summary"><meta name=twitter:title content="Agent 使用指南"><meta name=twitter:description content="Agent 使用指南 如何在真实世界中使用大模型？ 我说想开灯，大模型能帮我开灯吗？
+我们希望大模型能够直接的解决问题 这样的使用方法现在被人们称为： Agent 简单应用：如何修复一个 json 串？ 错误做法： 问大模型这个字符串哪里错了？ 写代码修复字符串 正确做法： “Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.” 什么情况下我们需要 Agent ？ 不需要的情况： 操作简单，人可以快速解决； 规则清晰，程序可以按规则解决； 需要的情况： 解决步骤繁琐，对于人来说是重复劳动； 情况复杂，不容易梳理清楚对应的解决规则； 场景举例 Github 的 Copilot MacOS 的 Copilot 软件自动运维 Yi 6B 的自动安装助手 上网助手 $\dots$ 高级场景举例 自动软件开发（GPT Engineer） 自动会议纪要 自动任务记录 自动会议预定 自动消息通知 高级个人助理 一切自动化流程中需要人工参与的部分 解决复杂问题有哪些难点？ 解决复杂问题往往需要很多步骤； 而且正确的步骤往往也也需要探索； Agent 需要能够正确的了解自己当前解决问题的进度； 具体的步骤中，Agent 需要可以使用具体的工具； 传统 Agent 的定义 Agent = LLM + planning + memory + tools 如何打造一个联网的 LLM ？ [Thought] 针对用户输入，让 LLM 判断应该从哪个 搜索引擎 用什么 关键词 获取结果； [Act] 获取 搜索引擎 在对应 关键词 下的搜索结果； [Obs] 具体返回的搜索结果； [Thought] 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索； 如何打造 Yi 6B 的自动安装助手 如何打造 MacOS 的 Copilot 如何打造一个可以自动软件开发的 Agent 这件事需要产品做什么？ 找到适合的场景 设计场景下的合理交互 总结场景下的最佳实践 (作为数据喂给模型就可以了) 扩展场景 大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"演示","item":"https://uglyboy-tl.github.io/slides/"},{"@type":"ListItem","position":2,"name":"Agent 使用指南","item":"https://uglyboy-tl.github.io/slides/2023/12/10/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Agent 使用指南","name":"Agent 使用指南","description":"Agent 使用指南 如何在真实世界中使用大模型？ 我说想开灯，大模型能帮我开灯吗？\n我们希望大模型能够直接的解决问题 这样的使用方法现在被人们称为： Agent 简单应用：如何修复一个 json 串？ 错误做法： 问大模型这个字符串哪里错了？ 写代码修复字符串 正确做法： \u0026ldquo;Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.\u0026rdquo; 什么情况下我们需要 Agent ？ 不需要的情况： 操作简单，人可以快速解决； 规则清晰，程序可以按规则解决； 需要的情况： 解决步骤繁琐，对于人来说是重复劳动； 情况复杂，不容易梳理清楚对应的解决规则； 场景举例 Github 的 Copilot MacOS 的 Copilot 软件自动运维 Yi 6B 的自动安装助手 上网助手 $\\dots$ 高级场景举例 自动软件开发（GPT Engineer） 自动会议纪要 自动任务记录 自动会议预定 自动消息通知 高级个人助理 一切自动化流程中需要人工参与的部分 解决复杂问题有哪些难点？ 解决复杂问题往往需要很多步骤； 而且正确的步骤往往也也需要探索； Agent 需要能够正确的了解自己当前解决问题的进度； 具体的步骤中，Agent 需要可以使用具体的工具； 传统 Agent 的定义 Agent = LLM + planning + memory + tools 如何打造一个联网的 LLM ？ [Thought] 针对用户输入，让 LLM 判断应该从哪个 搜索引擎 用什么 关键词 获取结果； [Act] 获取 搜索引擎 在对应 关键词 下的搜索结果； [Obs] 具体返回的搜索结果； [Thought] 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索； 如何打造 Yi 6B 的自动安装助手 如何打造 MacOS 的 Copilot 如何打造一个可以自动软件开发的 Agent 这件事需要产品做什么？ 找到适合的场景 设计场景下的合理交互 总结场景下的最佳实践 (作为数据喂给模型就可以了) 扩展场景 大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理\n","keywords":["LLM","Agent","大模型专题分享"],"articleBody":"Agent 使用指南 如何在真实世界中使用大模型？ 我说想开灯，大模型能帮我开灯吗？\n我们希望大模型能够直接的解决问题 这样的使用方法现在被人们称为： Agent 简单应用：如何修复一个 json 串？ 错误做法： 问大模型这个字符串哪里错了？ 写代码修复字符串 正确做法： “Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.” 什么情况下我们需要 Agent ？ 不需要的情况： 操作简单，人可以快速解决； 规则清晰，程序可以按规则解决； 需要的情况： 解决步骤繁琐，对于人来说是重复劳动； 情况复杂，不容易梳理清楚对应的解决规则； 场景举例 Github 的 Copilot MacOS 的 Copilot 软件自动运维 Yi 6B 的自动安装助手 上网助手 $\\dots$ 高级场景举例 自动软件开发（GPT Engineer） 自动会议纪要 自动任务记录 自动会议预定 自动消息通知 高级个人助理 一切自动化流程中需要人工参与的部分 解决复杂问题有哪些难点？ 解决复杂问题往往需要很多步骤； 而且正确的步骤往往也也需要探索； Agent 需要能够正确的了解自己当前解决问题的进度； 具体的步骤中，Agent 需要可以使用具体的工具； 传统 Agent 的定义 Agent = LLM + planning + memory + tools 如何打造一个联网的 LLM ？ [Thought] 针对用户输入，让 LLM 判断应该从哪个 搜索引擎 用什么 关键词 获取结果； [Act] 获取 搜索引擎 在对应 关键词 下的搜索结果； [Obs] 具体返回的搜索结果； [Thought] 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索； 如何打造 Yi 6B 的自动安装助手 如何打造 MacOS 的 Copilot 如何打造一个可以自动软件开发的 Agent 这件事需要产品做什么？ 找到适合的场景 设计场景下的合理交互 总结场景下的最佳实践 (作为数据喂给模型就可以了) 扩展场景 大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理\nQ \u0026 A ","wordCount":"654","inLanguage":"zh","datePublished":"2023-12-10T09:55:03+08:00","dateModified":"2026-04-08T08:45:28+08:00","author":{"@type":"Person","name":"癸老师"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://uglyboy-tl.github.io/slides/2023/12/10/"},"publisher":{"@type":"Organization","name":"拾柒读库","logo":{"@type":"ImageObject","url":"https://uglyboy-tl.github.io/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=header-nav><div class=logo><a href=https://uglyboy-tl.github.io/ accesskey=h title="拾柒读库 (Alt + H)">拾柒读库</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=https://uglyboy-tl.github.io/posts/ title=文章><span>文章</span></a></li><li><a href=https://uglyboy-tl.github.io/slides/ title=演示><span>演示</span></a></li><li><a href=https://uglyboy-tl.github.io/podcasts/ title=播客><span>播客</span></a></li><li><a href=https://uglyboy-tl.github.io/games/ title=游戏><span>游戏</span></a></li><li><a href=https://uglyboy-tl.github.io/categories/ title=分类><span>分类</span></a></li><li><a href=https://uglyboy-tl.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://uglyboy-tl.github.io/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://uglyboy-tl.github.io/archives/ title=时间轴><span>时间轴</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><nav class=breadcrumbs role=navigation aria-label=Breadcrumb><a href=/>主页</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg>
+<a href=/slides/>演示</a>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"/></svg></nav><h1 class="post-title entry-hint-parent">Agent 使用指南</h1><div class=post-meta><span title='2023-12-10 09:55:03 +0800 CST'>2023-12-10</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>癸老师</span></div></header><div class="post-content md-content"><h2 id=agent-使用指南>Agent 使用指南<a hidden class=anchor aria-hidden=true href=#agent-使用指南>#</a></h2><hr><h3 id=如何在真实世界中使用大模型>如何在真实世界中使用大模型？<a hidden class=anchor aria-hidden=true href=#如何在真实世界中使用大模型>#</a></h3><blockquote><p>我说想开灯，大模型能帮我开灯吗？</p></blockquote><hr><ul><li>我们希望大模型能够直接的解决问题</li><li>这样的使用方法现在被人们称为： <strong>Agent</strong></li></ul><hr><h4 id=简单应用如何修复一个-json-串>简单应用：如何修复一个 json 串？<a hidden class=anchor aria-hidden=true href=#简单应用如何修复一个-json-串>#</a></h4><hr><ul><li>错误做法：<ul><li>问大模型这个字符串哪里错了？</li><li>写代码修复字符串</li></ul></li><li>正确做法：<ul><li>&ldquo;Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.&rdquo;</li></ul></li></ul><hr><h4 id=什么情况下我们需要-agent->什么情况下我们需要 Agent ？<a hidden class=anchor aria-hidden=true href=#什么情况下我们需要-agent->#</a></h4><hr><ul><li>不需要的情况：<ul><li>操作简单，人可以快速解决；</li><li>规则清晰，程序可以按规则解决；</li></ul></li><li>需要的情况：<ul><li>解决步骤繁琐，对于人来说是重复劳动；</li><li>情况复杂，不容易梳理清楚对应的解决规则；</li></ul></li></ul><hr><h4 id=场景举例>场景举例<a hidden class=anchor aria-hidden=true href=#场景举例>#</a></h4><hr><ul><li>Github 的 Copilot</li><li>MacOS 的 Copilot</li><li>软件自动运维</li><li>Yi 6B 的自动安装助手</li><li>上网助手</li><li>$\dots$</li></ul><hr><h4 id=高级场景举例>高级场景举例<a hidden class=anchor aria-hidden=true href=#高级场景举例>#</a></h4><hr><ul><li>自动软件开发（GPT Engineer）</li><li>自动会议纪要<ul><li>自动任务记录</li><li>自动会议预定</li><li>自动消息通知</li></ul></li><li>高级个人助理</li><li>一切自动化流程中需要人工参与的部分</li></ul><hr><h4 id=解决复杂问题有哪些难点>解决复杂问题有哪些难点？<a hidden class=anchor aria-hidden=true href=#解决复杂问题有哪些难点>#</a></h4><hr><ul><li>解决复杂问题往往需要很多步骤；<ul><li>而且正确的步骤往往也也需要探索；</li></ul></li><li>Agent 需要能够正确的了解自己当前解决问题的进度；</li><li>具体的步骤中，Agent 需要可以使用具体的工具；</li></ul><hr><h4 id=传统-agent-的定义>传统 Agent 的定义<a hidden class=anchor aria-hidden=true href=#传统-agent-的定义>#</a></h4><h6 id=agent--llm--planning--memory--tools><strong>Agent = LLM + planning + memory + tools</strong><a hidden class=anchor aria-hidden=true href=#agent--llm--planning--memory--tools>#</a></h6><hr><h4 id=如何打造一个联网的-llm->如何打造一个联网的 LLM ？<a hidden class=anchor aria-hidden=true href=#如何打造一个联网的-llm->#</a></h4><hr><ul><li><strong>[Thought]</strong> 针对用户输入，让 LLM 判断应该从哪个 <code>搜索引擎</code> 用什么 <code>关键词</code> 获取结果；</li><li><strong>[Act]</strong> 获取 <code>搜索引擎</code> 在对应 <code>关键词</code> 下的搜索结果；</li><li><strong>[Obs]</strong> 具体返回的搜索结果；</li><li><strong>[Thought]</strong> 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索；</li></ul><hr><h4 id=如何打造-yi-6b-的自动安装助手>如何打造 Yi 6B 的自动安装助手<a hidden class=anchor aria-hidden=true href=#如何打造-yi-6b-的自动安装助手>#</a></h4><hr><h4 id=如何打造-macos-的-copilot>如何打造 MacOS 的 Copilot<a hidden class=anchor aria-hidden=true href=#如何打造-macos-的-copilot>#</a></h4><hr><h4 id=如何打造一个可以自动软件开发的-agent>如何打造一个可以自动软件开发的 Agent<a hidden class=anchor aria-hidden=true href=#如何打造一个可以自动软件开发的-agent>#</a></h4><hr><h3 id=这件事需要产品做什么>这件事需要产品做什么？<a hidden class=anchor aria-hidden=true href=#这件事需要产品做什么>#</a></h3><hr><ul><li><strong>找到适合的场景</strong></li><li>设计场景下的合理交互</li><li>总结场景下的最佳实践 (作为数据喂给模型就可以了)</li><li>扩展场景</li></ul><hr><blockquote><p>大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理</p></blockquote><hr><h1 id=q--a>Q & A<a hidden class=anchor aria-hidden=true href=#q--a>#</a></h1></div><style>.post-content.md-content{display:none}</style><div class=reveal style=height:50vh><div class=slides><section data-markdown><textarea data-template>
+      
+## Agent 使用指南
+
+---
+
+### 如何在真实世界中使用大模型？
+
+&gt; 我说想开灯，大模型能帮我开灯吗？
+
+---
+- 我们希望大模型能够直接的解决问题
+- 这样的使用方法现在被人们称为： **Agent**
+---
+#### 简单应用：如何修复一个 json 串？
+-----
+- 错误做法：
+  - 问大模型这个字符串哪里错了？
+  - 写代码修复字符串
+- 正确做法：
+  - &#34;Do not change the specific content, fix the json, directly return the repaired JSON, without any explanation and dialogue.&#34;
+
+---
+#### 什么情况下我们需要 Agent ？
+-----
+- 不需要的情况：
+  - 操作简单，人可以快速解决；
+  - 规则清晰，程序可以按规则解决；
+- 需要的情况：
+  - 解决步骤繁琐，对于人来说是重复劳动；
+  - 情况复杂，不容易梳理清楚对应的解决规则；
+
+---
+#### 场景举例
+-----
+- Github 的 Copilot
+- MacOS 的 Copilot
+- 软件自动运维
+- Yi 6B 的自动安装助手
+- 上网助手
+- $\dots$
+---
+#### 高级场景举例
+-----
+- 自动软件开发（GPT Engineer）
+- 自动会议纪要
+  - 自动任务记录
+  - 自动会议预定
+  - 自动消息通知
+- 高级个人助理
+- 一切自动化流程中需要人工参与的部分
+---
+#### 解决复杂问题有哪些难点？
+-----
+- 解决复杂问题往往需要很多步骤；
+  - 而且正确的步骤往往也也需要探索；
+- Agent 需要能够正确的了解自己当前解决问题的进度；
+- 具体的步骤中，Agent 需要可以使用具体的工具；
+---
+#### 传统 Agent 的定义
+###### **Agent = LLM &#43; planning &#43; memory &#43; tools**
+-----
+&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/12/18/Pucaj8OELXfeTZm.jpg&#34;&gt;&lt;/center&gt;
+---
+### Agent 究竟是如何工作的？
+---
+#### ReAct：Agent 的核心模式
+&lt;center&gt;&lt;img src=&#34;https://s2.loli.net/2023/12/18/klDFI9n2Mq5Kf61.png&#34; width=&#34;70%&#34;&gt;&lt;/center&gt;
+---
+#### ReAct 的核心思想
+-----
+- 循环试错（以此来取消幻觉）；
+- 充分利用大模型的能力（复杂条件下也总能给出解决方案）；
+  - 大模型的知识足够多，且有泛化性，适合解决复杂问题；
+  - 大模型可以很好的理解复杂的条件，找出适合的解决方案；
+- 通过对历史行为的记录（记忆），避免重复错误的尝试；
+---
+### Agent 测验
+---
+
+#### 如何打造一个联网的 LLM ？
+-----
+- **[Thought]** 针对用户输入，让 LLM 判断应该从哪个 `搜索引擎` 用什么 `关键词` 获取结果；
+- **[Act]** 获取 `搜索引擎` 在对应 `关键词` 下的搜索结果；
+- **[Obs]** 具体返回的搜索结果；
+- **[Thought]** 判断是否回答了用户的输入，如果没有，类似第一步，继续判断如何搜索；
+
+---
+#### 如何打造 Yi 6B 的自动安装助手
+---
+#### 如何打造 MacOS 的 Copilot
+---
+#### 如何打造一个可以自动软件开发的 Agent
+
+---
+### 这件事需要产品做什么？
+---
+- **找到适合的场景**
+- 设计场景下的合理交互
+- 总结场景下的最佳实践 (作为数据喂给模型就可以了)
+- 扩展场景
+---
+
+&gt; 大模型还没有出现 Killer APP 是因为还没有懂 Agent 的产品经理
+
+---
+
+# Q &amp; A
+
+      </textarea></section></div></div><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/monokai.min.css integrity="sha512-z8wQkuDRFwCBfoj7KOiu1MECaRVoXx6rZQWL21x0BsVVH7JkqCp1Otf39qve6CrCycOOL5o9vgfII5Smds23rg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/theme/dracula.min.css integrity="sha512-z3Sd/5xZxnlQgNwMsvuE8OJ/EY83taM+YPl/TqNIfq3BDj6V2LoIlszakfn/OHxiJXV10CeBmZDGw+ODNgHZbQ==" crossorigin=anonymous referrerpolicy=no-referrer><script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.js integrity="sha512-lRYVCjdH7dCPCzqLL6eBn78p6WGK5pZxgYBgzTQfWlfX7yiZFLt/qHOMSETHUIz2aZIU/KbjwYHiMsmrcVgJnA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/highlight.min.js integrity="sha512-IkPzJ3njtxNL2Frm7zr18CEj9HH+CEFAqh+jSKjXTHVFGtWG1+USbIXINU8zdGmyLpf/OBIVfpNLGNgwhlymkA==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/math/math.min.js integrity="sha512-tdpe8NdPiaypY/eUgKqr/aL5y0tLiFEde/joBsD4bfjyB8yNuGsReuN/D+XDcGbHQ8/xbDbJ0mqkfGdh2JxCAw==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin@11.6.0/plugin/mermaid/mermaid.min.js></script><script>document.addEventListener("DOMContentLoaded",function(){Reveal.initialize({mathjax3:{mathjax:"https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.min.js",tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{enableExplorer:!1,skipHtmlTags:["script","noscript","style","textarea","pre"]}},mermaid:{theme:"dark",darkMode:!0,flowchart:{useMaxWidth:!0,htmlLabels:!0}},transition:"fade",progress:!0,embedded:!0,minScale:.2,plugins:[RevealMarkdown,RevealHighlight,RevealMath.MathJax3,RevealMermaid]})})</script><footer class=post-footer><ul class=post-tags><li><a href=https://uglyboy-tl.github.io/tags/llm/>LLM</a></li><li><a href=https://uglyboy-tl.github.io/tags/agent/>Agent</a></li><li><a href=https://uglyboy-tl.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%93%E9%A2%98%E5%88%86%E4%BA%AB/>大模型专题分享</a></li></ul><nav class=paginav><a class=prev href=https://uglyboy-tl.github.io/posts/2023/12/19/><span class=title>« 上一页</span>
+<span>Hugo + Reveal.js 后续</span>
+</a><a class=next href=https://uglyboy-tl.github.io/posts/2023/12/07/><span class=title>下一页 »</span>
+<span>Hugo 更换字体 & 使用 Reveal.js 做在线展示</span></a></nav></footer><script src=https://utteranc.es/client.js repo=uglyboy-tl/uglyboy-tl.github.io issue-term=pathname theme=boxy-light crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2026 <a href=https://uglyboy-tl.github.io/>拾柒读库</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script>MathJax={tex:{inlineMath:[["$","$"]],displayMath:[["$$","$$"]],processEscapes:!0,processEnvironments:!0},options:{enableExplorer:!1,skipHtmlTags:["script","noscript","style","textarea","pre"]}},window.addEventListener("load",e=>{document.querySelectorAll("mjx-container").forEach(function(e){e.parentElement.classList+="has-jax"})})</script><script src=https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js integrity="sha512-uzOpZ74myvXTYZ+mXUsPhDF+/iL/n32GDxdryI2SJronkEyKC8FBFRLiBQ7l7U/PTYebDbgTtbqTa6/vGtU23A==" crossorigin=anonymous referrerpolicy=no-referrer></script><script src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js integrity="sha512-6FaAxxHuKuzaGHWnV00ftWqP3luSBRSopnNAA2RvQH1fOfnF/A1wOfiUWF7cLIOFcfb1dEhXwo5VG3DAisocRw==" crossorigin=anonymous referrerpolicy=no-referrer></script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="复制代码";function s(){t.innerHTML="已复制！",setTimeout(()=>{t.innerHTML="复制代码"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
