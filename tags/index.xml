@@ -8,23 +8,37 @@
     <language>zh-CN</language>
     <atom:link href="https://uglyboy-tl.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AI</title>
+      <link>https://uglyboy-tl.github.io/tags/ai/</link>
+      <pubDate>Tue, 09 Jun 2026 08:45:37 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLM</title>
+      <link>https://uglyboy-tl.github.io/tags/llm/</link>
+      <pubDate>Tue, 09 Jun 2026 08:45:37 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>编码</title>
       <link>https://uglyboy-tl.github.io/tags/%E7%BC%96%E7%A0%81/</link>
-      <pubDate>Mon, 08 Jun 2026 09:50:05 +0800</pubDate>
+      <pubDate>Tue, 09 Jun 2026 08:45:37 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/tags/%E7%BC%96%E7%A0%81/</guid>
       <description></description>
     </item>
     <item>
       <title>进化</title>
       <link>https://uglyboy-tl.github.io/tags/%E8%BF%9B%E5%8C%96/</link>
-      <pubDate>Mon, 08 Jun 2026 09:50:05 +0800</pubDate>
+      <pubDate>Tue, 09 Jun 2026 08:45:37 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/tags/%E8%BF%9B%E5%8C%96/</guid>
       <description></description>
     </item>
     <item>
       <title>系统理论</title>
       <link>https://uglyboy-tl.github.io/tags/%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/</link>
-      <pubDate>Mon, 08 Jun 2026 09:50:05 +0800</pubDate>
+      <pubDate>Tue, 09 Jun 2026 08:45:37 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/tags/%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/</guid>
       <description></description>
     </item>
@@ -92,13 +106,6 @@
       <description></description>
     </item>
     <item>
-      <title>LLM</title>
-      <link>https://uglyboy-tl.github.io/tags/llm/</link>
-      <pubDate>Thu, 26 Feb 2026 18:03:22 +0800</pubDate>
-      <guid>https://uglyboy-tl.github.io/tags/llm/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Prompt</title>
       <link>https://uglyboy-tl.github.io/tags/prompt/</link>
       <pubDate>Thu, 26 Feb 2026 18:03:22 +0800</pubDate>
@@ -138,13 +145,6 @@
       <link>https://uglyboy-tl.github.io/tags/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/</link>
       <pubDate>Sat, 11 Oct 2025 18:07:42 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/tags/%E7%94%A8%E6%88%B7%E5%A2%9E%E9%95%BF/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI</title>
-      <link>https://uglyboy-tl.github.io/tags/ai/</link>
-      <pubDate>Thu, 09 Oct 2025 16:02:28 +0800</pubDate>
-      <guid>https://uglyboy-tl.github.io/tags/ai/</guid>
       <description></description>
     </item>
     <item>
