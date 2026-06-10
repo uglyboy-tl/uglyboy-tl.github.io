@@ -6,7 +6,7 @@
     <description>Recent content in 编码 on 拾柒读库</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jun 2026 10:58:59 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 11:39:08 +0800</lastBuildDate>
     <atom:link href="https://uglyboy-tl.github.io/tags/%E7%BC%96%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Anthropic 说 AI 要自我进化了？让我们来聊一聊大模型真正的瓶颈</title>
@@ -109,6 +109,19 @@
 <p>每一次 AI 的跨越式进步——从语言模型到多模态，从对话到推理，从工具使用到 Agent——都在拓宽人与 AI 交互的边界。但真正决定这条边界能走多远的，不是参数规模，不是计算资源，而是我们能不能持续创造出高质量的编码来描述我们想做的事情。</p>
 <p>下一次真正的突破不会来自更大的模型。它可能来自某个从业者终于停下来，认认真真地问自己一个问题：</p>
 <p><strong>这个世界需要什么样的新编码？</strong></p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>35 岁被裁不是年龄的错，是公司的发动机早已冷透了</title>
+      <link>https://uglyboy-tl.github.io/podcasts/2026/06/08/</link>
+      <pubDate>Mon, 08 Jun 2026 11:34:00 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/podcasts/2026/06/08/</guid>
+      <description>从系统理论角度解读&amp;#34;35 岁被裁&amp;#34;现象——不是年龄歧视，而是公司的内部编码早已失效。</description>
+      <content:encoded><![CDATA[<p>本期播客基于同名文章，由 NotebookLM 自动生成。</p>
+<h2 id="相关内容">相关内容</h2>
+<ul>
+<li>📄 <a href="/posts/2026/06/08/">原文：35 岁被裁不是年龄的错，是公司的发动机早已冷透了</a></li>
+</ul>
 ]]></content:encoded>
     </item>
     <item>
@@ -229,6 +242,19 @@
 <p>当一个系统把“论文”这个编码当作目的，而不是手段；当它把“效率”作为最高标准，而不是“真实”；当它的所有反馈机制都被锁死在现有框架内，无法跳出框架审视自身——那么，造假就不是偶然事件，而是系统运转的必然产物。</p>
 <p>耿同学的真正价值，不在于他抓了几个造假者，而在于他用一个人的力量，证明了这个系统的自我纠错机制已经失灵。一个退学博士用十几个小时就能发现的问题，整个学术系统几十年都没发现——这不是能力问题，而是进化停滞。</p>
 <p>而一个健康的系统，不应该依赖外部冲击来维持运转。它需要重新定义什么是“好学术”，为熵的释放提供合法的空间，让编码的组合与重组成为常态。这才是打破之后，真正需要做的事。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>当一个退学博士，掀翻了整个学术界的牌桌</title>
+      <link>https://uglyboy-tl.github.io/podcasts/2026/06/03/</link>
+      <pubDate>Wed, 03 Jun 2026 11:03:00 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/podcasts/2026/06/03/</guid>
+      <description>从系统理论角度解读&amp;#34;耿同学讲故事&amp;#34;打假事件——不是个人勇气的故事，而是系统失控的故事。</description>
+      <content:encoded><![CDATA[<p>本期播客基于同名文章，由 NotebookLM 自动生成。</p>
+<h2 id="相关内容">相关内容</h2>
+<ul>
+<li>📄 <a href="/posts/2026/06/03/">原文：当一个退学博士，掀翻了整个学术界的牌桌</a></li>
+</ul>
 ]]></content:encoded>
     </item>
     <item>
