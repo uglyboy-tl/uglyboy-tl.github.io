@@ -6,14 +6,14 @@
     <description>Recent content in AI on 拾柒读库</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jun 2026 10:58:59 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 19:37:07 +0800</lastBuildDate>
     <atom:link href="https://uglyboy-tl.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Anthropic 说 AI 要自我进化了？让我们来聊一聊大模型真正的瓶颈</title>
       <link>https://uglyboy-tl.github.io/posts/2026/06/09/</link>
       <pubDate>Tue, 09 Jun 2026 08:45:37 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2026/06/09/</guid>
-      <description>&lt;p&gt;2026 年 6 月，Anthropic 发了一篇文章，题目叫《When AI builds itself》。文章说，Claude 现在能写超过 80% 的合并代码，工程师的人均产出涨了 8 倍。然后他们画了一条时间线：从“人写代码”到“AI 辅助写代码”再到“AI 自主写代码”，箭头指向一个终点——AI 能够完全自主地设计和训练自己的后继者。&lt;/p&gt;</description>
+      <description>Anthropic 说 AI 要自我进化了？从编码进化理论看大模型真正的瓶颈在哪里。</description>
       <content:encoded><![CDATA[<p>2026 年 6 月，Anthropic 发了一篇文章，题目叫《When AI builds itself》。文章说，Claude 现在能写超过 80% 的合并代码，工程师的人均产出涨了 8 倍。然后他们画了一条时间线：从“人写代码”到“AI 辅助写代码”再到“AI 自主写代码”，箭头指向一个终点——AI 能够完全自主地设计和训练自己的后继者。</p>
 <p>他们管这叫“递归自我改进”。</p>
 <p>文章还说，如果这一天真的来了，人类可能会失去对 AI 的控制。所以呼吁建立一个全球可验证的暂停机制——在 AI 开始自我发展之前，先踩一脚刹车。</p>

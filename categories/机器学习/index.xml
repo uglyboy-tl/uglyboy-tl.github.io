@@ -6,7 +6,7 @@
     <description>Recent content in 机器学习 on 拾柒读库</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 26 May 2026 06:22:35 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 19:37:07 +0800</lastBuildDate>
     <atom:link href="https://uglyboy-tl.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从编码到 AGI</title>
@@ -493,8 +493,7 @@ $$</p>
       <link>https://uglyboy-tl.github.io/posts/2024/04/07/</link>
       <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2024/04/07/</guid>
-      <description>&lt;h2 id=&#34;问题的定义&#34;&gt;问题的定义&lt;/h2&gt;
-&lt;p&gt;探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。&lt;/p&gt;</description>
+      <description>从数学上严格定义 RAG 的本质——如何改写 Prompt 以获得更好的结果，证明检索总是有效的。</description>
       <content:encoded><![CDATA[<h2 id="问题的定义">问题的定义</h2>
 <p>探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。</p>
 <p>但对于 LLM 的真实场景应用来说，我们不仅仅希望 LLM 给出像人一样的回答，而且对回答的答案是有着有别于语言概率分布的预期的。所以对于实际应用场景下的 LLM 的评估，并不是评估 LLM 原本的能力（泛化性），而是评估在很多具体问题下的回答距离某个我们认为合理的回答是否更接近。</p>
@@ -833,13 +832,7 @@ $$</p>
       <link>https://uglyboy-tl.github.io/posts/2024/02/27/</link>
       <pubDate>Tue, 27 Feb 2024 09:29:54 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2024/02/27/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://uglyboy-tl.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css&#34; integrity=&#34;sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=&#34; crossorigin=&#34;anonymous&#34;&gt;
-    &lt;div class=&#34;admonition abstract&#34;&gt;
-      &lt;div class=&#34;admonition-header&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 384 512&#34;&gt;&lt;path d=&#34;M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z&#34;/&gt;&lt;/svg&gt;
-        &lt;span&gt;摘要&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div class=&#34;admonition-content&#34;&gt;
-        &lt;p&gt;AI alignment，广义的 SFT 技术，因为其多种多样的实现方式，包括 continue learning、fine turing、LoRA、RLHF 等等，往往让大家对这个过程充满了好奇和憧憬，觉得似乎任何 NLP 的问题，只要拥有了神乎奇迹的 SFT 能力，就能从 pre-train model 进行进一步的提升，从而解决问题。&lt;/p&gt;</description>
+      <description>AI Alignment 本质是贝叶斯学习，数学拆解 SFT 和 RLHF 能做什么、不能做什么。</description>
       <content:encoded><![CDATA[
             <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
     <div class="admonition abstract">
@@ -1728,14 +1721,7 @@ $$</p>
       <link>https://uglyboy-tl.github.io/posts/2023/11/09/</link>
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2023/11/09/</guid>
-      <description>&lt;h2 id=&#34;大语言模型的基本逻辑&#34;&gt;大语言模型的基本逻辑&lt;/h2&gt;
-&lt;p&gt;大语言模型的本质是一个 &lt;code&gt;N-GRAM&lt;/code&gt; 模型，即：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率：&lt;/p&gt;
-&lt;p&gt;$$
-p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
-$$&lt;/p&gt;
-&lt;p&gt;该模型是一个 $N-1$ 阶的马尔可夫链，称为 &lt;code&gt;N-GRAM&lt;/code&gt; 模型&lt;/p&gt;</description>
+      <description>从 N-GRAM 到 Transformer，用数学视角理解大语言模型的泛化性、位置编码与对齐原理。</description>
       <content:encoded><![CDATA[<h2 id="大语言模型的基本逻辑">大语言模型的基本逻辑</h2>
 <p>大语言模型的本质是一个 <code>N-GRAM</code> 模型，即：</p>
 <p><strong>定义：</strong></p>
@@ -1917,18 +1903,7 @@ $$</p>
       <link>https://uglyboy-tl.github.io/posts/2023/10/30/</link>
       <pubDate>Mon, 30 Oct 2023 07:50:00 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2023/10/30/</guid>
-      <description>&lt;h2 id=&#34;大模型是有穷自动机&#34;&gt;大模型是有穷自动机&lt;/h2&gt;
-&lt;h3 id=&#34;非确定型有穷自动机nfa的定义&#34;&gt;非确定型有穷自动机（NFA）的定义&lt;/h3&gt;
-&lt;p&gt;非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;$Q$ 是一个有穷集合，称为&lt;strong&gt;状态集&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;$\Sigma$ 是一个有穷集合，称为&lt;strong&gt;字母表&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;$\delta:Q\times\Sigma_\varepsilon\rightarrow \mathcal{P}(Q)$ 是&lt;strong&gt;转移函数&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;$q_0\in Q$ 是&lt;strong&gt;起始状态&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;$F \subseteq Q$ 是&lt;strong&gt;接受状态集&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;大模型是-nfa-的证明&#34;&gt;大模型是 NFA 的证明&lt;/h3&gt;
-&lt;p&gt;令 $q_0 =\varepsilon$ 为初始状态，大语言模型的预测函数记为&lt;/p&gt;</description>
+      <description>证明大语言模型本质是有穷自动机，以及 Agent &#43; LLM 如何实现图灵完备性。</description>
       <content:encoded><![CDATA[<h2 id="大模型是有穷自动机">大模型是有穷自动机</h2>
 <h3 id="非确定型有穷自动机nfa的定义">非确定型有穷自动机（NFA）的定义</h3>
 <p>非确定型有穷自动机是一个 5 元数组 $Q,\Sigma,\delta,q_0,F$，其中</p>
@@ -2164,24 +2139,7 @@ $$</p>
       <link>https://uglyboy-tl.github.io/posts/2023/10/25/</link>
       <pubDate>Wed, 25 Oct 2023 10:57:47 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2023/10/25/</guid>
-      <description>&lt;h2 id=&#34;算数编码才是压缩的本质&#34;&gt;算数编码才是压缩的本质&lt;/h2&gt;
-&lt;p&gt;一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 &lt;a href=&#34;https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;amp;t=247s&#34;&gt;Compression for AGI - Jack Rae | Stanford MLSys #76&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;里面核心模式只有一个：&lt;/p&gt;
-
-            &lt;link rel=&#34;stylesheet&#34; href=&#34;https://uglyboy-tl.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css&#34; integrity=&#34;sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=&#34; crossorigin=&#34;anonymous&#34;&gt;
-    &lt;div class=&#34;admonition code&#34;&gt;
-      &lt;div class=&#34;admonition-header&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 640 512&#34;&gt;&lt;path d=&#34;M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z&#34;/&gt;&lt;/svg&gt;
-        &lt;span&gt;代码&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div class=&#34;admonition-content&#34;&gt;
-        &lt;ol&gt;
-&lt;li&gt;假定我有一个程序 f，我将 f 的代码传输给另一端；&lt;/li&gt;
-&lt;li&gt;我有一个序列需要传输，我通过 f 对逐个字符出现的概率进行了预测；&lt;/li&gt;
-&lt;li&gt;我根据算数编码，将结果编码后，传输给了另一端；&lt;/li&gt;
-&lt;li&gt;最后传输的信息量最小。&lt;/li&gt;
-&lt;/ol&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;&lt;p&gt;&lt;strong&gt;这不过是算数编码的定义好不好！！！&lt;/strong&gt; 哪里有什么神奇的地方。。。&lt;/p&gt;</description>
+      <description>“压缩即是智慧”不过是算数编码的定义，揭穿大模型领域被广泛接受的伪命题。</description>
       <content:encoded><![CDATA[<h2 id="算数编码才是压缩的本质">算数编码才是压缩的本质</h2>
 <p>一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 <a href="https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;t=247s">Compression for AGI - Jack Rae | Stanford MLSys #76</a></p>
 <p>里面核心模式只有一个：</p>
@@ -2232,15 +2190,7 @@ $$</p>
       <link>https://uglyboy-tl.github.io/posts/2023/10/10/</link>
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2023/10/10/</guid>
-      <description>&lt;h2 id=&#34;dataset-size-和-loss-的关系&#34;&gt;Dataset Size 和 Loss 的关系&lt;/h2&gt;
-&lt;h3 id=&#34;最大似然估计mle&#34;&gt;最大似然估计（MLE）&lt;/h3&gt;
-&lt;p&gt;一切机器学习的本质都是最大似然估计：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;模型下的理想真实世界的概率分布：$p(x|\theta)$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;我们不知道真实世界的分布，所以我们要用样本估计似然函数 $L(\theta|x)$&lt;/p&gt;</description>
+      <description>从 MLE 和 Fisher 信息量出发，用数学拆解 Scaling Law 中数据量、参数量与 Loss 的关系。</description>
       <content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
 <h3 id="最大似然估计mle">最大似然估计（MLE）</h3>
 <p>一切机器学习的本质都是最大似然估计：</p>

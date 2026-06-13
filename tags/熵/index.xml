@@ -6,16 +6,14 @@
     <description>Recent content in 熵 on 拾柒读库</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 10 Jun 2026 11:39:06 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 19:37:07 +0800</lastBuildDate>
     <atom:link href="https://uglyboy-tl.github.io/tags/%E7%86%B5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>当一个退学博士，掀翻了整个学术界的牌桌</title>
       <link>https://uglyboy-tl.github.io/posts/2026/06/03/</link>
       <pubDate>Wed, 03 Jun 2026 15:35:53 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2026/06/03/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;最近，一个叫“耿同学讲故事”的博主，用几期视频，在中国学术界引发了一场地震。&lt;/p&gt;
-&lt;p&gt;从同济大学到南开大学，从院长到杰青，多位顶尖学者的论文被指涉嫌数据造假。同济大学反应最快，免职、降级、解聘，一套组合拳打下来，被称为”国内对学术不端最严厉的处分“。&lt;/p&gt;</description>
+      <description>从&amp;#34;耿同学讲故事&amp;#34;事件出发，探讨学术不端背后的系统问题与制度反思。</description>
       <content:encoded><![CDATA[<blockquote>
 <p>最近，一个叫“耿同学讲故事”的博主，用几期视频，在中国学术界引发了一场地震。</p>
 <p>从同济大学到南开大学，从院长到杰青，多位顶尖学者的论文被指涉嫌数据造假。同济大学反应最快，免职、降级、解聘，一套组合拳打下来，被称为”国内对学术不端最严厉的处分“。</p></blockquote>
@@ -89,7 +87,7 @@
       <link>https://uglyboy-tl.github.io/posts/2026/05/26/</link>
       <pubDate>Tue, 26 May 2026 06:02:21 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2026/05/26/</guid>
-      <description>写给普通读者的一篇科普。用“熵”这一个概念当线索，把看起来不相干的事情串起来。</description>
+      <description>用“熵”这一概念当线索，把系统理论、反脆弱、组织管理串起来的跨学科科普。</description>
       <content:encoded><![CDATA[<p>热力学第二定律说得很硬：孤立系统里，熵只会增加，不会减少。一切都在不可逆转地滑向混乱。</p>
 <p>但这不可能是故事的全部。还有另一件事同样确定：你我每天身处一个正在变有序的世界。树在生长，城市在扩张，技术在迭代，文明一层一层向上堆叠——看不到任何“正在均匀地热寂化”的迹象。</p>
 <p>一个说越来越乱，一个说越来越有序。它们不可能同时成立，除非我们对“有序”的理解从根上就漏掉了什么。</p>

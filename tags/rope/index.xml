@@ -6,21 +6,14 @@
     <description>Recent content in RoPE on 拾柒读库</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 09 May 2025 09:34:03 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 19:37:07 +0800</lastBuildDate>
     <atom:link href="https://uglyboy-tl.github.io/tags/rope/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>大语言模型的数学理解</title>
       <link>https://uglyboy-tl.github.io/posts/2023/11/09/</link>
       <pubDate>Thu, 09 Nov 2023 12:08:22 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2023/11/09/</guid>
-      <description>&lt;h2 id=&#34;大语言模型的基本逻辑&#34;&gt;大语言模型的基本逻辑&lt;/h2&gt;
-&lt;p&gt;大语言模型的本质是一个 &lt;code&gt;N-GRAM&lt;/code&gt; 模型，即：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;假设 $w_1, w_2,\dots, w_{N}$ 是一个单词序列。我们可以按如下公式计算单词序列的概率：&lt;/p&gt;
-&lt;p&gt;$$
-p(w_{1},w_{2},\dots,w_{N})=\prod^N_{i=1}p(w_{i}|w_{1},w_{2},\dots,w_{i})
-$$&lt;/p&gt;
-&lt;p&gt;该模型是一个 $N-1$ 阶的马尔可夫链，称为 &lt;code&gt;N-GRAM&lt;/code&gt; 模型&lt;/p&gt;</description>
+      <description>从 N-GRAM 到 Transformer，用数学视角理解大语言模型的泛化性、位置编码与对齐原理。</description>
       <content:encoded><![CDATA[<h2 id="大语言模型的基本逻辑">大语言模型的基本逻辑</h2>
 <p>大语言模型的本质是一个 <code>N-GRAM</code> 模型，即：</p>
 <p><strong>定义：</strong></p>

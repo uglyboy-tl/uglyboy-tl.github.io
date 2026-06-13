@@ -6,15 +6,14 @@
     <description>Recent content in RAG on 拾柒读库</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 08 Apr 2026 08:45:28 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 19:37:07 +0800</lastBuildDate>
     <atom:link href="https://uglyboy-tl.github.io/tags/rag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RAG 的数学理解</title>
       <link>https://uglyboy-tl.github.io/posts/2024/04/07/</link>
       <pubDate>Sun, 07 Apr 2024 10:24:34 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2024/04/07/</guid>
-      <description>&lt;h2 id=&#34;问题的定义&#34;&gt;问题的定义&lt;/h2&gt;
-&lt;p&gt;探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。&lt;/p&gt;</description>
+      <description>从数学上严格定义 RAG 的本质——如何改写 Prompt 以获得更好的结果，证明检索总是有效的。</description>
       <content:encoded><![CDATA[<h2 id="问题的定义">问题的定义</h2>
 <p>探讨 RAG 之前，我们需要对我们要解决的问题做一个重新的理解。传统的 LLM 是一个语言的概率预测模型，它描述的是语言的自然分布概率，所以对于这样的模型，没有回答的答案哪个更好的说法，只有回答的答案哪个概率更高的描述。</p>
 <p>但对于 LLM 的真实场景应用来说，我们不仅仅希望 LLM 给出像人一样的回答，而且对回答的答案是有着有别于语言概率分布的预期的。所以对于实际应用场景下的 LLM 的评估，并不是评估 LLM 原本的能力（泛化性），而是评估在很多具体问题下的回答距离某个我们认为合理的回答是否更接近。</p>

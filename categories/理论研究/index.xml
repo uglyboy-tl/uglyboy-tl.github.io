@@ -6,14 +6,14 @@
     <description>Recent content in 理论研究 on 拾柒读库</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 04 Jun 2026 20:52:23 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 19:37:07 +0800</lastBuildDate>
     <atom:link href="https://uglyboy-tl.github.io/categories/%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>系统理论</title>
       <link>https://uglyboy-tl.github.io/posts/2026/05/26/</link>
       <pubDate>Tue, 26 May 2026 06:02:21 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2026/05/26/</guid>
-      <description>写给普通读者的一篇科普。用“熵”这一个概念当线索，把看起来不相干的事情串起来。</description>
+      <description>用“熵”这一概念当线索，把系统理论、反脆弱、组织管理串起来的跨学科科普。</description>
       <content:encoded><![CDATA[<p>热力学第二定律说得很硬：孤立系统里，熵只会增加，不会减少。一切都在不可逆转地滑向混乱。</p>
 <p>但这不可能是故事的全部。还有另一件事同样确定：你我每天身处一个正在变有序的世界。树在生长，城市在扩张，技术在迭代，文明一层一层向上堆叠——看不到任何“正在均匀地热寂化”的迹象。</p>
 <p>一个说越来越乱，一个说越来越有序。它们不可能同时成立，除非我们对“有序”的理解从根上就漏掉了什么。</p>
@@ -189,17 +189,7 @@
       <link>https://uglyboy-tl.github.io/posts/2021/11/11/</link>
       <pubDate>Thu, 11 Nov 2021 17:30:18 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2021/11/11/</guid>
-      <description>&lt;h2 id=&#34;组织的基本构成&#34;&gt;组织的基本构成&lt;/h2&gt;
-&lt;h3 id=&#34;非正式组织&#34;&gt;非正式组织&lt;/h3&gt;
-&lt;p&gt;组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“&lt;strong&gt;合作&lt;/strong&gt;”这一说法取代。&lt;/p&gt;
-
-            &lt;link rel=&#34;stylesheet&#34; href=&#34;https://uglyboy-tl.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css&#34; integrity=&#34;sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=&#34; crossorigin=&#34;anonymous&#34;&gt;
-    &lt;div class=&#34;admonition example&#34;&gt;
-      &lt;div class=&#34;admonition-header&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 640 512&#34;&gt;&lt;path d=&#34;M192 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 384l0-128 16 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-288 56 0 64 0 16 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-16 0 0-64 192 0 0 192-192 0 0-32-64 0 0 48c0 26.5 21.5 48 48 48l224 0c26.5 0 48-21.5 48-48l0-224c0-26.5-21.5-48-48-48L368 0c-26.5 0-48 21.5-48 48l0 80-76.9 0-65.9 0c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9 120 480c0 17.7 14.3 32 32 32s32-14.3 32-32z&#34;/&gt;&lt;/svg&gt;
-        &lt;span&gt;示例&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div class=&#34;admonition-content&#34;&gt;
-        &lt;p&gt;假如有两个司机都要通过一条狭窄的山路，但路被一块巨石挡住了，至少两个人才搬得动。可以预想，前面的司机一定得把车停下来，等第二个人来，以解除力量上的限制。第二个司机同样也需要这样的合作。&lt;/p&gt;</description>
+      <description>组织的本质不是效率而是长效性，从共情理论解读组织文化的底层逻辑。</description>
       <content:encoded><![CDATA[<h2 id="组织的基本构成">组织的基本构成</h2>
 <h3 id="非正式组织">非正式组织</h3>
 <p>组织是可以自然产生和存在的，但往往短期存在的组织方式，会被人们用“<strong>合作</strong>”这一说法取代。</p>
@@ -674,13 +664,7 @@
       <link>https://uglyboy-tl.github.io/posts/2018/08/16/</link>
       <pubDate>Thu, 16 Aug 2018 21:23:33 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2018/08/16/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://uglyboy-tl.github.io/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css&#34; integrity=&#34;sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=&#34; crossorigin=&#34;anonymous&#34;&gt;
-    &lt;div class=&#34;admonition abstract&#34;&gt;
-      &lt;div class=&#34;admonition-header&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 384 512&#34;&gt;&lt;path d=&#34;M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z&#34;/&gt;&lt;/svg&gt;
-        &lt;span&gt;摘要&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div class=&#34;admonition-content&#34;&gt;
-        &lt;p&gt;本文是笔者近年的一项研究，主要在探究人类社会在经济行为以外的时间里，进行行为的动机，也就是文中提到的 &lt;strong&gt;共情&lt;/strong&gt;。通过这项研究，基本解释了生活中大部分经济行为之外的现象背后的原理，也提供了一种新的创造价值的有效路径。&lt;/p&gt;</description>
+      <description>从共情理论出发，系统解读社交行为的本质与信息传播的底层逻辑。</description>
       <content:encoded><![CDATA[
             <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
     <div class="admonition abstract">
@@ -1214,8 +1198,7 @@
       <link>https://uglyboy-tl.github.io/posts/2018/07/09/</link>
       <pubDate>Mon, 09 Jul 2018 21:29:33 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2018/07/09/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;一篇关于价格策略的完整论述，包括经典经济学中关于价格变化的内容，行为经济学中价格的作用，营销学中的一般定价策略以及更进一步的，从游戏化（强化学习逆向过程）角度看价格。&lt;/p&gt;</description>
+      <description>从经典经济学到行为经济学再到游戏化，一篇关于价格策略的完整论述。</description>
       <content:encoded><![CDATA[<blockquote>
 <p>一篇关于价格策略的完整论述，包括经典经济学中关于价格变化的内容，行为经济学中价格的作用，营销学中的一般定价策略以及更进一步的，从游戏化（强化学习逆向过程）角度看价格。</p></blockquote>
 <blockquote>
@@ -2137,11 +2120,7 @@ $$</p>
       <link>https://uglyboy-tl.github.io/posts/2017/12/24/</link>
       <pubDate>Sun, 24 Dec 2017 03:40:04 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2017/12/24/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;从经典的经济学出发，探索营销学中关于市场竞争策略的一般方法。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h2 id=&#34;市场份额模型&#34;&gt;市场份额模型&lt;/h2&gt;
-&lt;h3 id=&#34;基本定义和假设&#34;&gt;基本定义和假设&lt;/h3&gt;
-&lt;p&gt;我们认为产品的一切特质都是可以被价格化的，也就是说，无论我们自己的产品有多不好或者对手的产品有多好，总可以通过降价将某个用户争取过来 &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; 。于是本文后续的一切模型将以货币为唯一的价值衡量标准。&lt;/p&gt;</description>
+      <description>从经典经济学出发，用数学模型系统分析市场竞争策略与份额博弈。</description>
       <content:encoded><![CDATA[<blockquote>
 <p>从经典的经济学出发，探索营销学中关于市场竞争策略的一般方法。</p></blockquote>
 <h2 id="市场份额模型">市场份额模型</h2>

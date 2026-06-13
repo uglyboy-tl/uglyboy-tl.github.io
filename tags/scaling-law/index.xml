@@ -6,22 +6,14 @@
     <description>Recent content in Scaling Law on 拾柒读库</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 09 May 2025 09:34:03 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 19:37:07 +0800</lastBuildDate>
     <atom:link href="https://uglyboy-tl.github.io/tags/scaling-law/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scaling Law 的数学解读</title>
       <link>https://uglyboy-tl.github.io/posts/2023/10/10/</link>
       <pubDate>Tue, 10 Oct 2023 11:50:00 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/posts/2023/10/10/</guid>
-      <description>&lt;h2 id=&#34;dataset-size-和-loss-的关系&#34;&gt;Dataset Size 和 Loss 的关系&lt;/h2&gt;
-&lt;h3 id=&#34;最大似然估计mle&#34;&gt;最大似然估计（MLE）&lt;/h3&gt;
-&lt;p&gt;一切机器学习的本质都是最大似然估计：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;模型下的理想真实世界的概率分布：$p(x|\theta)$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;我们不知道真实世界的分布，所以我们要用样本估计似然函数 $L(\theta|x)$&lt;/p&gt;</description>
+      <description>从 MLE 和 Fisher 信息量出发，用数学拆解 Scaling Law 中数据量、参数量与 Loss 的关系。</description>
       <content:encoded><![CDATA[<h2 id="dataset-size-和-loss-的关系">Dataset Size 和 Loss 的关系</h2>
 <h3 id="最大似然估计mle">最大似然估计（MLE）</h3>
 <p>一切机器学习的本质都是最大似然估计：</p>
