@@ -8,10 +8,31 @@
     <language>zh-CN</language>
     <atom:link href="https://uglyboy-tl.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>编码</title>
+      <link>https://uglyboy-tl.github.io/tags/%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Mon, 20 Jul 2026 07:57:46 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/tags/%E7%BC%96%E7%A0%81/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>进化</title>
       <link>https://uglyboy-tl.github.io/tags/%E8%BF%9B%E5%8C%96/</link>
-      <pubDate>Wed, 08 Jul 2026 13:46:16 +0800</pubDate>
+      <pubDate>Mon, 20 Jul 2026 07:57:46 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/tags/%E8%BF%9B%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>熵</title>
+      <link>https://uglyboy-tl.github.io/tags/%E7%86%B5/</link>
+      <pubDate>Mon, 20 Jul 2026 07:57:46 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/tags/%E7%86%B5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>系统理论</title>
+      <link>https://uglyboy-tl.github.io/tags/%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/</link>
+      <pubDate>Mon, 20 Jul 2026 07:57:46 +0800</pubDate>
+      <guid>https://uglyboy-tl.github.io/tags/%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/</guid>
       <description></description>
     </item>
     <item>
@@ -26,20 +47,6 @@
       <link>https://uglyboy-tl.github.io/tags/%E5%85%A8%E7%90%83%E5%8C%96/</link>
       <pubDate>Wed, 08 Jul 2026 13:46:16 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/tags/%E5%85%A8%E7%90%83%E5%8C%96/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>系统理论</title>
-      <link>https://uglyboy-tl.github.io/tags/%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/</link>
-      <pubDate>Wed, 08 Jul 2026 13:46:16 +0800</pubDate>
-      <guid>https://uglyboy-tl.github.io/tags/%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>编码</title>
-      <link>https://uglyboy-tl.github.io/tags/%E7%BC%96%E7%A0%81/</link>
-      <pubDate>Thu, 25 Jun 2026 11:40:34 +0800</pubDate>
-      <guid>https://uglyboy-tl.github.io/tags/%E7%BC%96%E7%A0%81/</guid>
       <description></description>
     </item>
     <item>
@@ -75,13 +82,6 @@
       <link>https://uglyboy-tl.github.io/tags/%E5%81%A5%E5%BA%B7/</link>
       <pubDate>Thu, 18 Jun 2026 19:20:22 +0800</pubDate>
       <guid>https://uglyboy-tl.github.io/tags/%E5%81%A5%E5%BA%B7/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>熵</title>
-      <link>https://uglyboy-tl.github.io/tags/%E7%86%B5/</link>
-      <pubDate>Thu, 18 Jun 2026 19:20:22 +0800</pubDate>
-      <guid>https://uglyboy-tl.github.io/tags/%E7%86%B5/</guid>
       <description></description>
     </item>
     <item>
