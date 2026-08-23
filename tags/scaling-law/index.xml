@@ -107,7 +107,7 @@ $$</p>
 <p>具有自相似性的结构就是分形。而我们的深度学习计算就是典型的分形结构——当模型规模扩大时，主流的扩大的方式就是增加层数 <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>，这带来的就是自相似性。</p>
 <p>而自相似性带来的重要性质就是，系统会具有分形维度，分形维度会使得系统规模扩大时，对应的全局属性并不是等比增加，而是幂律增加，幂律的指数就是其分形维度。</p>
 
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition example">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M192 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 384l0-128 16 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-288 56 0 64 0 16 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-16 0 0-64 192 0 0 192-192 0 0-32-64 0 0 48c0 26.5 21.5 48 48 48l224 0c26.5 0 48-21.5 48-48l0-224c0-26.5-21.5-48-48-48L368 0c-26.5 0-48 21.5-48 48l0 80-76.9 0-65.9 0c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9 120 480c0 17.7 14.3 32 32 32s32-14.3 32-32z"/></svg>
         <span>示例</span>

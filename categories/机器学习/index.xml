@@ -91,7 +91,7 @@
 <p>研究推理能力，那首先需要有一个“推理”的明确的说明或定义。推理这个概念来自于逻辑学，古早的逻辑学更偏向于哲学，但现代的逻辑学已经是数理逻辑的一部分了。</p>
 <p><strong>数理逻辑</strong>（Mathematical logic）是用数学方法研究诸如推理的有效性、证明的真实性、数学的真理性和计算的可行性等这类现象中的逻辑问题的一门学问。现在公认的数理逻辑创始人是莱布尼兹。他的目的是选出一种“通用代数”，其中把一切推理都化归为计算。</p>
 
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition tip">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>
         <span>提示</span>
@@ -250,7 +250,7 @@
 <p>LLM 是信息预测模型：利用时序上已知的信息，对下一个时刻出现的信息进行预测。</p>
 <p>但信息本身是需要被表征出来，才能进行读取（理解）和预测，而信息的表征方式就是<strong>编码</strong>。</p>
 
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition tip">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>
         <span>提示</span>
@@ -501,7 +501,7 @@ $$</p>
 <p>什么叫做好的 <code>LLM</code>？是回答问题更加准确的模型吗？从 <code>LLM</code> 的训练过程的输入输出（优化目标）来看，非也。</p>
 <p><code>LLM</code> 的训练优化的核心目标是泛化性。这个能力其实和人类的智力测试所考察的能力是很类似的——是希望 <code>LLM</code> 具有更强的举一反三，寻找规律的能力，甚至是记忆力（长上下文的大海捞针），但是并不需要考察它已经背下了多少信息。</p>
 
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition memo">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
         <span>备忘</span>
@@ -834,7 +834,7 @@ $$</p>
       <guid>https://uglyboy-tl.github.io/posts/2024/02/27/</guid>
       <description>AI Alignment 本质是贝叶斯学习，数学拆解 SFT 和 RLHF 能做什么、不能做什么。</description>
       <content:encoded><![CDATA[
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition abstract">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
         <span>摘要</span>
@@ -1759,7 +1759,7 @@ $$</p>
 </ol>
 <p>都可以转化到上述的范式中，进而获得更强大的计算能力（通用图灵机）。</p>
 
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition memo">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
         <span>备忘</span>
@@ -1933,7 +1933,7 @@ $$</p>
 <p>也就是将 $Q$ 设置为已经拥有的上文，连续预测下一个字符（若当前是输入过程，则只需要简单的叠加到状态集，不需要预测的过程）。这描述了大语言模型下的“<em>Next Token Prediction</em>” 范式。也就是说这个范式下的一切模型（无论是 Transformer 还是 其他的什么算子进行这种模式的预测），都跳不出这个基本的范式。</p>
 <p>即当前的大模型无论如何提升自己的能力，其计算能力也不过是一个有穷自动机。</p>
 
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition memo">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
         <span>备忘</span>
@@ -2144,7 +2144,7 @@ $$</p>
 <p>一直以来，大家对于大模型的理解都接受了“压缩即是智慧”这个思想，这个想法源自 <a href="https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;t=247s">Compression for AGI - Jack Rae | Stanford MLSys #76</a></p>
 <p>里面核心模式只有一个：</p>
 
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition code">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
         <span>代码</span>
@@ -2284,7 +2284,7 @@ $$</p>
 <p>具有自相似性的结构就是分形。而我们的深度学习计算就是典型的分形结构——当模型规模扩大时，主流的扩大的方式就是增加层数 <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>，这带来的就是自相似性。</p>
 <p>而自相似性带来的重要性质就是，系统会具有分形维度，分形维度会使得系统规模扩大时，对应的全局属性并不是等比增加，而是幂律增加，幂律的指数就是其分形维度。</p>
 
-            <link rel="stylesheet" href="/css/vendors/admonitions.53cd9f8afa9d9a8ac09093f668df057bc6d0f4bbd0886f39991a7b99934a7432.css" integrity="sha256-U82fivqdmorAkJP2aN8Fe8bQ9LvQiG85mRp7mZNKdDI=" crossorigin="anonymous">
+            <link rel="stylesheet" href="/css/vendors/admonitions.min.364ef4282de967778e4920f8ae18cc1b92b0c0b58b34b66fc17619dabfd48b6e.css" integrity="sha256-Nk70KC3pZ3eOSSD4rhjMG5KwwLWLNLZvwXYZ2r/Ui24=" crossorigin="anonymous">
     <div class="admonition example">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M192 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 384l0-128 16 0 0 128c0 17.7 14.3 32 32 32s32-14.3 32-32l0-288 56 0 64 0 16 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-16 0 0-64 192 0 0 192-192 0 0-32-64 0 0 48c0 26.5 21.5 48 48 48l224 0c26.5 0 48-21.5 48-48l0-224c0-26.5-21.5-48-48-48L368 0c-26.5 0-48 21.5-48 48l0 80-76.9 0-65.9 0c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9 120 480c0 17.7 14.3 32 32 32s32-14.3 32-32z"/></svg>
         <span>示例</span>
